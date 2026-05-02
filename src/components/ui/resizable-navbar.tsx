@@ -31,7 +31,7 @@ export function Navbar({ children, className }: { children: React.ReactNode; cla
           className={cn(
             "w-full transition-all duration-300",
             scrolled
-              ? "max-w-3xl mx-4 rounded-full border-2 border-zinc-900 bg-[#FAFAF7]/95 backdrop-blur-md shadow-[4px_4px_0px_0px] shadow-zinc-900 px-5"
+              ? "max-w-5xl mx-4 rounded-full border-2 border-zinc-900 bg-[#FAFAF7]/95 backdrop-blur-md shadow-[4px_4px_0px_0px] shadow-zinc-900 px-5"
               : "max-w-7xl mx-auto border-b-2 border-zinc-900 bg-[#FAFAF7]/90 backdrop-blur-sm px-6"
           )}
         >
