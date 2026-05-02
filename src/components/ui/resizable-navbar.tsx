@@ -60,7 +60,7 @@ export function NavItems({
   className?: string;
 }) {
   return (
-    <nav className={cn("flex items-center gap-6", className)}>
+    <nav className={cn("flex items-center gap-4", className)}>
       {items.map((item) => (
         <Link
           key={item.name}

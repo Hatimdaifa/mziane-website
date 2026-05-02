@@ -24,7 +24,6 @@ export default function SiteNavbar() {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-3">
-          <NavbarButton variant="secondary" href="/tarifs">Tarifs</NavbarButton>
           <NavbarButton variant="primary" href="/onboarding">
             Démarrer mon projet →
           </NavbarButton>
