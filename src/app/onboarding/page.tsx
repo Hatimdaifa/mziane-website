@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import PaddleCheckoutButton from "@/components/PaddleCheckoutButton";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 interface Option {
@@ -200,6 +201,7 @@ interface Recommendation {
   extras: string[];
   tier: "starter" | "standard" | "premium" | "international";
   cta: string;
+  priceId?: string;
 }
 
 function getRecommendation(answers: Answers): Recommendation {
@@ -241,12 +243,12 @@ function getRecommendation(answers: Answers): Recommendation {
 
   if (type === "solo" && formeSolo === "auto") {
     return {
-      badge: "Pack Starter · Gratuit",
+      badge: "Pack Accompagné · 490 DH",
       badgeColor: "bg-blue-50 border-blue-300",
       title: "Pack Auto-entrepreneur",
       subtitle: "Le régime le plus simple pour démarrer votre activité au Maroc.",
-      price: "Gratuit",
-      priceNote: "Pack complet disponible à partir de 490 DH",
+      price: "490 DH",
+      priceNote: "On s'occupe de tout — conseiller dédié inclus",
       tier: "starter",
       features: [
         "Déclaration auto-entrepreneur (OMPIC)",
@@ -257,7 +259,8 @@ function getRecommendation(answers: Answers): Recommendation {
         "Conseils migration vers SARLAU",
       ],
       extras,
-      cta: "Créer mon auto-entreprise →",
+      cta: "Démarrer mon inscription →",
+      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
     };
   }
 
@@ -559,9 +562,19 @@ export default function OnboardingPage() {
                     )}
 
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <Button className="flex-1 h-12 bg-zinc-900 text-white font-bold rounded-full text-base shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-                        {recommendation.cta}
-                      </Button>
+                      {recommendation.priceId ? (
+                        <div className="flex-1">
+                          <PaddleCheckoutButton
+                            priceId={recommendation.priceId}
+                            label={recommendation.cta}
+                            popular
+                          />
+                        </div>
+                      ) : (
+                        <Button className="flex-1 h-12 bg-zinc-900 text-white font-bold rounded-full text-base shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
+                          {recommendation.cta}
+                        </Button>
+                      )}
                       <Button variant="outline" className="flex-1 h-12 border-2 border-zinc-900 rounded-full text-base font-bold hover:bg-zinc-50">
                         Parler à un expert
                       </Button>
