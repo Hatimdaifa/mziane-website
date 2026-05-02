@@ -238,6 +238,7 @@ function getRecommendation(answers: Answers): Recommendation {
       ],
       extras,
       cta: "Demander un accompagnement →",
+      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
     };
   }
 
@@ -282,6 +283,7 @@ function getRecommendation(answers: Answers): Recommendation {
       ],
       extras,
       cta: "Créer mon entreprise individuelle →",
+      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
     };
   }
 
@@ -305,6 +307,7 @@ function getRecommendation(answers: Answers): Recommendation {
       ],
       extras,
       cta: "Créer ma SARLAU →",
+      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
     };
   }
 
@@ -327,6 +330,7 @@ function getRecommendation(answers: Answers): Recommendation {
       ],
       extras,
       cta: "Créer ma SARL →",
+      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
     };
   }
 
@@ -350,6 +354,7 @@ function getRecommendation(answers: Answers): Recommendation {
     ],
     extras,
     cta: `Créer ma ${forme} →`,
+    priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
   };
 }
 
