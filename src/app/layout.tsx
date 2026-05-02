@@ -3,6 +3,7 @@ import { Geist, Caveat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PaddleProvider from "@/components/PaddleProvider";
 
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const caveat = Caveat({ variable: "--font-caveat", subsets: ["latin"] });
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${geist.variable} ${caveat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-[#FAFAF7] font-[family-name:var(--font-geist-sans)]">
+        <PaddleProvider />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

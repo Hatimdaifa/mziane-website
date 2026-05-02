@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import PaddleCheckoutButton from "@/components/PaddleCheckoutButton";
 
 const packs = [
   {
@@ -16,6 +17,7 @@ const packs = [
         features: ["Déclaration OMPIC", "Guide officiel", "Modèles de factures", "Espace personnel"],
         popular: false,
         cta: "Commencer",
+        priceId: null,
       },
       {
         name: "Accompagné",
@@ -24,6 +26,7 @@ const packs = [
         features: ["Tout le Starter", "Conseiller dédié", "Inscription CNSS", "Alerte plafonds", "Suivi dossier"],
         popular: true,
         cta: "Choisir Accompagné",
+        priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
       },
       {
         name: "Pro",
@@ -32,6 +35,7 @@ const packs = [
         features: ["Tout l'Accompagné", "Mini-site professionnel", "Formation facturation", "Migration SARLAU", "1 an d'assistance"],
         popular: false,
         cta: "Choisir Pro",
+        priceId: null,
       },
     ],
   },
@@ -198,17 +202,21 @@ export default function TarifsPage() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  asChild
-                  className={cn(
-                    "w-full rounded-full font-bold border-2 border-zinc-900 transition-all",
-                    "shadow-[3px_3px_0px_0px] shadow-zinc-900 hover:shadow-[5px_5px_0px_0px]",
-                    "hover:translate-x-[-1px] hover:translate-y-[-1px]",
-                    tier.popular ? "bg-amber-400 text-zinc-900 hover:bg-amber-300" : "bg-white text-zinc-900 hover:bg-zinc-50"
-                  )}
-                >
-                  <Link href="/onboarding">{tier.cta}</Link>
-                </Button>
+                {tier.priceId ? (
+                  <PaddleCheckoutButton priceId={tier.priceId} label={tier.cta} popular={tier.popular} />
+                ) : (
+                  <Button
+                    asChild
+                    className={cn(
+                      "w-full rounded-full font-bold border-2 border-zinc-900 transition-all",
+                      "shadow-[3px_3px_0px_0px] shadow-zinc-900 hover:shadow-[5px_5px_0px_0px]",
+                      "hover:translate-x-[-1px] hover:translate-y-[-1px]",
+                      tier.popular ? "bg-amber-400 text-zinc-900 hover:bg-amber-300" : "bg-white text-zinc-900 hover:bg-zinc-50"
+                    )}
+                  >
+                    <Link href="/onboarding">{tier.cta}</Link>
+                  </Button>
+                )}
               </div>
             ))}
           </div>
