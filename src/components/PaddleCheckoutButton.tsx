@@ -11,10 +11,13 @@ interface Props {
 }
 
 export default function PaddleCheckoutButton({ priceId, label, popular }: Props) {
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     const paddle = getPaddleInstance();
-    if (!paddle) return;
-    paddle.Checkout.open({ items: [{ priceId, quantity: 1 }] });
+    if (paddle) {
+      paddle.Checkout.open({ items: [{ priceId, quantity: 1 }] });
+    } else {
+      window.location.href = `https://buy.paddle.com/product/${priceId}`;
+    }
   };
 
   return (

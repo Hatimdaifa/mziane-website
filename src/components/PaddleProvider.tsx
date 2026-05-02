@@ -8,6 +8,13 @@ export default function PaddleProvider() {
     initializePaddle({
       token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN!,
       environment: "production",
+      checkout: {
+        settings: {
+          displayMode: "overlay",
+          theme: "light",
+          locale: "fr",
+        },
+      },
     });
   }, []);
 
