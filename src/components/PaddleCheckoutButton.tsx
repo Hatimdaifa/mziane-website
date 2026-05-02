@@ -1,6 +1,6 @@
 "use client";
 
-import { getPaddle } from "@paddle/paddle-js";
+import { getPaddleInstance } from "@paddle/paddle-js";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +12,7 @@ interface Props {
 
 export default function PaddleCheckoutButton({ priceId, label, popular }: Props) {
   const handleCheckout = () => {
-    const paddle = getPaddle();
+    const paddle = getPaddleInstance();
     if (!paddle) return;
     paddle.Checkout.open({ items: [{ priceId, quantity: 1 }] });
   };
