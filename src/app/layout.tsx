@@ -22,7 +22,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={`${poppins.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-ghost font-sans">
+      <body className="min-h-full flex flex-col bg-white font-sans">
         <PaddleProvider />
         <Navbar />
         <main className="flex-1">{children}</main>

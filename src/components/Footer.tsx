@@ -1,21 +1,64 @@
 import Link from "next/link";
-import { Building2 } from "lucide-react";
+import { Heart } from "lucide-react";
+import { Logo } from "@/components/Navbar";
+
+const columns = [
+  {
+    title: "Services",
+    links: [
+      { name: "Création d'entreprise", href: "/creation-entreprise" },
+      { name: "Comptabilité", href: "/comptabilite" },
+      { name: "Non-résidents & MRE", href: "/non-residents" },
+      { name: "Expatriation", href: "/expatriation" },
+    ],
+  },
+  {
+    title: "Mziane",
+    links: [
+      { name: "Tarifs", href: "/tarifs" },
+      { name: "Démarrer mon projet", href: "/onboarding" },
+      { name: "Contact", href: "mailto:contact@mziane.com" },
+    ],
+  },
+  {
+    title: "Légal",
+    links: [
+      { name: "Conditions générales", href: "/terms-and-conditions" },
+      { name: "Confidentialité", href: "/privacy-policy" },
+      { name: "Remboursement", href: "/refund-policy" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-zinc-200 py-10 bg-ghost">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-zinc-900 rounded-full flex items-center justify-center">
-            <Building2 className="w-3 h-3 text-amber-400" />
+    <footer className="bg-zinc-900 pt-20 pb-8">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr] mb-12">
+          <div>
+            <Logo dark />
+            <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-white/55">
+              Le cabinet qui vous accompagne pour créer, gérer et développer votre entreprise au Maroc. Auto-entrepreneur, SARLAU, SARL et MRE.
+            </p>
           </div>
-          <span className="font-black text-zinc-900">Mziane</span>
+          {columns.map((col) => (
+            <div key={col.title}>
+              <div className="mb-4 text-[15px] font-bold text-white">{col.title}</div>
+              <div className="flex flex-col gap-2.5">
+                {col.links.map((l) => (
+                  <Link key={l.name} href={l.href} className="text-[15px] text-white/55 hover:text-white transition-colors">
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-        <p className="text-sm text-zinc-500">© {new Date().getFullYear()} Mziane · Mentions légales · CGV · RGPD</p>
-        <div className="flex gap-6 text-sm text-zinc-500">
-          <Link href="#" className="hover:text-zinc-900 transition-colors">Contact</Link>
-          <Link href="#" className="hover:text-zinc-900 transition-colors">FAQ</Link>
-          <Link href="#" className="hover:text-zinc-900 transition-colors">Blog</Link>
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-7 border-t border-white/10 text-sm text-white/40">
+          <span>© {new Date().getFullYear()} Mziane. Tous droits réservés.</span>
+          <span className="inline-flex items-center gap-1.5">
+            Fait avec <Heart className="w-3.5 h-3.5 fill-red-500 text-red-500" /> pour les entrepreneurs au Maroc
+          </span>
         </div>
       </div>
     </footer>

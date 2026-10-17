@@ -200,3 +200,8 @@
     @apply font-sans;
   }
 }
+/* Bandeau défilant des organismes (page d'accueil) */
+@keyframes mz-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
