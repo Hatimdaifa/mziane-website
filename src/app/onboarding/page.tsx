@@ -434,7 +434,7 @@ export default function OnboardingPage() {
   const recommendation = done ? getRecommendation(answers) : null;
 
   return (
-    <div className="min-h-screen bg-[#FAFAF7] flex flex-col">
+    <div className="min-h-screen bg-ghost flex flex-col">
       {/* Progress */}
       <div className="w-full h-1.5 bg-zinc-100">
         <div className="h-full bg-amber-400 transition-all duration-700 ease-out" style={{ width: `${progress}%` }} />

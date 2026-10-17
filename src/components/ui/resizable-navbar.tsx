@@ -31,8 +31,8 @@ export function Navbar({ children, className }: { children: React.ReactNode; cla
           className={cn(
             "w-full transition-all duration-300",
             scrolled
-              ? "max-w-5xl mx-4 rounded-full border-2 border-zinc-900 bg-[#FAFAF7]/95 backdrop-blur-md shadow-[4px_4px_0px_0px] shadow-zinc-900 px-5"
-              : "max-w-7xl mx-auto border-b-2 border-zinc-900 bg-[#FAFAF7]/90 backdrop-blur-sm px-6"
+              ? "max-w-5xl mx-4 rounded-full border-2 border-zinc-900 bg-ghost/95 backdrop-blur-md shadow-[4px_4px_0px_0px] shadow-zinc-900 px-5"
+              : "max-w-7xl mx-auto border-b-2 border-zinc-900 bg-ghost/90 backdrop-blur-sm px-6"
           )}
         >
           {children}
@@ -195,7 +195,7 @@ export function MobileNavMenu({
         className
       )}
     >
-      <div className="bg-[#FAFAF7] border-2 border-zinc-900 rounded-2xl shadow-[4px_4px_0px_0px] shadow-zinc-900 p-5 flex flex-col gap-3">
+      <div className="bg-ghost border-2 border-zinc-900 rounded-2xl shadow-[4px_4px_0px_0px] shadow-zinc-900 p-5 flex flex-col gap-3">
         {children}
       </div>
     </div>

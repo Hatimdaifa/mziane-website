@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Caveat } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PaddleProvider from "@/components/PaddleProvider";
 
-const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const caveat = Caveat({ variable: "--font-caveat", subsets: ["latin"] });
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Mziane — Cabinet de conseil",
@@ -18,8 +21,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${geist.variable} ${caveat.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#FAFAF7] font-[family-name:var(--font-geist-sans)]">
+    <html lang="fr" className={`${poppins.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-ghost font-sans">
         <PaddleProvider />
         <Navbar />
         <main className="flex-1">{children}</main>
