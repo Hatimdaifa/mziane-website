@@ -1,131 +1,101 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Clock, Shield, Users, FolderOpen, FileText, TrendingUp, Briefcase, Search, BarChart3 } from "lucide-react";
+import { ArrowRight, BarChart3, Clock, Shield, Users, FolderOpen, FileText, TrendingUp, Briefcase, Search } from "lucide-react";
+import { PageHero, HeroButton, SectionHeader, FeatureGrid, PriceCard, CtaBand, type Tier } from "@/components/site";
+
+export const metadata: Metadata = {
+  title: "Comptabilité au Maroc | Mziane",
+  description: "Tenue comptable, TVA, IS, IR, paie CNSS et bilan annuel par des experts-comptables au Maroc, dès 490 DH par mois.",
+};
 
 const prestations = [
-  { icon: FolderOpen, title: "Tenue de comptabilité", desc: "Saisie des pièces, lettrage des comptes, rapprochements bancaires et grand livre mensuel conformes au CGNC (Code Général de Normalisation Comptable)." },
-  { icon: FileText, title: "Déclarations fiscales (DGI)", desc: "TVA, IS, IR, Patente, taxe professionnelle — déclarations et télépaiement sur Simpl-IS, Simpl-TVA et portail DGI." },
-  { icon: TrendingUp, title: "Bilan & liasse fiscale", desc: "Établissement du bilan annuel, CPC, tableau de financement et liasse fiscale dans les délais légaux au Maroc." },
-  { icon: Briefcase, title: "Gestion de la paie (CNSS)", desc: "Bulletins de paie, déclarations CNSS, CIMR, AMO et bordereau de versement mensuel." },
-  { icon: Search, title: "Conseil & optimisation fiscale", desc: "Analyse de votre résultat, optimisation IS/IR, recommandations sur les régimes d'imposition et avantages fiscaux disponibles." },
-  { icon: BarChart3, title: "Tableaux de bord financiers", desc: "Reporting mensuel sur votre trésorerie, chiffre d'affaires et résultat pour piloter votre activité en temps réel." },
+  { icon: FolderOpen, title: "Tenue de comptabilité", desc: "Saisie des pièces, lettrage, rapprochements bancaires et grand livre mensuel, conformes au CGNC." },
+  { icon: FileText, title: "Déclarations fiscales", desc: "TVA, IS, IR et taxe professionnelle : déclarations et télépaiement sur le portail de la DGI." },
+  { icon: TrendingUp, title: "Bilan et liasse fiscale", desc: "Bilan annuel, CPC, tableau de financement et liasse fiscale dans les délais légaux." },
+  { icon: Briefcase, title: "Paie et CNSS", desc: "Bulletins de paie, déclarations CNSS, AMO et CIMR, bordereaux de versement mensuels." },
+  { icon: Search, title: "Conseil fiscal", desc: "Analyse de votre résultat, choix du régime d'imposition et avantages fiscaux disponibles." },
+  { icon: BarChart3, title: "Tableaux de bord", desc: "Suivi mensuel de votre trésorerie, de votre chiffre d'affaires et de votre résultat." },
 ];
 
 const obligations = [
-  { code: "TVA", label: "Taxe sur la Valeur Ajoutée", freq: "Mensuelle ou trimestrielle", taux: "7% / 10% / 14% / 20%" },
-  { code: "IS", label: "Impôt sur les Sociétés", freq: "Acomptes + solde annuel", taux: "Barème progressif 20-35%" },
-  { code: "IR", label: "Impôt sur le Revenu (auto-entrepreneur)", freq: "Mensuelle", taux: "1% (commerce) · 2% (services)" },
-  { code: "CNSS", label: "Cotisations sociales salariés", freq: "Mensuelle", taux: "26,46% patronal · 6,29% salarial" },
-  { code: "Patente", label: "Taxe professionnelle", freq: "Annuelle (30 nov.)", taux: "10% sur valeur locative" },
+  { code: "TVA", label: "Taxe sur la valeur ajoutée", freq: "Mensuelle ou trimestrielle", taux: "7 %, 10 % ou 20 % selon l'activité" },
+  { code: "IS", label: "Impôt sur les sociétés", freq: "Acomptes trimestriels et solde annuel", taux: "20 %, 35 % pour les très gros bénéfices" },
+  { code: "IR", label: "Impôt de l'auto-entrepreneur", freq: "Trimestrielle", taux: "0,5 % (commerce) ou 1 % (services) du CA" },
+  { code: "CNSS", label: "Cotisations sociales des salariés", freq: "Mensuelle", taux: "Parts patronale et salariale selon le barème CNSS" },
+  { code: "TP", label: "Taxe professionnelle", freq: "Annuelle", taux: "Exonérée les 5 premières années" },
+];
+
+const engagements = [
+  { icon: Clock, title: "Réponse sous 24 h", desc: "Votre comptable dédié répond à vos questions dans la journée, par téléphone, e-mail ou WhatsApp." },
+  { icon: Shield, title: "Zéro pénalité DGI", desc: "Vos déclarations sont déposées avant les échéances. En cas d'erreur de notre fait, nous prenons en charge les pénalités." },
+  { icon: Users, title: "Un expert dédié", desc: "Un seul interlocuteur, expert-comptable ou comptable agréé, qui connaît votre dossier." },
+];
+
+const tiers: Tier[] = [
+  { name: "Starter", price: "490 DH", unit: "/ mois", pill: "Abonnement mensuel", desc: "Auto-entrepreneurs et entreprises individuelles.", features: ["Tenue comptable", "Déclarations TVA", "Bilan simplifié", "Une consultation par mois"], cta: "Choisir Starter", href: "/onboarding?besoin=compta" },
+  { name: "Business", price: "990 DH", unit: "/ mois", pill: "Abonnement mensuel", desc: "SARLAU et SARL en activité.", features: ["Tenue complète", "IS, TVA, IR et taxe professionnelle", "Bilan et liasse fiscale", "Paie jusqu'à 5 salariés", "Consultations illimitées"], cta: "Choisir Business", href: "/onboarding?besoin=compta", popular: true },
+  { name: "Sur mesure", price: "Sur devis", pill: "Structures complexes", desc: "Plusieurs sociétés ou besoins spécifiques.", features: ["Audit comptable", "Restructuration fiscale", "Multi-sociétés", "Conseil patrimonial"], cta: "Demander un devis", href: "/onboarding?besoin=compta" },
 ];
 
 export default function ComptabilitePage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-20 pb-16 overflow-hidden">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-60 -z-10" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-amber-100 rounded-full blur-3xl opacity-60 -z-10" />
-        <div className="inline-flex items-center gap-2 bg-blue-100 border-2 border-blue-400 rounded-full px-4 py-1.5 text-sm font-semibold text-blue-800 mb-8 rotate-[-1deg]">
-          <BarChart3 className="h-4 w-4" /> Experts-comptables et comptables agréés au Maroc
-        </div>
-        <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
-          Votre comptabilité marocaine,
-          <br />
-          <span className="relative inline-block">
-            <span className="relative z-10">entre de bonnes mains.</span>
-            <span className="absolute bottom-1 left-0 w-full h-4 bg-amber-300 -z-0 rotate-[-1deg]" />
-          </span>
-        </h1>
-        <p className="text-xl text-zinc-600 mb-10 max-w-xl leading-relaxed">
-          TVA, IS, IR, CNSS, patente — confiez vos obligations fiscales et sociales
-          à nos experts-comptables agréés au Maroc et concentrez-vous sur votre activité.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <Button className="h-14 px-8 bg-zinc-900 text-white text-lg font-bold rounded-full shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            Obtenir un devis
-          </Button>
-          <Button asChild variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-2 border-zinc-900 hover:bg-zinc-100 transition-all">
-            <Link href="/tarifs">Voir les tarifs</Link>
-          </Button>
+      <PageHero
+        icon={BarChart3}
+        tag="Experts-comptables et comptables agréés au Maroc"
+        title="Votre comptabilité, entre de bonnes mains"
+        subtitle="TVA, IS, IR, CNSS et taxe professionnelle : confiez vos obligations fiscales et sociales à nos experts et concentrez-vous sur votre activité."
+        note="Sans engagement de durée · Premier mois offert pour tout nouveau client"
+      >
+        <HeroButton href="/onboarding?besoin=compta">Obtenir un devis <ArrowRight className="h-4 w-4" /></HeroButton>
+        <HeroButton href="/tarifs" variant="ghost">Voir les tarifs</HeroButton>
+      </PageHero>
+
+      <section className="bg-white py-20 max-md:py-14">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <SectionHeader tag="Nos prestations" title="Tout ce que nous gérons pour vous" subtitle="Conforme au CGNC, au Code général des impôts et aux obligations DGI et CNSS." />
+          <FeatureGrid items={prestations} />
         </div>
       </section>
 
-      {/* ── PRESTATIONS ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <p className="text-blue-500 font-semibold mb-2">Nos prestations</p>
-          <h2 className="text-4xl font-black text-zinc-900 mb-4">Tout ce que nous gérons pour vous</h2>
-          <p className="text-zinc-600 max-w-xl mx-auto">Conformes au CGNC, au Code Général des Impôts marocain et aux obligations DGI/CNSS.</p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {prestations.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-white border-2 border-zinc-200 rounded-2xl p-6 hover:border-zinc-900 hover:shadow-[4px_4px_0px_0px] hover:shadow-zinc-900 transition-all duration-200">
-              <Icon className="mb-4 h-8 w-8 text-blue-600" />
-              <h3 className="font-black text-lg text-zinc-900 mb-2">{title}</h3>
-              <p className="text-zinc-600 text-sm leading-relaxed">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── OBLIGATIONS FISCALES ── */}
-      <section className="bg-zinc-50 border-y-2 border-zinc-200 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <p className="text-blue-500 font-semibold mb-2">Référentiel fiscal marocain</p>
-            <h2 className="text-4xl font-black text-zinc-900 mb-4">Les principales obligations au Maroc</h2>
-            <p className="text-zinc-600 max-w-xl mx-auto">On s&apos;occupe de chaque déclaration dans les délais pour éviter les pénalités DGI.</p>
-          </div>
-          <div className="border-2 border-zinc-900 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px] shadow-zinc-900 bg-white max-w-3xl mx-auto">
-            {obligations.map(({ code, label, freq, taux }, i) => (
-              <div key={code} className={cn("flex items-center gap-4 px-6 py-4", i !== obligations.length - 1 ? "border-b-2 border-zinc-100" : "")}>
-                <span className="font-black text-sm bg-amber-400 text-zinc-900 px-3 py-1 rounded-full border-2 border-zinc-900 min-w-[60px] text-center">{code}</span>
-                <div className="flex-1">
-                  <p className="font-bold text-zinc-900 text-sm">{label}</p>
-                  <p className="text-xs text-zinc-500">{freq}</p>
-                </div>
-                <span className="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-1 rounded-lg text-right">{taux}</span>
+      <section className="bg-zinc-50 py-20 max-md:py-14">
+        <div className="mx-auto max-w-[860px] px-6">
+          <SectionHeader tag="Repères fiscaux" tagClass="bg-amber-100 text-amber-800" title="Vos principales obligations" subtitle="On dépose chaque déclaration dans les délais. Taux indicatifs, selon la loi de finances en vigueur." />
+          <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+            {obligations.map(({ code, label, freq, taux }) => (
+              <div key={code} className="grid items-center gap-x-4 gap-y-1 border-b border-zinc-100 px-6 py-4 last:border-b-0 sm:grid-cols-[70px_1fr_auto]">
+                <span className="justify-self-start rounded-full bg-amber-400 px-3 py-1 text-center text-sm font-extrabold text-zinc-900">{code}</span>
+                <span className="min-w-0">
+                  <span className="block font-semibold text-zinc-900">{label}</span>
+                  <span className="block text-sm text-zinc-500">{freq}</span>
+                </span>
+                <span className="text-sm font-semibold text-blue-700 sm:text-right">{taux}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── ENGAGEMENTS ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <p className="text-blue-500 font-semibold mb-2">Nos engagements</p>
-          <h2 className="text-4xl font-black text-zinc-900">Réactif. Conforme. Transparent.</h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { icon: <Clock className="w-7 h-7" />, title: "Réponse sous 24h", desc: "Votre expert-comptable dédié répond à toutes vos questions dans la journée, par téléphone, email ou WhatsApp.", color: "bg-blue-50 text-blue-600" },
-            { icon: <Shield className="w-7 h-7" />, title: "Zéro pénalité DGI", desc: "Toutes vos déclarations sont déposées avant les échéances légales. En cas d'erreur de notre fait, nous prenons en charge les pénalités.", color: "bg-amber-50 text-amber-600" },
-            { icon: <Users className="w-7 h-7" />, title: "Expert dédié", desc: "Un seul interlocuteur expert-comptable ou comptable agréé (OEC/OPCAM) qui connaît votre dossier sur le bout des doigts.", color: "bg-green-50 text-green-600" },
-          ].map((item) => (
-            <div key={item.title} className="bg-white border-2 border-zinc-200 rounded-2xl p-8 hover:border-zinc-900 hover:shadow-[4px_4px_0px_0px] hover:shadow-zinc-900 transition-all duration-200">
-              <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-5", item.color)}>
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-black text-zinc-900 mb-2">{item.title}</h3>
-              <p className="text-zinc-600 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+      <section className="bg-white py-20 max-md:py-14">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <SectionHeader tag="Formules" title="Un abonnement simple" subtitle="Mensuel, sans engagement, en dirhams HT." />
+          <div className="grid gap-6 md:grid-cols-3">
+            {tiers.map((t) => <PriceCard key={t.name} tier={t} icon={BarChart3} />)}
+          </div>
+          <p className="mt-8 text-center text-sm text-zinc-600">
+            <Link href="/tarifs" className="inline-flex items-center gap-1 font-semibold text-blue-700">Voir tous les tarifs <ArrowRight className="h-3.5 w-3.5" /></Link>
+          </p>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="bg-zinc-900 py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-black text-white mb-4">Externalisons votre comptabilité.</h2>
-          <p className="text-zinc-400 text-lg mb-10">Premier mois offert pour tout nouveau client.</p>
-          <Button className="h-14 px-10 bg-amber-400 text-zinc-900 text-lg font-black rounded-full shadow-[4px_4px_0px_0px] shadow-amber-600 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            Obtenir un devis gratuit
-          </Button>
+      <section className="bg-zinc-50 py-20 max-md:py-14">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <SectionHeader left tag="Nos engagements" title="Réactif. Conforme. Transparent." />
+          <FeatureGrid items={engagements} onGray />
         </div>
       </section>
+
+      <CtaBand title="Externalisez votre comptabilité" subtitle="Premier mois offert pour tout nouveau client." href="/onboarding?besoin=compta" label="Obtenir un devis gratuit" />
     </>
   );
 }

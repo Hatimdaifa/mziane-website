@@ -1,8 +1,8 @@
+import { LegalShell } from "@/components/site";
+
 export default function PrivacyPolicy() {
   return (
-    <main className="max-w-3xl mx-auto px-6 py-16">
-      <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
-      <p className="text-sm text-gray-500 mb-10">Last updated: May 2, 2026</p>
+    <LegalShell title="Privacy Policy" updated="Last updated: May 2, 2026">
 
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">1. Data We Collect</h2>
@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">3. Payment Data</h2>
         <p className="text-gray-700">
-          Payments are processed by Paddle, our payment provider. We do not store your credit card information. Please refer to Paddle's privacy policy for details on how they handle your payment data.
+          Payments are processed by Paddle, our payment provider. We do not store your credit card information. Please refer to Paddle&apos;s privacy policy for details on how they handle your payment data.
         </p>
       </section>
 
@@ -52,6 +52,6 @@ export default function PrivacyPolicy() {
           For any privacy-related questions, contact us at: <a href="mailto:contact@mziane.com" className="text-blue-600 underline">contact@mziane.com</a>
         </p>
       </section>
-    </main>
+    </LegalShell>
   );
 }

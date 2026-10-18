@@ -1,257 +1,71 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Check, Rocket, Building2, Calculator, Globe, Star, Handshake, Zap, MessageCircle, BadgeCheck } from "lucide-react";
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import { BadgeCheck, Star, Handshake, Zap, Globe, Calculator, MessageCircle, Stamp } from "lucide-react";
+import { PageHero, SectionHeader, Faq, CtaBand } from "@/components/site";
+import TarifsTabs from "./TarifsTabs";
 
-const packs = [
-  {
-    icon: Rocket,
-    title: "Auto-entrepreneur",
-    subtitle: "Freelance · Vendeur en ligne · Activité solo",
-    tiers: [
-      {
-        name: "Starter",
-        price: "Gratuit",
-        desc: "Inscription en autonomie",
-        features: ["Déclaration OMPIC", "Guide officiel", "Modèles de factures", "Espace personnel"],
-        popular: false,
-        cta: "Commencer",
-      },
-      {
-        name: "Accompagné",
-        price: "490 DH",
-        desc: "On s'occupe de tout",
-        features: ["Tout le Starter", "Conseiller dédié", "Inscription CNSS", "Alerte plafonds", "Suivi dossier"],
-        popular: true,
-        cta: "Choisir Accompagné",
-      },
-      {
-        name: "Pro",
-        price: "990 DH",
-        desc: "Complet + présence en ligne",
-        features: ["Tout l'Accompagné", "Mini-site professionnel", "Formation facturation", "Migration SARLAU", "1 an d'assistance"],
-        popular: false,
-        cta: "Choisir Pro",
-      },
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Création de société",
-    subtitle: "SARLAU · SARL · SAS · SA · SCI",
-    tiers: [
-      {
-        name: "Essentiel",
-        price: "990 DH",
-        desc: "SARLAU clé en main",
-        features: ["Statuts SARLAU", "Dépôt greffe OMPIC", "Journal Officiel", "Immatriculation RC", "ICE obtenu"],
-        popular: false,
-        cta: "Choisir Essentiel",
-      },
-      {
-        name: "Standard",
-        price: "1 490 DH",
-        desc: "SARLAU/SARL accompagnée",
-        features: ["Tout l'Essentiel", "Juriste dédié", "Domiciliation 3 mois", "Compte bancaire", "Mise en relation expert-comptable", "Obligations post-création"],
-        popular: true,
-        cta: "Choisir Standard",
-      },
-      {
-        name: "Premium",
-        price: "2 490 DH",
-        desc: "Multi-associés · SAS · MRE",
-        features: ["Tout le Standard", "Statuts sur mesure", "Traitement 24h", "Assurance anti-rejet", "Domiciliation 6 mois", "Accompagnement fiscal 1 an"],
-        popular: false,
-        cta: "Choisir Premium",
-      },
-    ],
-  },
-  {
-    icon: Calculator,
-    title: "Comptabilité",
-    subtitle: "Gestion mensuelle · Déclarations · Paie",
-    tiers: [
-      {
-        name: "Starter",
-        price: "490 DH/mois",
-        desc: "Auto-entrepreneurs & EI",
-        features: ["Tenue comptable", "Déclarations TVA", "Bilan simplifié", "1 consultation/mois"],
-        popular: false,
-        cta: "Choisir Starter",
-      },
-      {
-        name: "Business",
-        price: "990 DH/mois",
-        desc: "SARLAU & SARL actives",
-        features: ["Tenue complète", "IS · TVA · IR · Patente", "Bilan & liasse fiscale", "Paie jusqu'à 5 salariés", "Tableau de bord", "Consultations illimitées"],
-        popular: true,
-        cta: "Choisir Business",
-      },
-      {
-        name: "Sur mesure",
-        price: "Sur devis",
-        desc: "Multi-sociétés & complexe",
-        features: ["Audit comptable", "Restructuration fiscale", "Multi-sociétés", "Levée de fonds", "Conseil patrimonial"],
-        popular: false,
-        cta: "Demander un devis",
-      },
-    ],
-  },
-  {
-    icon: Globe,
-    title: "Non-résidents & MRE",
-    subtitle: "MRE · Étranger · ZAI · CFC",
-    tiers: [
-      {
-        name: "MRE Standard",
-        price: "2 490 DH",
-        desc: "MRE souhaitant s'installer",
-        features: ["Choix statut juridique", "Assistance documentaire", "Coordination bancaire", "Compte devises/DH convertibles", "Domiciliation incluse", "Suivi OMPIC"],
-        popular: false,
-        cta: "Démarrer",
-      },
-      {
-        name: "International",
-        price: "3 990 DH",
-        desc: "Étranger non-résident",
-        features: ["Tout MRE Standard", "Procurations & apostilles", "Régime convertibilité", "Optimisation structurelle", "Accompagnement bancaire complet", "Juriste bilingue"],
-        popular: true,
-        cta: "Demander un accompagnement",
-      },
-      {
-        name: "ZAI / CFC",
-        price: "Sur devis",
-        desc: "Zone franche · Casablanca Finance City",
-        features: ["Étude d'éligibilité", "Dossier ZAI ou CFC", "Avantages fiscaux", "Exonérations IS", "Suivi réglementaire", "Accompagnement complet"],
-        popular: false,
-        cta: "Demander un devis",
-      },
-    ],
-  },
-];
+export const metadata: Metadata = {
+  title: "Tarifs | Mziane",
+  description: "Création d'entreprise, aides de l'État, gestion de société, comptabilité et accompagnement MRE : nos tarifs en dirhams, sans frais cachés.",
+};
 
 const ponctuel = [
-  { service: "Création SARLAU complète", tarif: "À partir de 990 DH", icon: Star },
-  { service: "Création SARL (2-3 associés)", tarif: "À partir de 1 490 DH", icon: Handshake },
-  { service: "Inscription auto-entrepreneur", tarif: "À partir de 490 DH", icon: Zap },
-  { service: "Dossier MRE / non-résident", tarif: "À partir de 2 490 DH", icon: Globe },
-  { service: "Bilan annuel seul (SARLAU)", tarif: "À partir de 2 500 DH", icon: Calculator },
-  { service: "Consultation conseil (1h)", tarif: "500 DH HT", icon: MessageCircle },
+  { icon: Star, service: "Création SARLAU complète", tarif: "À partir de 990 DH" },
+  { icon: Handshake, service: "Création SARL (2 à 3 associés)", tarif: "À partir de 1 490 DH" },
+  { icon: Zap, service: "Inscription auto-entrepreneur", tarif: "À partir de 490 DH" },
+  { icon: Globe, service: "Dossier MRE ou non-résident", tarif: "À partir de 2 490 DH" },
+  { icon: Calculator, service: "Bilan annuel seul (SARLAU)", tarif: "À partir de 2 500 DH" },
+  { icon: Stamp, service: "Dépôt de marque", tarif: "Sur devis" },
+  { icon: MessageCircle, service: "Consultation conseil (1 h)", tarif: "500 DH HT" },
+];
+
+const faq = [
+  { q: "Les frais de greffe sont-ils inclus ?", a: "Non. Les frais de greffe, de Journal Officiel et d'enregistrement sont payés au tarif fixé par l'administration. Ils sont indiqués sous chaque offre et dans votre devis." },
+  { q: "Combien coûte l'accompagnement aux aides ?", a: "Le diagnostic est gratuit. Si vous décidez de monter un dossier, on vous annonce nos honoraires par écrit avant de commencer, en fonction de l'aide visée." },
+  { q: "L'abonnement comptable est-il avec engagement ?", a: "Non, il est mensuel et sans engagement de durée." },
 ];
 
 export default function TarifsPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-20 pb-16 overflow-hidden">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-60 -z-10" />
-        <div className="inline-flex items-center gap-2 bg-amber-100 border-2 border-amber-400 rounded-full px-4 py-1.5 text-sm font-semibold text-amber-800 mb-8 rotate-[-1deg]">
-          <BadgeCheck className="h-4 w-4" /> Zéro frais cachés · Paiement en dirhams
+      <PageHero
+        icon={BadgeCheck}
+        tag="Zéro frais cachés · Paiement en dirhams"
+        title="Des tarifs clairs, adaptés au Maroc"
+        subtitle="Choisissez votre service. Les prix sont en DH HT, les frais administratifs sont indiqués à part."
+      />
+
+      <section className="bg-white py-20 max-md:py-14">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <SectionHeader title="Choisissez votre service" subtitle="Un onglet par service, trois formules à chaque fois." />
+          <TarifsTabs />
         </div>
-        <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
-          Des tarifs clairs,
-          <br />
-          <span className="relative inline-block">
-            <span className="relative z-10">adaptés au Maroc.</span>
-            <span className="absolute bottom-1 left-0 w-full h-4 bg-amber-300 -z-0 rotate-[-1deg]" />
-          </span>
-        </h1>
-        <p className="text-xl text-zinc-600 mb-6 max-w-xl leading-relaxed">
-          Tous nos prix sont en dirhams (DH HT). Frais de greffe et publications légales indiqués séparément.
-        </p>
       </section>
 
-      {/* ── PACKS ── */}
-      {packs.map((pack, pi) => (
-        <section key={pack.title} className={cn("py-16 relative overflow-hidden", pi % 2 === 1 ? "bg-zinc-50 border-y-2 border-zinc-100" : "")}>
-          <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
-            <pack.icon className="mx-auto mb-2 h-8 w-8 text-blue-600" />
-            <h2 className="text-3xl font-black text-zinc-900">{pack.title}</h2>
-            <p className="text-zinc-500 text-sm mt-1">{pack.subtitle}</p>
-          </div>
-          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
-            {pack.tiers.map((tier) => (
-              <div
-                key={tier.name}
-                className={cn(
-                  "relative bg-white border-2 rounded-2xl p-6 flex flex-col transition-all duration-200",
-                  tier.popular
-                    ? "border-zinc-900 shadow-[6px_6px_0px_0px] shadow-zinc-900"
-                    : "border-zinc-200 hover:border-zinc-900 hover:shadow-[4px_4px_0px_0px] hover:shadow-zinc-900"
-                )}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-3 -right-3 bg-amber-400 text-zinc-900 px-3 py-1 rounded-full rotate-12 text-xs font-black border-2 border-zinc-900">
-                    Populaire !
-                  </div>
-                )}
-                <h3 className="text-xl font-black text-zinc-900 mb-1">{tier.name}</h3>
-                <p className="text-zinc-500 text-sm mb-4">{tier.desc}</p>
-                <p className="text-3xl font-black text-zinc-900 mb-6">{tier.price}</p>
-                <ul className="space-y-2 flex-1 mb-6">
-                  {tier.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-zinc-700">
-                      <div className="w-4 h-4 rounded-full border-2 border-zinc-900 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-2.5 h-2.5" />
-                      </div>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  asChild
-                  className={cn(
-                    "w-full rounded-full font-bold border-2 border-zinc-900 transition-all",
-                    "shadow-[3px_3px_0px_0px] shadow-zinc-900 hover:shadow-[5px_5px_0px_0px]",
-                    "hover:translate-x-[-1px] hover:translate-y-[-1px]",
-                    tier.popular ? "bg-amber-400 text-zinc-900 hover:bg-amber-300" : "bg-white text-zinc-900 hover:bg-zinc-50"
-                  )}
-                >
-                  <Link href="/onboarding">{tier.cta}</Link>
-                </Button>
+      <section className="bg-zinc-50 py-20 max-md:py-14">
+        <div className="mx-auto max-w-[820px] px-6">
+          <SectionHeader tag="Sans abonnement" tagClass="bg-amber-100 text-amber-800" title="Prestations ponctuelles" subtitle="Pour un besoin précis, sans engagement." />
+          <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+            {ponctuel.map(({ icon: Icon, service, tarif }) => (
+              <div key={service} className="flex items-center justify-between gap-4 border-b border-zinc-100 px-6 py-4 last:border-b-0">
+                <span className="flex min-w-0 items-center gap-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-700"><Icon className="h-4 w-4" /></span>
+                  <span className="font-semibold text-zinc-900">{service}</span>
+                </span>
+                <span className="shrink-0 rounded-full bg-amber-100 px-3 py-1 text-sm font-bold text-amber-800">{tarif}</span>
               </div>
             ))}
           </div>
-        </section>
-      ))}
-
-      {/* ── PONCTUEL ── */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-12">
-          <p className="text-blue-500 font-semibold mb-2">Sans abonnement</p>
-          <h2 className="text-4xl font-black text-zinc-900 mb-4">Prestations ponctuelles</h2>
-          <p className="text-zinc-600 max-w-xl mx-auto">Pour des besoins spécifiques sans engagement mensuel.</p>
-        </div>
-        <div className="border-2 border-zinc-900 rounded-2xl overflow-hidden shadow-[6px_6px_0px_0px] shadow-zinc-900 bg-white max-w-3xl mx-auto">
-          {ponctuel.map(({ service, tarif, icon: Icon }, i) => (
-            <div key={service} className={cn("flex items-center justify-between px-8 py-5", i !== ponctuel.length - 1 ? "border-b-2 border-zinc-100" : "")}>
-              <div className="flex items-center gap-3">
-                <Icon className="h-5 w-5 text-blue-600" />
-                <span className="font-semibold text-zinc-900">{service}</span>
-              </div>
-              <span className="font-black text-zinc-900 bg-amber-100 px-3 py-1 rounded-full text-sm border-2 border-amber-300">
-                {tarif}
-              </span>
-            </div>
-          ))}
-        </div>
-        <p className="text-zinc-400 text-sm mt-4 text-center">
-          * Frais de greffe OMPIC (~500 DH) et Journal Officiel (~400 DH) non inclus.
-        </p>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="bg-zinc-900 py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-black text-white mb-4">Vous avez des questions ?</h2>
-          <p className="text-zinc-400 text-lg mb-10">
-            Nos experts vous répondent sous 24h et établissent un devis personnalisé.
-          </p>
-          <Button asChild className="h-14 px-10 bg-amber-400 text-zinc-900 text-lg font-black rounded-full shadow-[4px_4px_0px_0px] shadow-amber-600 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer mon projet</Link>
-          </Button>
         </div>
       </section>
+
+      <section className="bg-white py-20 max-md:py-14">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <SectionHeader title="Questions fréquentes" />
+          <Faq items={faq} />
+        </div>
+      </section>
+
+      <CtaBand title="Vous hésitez entre deux offres ?" subtitle="Répondez à quelques questions, on vous recommande la formule adaptée à votre projet." href="/onboarding" label="Trouver ma formule" />
     </>
   );
 }

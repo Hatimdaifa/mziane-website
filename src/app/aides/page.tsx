@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, HandCoins, Search, FileCheck, Send, BadgeCheck, Tractor, Building2, User, UsersRound } from "lucide-react";
 import AidesCatalogue from "@/components/AidesCatalogue";
+import { PageHero, HeroButton, CtaBand } from "@/components/site";
 
 export const metadata: Metadata = {
   title: "Aides et subventions au Maroc | Mziane",
@@ -26,30 +26,16 @@ const publics = [
 export default function AidesPage() {
   return (
     <>
-      <section className="relative -mt-[76px] overflow-hidden bg-gradient-to-b from-white to-zinc-50 pt-[calc(76px+72px)] pb-20 max-sm:pb-12">
-        <div className="pointer-events-none absolute -top-48 -right-48 h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(254,215,102,.25)_0%,transparent_65%)]" />
-        <div className="relative z-10 mx-auto max-w-[1100px] px-6">
-          <span className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-[13px] font-semibold text-amber-800">
-            <HandCoins className="h-3.5 w-3.5" /> Aides et subventions de l&apos;État
-          </span>
-          <h1 className="mb-6 max-w-[780px] text-[clamp(2rem,5vw,3.6rem)] font-extrabold leading-[1.05] tracking-[-.03em] text-zinc-900 text-balance">
-            Les aides existent. On vous aide à les obtenir.
-          </h1>
-          <p className="mb-8 max-w-[600px] text-lg leading-relaxed text-zinc-600">
-            Beaucoup d&apos;agriculteurs, d&apos;entreprises et de familles ne demandent jamais les aides auxquelles ils ont droit. Mziane repère vos aides et monte votre dossier{" "}
-            <strong className="text-zinc-900">de A à Z, jusqu&apos;au versement</strong>.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/onboarding?besoin=aides" className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-[0_17px_20px_-8px_rgba(0,132,153,.35)] transition hover:-translate-y-0.5 hover:bg-blue-700">
-              Trouver mes aides <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a href="#catalogue" className="inline-flex items-center rounded-2xl border-2 border-blue-600 px-8 py-4 font-semibold text-blue-700 transition hover:bg-blue-600 hover:text-white">
-              Voir toutes les aides
-            </a>
-          </div>
-          <p className="mt-4 text-[13px] text-zinc-500">Diagnostic gratuit · Honoraires annoncés avant de commencer · Uniquement des aides sans prêt à intérêt</p>
-        </div>
-      </section>
+      <PageHero
+        icon={HandCoins}
+        tag="Aides et subventions de l'État"
+        title="Les aides existent. On vous aide à les obtenir."
+        subtitle="Beaucoup d'agriculteurs, d'entreprises et de familles ne demandent jamais les aides auxquelles ils ont droit. Mziane repère vos aides et monte votre dossier de A à Z, jusqu'au versement."
+        note="Diagnostic gratuit · Honoraires annoncés avant de commencer · Uniquement des aides sans prêt à intérêt"
+      >
+        <HeroButton href="/onboarding?besoin=aides">Trouver mes aides <ArrowRight className="h-4 w-4" /></HeroButton>
+        <HeroButton href="#catalogue" variant="ghost">Voir toutes les aides</HeroButton>
+      </PageHero>
 
       <section className="bg-white py-20 max-md:py-14">
         <div className="mx-auto grid max-w-[1100px] gap-4 px-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -91,15 +77,7 @@ export default function AidesPage() {
         </div>
       </section>
 
-      <section className="bg-zinc-900 py-20">
-        <div className="mx-auto max-w-[760px] px-6 text-center">
-          <h2 className="mb-4 text-[clamp(1.6rem,3.4vw,2.4rem)] font-extrabold tracking-tight text-white">Quelles aides pour vous ?</h2>
-          <p className="mb-8 text-lg text-white/60">Répondez à quelques questions, on vous indique les aides qui correspondent à votre situation.</p>
-          <Link href="/onboarding?besoin=aides" className="inline-flex items-center gap-2 rounded-2xl bg-amber-400 px-8 py-4 font-bold text-zinc-900 transition hover:-translate-y-0.5 hover:bg-amber-300">
-            Faire mon diagnostic gratuit <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
+      <CtaBand title="Quelles aides pour vous ?" subtitle="Répondez à quelques questions, on vous indique les aides qui correspondent à votre situation." href="/onboarding?besoin=aides" label="Faire mon diagnostic gratuit" />
     </>
   );
 }

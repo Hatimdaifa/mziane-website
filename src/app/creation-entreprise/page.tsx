@@ -1,226 +1,91 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ChevronRight, Check, Star, Handshake, Rocket, Zap, Briefcase, House, BadgeCheck } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight, BadgeCheck, HandCoins } from "lucide-react";
+import { PageHero, HeroButton, SectionHeader, CtaBand } from "@/components/site";
+import FormesSelector from "./FormesSelector";
 
-const formes = [
-  {
-    icon: Star,
-    label: "SARLAU",
-    part: "64,7% des créations",
-    desc: "Société à Responsabilité Limitée à Associé Unique. La forme la plus populaire au Maroc. Capital librement fixé, responsabilité limitée à l'apport.",
-    avantages: ["1 seul associé", "Responsabilité limitée", "Capital libre", "Comptabilité simplifiée"],
-    popular: true,
-  },
-  {
-    icon: Handshake,
-    label: "SARL",
-    part: "34,5% des créations",
-    desc: "Société à Responsabilité Limitée classique. Entre 2 et 50 associés, régime réglementé, idéale pour les associés familiaux ou commerciaux.",
-    avantages: ["2 à 50 associés", "Capital libre", "Protection du patrimoine", "Cédabilité des parts"],
-    popular: false,
-  },
-  {
-    icon: Rocket,
-    label: "SAS",
-    part: "Flexibilité statutaire",
-    desc: "Société par Actions Simplifiée. Grande liberté de rédaction des statuts. Adaptée aux startups, projets innovants et entrées au capital.",
-    avantages: ["Statuts libres", "Idéale startup", "Entrée investisseurs", "Pas d'appel public"],
-    popular: false,
-  },
-  {
-    icon: Zap,
-    label: "Auto-entrepreneur",
-    part: "Démarrage sans capital",
-    desc: "Régime simplifié pour démarrer une activité. Plafonds : 500 000 DH (commerce/industrie) et 200 000 DH (services). Inscription en ligne sur Dar Al Moukawil.",
-    avantages: ["Sans capital", "Inscription rapide", "Plafonds DH", "Liste officielle activités"],
-    popular: false,
-  },
-  {
-    icon: Briefcase,
-    label: "SA",
-    part: "Grands projets",
-    desc: "Société Anonyme. Minimum 5 actionnaires, capital minimum 300 000 DH. Adaptée aux levées de fonds, introductions en bourse et projets capitalistiques.",
-    avantages: ["Capital min. 300k DH", "5 actionnaires min.", "Actions librement cessibles", "Introduction possible en bourse"],
-    popular: false,
-  },
-  {
-    icon: House,
-    label: "SCI",
-    part: "Patrimoine immobilier",
-    desc: "Société Civile Immobilière. Détention et gestion de biens immobiliers en commun. Très utilisée pour la transmission patrimoniale et l'optimisation fiscale.",
-    avantages: ["Gestion patrimoniale", "Transmission facilitée", "Optimisation fiscale", "Multi-associés"],
-    popular: false,
-  },
+export const metadata: Metadata = {
+  title: "Créer son entreprise au Maroc | Mziane",
+  description: "SARLAU, SARL, SAS, SA, SCI ou auto-entrepreneur : statuts, OMPIC, Journal Officiel et registre de commerce en 48 h.",
+};
+
+const stats = [
+  { value: "95 235", label: "créations en 2024", color: "text-blue-600" },
+  { value: "+17,7 %", label: "au 1er semestre 2025", color: "text-red-500" },
+  { value: "48 h", label: "pour obtenir votre RC", color: "text-amber-600" },
+  { value: "6 étapes", label: "gérées pour vous", color: "text-zinc-900" },
 ];
 
 const etapes = [
-  { num: "01", title: "Choix du statut juridique", desc: "Questionnaire pour identifier la forme optimale selon votre projet, secteur d'activité, nombre d'associés et objectifs de développement." },
-  { num: "02", title: "Rédaction des statuts", desc: "Rédaction professionnelle de vos statuts conformes au droit marocain des sociétés (loi 5-96 modifiée, loi 17-95 pour la SA)." },
-  { num: "03", title: "Dépôt du capital bancaire", desc: "Assistance pour l'ouverture du compte de capital et l'obtention de l'attestation de dépôt nécessaire au greffe." },
-  { num: "04", title: "Immatriculation OMPIC", desc: "Dépôt du dossier complet au greffe du tribunal de commerce, publication au Journal Officiel et obtention du RC." },
-  { num: "05", title: "Obtention de l'ICE & fiscalité", desc: "Récupération de l'Identifiant Commun de l'Entreprise (ICE), inscription à la TVA, IS et à la patente selon votre activité." },
-  { num: "06", title: "Accompagnement post-création", desc: "Domiciliation, compte bancaire professionnel, CNSS, mise en relation avec un expert-comptable partenaire." },
-];
-
-const stats = [
-  { value: "95 235", label: "créations en 2024" },
-  { value: "67 000+", label: "personnes morales" },
-  { value: "48h", label: "pour obtenir votre RC" },
-  { value: "+17,7%", label: "de hausse S1 2025" },
+  { title: "Choix du statut juridique", desc: "On identifie la forme adaptée à votre projet, votre secteur, au nombre d'associés et à vos objectifs." },
+  { title: "Rédaction des statuts", desc: "Des statuts conformes au droit marocain des sociétés (loi 5-96, loi 17-95 pour la SA)." },
+  { title: "Dépôt du capital", desc: "Ouverture du compte et attestation de dépôt demandée par le greffe." },
+  { title: "Immatriculation", desc: "Dépôt au tribunal de commerce, publication au Journal Officiel et registre de commerce." },
+  { title: "ICE et fiscalité", desc: "Identifiant commun de l'entreprise, inscription à la TVA, à l'IS et à la taxe professionnelle." },
+  { title: "Après la création", desc: "Domiciliation, compte bancaire professionnel, CNSS et expert-comptable." },
 ];
 
 export default function CreationEntreprisePage() {
-  const [active, setActive] = useState(0);
-
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-20 pb-16 overflow-hidden">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-60 -z-10" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-blue-100 rounded-full blur-3xl opacity-60 -z-10" />
-        <div className="inline-flex items-center gap-2 bg-amber-100 border-2 border-amber-400 rounded-full px-4 py-1.5 text-sm font-semibold text-amber-800 mb-8 rotate-[-1deg]">
-          <BadgeCheck className="h-4 w-4" /> RC en 48h garanti, OMPIC
-        </div>
-        <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
-          Créez votre société
-          <br />
-          <span className="relative inline-block">
-            <span className="relative z-10">au Maroc</span>
-            <span className="absolute bottom-1 left-0 w-full h-4 bg-amber-300 -z-0 rotate-[-1deg]" />
-          </span>
-          <span className="text-blue-600"> en toute sérénité.</span>
-        </h1>
-        <p className="text-xl text-zinc-600 mb-10 max-w-xl leading-relaxed">
-          SARLAU, SARL, SAS ou auto-entrepreneur — nos juristes s&apos;occupent de tout :
-          statuts, greffe OMPIC, Journal Officiel et registre de commerce en 48h.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <Button asChild className="h-14 px-8 bg-zinc-900 text-white text-lg font-bold rounded-full shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer mon projet</Link>
-          </Button>
-          <Button asChild variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-2 border-zinc-900 hover:bg-zinc-100 transition-all">
-            <Link href="/tarifs">Voir les tarifs</Link>
-          </Button>
-        </div>
-      </section>
+      <PageHero
+        icon={BadgeCheck}
+        tag="Registre de commerce en 48 h"
+        title="Créez votre société au Maroc en toute sérénité"
+        subtitle="SARLAU, SARL, SAS ou auto-entrepreneur : nos juristes s'occupent des statuts, de l'OMPIC, du Journal Officiel et du registre de commerce."
+        note="Frais de greffe et publications légales au tarif de l'administration"
+      >
+        <HeroButton href="/onboarding?besoin=creer">Démarrer mon projet <ArrowRight className="h-4 w-4" /></HeroButton>
+        <HeroButton href="/tarifs" variant="ghost">Voir les tarifs</HeroButton>
+      </PageHero>
 
-      {/* ── STATS ── */}
-      <section className="bg-zinc-900 py-14">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="border-b border-zinc-200 bg-white py-14">
+        <div className="mx-auto grid max-w-[1100px] grid-cols-2 gap-x-4 gap-y-7 px-6 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <p className="text-4xl font-black text-amber-400 mb-1">{s.value}</p>
-              <p className="text-zinc-400 text-sm">{s.label}</p>
+              <div className={`text-[clamp(1.8rem,3.6vw,2.5rem)] font-extrabold tracking-tight tabular-nums ${s.color}`}>{s.value}</div>
+              <p className="mt-1 text-[15px] text-zinc-600">{s.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── FORMES JURIDIQUES ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <p className="text-blue-500 font-semibold mb-2">Structures disponibles</p>
-          <h2 className="text-4xl font-black text-zinc-900 mb-4">Quelle forme juridique choisir ?</h2>
-          <p className="text-zinc-600 max-w-xl mx-auto">
-            SARLAU et SARL représentent 99,2% des sociétés créées au Maroc. Nous vous aidons à faire le bon choix dès le départ.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-          {formes.map((f, i) => (
-            <button
-              key={f.label}
-              onClick={() => setActive(i)}
-              className={cn(
-                "group p-6 rounded-2xl border-2 text-left transition-all duration-200",
-                active === i
-                  ? "border-zinc-900 bg-amber-50 shadow-[4px_4px_0px_0px] shadow-zinc-900"
-                  : "border-zinc-200 bg-white hover:border-zinc-400"
-              )}
-            >
-              <f.icon className="mb-3 h-7 w-7 text-blue-600" />
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="font-black text-xl text-zinc-900">{f.label}</h3>
-                {f.popular && (
-                  <span className="text-xs bg-amber-400 text-zinc-900 font-bold px-2 py-0.5 rounded-full border border-amber-500">#1</span>
-                )}
-              </div>
-              <p className="text-xs text-blue-600 font-semibold mb-2">{f.part}</p>
-              <p className="text-sm text-zinc-500 leading-snug hidden md:block">{f.desc.slice(0, 80)}…</p>
-              <div className={cn("mt-3 flex items-center gap-1 text-sm font-semibold transition-colors", active === i ? "text-zinc-900" : "text-transparent group-hover:text-zinc-400")}>
-                En savoir plus <ChevronRight className="w-4 h-4" />
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Detail card */}
-        <div className="bg-white border-2 border-zinc-900 rounded-2xl p-8 shadow-[4px_4px_0px_0px] shadow-zinc-900">
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                {(() => { const I = formes[active].icon; return <I className="h-9 w-9 text-blue-600" />; })()}
-                <div>
-                  <h3 className="text-2xl font-black text-zinc-900">{formes[active].label}</h3>
-                  <p className="text-blue-600 font-semibold text-sm">{formes[active].part}</p>
-                </div>
-              </div>
-              <p className="text-zinc-600 leading-relaxed">{formes[active].desc}</p>
-            </div>
-            <div className="md:w-56">
-              <p className="text-sm font-bold text-zinc-500 uppercase tracking-widest mb-3">Points clés</p>
-              <ul className="space-y-2">
-                {formes[active].avantages.map((a) => (
-                  <li key={a} className="flex items-center gap-2 text-sm text-zinc-700">
-                    <Check className="h-4 w-4 shrink-0 text-amber-500" strokeWidth={3} /> {a}
-                  </li>
-                ))}
-              </ul>
-              <Button asChild className="w-full mt-6 bg-zinc-900 text-white rounded-full font-bold shadow-[3px_3px_0px_0px] shadow-amber-400 hover:shadow-[5px_5px_0px_0px] transition-all">
-                <Link href="/onboarding">Choisir cette forme</Link>
-              </Button>
-            </div>
-          </div>
+      <section className="bg-zinc-50 py-20 max-md:py-14">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <SectionHeader tag="Structures disponibles" tagClass="bg-amber-100 text-amber-800" title="Quelle forme juridique choisir ?" subtitle="SARLAU et SARL représentent 99,2 % des sociétés créées au Maroc. Comparez les formes avant de vous lancer." />
+          <FormesSelector />
         </div>
       </section>
 
-      {/* ── ÉTAPES ── */}
-      <section className="bg-zinc-50 border-y-2 border-zinc-200 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <p className="text-blue-500 font-semibold mb-2">Notre processus</p>
-            <h2 className="text-4xl font-black text-zinc-900">De l&apos;idée au RC en 6 étapes</h2>
-          </div>
-          <div className="space-y-4 max-w-3xl mx-auto">
-            {etapes.map(({ num, title, desc }) => (
-              <div key={num} className="bg-white border-2 border-zinc-200 rounded-2xl p-6 flex gap-6 items-start hover:border-zinc-900 hover:shadow-[4px_4px_0px_0px] hover:shadow-zinc-900 transition-all duration-200">
-                <span className="text-4xl font-black text-amber-300 min-w-[3rem]">{num}</span>
-                <div>
-                  <h3 className="font-black text-lg text-zinc-900 mb-1">{title}</h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed">{desc}</p>
-                </div>
-              </div>
+      <section className="bg-white py-20 max-md:py-14">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <SectionHeader tag="Notre processus" title="De l'idée au registre de commerce en 6 étapes" />
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {etapes.map(({ title, desc }, n) => (
+              <li key={title} className="rounded-3xl border border-zinc-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-2px_rgba(58,75,116,.14)]">
+                <span className="mb-4 block text-4xl font-black tracking-tight text-amber-400 tabular-nums">{String(n + 1).padStart(2, "0")}</span>
+                <span className="mb-2 block text-lg font-bold text-zinc-900">{title}</span>
+                <span className="block text-[15px] leading-relaxed text-zinc-600">{desc}</span>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="bg-zinc-900 py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-black text-white mb-4">Prêt à créer votre société ?</h2>
-          <p className="text-zinc-400 text-lg mb-10">
-            Répondez à 5 questions et obtenez votre recommandation personnalisée.
-          </p>
-          <Button asChild className="h-14 px-10 bg-amber-400 text-zinc-900 text-lg font-black rounded-full shadow-[4px_4px_0px_0px] shadow-amber-600 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer le questionnaire</Link>
-          </Button>
+      <section className="bg-zinc-50 py-16">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <Link href="/aides" className="group flex items-center gap-6 rounded-3xl bg-amber-400 p-7 text-zinc-900 transition hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(31,42,61,.18)]">
+            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-zinc-900 text-amber-400"><HandCoins className="h-6 w-6" /></span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-xl font-extrabold tracking-tight">Créer avec les aides de l&apos;État</span>
+              <span className="mt-1 block text-[15px] text-zinc-900/75">Prêt d&apos;honneur à 0 %, primes à l&apos;investissement, exonérations et aides à l&apos;embauche : on vérifie à quoi vous avez droit.</span>
+            </span>
+            <ArrowRight className="h-6 w-6 shrink-0 transition group-hover:translate-x-1 max-sm:hidden" />
+          </Link>
         </div>
       </section>
+
+      <CtaBand title="Prêt à créer votre société ?" subtitle="Répondez à quelques questions et obtenez votre recommandation personnalisée." href="/onboarding?besoin=creer" label="Démarrer le questionnaire" />
     </>
   );
 }

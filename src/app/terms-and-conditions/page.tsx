@@ -1,8 +1,8 @@
+import { LegalShell } from "@/components/site";
+
 export default function TermsAndConditions() {
   return (
-    <main className="max-w-3xl mx-auto px-6 py-16">
-      <h1 className="text-3xl font-bold mb-2">Terms and Conditions</h1>
-      <p className="text-sm text-gray-500 mb-10">Last updated: May 2, 2026</p>
+    <LegalShell title="Terms and Conditions" updated="Last updated: May 2, 2026">
 
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">1. Introduction</h2>
@@ -21,7 +21,7 @@ export default function TermsAndConditions() {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">3. Payment</h2>
         <p className="text-gray-700">
-          Payments are processed securely through Paddle. By completing a purchase, you agree to Paddle's terms of service. All prices are displayed inclusive of applicable taxes.
+          Payments are processed securely through Paddle. By completing a purchase, you agree to Paddle&apos;s terms of service. All prices are displayed inclusive of applicable taxes.
         </p>
       </section>
 
@@ -59,6 +59,6 @@ export default function TermsAndConditions() {
           For any questions regarding these terms, please contact us at: <a href="mailto:contact@mziane.com" className="text-blue-600 underline">contact@mziane.com</a>
         </p>
       </section>
-    </main>
+    </LegalShell>
   );
 }

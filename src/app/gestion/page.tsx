@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, FilePen, MapPin, User, ArrowLeftRight, Landmark, Stamp, Building2, CircleOff, Moon, Check } from "lucide-react";
+import { ArrowRight, FilePen, MapPin, User, ArrowLeftRight, Landmark, Stamp, Building2, CircleOff, Moon } from "lucide-react";
+import { PageHero, HeroButton, SectionHeader, CheckList, CtaBand } from "@/components/site";
 
 export const metadata: Metadata = {
   title: "Modifier ou fermer sa société au Maroc | Mziane",
@@ -32,28 +33,20 @@ const inclus = [
 export default function GestionPage() {
   return (
     <>
-      <section className="relative -mt-[76px] overflow-hidden bg-gradient-to-b from-white to-zinc-50 pt-[calc(76px+72px)] pb-20 max-sm:pb-12">
-        <div className="pointer-events-none absolute -top-48 -right-48 h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(0,159,183,.08)_0%,transparent_65%)]" />
-        <div className="relative z-10 mx-auto max-w-[1100px] px-6">
-          <span className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-[13px] font-semibold text-blue-700">
-            <FilePen className="h-3.5 w-3.5" /> Vie de la société
-          </span>
-          <h1 className="mb-6 max-w-[760px] text-[clamp(2rem,5vw,3.6rem)] font-extrabold leading-[1.05] tracking-[-.03em] text-zinc-900 text-balance">
-            Modifiez ou fermez votre société sans vous déplacer.
-          </h1>
-          <p className="mb-8 max-w-[580px] text-lg leading-relaxed text-zinc-600">
-            Siège, gérant, associés, capital, marque ou fermeture : on rédige les actes et on s&apos;occupe des formalités au greffe pour vous.
-          </p>
-          <Link href="/onboarding?besoin=gerer" className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-[0_17px_20px_-8px_rgba(0,132,153,.35)] transition hover:-translate-y-0.5 hover:bg-blue-700">
-            Obtenir mon devis <ArrowRight className="h-4 w-4" />
-          </Link>
-          <p className="mt-4 text-[13px] text-zinc-500">Devis gratuit sous 24 h · Frais de greffe et publications au prix fixé par l&apos;administration</p>
-        </div>
-      </section>
+      <PageHero
+        icon={FilePen}
+        tag="Vie de la société"
+        title="Modifiez ou fermez votre société sans vous déplacer"
+        subtitle="Siège, gérant, associés, capital, marque ou fermeture : on rédige les actes et on s'occupe des formalités au greffe pour vous."
+        note="Devis gratuit sous 24 h · Frais de greffe et publications au prix fixé par l'administration"
+      >
+        <HeroButton href="/onboarding?besoin=gerer">Obtenir mon devis <ArrowRight className="h-4 w-4" /></HeroButton>
+        <HeroButton href="/tarifs" variant="ghost">Voir les tarifs</HeroButton>
+      </PageHero>
 
       <section className="bg-white py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-6">
-          <h2 className="mb-10 text-[clamp(1.6rem,3vw,2.5rem)] font-bold tracking-tight text-zinc-900">Nos formalités</h2>
+          <SectionHeader left tag="Nos formalités" title="Tout ce que l'on gère pour vous" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, title, desc }) => (
               <Link
@@ -78,16 +71,11 @@ export default function GestionPage() {
               Chaque formalité est prise en charge du début à la fin. Vous recevez les documents à signer, on s&apos;occupe du reste.
             </p>
           </div>
-          <ul className="grid gap-3 rounded-3xl border border-zinc-200 bg-white p-6">
-            {inclus.map((f) => (
-              <li key={f} className="flex items-start gap-3 text-[15px] text-zinc-800">
-                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-50 text-blue-700"><Check className="h-3 w-3" strokeWidth={3} /></span>
-                {f}
-              </li>
-            ))}
-          </ul>
+          <CheckList items={inclus} className="rounded-3xl border border-zinc-200 bg-white p-6" />
         </div>
       </section>
+
+      <CtaBand title="Une formalité à faire ?" subtitle="Dites-nous ce que vous voulez modifier, on vous envoie un devis sous 24 h." href="/onboarding?besoin=gerer" label="Obtenir mon devis" />
     </>
   );
 }
