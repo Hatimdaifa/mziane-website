@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { icon: MapPin, title: "Transfert de siège social", desc: "Décision des associés, mise à jour des statuts, dépôt au greffe et publication." },
-  { icon: User, title: "Changement de gérant", desc: "Nomination ou démission, procès-verbal, mise à jour du registre de commerce." },
-  { icon: ArrowLeftRight, title: "Cession de parts et nouvel associé", desc: "Acte de cession, agrément, enregistrement et mise à jour des statuts." },
-  { icon: Landmark, title: "Modification du capital", desc: "Augmentation ou réduction, dépôt des fonds, formalités au greffe." },
-  { icon: FilePen, title: "Changement de nom ou d'activité", desc: "Nouveau certificat négatif OMPIC, statuts modifiés, publications légales." },
-  { icon: Stamp, title: "Dépôt de marque", desc: "Recherche d'antériorité et dépôt de votre marque à l'OMPIC pour la protéger." },
-  { icon: Building2, title: "Domiciliation", desc: "Une adresse professionnelle pour votre siège, avec réception du courrier." },
-  { icon: Moon, title: "Mise en sommeil", desc: "Suspendre temporairement l'activité sans fermer la société." },
-  { icon: CircleOff, title: "Dissolution et liquidation", desc: "Fermeture complète de la société : dissolution, liquidation et radiation." },
+  { id: "siege", icon: MapPin, title: "Transfert de siège social", desc: "Décision des associés, mise à jour des statuts, dépôt au greffe et publication." },
+  { id: "gerant", icon: User, title: "Changement de gérant", desc: "Nomination ou démission, procès-verbal, mise à jour du registre de commerce." },
+  { id: "parts", icon: ArrowLeftRight, title: "Cession de parts et nouvel associé", desc: "Acte de cession, agrément, enregistrement et mise à jour des statuts." },
+  { id: "capital", icon: Landmark, title: "Modification du capital", desc: "Augmentation ou réduction, dépôt des fonds, formalités au greffe." },
+  { id: "denomination", icon: FilePen, title: "Changement de nom ou d'activité", desc: "Nouveau certificat négatif OMPIC, statuts modifiés, publications légales." },
+  { id: "marque", icon: Stamp, title: "Dépôt de marque", desc: "Recherche d'antériorité et dépôt de votre marque à l'OMPIC pour la protéger." },
+  { id: "domiciliation", icon: Building2, title: "Domiciliation", desc: "Une adresse professionnelle pour votre siège, avec réception du courrier." },
+  { id: "sommeil", icon: Moon, title: "Mise en sommeil", desc: "Suspendre temporairement l'activité sans fermer la société." },
+  { id: "fermer", icon: CircleOff, title: "Dissolution et liquidation", desc: "Fermeture complète de la société : dissolution, liquidation et radiation." },
 ];
 
 const inclus = [
@@ -48,11 +48,12 @@ export default function GestionPage() {
         <div className="mx-auto max-w-[1100px] px-6">
           <SectionHeader left tag="Nos formalités" title="Tout ce que l'on gère pour vous" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, desc }) => (
+            {services.map(({ id, icon: Icon, title, desc }) => (
               <Link
-                key={title}
+                key={id}
+                id={id}
                 href="/onboarding?besoin=gerer"
-                className="group rounded-3xl bg-zinc-50 p-6 transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_30px_-2px_rgba(58,75,116,.14)]"
+                className="group scroll-mt-28 rounded-3xl bg-zinc-50 p-6 transition target:ring-2 target:ring-blue-500 duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_30px_-2px_rgba(58,75,116,.14)]"
               >
                 <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-blue-700"><Icon className="h-5 w-5" /></span>
                 <div className="mb-1.5 text-lg font-bold text-zinc-900 group-hover:text-blue-700">{title}</div>

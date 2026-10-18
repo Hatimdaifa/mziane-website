@@ -1,22 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Star, Handshake, Rocket, Zap, Briefcase, House } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CheckList } from "@/components/site";
 
 const formes = [
-  { icon: Star, label: "SARLAU", part: "64,7 % des créations", desc: "Société à responsabilité limitée à associé unique. La forme la plus utilisée au Maroc : capital librement fixé, responsabilité limitée à l'apport.", avantages: ["Un seul associé", "Responsabilité limitée", "Capital libre", "Comptabilité simplifiée"], popular: true },
-  { icon: Handshake, label: "SARL", part: "34,5 % des créations", desc: "Société à responsabilité limitée de 2 à 50 associés. Idéale pour s'associer en famille ou entre partenaires.", avantages: ["2 à 50 associés", "Capital libre", "Patrimoine protégé", "Cession des parts encadrée"] },
-  { icon: Rocket, label: "SAS", part: "Statuts flexibles", desc: "Société par actions simplifiée. Grande liberté de rédaction des statuts, adaptée aux startups et à l'entrée d'investisseurs.", avantages: ["Statuts libres", "Adaptée aux startups", "Entrée d'investisseurs", "Pas d'appel public"] },
-  { icon: Zap, label: "Auto-entrepreneur", part: "Démarrage sans capital", desc: "Régime simplifié pour démarrer seul. Plafonds de 500 000 DH (commerce, industrie, artisanat) et 200 000 DH (services).", avantages: ["Sans capital", "Inscription rapide", "Impôt de 0,5 % à 1 % du CA", "Couverture AMO"] },
-  { icon: Briefcase, label: "SA", part: "Grands projets", desc: "Société anonyme. Au moins 5 actionnaires et 300 000 DH de capital. Pour les levées de fonds et les projets capitalistiques.", avantages: ["Capital min. 300 000 DH", "5 actionnaires minimum", "Actions librement cessibles", "Introduction en bourse possible"] },
-  { icon: House, label: "SCI", part: "Patrimoine immobilier", desc: "Société civile immobilière. Détenir et gérer des biens immobiliers à plusieurs, faciliter leur transmission.", avantages: ["Gestion patrimoniale", "Transmission facilitée", "Plusieurs associés", "Fiscalité à étudier au cas par cas"] },
+  { id: "sarlau", icon: Star, label: "SARLAU", part: "64,7 % des créations", desc: "Société à responsabilité limitée à associé unique. La forme la plus utilisée au Maroc : capital librement fixé, responsabilité limitée à l'apport.", avantages: ["Un seul associé", "Responsabilité limitée", "Capital libre", "Comptabilité simplifiée"], popular: true },
+  { id: "sarl", icon: Handshake, label: "SARL", part: "34,5 % des créations", desc: "Société à responsabilité limitée de 2 à 50 associés. Idéale pour s'associer en famille ou entre partenaires.", avantages: ["2 à 50 associés", "Capital libre", "Patrimoine protégé", "Cession des parts encadrée"] },
+  { id: "sas", icon: Rocket, label: "SAS", part: "Statuts flexibles", desc: "Société par actions simplifiée. Grande liberté de rédaction des statuts, adaptée aux startups et à l'entrée d'investisseurs.", avantages: ["Statuts libres", "Adaptée aux startups", "Entrée d'investisseurs", "Pas d'appel public"] },
+  { id: "auto", icon: Zap, label: "Auto-entrepreneur", part: "Démarrage sans capital", desc: "Régime simplifié pour démarrer seul. Plafonds de 500 000 DH (commerce, industrie, artisanat) et 200 000 DH (services).", avantages: ["Sans capital", "Inscription rapide", "Impôt de 0,5 % à 1 % du CA", "Couverture AMO"] },
+  { id: "sa", icon: Briefcase, label: "SA", part: "Grands projets", desc: "Société anonyme. Au moins 5 actionnaires et 300 000 DH de capital. Pour les levées de fonds et les projets capitalistiques.", avantages: ["Capital min. 300 000 DH", "5 actionnaires minimum", "Actions librement cessibles", "Introduction en bourse possible"] },
+  { id: "sci", icon: House, label: "SCI", part: "Patrimoine immobilier", desc: "Société civile immobilière. Détenir et gérer des biens immobiliers à plusieurs, faciliter leur transmission.", avantages: ["Gestion patrimoniale", "Transmission facilitée", "Plusieurs associés", "Fiscalité à étudier au cas par cas"] },
 ];
 
-export default function FormesSelector() {
-  const [active, setActive] = useState(0);
+// Forme présélectionnée depuis le menu : /creation-entreprise?forme=sarl
+export function FormesSelectorFromUrl() {
+  const forme = useSearchParams().get("forme");
+  const i = Math.max(0, formes.findIndex((f) => f.id === forme));
+  return <FormesSelector key={i} initial={i} />;
+}
+
+export default function FormesSelector({ initial = 0 }: { initial?: number }) {
+  const [active, setActive] = useState(initial);
   const f = formes[active];
   const Icon = f.icon;
 

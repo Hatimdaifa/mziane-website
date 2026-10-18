@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { aides, categories, type AideCategorie } from "@/lib/aides";
@@ -12,8 +13,15 @@ const rows = [
   ["Démarche", "demarche"],
 ] as const;
 
-export default function AidesCatalogue() {
-  const [cat, setCat] = useState<AideCategorie | "toutes">("toutes");
+// Catégorie présélectionnée depuis le menu : /aides?cat=agriculture
+export function AidesCatalogueFromUrl() {
+  const c = useSearchParams().get("cat");
+  const initial = categories.some((x) => x.id === c) ? (c as AideCategorie) : "toutes";
+  return <AidesCatalogue key={initial} initial={initial} />;
+}
+
+export default function AidesCatalogue({ initial = "toutes" }: { initial?: AideCategorie | "toutes" }) {
+  const [cat, setCat] = useState<AideCategorie | "toutes">(initial);
   const [openId, setOpenId] = useState<string | null>(null);
 
   // Lien direct vers une fiche : /aides#A01

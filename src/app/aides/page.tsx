@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, HandCoins, Search, FileCheck, Send, BadgeCheck, Tractor, Building2, User, UsersRound } from "lucide-react";
-import AidesCatalogue from "@/components/AidesCatalogue";
+import { Suspense } from "react";
+import AidesCatalogue, { AidesCatalogueFromUrl } from "@/components/AidesCatalogue";
 import { PageHero, HeroButton, CtaBand } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -73,7 +74,9 @@ export default function AidesPage() {
           <p className="mt-3 mb-8 text-[17px] text-zinc-600">
             Subventions, primes, exonérations et prêts d&apos;honneur à 0 %. Les montants sont indicatifs et peuvent évoluer : on vérifie les conditions en vigueur pour chaque dossier.
           </p>
-          <AidesCatalogue />
+          <Suspense fallback={<AidesCatalogue />}>
+            <AidesCatalogueFromUrl />
+          </Suspense>
         </div>
       </section>
 

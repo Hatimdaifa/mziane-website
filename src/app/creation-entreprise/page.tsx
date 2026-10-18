@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, HandCoins } from "lucide-react";
 import { PageHero, HeroButton, SectionHeader, CtaBand } from "@/components/site";
-import FormesSelector from "./FormesSelector";
+import { Suspense } from "react";
+import FormesSelector, { FormesSelectorFromUrl } from "./FormesSelector";
 
 export const metadata: Metadata = {
   title: "Créer son entreprise au Maroc | Mziane",
@@ -50,10 +51,12 @@ export default function CreationEntreprisePage() {
         </div>
       </section>
 
-      <section className="bg-zinc-50 py-20 max-md:py-14">
+      <section id="formes" className="scroll-mt-24 bg-zinc-50 py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-6">
           <SectionHeader tag="Structures disponibles" tagClass="bg-amber-100 text-amber-800" title="Quelle forme juridique choisir ?" subtitle="SARLAU et SARL représentent 99,2 % des sociétés créées au Maroc. Comparez les formes avant de vous lancer." />
-          <FormesSelector />
+          <Suspense fallback={<FormesSelector />}>
+            <FormesSelectorFromUrl />
+          </Suspense>
         </div>
       </section>
 

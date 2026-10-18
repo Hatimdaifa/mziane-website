@@ -1,16 +1,127 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Building2, Menu, X } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  Building2, Menu, X, ChevronDown, CircleUserRound, Rocket, User, Users, Lightbulb, Landmark, House, Zap,
+  Store, HeartHandshake, CircleHelp, ShoppingBag, Briefcase, Laptop, Hotel, Sprout, HardHat, Plane,
+  Tractor, Droplets, Search, UsersRound, HandCoins, MapPin, ArrowLeftRight, FilePen, Stamp, Moon, CircleOff,
+  Calculator, FileText, TrendingUp, BarChart3, ArrowRight,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { name: "Création", link: "/creation-entreprise" },
-  { name: "Aides et subventions", link: "/aides" },
-  { name: "Gestion de société", link: "/gestion" },
-  { name: "Comptabilité", link: "/comptabilite" },
+// ── Contenu des menus ────────────────────────────────────────────────────────
+interface MenuLink { icon: LucideIcon; label: string; desc?: string; href: string }
+interface MenuGroup { title: string; links: MenuLink[]; side?: boolean }
+interface NavItem { name: string; link: string; groups?: MenuGroup[]; cta?: { label: string; desc: string; href: string } }
+
+const navItems: NavItem[] = [
+  {
+    name: "Création d'entreprise", link: "/creation-entreprise",
+    groups: [
+      {
+        title: "Par forme juridique",
+        links: [
+          { icon: Rocket, label: "Création de société", desc: "Toutes les formes et les étapes", href: "/creation-entreprise" },
+          { icon: User, label: "SARLAU", desc: "Seul, responsabilité limitée", href: "/creation-entreprise?forme=sarlau#formes" },
+          { icon: Users, label: "SARL", desc: "Entre associés, de 2 à 50", href: "/creation-entreprise?forme=sarl#formes" },
+          { icon: Lightbulb, label: "SAS", desc: "Statuts libres, investisseurs", href: "/creation-entreprise?forme=sas#formes" },
+          { icon: Landmark, label: "SA", desc: "Grands projets", href: "/creation-entreprise?forme=sa#formes" },
+          { icon: House, label: "SCI", desc: "Patrimoine immobilier", href: "/creation-entreprise?forme=sci#formes" },
+          { icon: Zap, label: "Auto-entrepreneur", desc: "Démarrer seul sans capital", href: "/creation-entreprise?forme=auto#formes" },
+          { icon: HeartHandshake, label: "Coopérative", desc: "Agricole, artisanale, féminine", href: "/onboarding?besoin=aides" },
+          { icon: CircleHelp, label: "Choisir mon statut", desc: "Questionnaire personnalisé", href: "/onboarding?besoin=creer" },
+          { icon: Plane, label: "Depuis l'étranger", desc: "MRE et non-résidents", href: "/expatriation" },
+        ],
+      },
+      {
+        title: "Par activité", side: true,
+        links: [
+          { icon: ShoppingBag, label: "Commerce", href: "/onboarding?besoin=creer" },
+          { icon: Briefcase, label: "Services et conseil", href: "/onboarding?besoin=creer" },
+          { icon: Laptop, label: "Digital et e-commerce", href: "/onboarding?besoin=creer" },
+          { icon: Hotel, label: "Tourisme et restauration", href: "/onboarding?besoin=creer" },
+          { icon: Sprout, label: "Agriculture", href: "/onboarding?besoin=creer" },
+          { icon: HardHat, label: "BTP et immobilier", href: "/onboarding?besoin=creer" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Aides et subventions", link: "/aides",
+    groups: [
+      {
+        title: "Par profil",
+        links: [
+          { icon: Tractor, label: "Agriculteurs", desc: "Irrigation, matériel, élevage", href: "/aides?cat=agriculture#catalogue" },
+          { icon: Store, label: "Créer ou développer", desc: "Primes, prêts d'honneur à 0 %", href: "/aides?cat=entreprise#catalogue" },
+          { icon: UsersRound, label: "Femmes entrepreneures", desc: "Programmes dédiés", href: "/aides?cat=femmes#catalogue" },
+          { icon: User, label: "Particuliers", desc: "Logement, aide sociale, santé", href: "/aides?cat=particuliers#catalogue" },
+          { icon: Search, label: "Trouver mes aides", desc: "Diagnostic gratuit en ligne", href: "/onboarding?besoin=aides" },
+          { icon: HandCoins, label: "Toutes les aides", desc: "47 fiches détaillées", href: "/aides#catalogue" },
+        ],
+      },
+      {
+        title: "Les plus demandées", side: true,
+        links: [
+          { icon: Droplets, label: "Goutte-à-goutte", href: "/aides#A01" },
+          { icon: Landmark, label: "Primes TPME", href: "/aides#B01" },
+          { icon: Rocket, label: "Programme Forsa", href: "/aides#B03" },
+          { icon: Users, label: "Aide à l'embauche", href: "/aides#B11" },
+          { icon: House, label: "Aide au logement", href: "/aides#D01" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Autres services", link: "/gestion",
+    groups: [
+      {
+        title: "Gestion de société",
+        links: [
+          { icon: MapPin, label: "Transfert de siège", desc: "Changer d'adresse", href: "/gestion#siege" },
+          { icon: User, label: "Changement de gérant", desc: "Nomination, démission", href: "/gestion#gerant" },
+          { icon: ArrowLeftRight, label: "Cession de parts", desc: "Entrée ou sortie d'associé", href: "/gestion#parts" },
+          { icon: Landmark, label: "Modification du capital", desc: "Augmentation, réduction", href: "/gestion#capital" },
+          { icon: FilePen, label: "Nom ou activité", desc: "Modifier les statuts", href: "/gestion#denomination" },
+          { icon: Moon, label: "Mise en sommeil", desc: "Suspendre l'activité", href: "/gestion#sommeil" },
+          { icon: CircleOff, label: "Fermeture", desc: "Dissolution et liquidation", href: "/gestion#fermer" },
+        ],
+      },
+      {
+        title: "Protéger et domicilier", side: true,
+        links: [
+          { icon: Stamp, label: "Dépôt de marque", href: "/gestion#marque" },
+          { icon: Building2, label: "Domiciliation", href: "/gestion#domiciliation" },
+          { icon: Plane, label: "MRE et étrangers", href: "/expatriation" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Comptabilité", link: "/comptabilite",
+    groups: [
+      {
+        title: "Nos prestations",
+        links: [
+          { icon: Calculator, label: "Expert-comptable", desc: "Tenue complète de vos comptes", href: "/comptabilite" },
+          { icon: FileText, label: "Déclarations fiscales", desc: "TVA, IS, IR, taxe professionnelle", href: "/comptabilite#prestations" },
+          { icon: Users, label: "Paie et CNSS", desc: "Bulletins et déclarations", href: "/comptabilite#prestations" },
+          { icon: TrendingUp, label: "Bilan annuel", desc: "Bilan et liasse fiscale", href: "/comptabilite#prestations" },
+        ],
+      },
+      {
+        title: "Formules", side: true,
+        links: [
+          { icon: Zap, label: "Auto-entrepreneur", href: "/comptabilite#formules" },
+          { icon: Building2, label: "SARLAU et SARL", href: "/comptabilite#formules" },
+          { icon: BarChart3, label: "Sur mesure", href: "/comptabilite#formules" },
+        ],
+      },
+    ],
+  },
   { name: "Tarifs", link: "/tarifs" },
 ];
 
@@ -27,24 +138,87 @@ export function Logo({ dark = false }: { dark?: boolean }) {
   );
 }
 
-// En-tête "pilule flottante" (même construction que Hoplion)
+function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void }) {
+  const main = item.groups!.find((g) => !g.side)!;
+  const side = item.groups!.find((g) => g.side);
+  return (
+    <div className="grid gap-8 p-8 lg:grid-cols-[1fr_290px]">
+      <div>
+        <div className="mb-4 text-xs font-bold uppercase tracking-[.1em] text-zinc-500">{main.title}</div>
+        <div className="grid grid-cols-2 gap-1">
+          {main.links.map(({ icon: Icon, label, desc, href }) => (
+            <Link key={label} href={href} onClick={onNavigate} className="group flex items-start gap-3 rounded-2xl p-3 transition hover:bg-zinc-50">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
+                <Icon className="h-4.5 w-4.5" />
+              </span>
+              <span className="min-w-0">
+                <span className="block font-semibold text-zinc-900">{label}</span>
+                {desc && <span className="block text-sm text-zinc-500">{desc}</span>}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+      {side && (
+        <div className="border-l border-zinc-200 pl-8">
+          <div className="mb-4 text-xs font-bold uppercase tracking-[.1em] text-zinc-500">{side.title}</div>
+          <div className="grid gap-1">
+            {side.links.map(({ icon: Icon, label, href }) => (
+              <Link key={label} href={href} onClick={onNavigate} className="flex items-center gap-3 rounded-xl px-3 py-2.5 font-semibold text-zinc-900 transition hover:bg-zinc-50 hover:text-blue-700">
+                <Icon className="h-4.5 w-4.5 text-blue-600" /> {label}
+              </Link>
+            ))}
+          </div>
+          <Link href={item.link} onClick={onNavigate} className="mt-4 inline-flex items-center gap-1.5 px-3 text-sm font-bold text-blue-700">
+            Tout voir <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// En-tête "pilule flottante" avec menus déroulants
 export default function SiteNavbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenMenu(null);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("keydown", onKey);
+    };
   }, []);
+
+  const open = (name: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenMenu(name);
+  };
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 150);
+  };
+  const closeAll = () => {
+    setOpenMenu(null);
+    setMobileOpen(false);
+  };
+
+  const current = navItems.find((i) => i.name === openMenu && i.groups);
 
   return (
     <header className={cn("sticky top-0 z-50 px-4 transition-[padding] duration-300", scrolled ? "pt-2" : "pt-4")}>
       <nav
+        onMouseLeave={scheduleClose}
         className={cn(
-          "mx-auto max-w-[1180px] bg-white rounded-full flex items-center justify-between gap-6 px-5 transition-all duration-300",
+          "relative mx-auto max-w-[1240px] bg-white rounded-full flex items-center justify-between gap-3 px-5 transition-all duration-300",
           scrolled
             ? "py-2 shadow-[0_12px_32px_rgba(15,23,42,.12),0_1px_3px_rgba(15,23,42,.06)]"
             : "py-2.5 shadow-[0_8px_24px_rgba(15,23,42,.08),0_1px_3px_rgba(15,23,42,.04)]"
@@ -52,18 +226,32 @@ export default function SiteNavbar() {
       >
         <Logo />
 
-        <div className="hidden lg:flex flex-1 items-center justify-center gap-6">
+        <div className="hidden xl:flex flex-1 items-center justify-center gap-0.5">
           {navItems.map((item) => {
             const active = pathname === item.link;
-            return (
-              <Link
-                key={item.link}
-                href={item.link}
+            const isOpen = openMenu === item.name;
+            return item.groups ? (
+              <button
+                key={item.name}
+                type="button"
+                aria-expanded={isOpen}
+                onMouseEnter={() => open(item.name)}
+                onClick={() => (isOpen ? setOpenMenu(null) : open(item.name))}
                 className={cn(
-                  "relative text-[15px] whitespace-nowrap transition-colors hover:text-blue-700",
-                  "after:absolute after:left-0 after:right-0 after:-bottom-1.5 after:h-0.5 after:rounded after:bg-blue-500 after:scale-x-0 after:transition-transform hover:after:scale-x-100",
-                  active ? "text-blue-700 font-semibold after:scale-x-100" : "text-zinc-900 font-medium"
+                  "inline-flex items-center gap-1 rounded-full px-2.5 py-2 text-[15px] whitespace-nowrap transition-colors",
+                  isOpen ? "bg-zinc-50 text-blue-700" : "hover:text-blue-700",
+                  active ? "font-semibold text-blue-700" : "font-medium text-zinc-900"
                 )}
+              >
+                {item.name}
+                <ChevronDown className={cn("h-4 w-4 text-zinc-400 transition-transform", isOpen && "rotate-180 text-blue-600")} />
+              </button>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.link}
+                onMouseEnter={() => setOpenMenu(null)}
+                className={cn("rounded-full px-2.5 py-2 text-[15px] whitespace-nowrap transition-colors hover:text-blue-700", active ? "font-semibold text-blue-700" : "font-medium text-zinc-900")}
               >
                 {item.name}
               </Link>
@@ -72,39 +260,75 @@ export default function SiteNavbar() {
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          <a
-            href="mailto:contact@mziane.com"
-            className="hidden lg:inline-flex px-4 py-2 rounded-full text-sm font-bold text-zinc-900 hover:bg-zinc-50 transition-colors"
+          <Link
+            href="/connexion"
+            className={cn("hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors hover:bg-zinc-50", pathname === "/connexion" ? "text-blue-700" : "text-zinc-900")}
           >
-            Contact
-          </a>
+            <CircleUserRound className="h-4.5 w-4.5" /> Connexion
+          </Link>
           <Link
             href="/onboarding"
-            className="hidden sm:inline-flex px-4 py-2 rounded-full text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-[0_10px_20px_-8px_rgba(0,132,153,.5)] transition-colors"
+            className="hidden sm:inline-flex px-4 py-2 rounded-full text-sm font-bold text-white whitespace-nowrap bg-blue-600 hover:bg-blue-700 shadow-[0_10px_20px_-8px_rgba(0,132,153,.5)] transition-colors"
           >
-            Démarrer mon projet
+            Commencer
           </Link>
           <button
             type="button"
-            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={open}
-            onClick={() => setOpen(!open)}
-            className="lg:hidden p-2 rounded-full text-zinc-900 hover:bg-zinc-50"
+            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="xl:hidden p-2 rounded-full text-zinc-900 hover:bg-zinc-50"
           >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
+
+        {current && (
+          <div
+            onMouseEnter={() => open(current.name)}
+            className="absolute inset-x-0 top-full hidden pt-3 xl:block"
+          >
+            <div className="animate-in fade-in slide-in-from-top-1 overflow-hidden rounded-[28px] border border-zinc-200 bg-white shadow-[0_30px_60px_-20px_rgba(31,42,61,.3)] duration-200">
+              <MegaPanel item={current} onNavigate={closeAll} />
+            </div>
+          </div>
+        )}
       </nav>
 
-      {open && (
-        <div className="lg:hidden mx-auto max-w-[1180px] mt-2 bg-white rounded-3xl p-5 shadow-[0_12px_32px_rgba(15,23,42,.12)] flex flex-col gap-1">
-          {navItems.map((item) => (
-            <Link key={item.link} href={item.link} onClick={() => setOpen(false)} className="py-2.5 font-semibold text-zinc-900 border-b border-zinc-100">
-              {item.name}
-            </Link>
-          ))}
-          <a href="mailto:contact@mziane.com" className="py-2.5 font-semibold text-zinc-900">Contact</a>
-          <Link href="/onboarding" onClick={() => setOpen(false)} className="mt-2 text-center py-3 rounded-full font-bold text-white bg-blue-600">
+      {mobileOpen && (
+        <div className="xl:hidden mx-auto mt-2 max-h-[calc(100vh-110px)] max-w-[1240px] overflow-y-auto rounded-3xl bg-white p-5 shadow-[0_12px_32px_rgba(15,23,42,.12)]">
+          {navItems.map((item) =>
+            item.groups ? (
+              <div key={item.name} className="border-b border-zinc-100">
+                <button
+                  type="button"
+                  aria-expanded={mobileSection === item.name}
+                  onClick={() => setMobileSection(mobileSection === item.name ? null : item.name)}
+                  className="flex w-full items-center justify-between py-3 font-semibold text-zinc-900"
+                >
+                  {item.name}
+                  <ChevronDown className={cn("h-4 w-4 text-zinc-400 transition-transform", mobileSection === item.name && "rotate-180")} />
+                </button>
+                {mobileSection === item.name && (
+                  <div className="grid gap-1 pb-3">
+                    {item.groups.flatMap((g) => g.links).map(({ icon: Icon, label, href }) => (
+                      <Link key={label + href} href={href} onClick={closeAll} className="flex items-center gap-3 rounded-xl px-2 py-2 text-[15px] text-zinc-700 hover:bg-zinc-50">
+                        <Icon className="h-4 w-4 text-blue-600" /> {label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link key={item.name} href={item.link} onClick={closeAll} className="block border-b border-zinc-100 py-3 font-semibold text-zinc-900">
+                {item.name}
+              </Link>
+            )
+          )}
+          <Link href="/connexion" onClick={closeAll} className="flex items-center gap-2 py-3 font-semibold text-zinc-900">
+            <CircleUserRound className="h-4.5 w-4.5" /> Connexion
+          </Link>
+          <Link href="/onboarding" onClick={closeAll} className="mt-2 block rounded-full bg-blue-600 py-3 text-center font-bold text-white">
             Démarrer mon projet
           </Link>
         </div>

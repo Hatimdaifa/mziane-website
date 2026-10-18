@@ -51,7 +51,7 @@ export default function ComptabilitePage() {
         <HeroButton href="/tarifs" variant="ghost">Voir les tarifs</HeroButton>
       </PageHero>
 
-      <section className="bg-white py-20 max-md:py-14">
+      <section id="prestations" className="scroll-mt-24 bg-white py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-6">
           <SectionHeader tag="Nos prestations" title="Tout ce que nous gérons pour vous" subtitle="Conforme au CGNC, au Code général des impôts et aux obligations DGI et CNSS." />
           <FeatureGrid items={prestations} />
@@ -76,7 +76,7 @@ export default function ComptabilitePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 max-md:py-14">
+      <section id="formules" className="scroll-mt-24 bg-white py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-6">
           <SectionHeader tag="Formules" title="Un abonnement simple" subtitle="Mensuel, sans engagement, en dirhams HT." />
           <div className="grid gap-6 md:grid-cols-3">
