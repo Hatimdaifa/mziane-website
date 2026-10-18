@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Globe, Shield, FileText } from "lucide-react";
+import { Globe, Shield, FileText, Plane, Building2, Check } from "lucide-react";
 
 const profils = [
   {
-    emoji: "🇲🇦",
+    icon: Plane,
     titre: "MRE — Marocain Résidant à l'Étranger",
     color: "bg-blue-50 border-blue-200 hover:border-blue-500",
     items: [
@@ -18,7 +18,7 @@ const profils = [
     ],
   },
   {
-    emoji: "🌐",
+    icon: Globe,
     titre: "Étranger non-résident investissant au Maroc",
     color: "bg-amber-50 border-amber-200 hover:border-amber-500",
     items: [
@@ -31,7 +31,7 @@ const profils = [
     ],
   },
   {
-    emoji: "🏙️",
+    icon: Building2,
     titre: "ZAI & Casablanca Finance City",
     color: "bg-green-50 border-green-200 hover:border-green-500",
     items: [
@@ -59,7 +59,7 @@ export default function NonResidentsPage() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-green-100 rounded-full blur-3xl opacity-60 -z-10" />
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-blue-100 rounded-full blur-3xl opacity-60 -z-10" />
         <div className="inline-flex items-center gap-2 bg-green-100 border-2 border-green-400 rounded-full px-4 py-1.5 text-sm font-semibold text-green-800 mb-8 rotate-[-1deg]">
-          🌍 MRE, étrangers & investisseurs internationaux
+          <Globe className="h-4 w-4" /> MRE, étrangers et investisseurs internationaux
         </div>
         <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
           Implantez-vous
@@ -77,7 +77,7 @@ export default function NonResidentsPage() {
         </p>
         <div className="flex flex-wrap gap-4">
           <Button asChild className="h-14 px-8 bg-zinc-900 text-white text-lg font-bold rounded-full shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer mon dossier →</Link>
+            <Link href="/onboarding">Démarrer mon dossier</Link>
           </Button>
           <Button asChild variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-2 border-zinc-900 hover:bg-zinc-100 transition-all">
             <Link href="/tarifs">Voir les tarifs</Link>
@@ -107,14 +107,14 @@ export default function NonResidentsPage() {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {profils.map(({ emoji, titre, color, items }) => (
+          {profils.map(({ icon: Icon, titre, color, items }) => (
             <div key={titre} className={cn("border-2 rounded-2xl p-8 transition-all duration-200 hover:shadow-[4px_4px_0px_0px] hover:shadow-zinc-900", color)}>
-              <div className="text-4xl mb-4">{emoji}</div>
+              <Icon className="mb-4 h-9 w-9 text-blue-600" />
               <h3 className="font-black text-lg text-zinc-900 mb-6 pb-4 border-b-2 border-zinc-200">{titre}</h3>
               <ul className="space-y-3">
                 {items.map((item) => (
                   <li key={item} className="flex gap-3 text-sm text-zinc-700 leading-relaxed">
-                    <span className="text-amber-500 font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-500" strokeWidth={3} />
                     {item}
                   </li>
                 ))}
@@ -157,7 +157,7 @@ export default function NonResidentsPage() {
             Dossier personnalisé, réponse sous 24h, experts bilingues.
           </p>
           <Button asChild className="h-14 px-10 bg-amber-400 text-zinc-900 text-lg font-black rounded-full shadow-[4px_4px_0px_0px] shadow-amber-600 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer mon dossier →</Link>
+            <Link href="/onboarding">Démarrer mon dossier</Link>
           </Button>
         </div>
       </section>

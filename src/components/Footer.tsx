@@ -7,6 +7,8 @@ const columns = [
     title: "Services",
     links: [
       { name: "Création d'entreprise", href: "/creation-entreprise" },
+      { name: "Aides et subventions", href: "/aides" },
+      { name: "Gestion de société", href: "/gestion" },
       { name: "Comptabilité", href: "/comptabilite" },
       { name: "Non-résidents & MRE", href: "/non-residents" },
       { name: "Expatriation", href: "/expatriation" },
@@ -38,7 +40,7 @@ export default function Footer() {
           <div>
             <Logo dark />
             <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-white/55">
-              Le cabinet qui vous accompagne pour créer, gérer et développer votre entreprise au Maroc. Auto-entrepreneur, SARLAU, SARL et MRE.
+              Le cabinet qui vous accompagne pour créer et gérer votre entreprise au Maroc, et obtenir les aides de l&apos;État de A à Z.
             </p>
           </div>
           {columns.map((col) => (

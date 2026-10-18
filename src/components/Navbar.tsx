@@ -7,9 +7,10 @@ import { Building2, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Création d'entreprise", link: "/creation-entreprise" },
+  { name: "Création", link: "/creation-entreprise" },
+  { name: "Aides et subventions", link: "/aides" },
+  { name: "Gestion de société", link: "/gestion" },
   { name: "Comptabilité", link: "/comptabilite" },
-  { name: "Non-résidents & MRE", link: "/non-residents" },
   { name: "Tarifs", link: "/tarifs" },
 ];
 

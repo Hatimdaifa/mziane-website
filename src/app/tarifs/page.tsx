@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Rocket, Building2, Calculator, Globe, Star, Handshake, Zap, MessageCircle, BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const packs = [
   {
-    emoji: "🚀",
+    icon: Rocket,
     title: "Auto-entrepreneur",
     subtitle: "Freelance · Vendeur en ligne · Activité solo",
     tiers: [
@@ -36,7 +36,7 @@ const packs = [
     ],
   },
   {
-    emoji: "🏢",
+    icon: Building2,
     title: "Création de société",
     subtitle: "SARLAU · SARL · SAS · SA · SCI",
     tiers: [
@@ -67,7 +67,7 @@ const packs = [
     ],
   },
   {
-    emoji: "📊",
+    icon: Calculator,
     title: "Comptabilité",
     subtitle: "Gestion mensuelle · Déclarations · Paie",
     tiers: [
@@ -98,7 +98,7 @@ const packs = [
     ],
   },
   {
-    emoji: "🌍",
+    icon: Globe,
     title: "Non-résidents & MRE",
     subtitle: "MRE · Étranger · ZAI · CFC",
     tiers: [
@@ -131,12 +131,12 @@ const packs = [
 ];
 
 const ponctuel = [
-  { service: "Création SARLAU complète", tarif: "À partir de 990 DH", icon: "⭐" },
-  { service: "Création SARL (2-3 associés)", tarif: "À partir de 1 490 DH", icon: "🤝" },
-  { service: "Inscription auto-entrepreneur", tarif: "À partir de 490 DH", icon: "⚡" },
-  { service: "Dossier MRE / non-résident", tarif: "À partir de 2 490 DH", icon: "🌍" },
-  { service: "Bilan annuel seul (SARLAU)", tarif: "À partir de 2 500 DH", icon: "📊" },
-  { service: "Consultation conseil (1h)", tarif: "500 DH HT", icon: "💬" },
+  { service: "Création SARLAU complète", tarif: "À partir de 990 DH", icon: Star },
+  { service: "Création SARL (2-3 associés)", tarif: "À partir de 1 490 DH", icon: Handshake },
+  { service: "Inscription auto-entrepreneur", tarif: "À partir de 490 DH", icon: Zap },
+  { service: "Dossier MRE / non-résident", tarif: "À partir de 2 490 DH", icon: Globe },
+  { service: "Bilan annuel seul (SARLAU)", tarif: "À partir de 2 500 DH", icon: Calculator },
+  { service: "Consultation conseil (1h)", tarif: "500 DH HT", icon: MessageCircle },
 ];
 
 export default function TarifsPage() {
@@ -146,7 +146,7 @@ export default function TarifsPage() {
       <section className="relative max-w-7xl mx-auto px-6 pt-20 pb-16 overflow-hidden">
         <div className="absolute top-10 right-10 w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-60 -z-10" />
         <div className="inline-flex items-center gap-2 bg-amber-100 border-2 border-amber-400 rounded-full px-4 py-1.5 text-sm font-semibold text-amber-800 mb-8 rotate-[-1deg]">
-          💰 Zéro frais cachés · Paiement en dirhams
+          <BadgeCheck className="h-4 w-4" /> Zéro frais cachés · Paiement en dirhams
         </div>
         <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
           Des tarifs clairs,
@@ -165,7 +165,7 @@ export default function TarifsPage() {
       {packs.map((pack, pi) => (
         <section key={pack.title} className={cn("py-16 relative overflow-hidden", pi % 2 === 1 ? "bg-zinc-50 border-y-2 border-zinc-100" : "")}>
           <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
-            <div className="text-3xl mb-2">{pack.emoji}</div>
+            <pack.icon className="mx-auto mb-2 h-8 w-8 text-blue-600" />
             <h2 className="text-3xl font-black text-zinc-900">{pack.title}</h2>
             <p className="text-zinc-500 text-sm mt-1">{pack.subtitle}</p>
           </div>
@@ -223,10 +223,10 @@ export default function TarifsPage() {
           <p className="text-zinc-600 max-w-xl mx-auto">Pour des besoins spécifiques sans engagement mensuel.</p>
         </div>
         <div className="border-2 border-zinc-900 rounded-2xl overflow-hidden shadow-[6px_6px_0px_0px] shadow-zinc-900 bg-white max-w-3xl mx-auto">
-          {ponctuel.map(({ service, tarif, icon }, i) => (
+          {ponctuel.map(({ service, tarif, icon: Icon }, i) => (
             <div key={service} className={cn("flex items-center justify-between px-8 py-5", i !== ponctuel.length - 1 ? "border-b-2 border-zinc-100" : "")}>
               <div className="flex items-center gap-3">
-                <span className="text-xl">{icon}</span>
+                <Icon className="h-5 w-5 text-blue-600" />
                 <span className="font-semibold text-zinc-900">{service}</span>
               </div>
               <span className="font-black text-zinc-900 bg-amber-100 px-3 py-1 rounded-full text-sm border-2 border-amber-300">
@@ -248,7 +248,7 @@ export default function TarifsPage() {
             Nos experts vous répondent sous 24h et établissent un devis personnalisé.
           </p>
           <Button asChild className="h-14 px-10 bg-amber-400 text-zinc-900 text-lg font-black rounded-full shadow-[4px_4px_0px_0px] shadow-amber-600 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer mon projet →</Link>
+            <Link href="/onboarding">Démarrer mon projet</Link>
           </Button>
         </div>
       </section>

@@ -5,11 +5,12 @@ import Link from "next/link";
 import {
   ArrowRight, Building2, Rocket, Globe, Clock, ShieldCheck, Users, Scale,
   Landmark, Calculator, Check, MessageCircle, Plus, Star, Briefcase, House, Zap, Handshake,
+  HandCoins, FilePen, Tractor, User,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // ── Données ─────────────────────────────────────────────────────────────────
-const heroPhrases = ["au Maroc", "votre SARLAU", "depuis l'étranger", "simplement"];
+const heroPhrases = ["au Maroc", "votre SARLAU", "avec les aides", "depuis l'étranger"];
 
 const stats = [
   { value: "95 235", label: "entreprises créées au Maroc en 2024", color: "text-blue-600" },
@@ -43,6 +44,13 @@ const formes = [
   { icon: House, label: "SCI", desc: "Patrimoine immobilier", head: "from-red-700 to-amber-400", points: ["Gestion patrimoniale", "Transmission facilitée", "Optimisation fiscale", "Plusieurs associés"] },
 ];
 
+const aidesTeaser = [
+  { icon: Tractor, title: "Agriculteurs", value: "Jusqu'à 100 %", desc: "de l'irrigation goutte-à-goutte subventionnée pour les petites exploitations." },
+  { icon: Building2, title: "Investisseurs", value: "Jusqu'à 30 %", desc: "de l'investissement en primes de la Charte de l'investissement." },
+  { icon: Rocket, title: "Créateurs", value: "100 000 DH", desc: "de prêt d'honneur à 0 % avec le programme Forsa." },
+  { icon: User, title: "Particuliers", value: "100 000 DH", desc: "d'aide directe pour l'achat d'un premier logement." },
+];
+
 const etapes = [
   { title: "Choix du statut juridique", desc: "Un questionnaire pour identifier la forme la plus adaptée à votre projet, votre secteur, au nombre d'associés et à vos objectifs." },
   { title: "Rédaction des statuts", desc: "Des statuts rédigés par un professionnel, conformes au droit marocain des sociétés (loi 5-96 modifiée, loi 17-95 pour la SA)." },
@@ -57,6 +65,8 @@ const faq = [
   { q: "SARLAU ou SARL : laquelle choisir ?", a: "La SARLAU convient si vous êtes seul associé : c'est la forme la plus utilisée au Maroc (64,7 % des créations). La SARL s'adresse aux projets de 2 à 50 associés. Le capital est libre dans les deux cas et votre responsabilité est limitée à vos apports." },
   { q: "Quels sont les plafonds de l'auto-entrepreneur ?", a: "Le chiffre d'affaires annuel ne doit pas dépasser 500 000 DH pour le commerce et l'industrie, et 200 000 DH pour les prestations de services. Au-delà, nous vous accompagnons pour passer en SARLAU." },
   { q: "Je vis à l'étranger, puis-je créer ma société au Maroc ?", a: "Oui. MRE, non-résidents et investisseurs étrangers : nous gérons le compte en devises, les procurations et toutes les démarches sur place, sans que vous ayez à vous déplacer." },
+  { q: "Comment savoir à quelles aides j'ai droit ?", a: "Répondez au questionnaire en ligne : il vous indique les aides qui correspondent à votre situation. Un conseiller vérifie ensuite chaque condition avec vous avant de monter le dossier. Le diagnostic est gratuit." },
+  { q: "Proposez-vous des crédits ?", a: "Non. Nous accompagnons uniquement les aides sans intérêt : subventions, primes, exonérations et prêts d'honneur à 0 %." },
   { q: "Les frais de greffe sont-ils inclus dans vos tarifs ?", a: "Non. Les frais de greffe et de publications légales sont facturés à part, au prix fixé par l'administration. Nos tarifs couvrent notre accompagnement." },
 ];
 
@@ -160,10 +170,10 @@ function HeroMock() {
                 ok ? "border-blue-500 bg-blue-50 font-bold text-blue-800" : "border-zinc-200 text-zinc-900"
               )}
             >
-              {k} {ok ? "✓" : ""}
+              <span className="flex items-center justify-between gap-1">{k} {ok && <Check className="h-3 w-3" strokeWidth={3} />}</span>
             </div>
           ))}
-          <div className="mt-2.5 rounded-full bg-blue-600 p-2 text-center text-[10px] font-bold text-white">Voir mon RC →</div>
+          <div className="mt-2.5 rounded-full bg-blue-600 p-2 text-center text-[10px] font-bold text-white">Voir mon RC</div>
         </div>
       </div>
     </div>
@@ -268,18 +278,18 @@ export default function HomePage() {
               <FlipPhrase />
             </h1>
             <p className="mb-8 max-w-[520px] text-lg leading-relaxed text-zinc-600">
-              Auto-entrepreneur, SARLAU, SARL ou implantation depuis l&apos;étranger : Mziane vous accompagne{" "}
-              <strong className="text-zinc-900">de l&apos;inscription à la comptabilité</strong>, avec un juriste dédié et un suivi de votre dossier à chaque étape.
+              Création de société, formalités juridiques, comptabilité et aides de l&apos;État : Mziane vous accompagne{" "}
+              <strong className="text-zinc-900">de A à Z</strong>, avec un juriste dédié et un suivi de votre dossier à chaque étape.
             </p>
             <div className="mb-4 flex flex-wrap gap-3">
               <Link href="/onboarding" className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-[0_17px_20px_-8px_rgba(0,132,153,.35)] transition hover:-translate-y-0.5 hover:bg-blue-700">
                 Démarrer mon projet <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/tarifs" className="inline-flex items-center rounded-2xl border-2 border-blue-600 px-8 py-4 font-semibold text-blue-700 transition hover:bg-blue-600 hover:text-white">
-                Voir les tarifs
+              <Link href="/aides" className="inline-flex items-center rounded-2xl border-2 border-blue-600 px-8 py-4 font-semibold text-blue-700 transition hover:bg-blue-600 hover:text-white">
+                Trouver mes aides
               </Link>
             </div>
-            <p className="text-[13px] text-zinc-500">RC en 48 h · Experts basés au Maroc · Zéro rejet OMPIC garanti</p>
+            <p className="text-[13px] text-zinc-500">RC en 48 h · Experts basés au Maroc · Diagnostic des aides gratuit</p>
           </div>
           <HeroMock />
         </div>
@@ -303,7 +313,7 @@ export default function HomePage() {
           <SectionHeader
             tag={<><Rocket className="h-3.5 w-3.5" /> Votre situation</>}
             title="Choisissez votre parcours"
-            subtitle="Trois entrées claires adaptées aux réalités du marché marocain, et la comptabilité pour la suite."
+            subtitle="Créer, obtenir une aide, gérer votre société ou votre comptabilité : choisissez votre point de départ."
           />
           <div className="mx-auto grid max-w-[1100px] auto-rows-[minmax(190px,auto)] gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
             <Link href="/onboarding" className="group relative flex flex-col justify-between gap-4 overflow-hidden rounded-3xl border border-zinc-200 bg-white p-10 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(31,42,61,.18)] sm:col-span-2 lg:row-span-2 max-sm:p-6">
@@ -333,7 +343,7 @@ export default function HomePage() {
                 <span className="block text-[2rem] font-black leading-none tracking-tight">Je démarre seul</span>
                 <span className="mt-1.5 block text-[15px] font-semibold opacity-95">Auto-entrepreneur, freelance, e-commerce</span>
               </span>
-              <span className="text-sm opacity-90">Gratuit à 490 DH →</span>
+              <span className="inline-flex items-center gap-1.5 text-sm opacity-90">Gratuit à 490 DH <ArrowRight className="h-3.5 w-3.5" /></span>
             </Link>
 
             <Link href="/non-residents" className="flex flex-col justify-between gap-4 overflow-hidden rounded-3xl bg-zinc-900 p-7 text-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(31,42,61,.18)]">
@@ -342,7 +352,7 @@ export default function HomePage() {
                 <span className="block text-[2rem] font-black leading-none tracking-tight">Je m&apos;installe au Maroc</span>
                 <span className="mt-1.5 block text-[15px] font-semibold text-white/70">MRE, non-résident, investisseur</span>
               </span>
-              <span className="text-sm text-white/60">Compte en devises, procurations →</span>
+              <span className="inline-flex items-center gap-1.5 text-sm text-white/60">Compte en devises, procurations <ArrowRight className="h-3.5 w-3.5" /></span>
             </Link>
 
             <Link href="/comptabilite" className="group flex items-center gap-6 overflow-hidden rounded-3xl bg-blue-600 p-7 text-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(31,42,61,.18)] sm:col-span-2">
@@ -353,12 +363,34 @@ export default function HomePage() {
                 <span className="block text-[1.35rem] font-extrabold leading-tight tracking-tight">Comptabilité</span>
                 <span className="mt-1 block text-sm opacity-90">Tenue comptable, TVA, IS et bilan annuel, dès 490 DH par mois.</span>
               </span>
-              <span className="grid h-[72px] w-[72px] shrink-0 place-items-center rounded-full bg-white text-3xl font-bold text-blue-700 transition-transform group-hover:translate-x-1 max-sm:hidden">→</span>
+              <span className="grid h-[72px] w-[72px] shrink-0 place-items-center rounded-full bg-white text-blue-700 transition-transform group-hover:translate-x-1 max-sm:hidden"><ArrowRight className="h-7 w-7" /></span>
+            </Link>
+
+            <Link href="/aides" className="group flex items-center gap-6 overflow-hidden rounded-3xl bg-amber-400 p-7 text-zinc-900 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(31,42,61,.18)] sm:col-span-2">
+              <span className="grid h-[72px] w-[72px] shrink-0 place-items-center rounded-full bg-zinc-900 text-amber-400 max-sm:h-14 max-sm:w-14">
+                <HandCoins className="h-8 w-8 max-sm:h-6 max-sm:w-6" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[1.35rem] font-extrabold leading-tight tracking-tight">J&apos;obtiens une aide de l&apos;État</span>
+                <span className="mt-1 block text-sm text-zinc-900/75">Subventions agricoles, primes à l&apos;investissement, prêts d&apos;honneur à 0 %, aides sociales.</span>
+              </span>
+              <span className="grid h-[72px] w-[72px] shrink-0 place-items-center rounded-full bg-white text-zinc-900 transition-transform group-hover:translate-x-1 max-sm:hidden"><ArrowRight className="h-7 w-7" /></span>
+            </Link>
+
+            <Link href="/gestion" className="group flex items-center gap-6 overflow-hidden rounded-3xl border border-zinc-200 bg-white p-7 text-zinc-900 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(31,42,61,.18)] sm:col-span-2">
+              <span className="grid h-[72px] w-[72px] shrink-0 place-items-center rounded-full bg-red-500 text-white max-sm:h-14 max-sm:w-14">
+                <FilePen className="h-8 w-8 max-sm:h-6 max-sm:w-6" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[1.35rem] font-extrabold leading-tight tracking-tight">Je gère ma société</span>
+                <span className="mt-1 block text-sm text-zinc-600">Siège, gérant, associés, capital, marque, domiciliation ou fermeture.</span>
+              </span>
+              <span className="grid h-[72px] w-[72px] shrink-0 place-items-center rounded-full bg-zinc-50 text-zinc-900 transition-transform group-hover:translate-x-1 max-sm:hidden"><ArrowRight className="h-7 w-7" /></span>
             </Link>
           </div>
           <p className="mt-7 text-center text-sm text-zinc-600">
             Frais de greffe et publications légales non inclus ·{" "}
-            <Link href="/tarifs" className="font-semibold text-blue-700">Voir tous les tarifs →</Link>
+            <Link href="/tarifs" className="inline-flex items-center gap-1 font-semibold text-blue-700">Voir tous les tarifs <ArrowRight className="h-3.5 w-3.5" /></Link>
           </p>
         </div>
       </section>
@@ -375,6 +407,36 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── AIDES DE L'ÉTAT ── */}
+      <section className="bg-zinc-900 py-24 max-md:py-16">
+        <div className="mx-auto grid max-w-[1100px] items-center gap-12 px-6 md:grid-cols-[1fr_1.2fr]">
+          <div>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1 text-[13px] font-bold text-zinc-900">
+              <HandCoins className="h-3.5 w-3.5" /> Aides de l&apos;État
+            </span>
+            <h2 className="mt-5 mb-4 text-[clamp(1.8rem,3.8vw,2.8rem)] font-extrabold leading-[1.08] tracking-tight text-white text-balance">
+              Des aides existent pour vous. Peu de gens les demandent.
+            </h2>
+            <p className="mb-8 text-lg leading-relaxed text-white/65">
+              On repère les aides auxquelles vous avez droit et on monte votre dossier jusqu&apos;au versement. Uniquement des subventions, primes, exonérations et prêts d&apos;honneur à 0 %.
+            </p>
+            <Link href="/onboarding?besoin=aides" className="inline-flex items-center gap-2 rounded-2xl bg-amber-400 px-8 py-4 font-bold text-zinc-900 transition hover:-translate-y-0.5 hover:bg-amber-300">
+              Faire mon diagnostic gratuit <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {aidesTeaser.map(({ icon: Icon, title, value, desc }) => (
+              <Link key={title} href="/aides" className="rounded-3xl bg-white/[.06] p-6 transition hover:bg-white/10">
+                <span className="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-amber-400"><Icon className="h-5 w-5" /></span>
+                <span className="block text-[15px] font-semibold text-white/70">{title}</span>
+                <span className="mt-1 block text-2xl font-extrabold tracking-tight text-white">{value}</span>
+                <span className="mt-1.5 block text-sm leading-relaxed text-white/55">{desc}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -434,7 +496,7 @@ export default function HomePage() {
                     ))}
                   </div>
                   <Link href="/onboarding" className="rounded-xl bg-blue-600 py-3 text-center text-[15px] font-semibold text-white transition hover:bg-blue-700">
-                    Créer ma {label === "Auto-entrepreneur" ? "micro-entreprise" : label} →
+                    Créer ma {label === "Auto-entrepreneur" ? "micro-entreprise" : label}
                   </Link>
                 </div>
               </div>
@@ -465,7 +527,7 @@ export default function HomePage() {
                 </div>
               </div>
               <a href="mailto:contact@mziane.com" className="rounded-xl bg-blue-600 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-blue-700">
-                Nous contacter →
+                Nous contacter
               </a>
             </div>
           </div>

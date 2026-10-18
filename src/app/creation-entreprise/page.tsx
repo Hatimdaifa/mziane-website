@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Check, Star, Handshake, Rocket, Zap, Briefcase, House, BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const formes = [
   {
-    emoji: "⭐",
+    icon: Star,
     label: "SARLAU",
     part: "64,7% des créations",
     desc: "Société à Responsabilité Limitée à Associé Unique. La forme la plus populaire au Maroc. Capital librement fixé, responsabilité limitée à l'apport.",
@@ -16,7 +16,7 @@ const formes = [
     popular: true,
   },
   {
-    emoji: "🤝",
+    icon: Handshake,
     label: "SARL",
     part: "34,5% des créations",
     desc: "Société à Responsabilité Limitée classique. Entre 2 et 50 associés, régime réglementé, idéale pour les associés familiaux ou commerciaux.",
@@ -24,7 +24,7 @@ const formes = [
     popular: false,
   },
   {
-    emoji: "🏗️",
+    icon: Rocket,
     label: "SAS",
     part: "Flexibilité statutaire",
     desc: "Société par Actions Simplifiée. Grande liberté de rédaction des statuts. Adaptée aux startups, projets innovants et entrées au capital.",
@@ -32,7 +32,7 @@ const formes = [
     popular: false,
   },
   {
-    emoji: "⚡",
+    icon: Zap,
     label: "Auto-entrepreneur",
     part: "Démarrage sans capital",
     desc: "Régime simplifié pour démarrer une activité. Plafonds : 500 000 DH (commerce/industrie) et 200 000 DH (services). Inscription en ligne sur Dar Al Moukawil.",
@@ -40,7 +40,7 @@ const formes = [
     popular: false,
   },
   {
-    emoji: "🏦",
+    icon: Briefcase,
     label: "SA",
     part: "Grands projets",
     desc: "Société Anonyme. Minimum 5 actionnaires, capital minimum 300 000 DH. Adaptée aux levées de fonds, introductions en bourse et projets capitalistiques.",
@@ -48,7 +48,7 @@ const formes = [
     popular: false,
   },
   {
-    emoji: "🏠",
+    icon: House,
     label: "SCI",
     part: "Patrimoine immobilier",
     desc: "Société Civile Immobilière. Détention et gestion de biens immobiliers en commun. Très utilisée pour la transmission patrimoniale et l'optimisation fiscale.",
@@ -83,7 +83,7 @@ export default function CreationEntreprisePage() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-60 -z-10" />
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-blue-100 rounded-full blur-3xl opacity-60 -z-10" />
         <div className="inline-flex items-center gap-2 bg-amber-100 border-2 border-amber-400 rounded-full px-4 py-1.5 text-sm font-semibold text-amber-800 mb-8 rotate-[-1deg]">
-          🇲🇦 RC en 48h garanti — OMPIC
+          <BadgeCheck className="h-4 w-4" /> RC en 48h garanti, OMPIC
         </div>
         <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
           Créez votre société
@@ -96,11 +96,11 @@ export default function CreationEntreprisePage() {
         </h1>
         <p className="text-xl text-zinc-600 mb-10 max-w-xl leading-relaxed">
           SARLAU, SARL, SAS ou auto-entrepreneur — nos juristes s&apos;occupent de tout :
-          statuts, greffe OMPIC, Journal Officiel et Kbis en 48h.
+          statuts, greffe OMPIC, Journal Officiel et registre de commerce en 48h.
         </p>
         <div className="flex flex-wrap gap-4">
           <Button asChild className="h-14 px-8 bg-zinc-900 text-white text-lg font-bold rounded-full shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer mon projet →</Link>
+            <Link href="/onboarding">Démarrer mon projet</Link>
           </Button>
           <Button asChild variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-2 border-zinc-900 hover:bg-zinc-100 transition-all">
             <Link href="/tarifs">Voir les tarifs</Link>
@@ -142,7 +142,7 @@ export default function CreationEntreprisePage() {
                   : "border-zinc-200 bg-white hover:border-zinc-400"
               )}
             >
-              <div className="text-3xl mb-3">{f.emoji}</div>
+              <f.icon className="mb-3 h-7 w-7 text-blue-600" />
               <div className="flex items-center gap-2 mb-1">
                 <h3 className="font-black text-xl text-zinc-900">{f.label}</h3>
                 {f.popular && (
@@ -163,7 +163,7 @@ export default function CreationEntreprisePage() {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-4xl">{formes[active].emoji}</span>
+                {(() => { const I = formes[active].icon; return <I className="h-9 w-9 text-blue-600" />; })()}
                 <div>
                   <h3 className="text-2xl font-black text-zinc-900">{formes[active].label}</h3>
                   <p className="text-blue-600 font-semibold text-sm">{formes[active].part}</p>
@@ -176,12 +176,12 @@ export default function CreationEntreprisePage() {
               <ul className="space-y-2">
                 {formes[active].avantages.map((a) => (
                   <li key={a} className="flex items-center gap-2 text-sm text-zinc-700">
-                    <span className="text-amber-500 font-bold">✓</span> {a}
+                    <Check className="h-4 w-4 shrink-0 text-amber-500" strokeWidth={3} /> {a}
                   </li>
                 ))}
               </ul>
               <Button asChild className="w-full mt-6 bg-zinc-900 text-white rounded-full font-bold shadow-[3px_3px_0px_0px] shadow-amber-400 hover:shadow-[5px_5px_0px_0px] transition-all">
-                <Link href="/onboarding">Choisir cette forme →</Link>
+                <Link href="/onboarding">Choisir cette forme</Link>
               </Button>
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function CreationEntreprisePage() {
             Répondez à 5 questions et obtenez votre recommandation personnalisée.
           </p>
           <Button asChild className="h-14 px-10 bg-amber-400 text-zinc-900 text-lg font-black rounded-full shadow-[4px_4px_0px_0px] shadow-amber-600 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            <Link href="/onboarding">Démarrer le questionnaire →</Link>
+            <Link href="/onboarding">Démarrer le questionnaire</Link>
           </Button>
         </div>
       </section>

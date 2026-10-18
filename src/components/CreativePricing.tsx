@@ -31,8 +31,6 @@ export default function CreativePricing({
         <div className="relative">
           <h2 className="text-4xl md:text-5xl font-bold font-handwritten text-zinc-900 rotate-[-1deg]">
             {title}
-            <span className="absolute -right-10 top-0 text-amber-500 rotate-12 text-3xl">✨</span>
-            <span className="absolute -left-6 bottom-0 text-blue-500 -rotate-12 text-3xl">⭐️</span>
           </h2>
           <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-44 h-3 bg-blue-500/20 rotate-[-1deg] rounded-full blur-sm" />
         </div>

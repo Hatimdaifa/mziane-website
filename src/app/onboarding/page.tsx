@@ -1,604 +1,785 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowLeft, ArrowRight, Check, Building2, HandCoins, FilePen, Calculator, Globe, User, Users, House,
+  ShoppingBag, Briefcase, Laptop, Hotel, Factory, Hammer, Sprout, HardHat, Tractor, Droplets, Cog, Trees,
+  Warehouse, Beef, Package, ShieldCheck, Lightbulb, Store, UsersRound, HeartHandshake, MapPin,
+  GraduationCap, Accessibility, BriefcaseBusiness, Clock, Stamp, ArrowLeftRight, Landmark, CircleOff,
+  Ship, Zap, Receipt, Plane, Mail,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import { aideById, type Aide } from "@/lib/aides";
 import PaddleCheckoutButton from "@/components/PaddleCheckoutButton";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 interface Option {
   id: string;
-  emoji: string;
+  icon: LucideIcon;
   label: string;
-  description: string;
-  next: string;
+  description?: string;
 }
 
 interface Step {
   id: string;
-  num: number;
   question: string;
   subtitle: string;
+  multi?: boolean;
   options: Option[];
+  next: (a: Answers) => string;
+  left: number; // nombre estimé de questions restantes après celle-ci
 }
 
-type Answers = Record<string, string>;
+type Answers = Record<string, string[]>;
+const has = (a: Answers, step: string, id: string) => a[step]?.includes(id) ?? false;
+const one = (a: Answers, step: string) => a[step]?.[0];
 
-// ── Steps (marché marocain) ───────────────────────────────────────────────────
+// ── Questions ────────────────────────────────────────────────────────────────
 const steps: Step[] = [
   {
-    id: "type",
-    num: 1,
-    question: "Quel est votre projet ?",
-    subtitle: "Choisissez le parcours qui correspond à votre situation.",
+    id: "besoin",
+    question: "De quoi avez-vous besoin ?",
+    subtitle: "Choisissez ce qui vous amène, on vous pose ensuite quelques questions ciblées.",
     options: [
-      {
-        id: "solo",
-        emoji: "🚀",
-        label: "Je démarre seul",
-        description: "Auto-entrepreneur, freelance digital ou vendeur en ligne.",
-        next: "forme-solo",
-      },
-      {
-        id: "societe",
-        emoji: "🏢",
-        label: "Je crée une société",
-        description: "SARLAU, SARL ou SAS avec capital et statuts.",
-        next: "forme-societe",
-      },
-      {
-        id: "etranger",
-        emoji: "🌍",
-        label: "Je m'installe au Maroc",
-        description: "MRE, étranger non-résident ou investisseur depuis l'étranger.",
-        next: "situation-etranger",
-      },
+      { id: "creer", icon: Building2, label: "Créer mon entreprise", description: "Auto-entrepreneur, SARLAU, SARL, SAS, SA ou SCI." },
+      { id: "aides", icon: HandCoins, label: "Obtenir une aide de l'État", description: "Subventions, primes, prêts d'honneur à 0 % et exonérations." },
+      { id: "gerer", icon: FilePen, label: "Modifier ou fermer ma société", description: "Siège, gérant, associés, capital, marque, dissolution." },
+      { id: "compta", icon: Calculator, label: "Confier ma comptabilité", description: "Tenue, TVA, IS, paie et bilan annuel." },
+      { id: "etranger", icon: Globe, label: "Investir depuis l'étranger", description: "MRE, étranger non-résident, zone franche ou CFC." },
     ],
+    next: (a) => ({ creer: "c-equipe", aides: "a-profil", gerer: "g-action", compta: "k-forme", etranger: "x-situation" })[one(a, "besoin")!] ?? "result",
+    left: 4,
+  },
+
+  // ── Créer ──
+  {
+    id: "c-equipe",
+    question: "Vous lancez votre activité...",
+    subtitle: "Le nombre d'associés détermine la forme juridique possible.",
+    options: [
+      { id: "seul", icon: User, label: "Seul", description: "Vous êtes le seul propriétaire de l'activité." },
+      { id: "plusieurs", icon: Users, label: "À plusieurs", description: "Avec un ou plusieurs associés." },
+      { id: "immo", icon: House, label: "Pour gérer un bien immobilier", description: "Détenir et transmettre un patrimoine immobilier." },
+    ],
+    next: (a) => (one(a, "c-equipe") === "immo" ? "c-invest" : "c-secteur"),
+    left: 4,
   },
   {
-    id: "forme-solo",
-    num: 2,
-    question: "Quelle forme choisissez-vous ?",
-    subtitle: "Chaque régime a ses plafonds et ses avantages.",
+    id: "c-secteur",
+    question: "Dans quel secteur ?",
+    subtitle: "Certaines aides sont réservées à des secteurs précis.",
     options: [
-      {
-        id: "auto",
-        emoji: "⚡",
-        label: "Auto-entrepreneur",
-        description: "Jusqu'à 500 000 DH (commerce) ou 200 000 DH (services). Inscription simple et rapide.",
-        next: "secteur",
-      },
-      {
-        id: "ei",
-        emoji: "🧑‍💼",
-        label: "Entreprise individuelle",
-        description: "Immatriculé au registre de commerce sans plafond de CA, mais sans société.",
-        next: "secteur",
-      },
+      { id: "commerce", icon: ShoppingBag, label: "Commerce", description: "Négoce, boutique, import-export, vente en ligne." },
+      { id: "services", icon: Briefcase, label: "Services et conseil", description: "Consulting, formation, prestations." },
+      { id: "digital", icon: Laptop, label: "Digital et innovation", description: "Tech, application, startup innovante." },
+      { id: "tourisme", icon: Hotel, label: "Tourisme et restauration", description: "Hébergement, animation, restaurant, agence." },
+      { id: "industrie", icon: Factory, label: "Industrie et transformation", description: "Atelier, usine, agroalimentaire." },
+      { id: "artisanat", icon: Hammer, label: "Artisanat", description: "Artisan, coopérative artisanale." },
+      { id: "agriculture", icon: Sprout, label: "Agriculture et élevage", description: "Exploitation agricole, élevage, apiculture." },
+      { id: "btp", icon: HardHat, label: "BTP et immobilier", description: "Construction, travaux, promotion." },
     ],
+    next: (a) => (one(a, "c-equipe") === "seul" ? "c-ca" : one(a, "c-equipe") === "plusieurs" ? "c-financement" : "c-invest"),
+    left: 3,
   },
   {
-    id: "forme-societe",
-    num: 2,
-    question: "Quelle forme de société ?",
-    subtitle: "SARLAU et SARL représentent 99,2% des créations au Maroc.",
+    id: "c-ca",
+    question: "Chiffre d'affaires prévu la première année ?",
+    subtitle: "Le statut auto-entrepreneur est plafonné à 200 000 DH (services) et 500 000 DH (commerce, industrie, artisanat).",
     options: [
-      {
-        id: "sarlau",
-        emoji: "⭐",
-        label: "SARLAU",
-        description: "1 associé, responsabilité limitée. La forme la plus répandue (64,7% des créations).",
-        next: "secteur",
-      },
-      {
-        id: "sarl",
-        emoji: "🤝",
-        label: "SARL",
-        description: "2 à 50 associés, capital librement fixé (34,5% des créations).",
-        next: "secteur",
-      },
-      {
-        id: "sas",
-        emoji: "🏗️",
-        label: "SAS",
-        description: "Grande liberté statutaire, adaptée aux startups et projets innovants.",
-        next: "secteur",
-      },
-      {
-        id: "sa",
-        emoji: "🏦",
-        label: "SA",
-        description: "Capital minimum 300 000 DH, idéale pour les levées de fonds et l'introduction en bourse.",
-        next: "secteur",
-      },
-      {
-        id: "sci",
-        emoji: "🏠",
-        label: "SCI",
-        description: "Société civile immobilière pour la détention et gestion de patrimoine immobilier.",
-        next: "secteur",
-      },
+      { id: "petit", icon: Receipt, label: "Moins de 200 000 DH" },
+      { id: "moyen", icon: Receipt, label: "Entre 200 000 et 500 000 DH" },
+      { id: "grand", icon: Receipt, label: "Plus de 500 000 DH" },
+      { id: "nsp", icon: Lightbulb, label: "Je ne sais pas encore" },
     ],
+    next: () => "c-invest",
+    left: 3,
   },
   {
-    id: "situation-etranger",
-    num: 2,
+    id: "c-financement",
+    question: "Comment sera financé le projet ?",
+    subtitle: "Cela oriente vers une SARL, une SAS ou une SA.",
+    options: [
+      { id: "associes", icon: Users, label: "Entre associés", description: "Capital apporté par les associés." },
+      { id: "investisseurs", icon: Lightbulb, label: "Avec des investisseurs", description: "Levée de fonds, entrée de nouveaux actionnaires." },
+      { id: "gros", icon: Landmark, label: "Grand projet", description: "Capital de 300 000 DH ou plus, nombreux actionnaires." },
+    ],
+    next: () => "c-invest",
+    left: 3,
+  },
+  {
+    id: "c-invest",
+    question: "Combien prévoyez-vous d'investir ?",
+    subtitle: "Matériel, local, travaux, stock. Les primes de l'État dépendent de ce montant.",
+    options: [
+      { id: "lt100k", icon: HandCoins, label: "Moins de 100 000 DH" },
+      { id: "100k-1m", icon: HandCoins, label: "100 000 DH à 1 million DH" },
+      { id: "1m-50m", icon: HandCoins, label: "1 à 50 millions DH" },
+      { id: "gt50m", icon: HandCoins, label: "Plus de 50 millions DH" },
+    ],
+    next: (a) => (one(a, "besoin") === "etranger" ? "result" : "c-salaries"),
+    left: 2,
+  },
+  {
+    id: "c-salaries",
+    question: "Prévoyez-vous de recruter ?",
+    subtitle: "L'État peut prendre en charge une partie des charges des premiers salariés.",
+    options: [
+      { id: "non", icon: User, label: "Non, pas au début" },
+      { id: "1-5", icon: Users, label: "1 à 5 salariés" },
+      { id: "5plus", icon: UsersRound, label: "Plus de 5 salariés" },
+    ],
+    next: () => "p-profil",
+    left: 1,
+  },
+
+  // ── Aides ──
+  {
+    id: "a-profil",
+    question: "Vous êtes...",
+    subtitle: "Les aides ne sont pas les mêmes pour un agriculteur, une entreprise ou un particulier.",
+    options: [
+      { id: "agri", icon: Tractor, label: "Agriculteur ou éleveur", description: "Vous exploitez ou voulez exploiter une terre." },
+      { id: "porteur", icon: Lightbulb, label: "Porteur de projet", description: "Vous voulez créer votre activité." },
+      { id: "entreprise", icon: Store, label: "Une entreprise en activité", description: "Vous voulez investir, recruter, former ou exporter." },
+      { id: "coop", icon: HeartHandshake, label: "Une coopérative ou association", description: "Agricole, artisanale, féminine..." },
+      { id: "particulier", icon: User, label: "Un particulier", description: "Une aide pour vous ou votre famille." },
+    ],
+    next: (a) => ({ agri: "a-agri", porteur: "c-secteur", entreprise: "e-besoins", coop: "coop-secteur", particulier: "part-situation" })[one(a, "a-profil")!] ?? "result",
+    left: 3,
+  },
+  {
+    id: "a-agri",
+    question: "Quel est votre projet agricole ?",
+    subtitle: "Plusieurs choix possibles.",
+    multi: true,
+    options: [
+      { id: "irrigation", icon: Droplets, label: "Irrigation goutte-à-goutte" },
+      { id: "materiel", icon: Cog, label: "Tracteur ou matériel agricole" },
+      { id: "plantations", icon: Trees, label: "Plantations (olivier, amandier...)" },
+      { id: "serres", icon: Warehouse, label: "Serres" },
+      { id: "elevage", icon: Beef, label: "Élevage ou apiculture" },
+      { id: "transfo", icon: Package, label: "Stockage, conditionnement, transformation" },
+      { id: "assurance", icon: ShieldCheck, label: "Assurer mes récoltes" },
+    ],
+    next: () => "a-surface",
+    left: 2,
+  },
+  {
+    id: "a-surface",
+    question: "Quelle surface exploitez-vous ?",
+    subtitle: "Les petites exploitations ont droit à des taux de subvention plus élevés.",
+    options: [
+      { id: "petit", icon: Sprout, label: "5 hectares ou moins" },
+      { id: "moyen", icon: Sprout, label: "Entre 5 et 20 hectares" },
+      { id: "grand", icon: Tractor, label: "Plus de 20 hectares" },
+      { id: "aucune", icon: CircleOff, label: "Je n'ai pas encore de terre" },
+    ],
+    next: () => "p-profil",
+    left: 1,
+  },
+  {
+    id: "e-besoins",
+    question: "Que voulez-vous financer ?",
+    subtitle: "Plusieurs choix possibles.",
+    multi: true,
+    options: [
+      { id: "investir", icon: Factory, label: "Investir ou agrandir", description: "Machines, local, nouvelle unité." },
+      { id: "recruter", icon: Users, label: "Recruter", description: "Embaucher des salariés ou des jeunes diplômés." },
+      { id: "former", icon: GraduationCap, label: "Former mes salariés", description: "Formations remboursées." },
+      { id: "exporter", icon: Ship, label: "Exporter", description: "Salons, prospection à l'étranger." },
+      { id: "tourisme", icon: Hotel, label: "Moderniser une activité touristique" },
+      { id: "energie", icon: Zap, label: "Économiser l'énergie", description: "Projets verts, efficacité énergétique." },
+    ],
+    next: (a) => (has(a, "e-besoins", "investir") || has(a, "e-besoins", "tourisme") ? "c-invest-e" : "p-profil"),
+    left: 2,
+  },
+  {
+    id: "c-invest-e",
+    question: "Montant de l'investissement prévu ?",
+    subtitle: "Les primes à l'investissement dépendent de ce montant.",
+    options: [
+      { id: "lt100k", icon: HandCoins, label: "Moins de 100 000 DH" },
+      { id: "100k-1m", icon: HandCoins, label: "100 000 DH à 1 million DH" },
+      { id: "1m-50m", icon: HandCoins, label: "1 à 50 millions DH" },
+      { id: "gt50m", icon: HandCoins, label: "Plus de 50 millions DH" },
+    ],
+    next: () => "p-profil",
+    left: 1,
+  },
+  {
+    id: "coop-secteur",
+    question: "Dans quel domaine est votre coopérative ?",
+    subtitle: "Chaque domaine a ses programmes d'appui.",
+    options: [
+      { id: "agricole", icon: Sprout, label: "Agriculture ou élevage" },
+      { id: "argan", icon: Trees, label: "Argan ou produits des oasis" },
+      { id: "artisanat", icon: Hammer, label: "Artisanat" },
+      { id: "autre", icon: HeartHandshake, label: "Autre activité" },
+    ],
+    next: () => "p-profil",
+    left: 1,
+  },
+  {
+    id: "part-situation",
     question: "Quelle est votre situation ?",
-    subtitle: "Cela détermine les démarches administratives et bancaires nécessaires.",
+    subtitle: "Plusieurs choix possibles.",
+    multi: true,
     options: [
-      {
-        id: "mre",
-        emoji: "🇲🇦",
-        label: "MRE",
-        description: "Marocain Résidant à l'Étranger souhaitant investir ou s'installer au Maroc.",
-        next: "secteur",
-      },
-      {
-        id: "etranger-nr",
-        emoji: "🌐",
-        label: "Étranger non-résident",
-        description: "Investisseur étranger souhaitant créer une structure au Maroc.",
-        next: "secteur",
-      },
-      {
-        id: "cfc-zai",
-        emoji: "🏙️",
-        label: "Zone franche / CFC",
-        description: "Projet ZAI (Zone d'Accélération Industrielle) ou Casablanca Finance City.",
-        next: "secteur",
-      },
+      { id: "logement", icon: House, label: "J'achète mon premier logement" },
+      { id: "modeste", icon: HeartHandshake, label: "Mon foyer a des revenus modestes" },
+      { id: "enfants", icon: Users, label: "Je suis salarié avec des enfants" },
+      { id: "chomage", icon: BriefcaseBusiness, label: "J'ai perdu mon emploi" },
+      { id: "retraite", icon: Clock, label: "Je suis à l'âge de la retraite" },
+      { id: "etudiant", icon: GraduationCap, label: "Je suis étudiant ou bachelier" },
+      { id: "handicap", icon: Accessibility, label: "Situation de handicap dans mon foyer" },
+      { id: "independant", icon: Store, label: "Je suis indépendant sans couverture santé" },
+      { id: "sinistre", icon: MapPin, label: "Sinistré du séisme d'Al Haouz" },
+      { id: "relogement", icon: Building2, label: "Je vis en bidonville ou en habitat menaçant ruine" },
     ],
+    next: () => "result",
+    left: 0,
   },
   {
-    id: "secteur",
-    num: 3,
-    question: "Votre secteur d'activité ?",
-    subtitle: "Le commerce représente 35,1% des créations, les services 18,2% au Maroc.",
+    id: "p-profil",
+    question: "Votre profil",
+    subtitle: "Plusieurs choix possibles. Certains programmes sont réservés à ces profils.",
+    multi: true,
     options: [
-      { id: "commerce", emoji: "🛒", label: "Commerce / Distribution", description: "Négoce, import-export, vente physique ou en ligne.", next: "web" },
-      { id: "services", emoji: "💼", label: "Services / Conseil", description: "Consulting, formation, coaching, RH, juridique…", next: "web" },
-      { id: "digital", emoji: "💻", label: "Digital / E-commerce", description: "Agence web, développement, marketing digital, vente en ligne.", next: "web" },
-      { id: "immo", emoji: "🏠", label: "BTP / Immobilier", description: "Construction, promotion immobilière, gestion locative.", next: "web" },
-      { id: "resto", emoji: "🍽️", label: "Restauration / Hôtellerie", description: "Restaurant, café, traiteur, gîte, hôtel.", next: "web" },
-      { id: "industrie", emoji: "⚙️", label: "Industrie / Transport", description: "Fabrication, logistique, transit, transport de marchandises.", next: "web" },
+      { id: "femme", icon: User, label: "Je suis une femme" },
+      { id: "jeune", icon: GraduationCap, label: "J'ai moins de 45 ans" },
+      { id: "mre", icon: Plane, label: "Je vis à l'étranger (MRE)" },
+      { id: "modeste", icon: HeartHandshake, label: "Je suis en situation de précarité" },
+      { id: "oasis", icon: Trees, label: "Je suis dans une zone d'oasis ou d'arganier" },
+      { id: "aucun", icon: CircleOff, label: "Aucun de ces cas" },
     ],
+    next: () => "result",
+    left: 0,
+  },
+
+  // ── Gérer ──
+  {
+    id: "g-action",
+    question: "Que voulez-vous faire ?",
+    subtitle: "Plusieurs choix possibles.",
+    multi: true,
+    options: [
+      { id: "siege", icon: MapPin, label: "Transférer le siège social" },
+      { id: "gerant", icon: User, label: "Changer de gérant" },
+      { id: "parts", icon: ArrowLeftRight, label: "Céder des parts ou faire entrer un associé" },
+      { id: "capital", icon: Landmark, label: "Modifier le capital" },
+      { id: "denomination", icon: FilePen, label: "Changer le nom ou l'activité" },
+      { id: "marque", icon: Stamp, label: "Déposer ma marque (OMPIC)" },
+      { id: "domiciliation", icon: Building2, label: "Domicilier ma société" },
+      { id: "fermer", icon: CircleOff, label: "Fermer ma société (dissolution et liquidation)" },
+    ],
+    next: () => "g-forme",
+    left: 1,
   },
   {
-    id: "web",
-    num: 4,
-    question: "Avez-vous besoin d'un site web ?",
-    subtitle: "123 891 noms de domaine .ma enregistrés fin 2024, +33 799 en un an.",
+    id: "g-forme",
+    question: "Quelle est la forme de votre entreprise ?",
+    subtitle: "Les formalités et le coût dépendent de la forme.",
     options: [
-      { id: "oui", emoji: "✅", label: "Oui, c'est essentiel", description: "Site vitrine, boutique en ligne ou page de prise de contact professionnelle.", next: "salaries" },
-      { id: "plus-tard", emoji: "🤔", label: "Peut-être plus tard", description: "Pas maintenant, mais j'en aurai probablement besoin.", next: "salaries" },
-      { id: "non", emoji: "❌", label: "Non, pas besoin", description: "Mon activité ne nécessite pas de présence en ligne pour l'instant.", next: "salaries" },
+      { id: "sarlau", icon: User, label: "SARLAU" },
+      { id: "sarl", icon: Users, label: "SARL" },
+      { id: "sa", icon: Landmark, label: "SA ou SAS" },
+      { id: "ae", icon: Store, label: "Auto-entrepreneur ou entreprise individuelle" },
+      { id: "creation", icon: Lightbulb, label: "Pas encore créée" },
     ],
+    next: () => "result",
+    left: 0,
+  },
+
+  // ── Comptabilité ──
+  {
+    id: "k-forme",
+    question: "Quelle est votre structure ?",
+    subtitle: "Les obligations comptables ne sont pas les mêmes.",
+    options: [
+      { id: "ae", icon: Store, label: "Auto-entrepreneur ou entreprise individuelle" },
+      { id: "societe", icon: Building2, label: "SARLAU ou SARL" },
+      { id: "multi", icon: Landmark, label: "SA, SAS ou plusieurs sociétés" },
+    ],
+    next: () => "k-salaries",
+    left: 1,
   },
   {
-    id: "salaries",
-    num: 5,
-    question: "Prévoyez-vous des salariés ?",
-    subtitle: "Cela détermine vos obligations CNSS, CIMR et la gestion de la paie.",
+    id: "k-salaries",
+    question: "Combien de salariés ?",
+    subtitle: "Pour prévoir la gestion de la paie et des déclarations CNSS.",
     options: [
-      { id: "non", emoji: "👤", label: "Non, je travaille seul", description: "Pas de salarié prévu dans un premier temps.", next: "result" },
-      { id: "1-5", emoji: "👥", label: "1 à 5 salariés", description: "Petite équipe, gestion de paie mensuelle.", next: "result" },
-      { id: "5plus", emoji: "🏢", label: "Plus de 5 salariés", description: "Équipe structurée, besoins RH et sociaux conséquents.", next: "result" },
+      { id: "non", icon: User, label: "Aucun" },
+      { id: "1-5", icon: Users, label: "1 à 5" },
+      { id: "5plus", icon: UsersRound, label: "Plus de 5" },
     ],
+    next: () => "result",
+    left: 0,
+  },
+
+  // ── Étranger ──
+  {
+    id: "x-situation",
+    question: "Quelle est votre situation ?",
+    subtitle: "Cela détermine les démarches bancaires et administratives.",
+    options: [
+      { id: "mre", icon: Plane, label: "Marocain résidant à l'étranger (MRE)" },
+      { id: "etranger", icon: Globe, label: "Étranger non-résident" },
+      { id: "zai", icon: Factory, label: "Projet en zone franche ou à Casablanca Finance City" },
+    ],
+    next: () => "c-invest",
+    left: 1,
   },
 ];
 
-// ── Recommendation engine (DH) ────────────────────────────────────────────────
-interface Recommendation {
-  badge: string;
-  badgeColor: string;
+const stepById = (id: string) => steps.find((s) => s.id === id)!;
+
+// ── Résultat ─────────────────────────────────────────────────────────────────
+interface Service {
   title: string;
   subtitle: string;
   price: string;
   priceNote: string;
   features: string[];
-  extras: string[];
-  tier: "starter" | "standard" | "premium" | "international";
-  cta: string;
   priceId?: string;
 }
 
-function getRecommendation(answers: Answers): Recommendation {
-  const type = answers["type"];
-  const formeSolo = answers["forme-solo"];
-  const formeSociete = answers["forme-societe"];
-  const situationEtr = answers["situation-etranger"];
-  const salaries = answers["salaries"];
-  const web = answers["web"];
+const PRICE_ID = "pri_01kqn7gsrncbnzk5zksye6385v";
 
-  const extras: string[] = [];
-  if (web === "oui") extras.push("✦ Création de site web ou boutique en ligne");
-  if (salaries === "1-5") extras.push("✦ Gestion de la paie & déclarations CNSS");
-  if (salaries === "5plus") extras.push("✦ Accompagnement RH et droit du travail marocain");
-
-  if (type === "etranger") {
-    const label = situationEtr === "mre" ? "MRE" : situationEtr === "cfc-zai" ? "ZAI/CFC" : "Étranger non-résident";
-    return {
-      badge: "Pack International",
-      badgeColor: "bg-green-50 border-green-300",
-      title: `Pack Premium — ${label}`,
-      subtitle: "Accompagnement sur mesure pour votre implantation au Maroc.",
-      price: "Sur devis",
-      priceNote: "À partir de 3 990 DH selon la complexité du dossier",
-      tier: "international",
-      features: [
-        "Choix du statut juridique adapté",
-        "Coordination bancaire (compte devises / DH convertibles)",
-        "Assistance documentaire complète",
-        "Procurations et apostilles",
-        "Domiciliation incluse",
-        "Suivi OMPIC et greffe",
-        situationEtr === "cfc-zai" ? "Dossier ZAI / CFC — avantages fiscaux" : "Régime de convertibilité Office des Changes",
-      ],
-      extras,
-      cta: "Demander un accompagnement →",
-      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
-    };
-  }
-
-  if (type === "solo" && formeSolo === "auto") {
-    return {
-      badge: "Pack Accompagné · 490 DH",
-      badgeColor: "bg-blue-50 border-blue-300",
-      title: "Pack Auto-entrepreneur",
-      subtitle: "Le régime le plus simple pour démarrer votre activité au Maroc.",
-      price: "490 DH",
-      priceNote: "On s'occupe de tout — conseiller dédié inclus",
-      tier: "starter",
-      features: [
-        "Déclaration auto-entrepreneur (OMPIC)",
-        "Guide officiel Dar Al Moukawil",
-        "Modèles de factures conformes",
-        "Espace personnel sécurisé",
-        "Alerte plafonds (200k/500k DH)",
-        "Conseils migration vers SARLAU",
-      ],
-      extras,
-      cta: "Démarrer mon inscription →",
-      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
-    };
-  }
-
-  if (type === "solo" && formeSolo === "ei") {
-    return {
-      badge: "Pack Standard · 990 DH",
-      badgeColor: "bg-amber-50 border-amber-300",
-      title: "Pack Entreprise Individuelle",
-      subtitle: "Immatriculation au registre de commerce sans plafond de CA.",
-      price: "990 DH",
-      priceNote: "Frais de greffe ~150 DH en sus",
-      tier: "standard",
-      features: [
-        "Immatriculation RC (OMPIC)",
-        "Conseiller dédié",
-        "Inscription fiscale (patente, TVA)",
-        "Compte bancaire professionnel",
-        "Guide obligations comptables",
-      ],
-      extras,
-      cta: "Créer mon entreprise individuelle →",
-      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
-    };
-  }
-
-  if (formeSociete === "sarlau") {
-    return {
-      badge: "Pack Standard · 1 490 DH",
-      badgeColor: "bg-amber-50 border-amber-300",
-      title: "Pack SARLAU",
-      subtitle: "La forme juridique la plus populaire au Maroc (64,7% des créations).",
-      price: "1 490 DH",
-      priceNote: "Frais de greffe OMPIC ~500 DH + Journal Officiel ~400 DH en sus",
-      tier: "standard",
-      features: [
-        "Rédaction statuts SARLAU",
-        "Dépôt capital bancaire",
-        "Immatriculation OMPIC (RC)",
-        "Publication Journal Officiel",
-        "Obtention de l'ICE",
-        "Domiciliation 3 mois offerte",
-        "Mise en relation expert-comptable",
-      ],
-      extras,
-      cta: "Créer ma SARLAU →",
-      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
-    };
-  }
-
-  if (formeSociete === "sarl") {
-    return {
-      badge: "Pack Standard · 1 990 DH",
-      badgeColor: "bg-amber-50 border-amber-300",
-      title: "Pack SARL",
-      subtitle: "Structure multi-associés avec responsabilité limitée au capital.",
-      price: "1 990 DH",
-      priceNote: "Frais de greffe OMPIC ~500 DH + Journal Officiel ~400 DH en sus",
-      tier: "standard",
-      features: [
-        "Rédaction statuts SARL (jusqu'à 3 associés)",
-        "Dépôt capital bancaire",
-        "Immatriculation OMPIC",
-        "Publication Journal Officiel",
-        "Pacte d'associés basique",
-        "Domiciliation 3 mois offerte",
-      ],
-      extras,
-      cta: "Créer ma SARL →",
-      priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
-    };
-  }
-
-  const forme = formeSociete?.toUpperCase() ?? "SAS";
-  return {
-    badge: "Pack Premium · 2 490 DH",
-    badgeColor: "bg-purple-50 border-purple-300",
-    title: `Pack ${forme}`,
-    subtitle: "Structure sur mesure avec accompagnement complet.",
-    price: "2 490 DH",
-    priceNote: "Frais de greffe et publications légales en sus",
-    tier: "premium",
-    features: [
-      `Rédaction statuts ${forme} sur mesure`,
-      "Juriste expert dédié",
-      "Traitement prioritaire 24h",
-      "Immatriculation OMPIC complète",
-      "Assurance anti-rejet greffe",
-      "Domiciliation 6 mois offerte",
-      "Accompagnement fiscal 1 an",
-    ],
-    extras,
-    cta: `Créer ma ${forme} →`,
-    priceId: "pri_01kqn7gsrncbnzk5zksye6385v",
-  };
+function investOf(a: Answers) {
+  return one(a, "c-invest") ?? one(a, "c-invest-e");
 }
 
-// ── Labels for summary ────────────────────────────────────────────────────────
-const answerLabels: Record<string, Record<string, string>> = {
-  type: { solo: "Activité solo", societe: "Société", etranger: "Implantation Maroc" },
-  "forme-solo": { auto: "Auto-entrepreneur", ei: "Entreprise individuelle" },
-  "forme-societe": { sarlau: "SARLAU", sarl: "SARL", sas: "SAS", sa: "SA", sci: "SCI" },
-  "situation-etranger": { mre: "MRE", "etranger-nr": "Étranger non-résident", "cfc-zai": "ZAI / CFC" },
-  secteur: { commerce: "Commerce", services: "Services/Conseil", digital: "Digital", immo: "BTP/Immobilier", resto: "Restauration", industrie: "Industrie" },
-  web: { oui: "Site web souhaité", "plus-tard": "Site web plus tard", non: "Sans site web" },
-  salaries: { non: "Sans salarié", "1-5": "1–5 salariés", "5plus": "5+ salariés" },
+function matchAides(a: Answers): Aide[] {
+  const ids = new Set<string>();
+  const add = (...l: string[]) => l.forEach((i) => ids.add(i));
+  const besoin = one(a, "besoin");
+  const profil = one(a, "a-profil");
+  const invest = investOf(a);
+  const secteur = one(a, "c-secteur");
+
+  // Création d'activité (parcours Créer ou porteur de projet)
+  if (besoin === "creer" || profil === "porteur") {
+    add("B09");
+    if (formeCreation(a) === "auto") add("B08");
+    if (invest !== "gt50m" && invest !== "1m-50m") add("B03", "B04");
+    else add("B04");
+    if (invest && invest !== "lt100k") add("B10");
+    if (invest === "1m-50m") add("B01");
+    if (invest === "gt50m") add("B02");
+    if (one(a, "c-salaries") && one(a, "c-salaries") !== "non") add("B11", "B12", "B13");
+    if (secteur === "tourisme") add("B15");
+    if (secteur === "digital") add("B05");
+    if (secteur === "artisanat") add("B18");
+    if (secteur === "industrie") add("B16");
+    if (secteur === "agriculture") add("A01", "A02", "A08");
+  }
+
+  // Agriculteurs
+  if (profil === "agri") {
+    const map: Record<string, string> = { irrigation: "A01", materiel: "A02", plantations: "A03", serres: "A04", elevage: "A05", transfo: "A06", assurance: "A09" };
+    (a["a-agri"] ?? []).forEach((b) => map[b] && add(map[b]));
+    const surface = one(a, "a-surface");
+    if (surface === "grand") add("A07");
+    if (surface === "aucune" || has(a, "p-profil", "jeune")) add("A08");
+    add("A10");
+  }
+
+  // Entreprises en activité
+  if (profil === "entreprise") {
+    if (has(a, "e-besoins", "investir")) {
+      add("B16", "B10");
+      if (invest === "1m-50m") add("B01");
+      if (invest === "gt50m") add("B02");
+    }
+    if (has(a, "e-besoins", "recruter")) add("B11", "B12", "B13");
+    if (has(a, "e-besoins", "former")) add("B14");
+    if (has(a, "e-besoins", "exporter")) add("B17");
+    if (has(a, "e-besoins", "tourisme")) add("B15");
+    if (has(a, "e-besoins", "energie")) add("B16");
+  }
+
+  // Coopératives
+  if (profil === "coop") {
+    add("A13");
+    const s = one(a, "coop-secteur");
+    if (s === "agricole") add("A11", "A06");
+    if (s === "argan") add("A12", "A06");
+    if (s === "artisanat") add("B18", "B17");
+    add("B07");
+    if (has(a, "p-profil", "femme")) add("C03");
+  }
+
+  // Particuliers
+  if (profil === "particulier") {
+    const map: Record<string, string[]> = {
+      logement: ["D01"], modeste: ["D02", "D03", "D04"], enfants: ["D07"], chomage: ["D06"], retraite: ["D08"],
+      etudiant: ["D09"], handicap: ["D10"], independant: ["D05"], sinistre: ["D11"], relogement: ["D12"],
+    };
+    (a["part-situation"] ?? []).forEach((s) => map[s] && add(...map[s]));
+  }
+
+  // Investissement depuis l'étranger
+  if (besoin === "etranger") {
+    if (one(a, "x-situation") === "mre") add("B06");
+    if (invest === "1m-50m") add("B01");
+    if (invest === "gt50m") add("B02");
+    if (invest && invest !== "lt100k") add("B10");
+  }
+
+  // Profil
+  if (has(a, "p-profil", "femme")) {
+    add("C02", "C04");
+    if (invest === "1m-50m" || invest === "gt50m") add("C01");
+  }
+  if (has(a, "p-profil", "mre")) add("B06");
+  if (has(a, "p-profil", "modeste")) add("B07");
+  if (has(a, "p-profil", "oasis")) add("A12");
+
+  return [...ids].map(aideById).filter((x): x is Aide => !!x);
+}
+
+function formeCreation(a: Answers) {
+  const equipe = one(a, "c-equipe");
+  if (equipe === "immo") return "sci";
+  if (equipe === "plusieurs") return ({ associes: "sarl", investisseurs: "sas", gros: "sa" } as Record<string, string>)[one(a, "c-financement") ?? ""] ?? "sarl";
+  const ca = one(a, "c-ca");
+  const secteur = one(a, "c-secteur");
+  const commerce = ["commerce", "industrie", "artisanat"].includes(secteur ?? "");
+  if (ca === "petit" || (ca === "moyen" && commerce)) return "auto";
+  return "sarlau";
+}
+
+const packs: Record<string, Service> = {
+  auto: {
+    title: "Pack Auto-entrepreneur", subtitle: "Le statut le plus simple pour démarrer seul, avec un impôt de 0,5 % à 1 % du chiffre d'affaires.",
+    price: "490 DH", priceNote: "Conseiller dédié inclus",
+    features: ["Inscription au registre national de l'auto-entrepreneur", "Affiliation AMO", "Modèles de factures conformes", "Alerte sur les plafonds de chiffre d'affaires", "Conseils pour passer en SARLAU"],
+    priceId: PRICE_ID,
+  },
+  sarlau: {
+    title: "Pack SARLAU", subtitle: "La forme la plus utilisée au Maroc pour entreprendre seul avec une responsabilité limitée.",
+    price: "1 490 DH", priceNote: "Frais de greffe et Journal Officiel en sus",
+    features: ["Rédaction des statuts", "Certificat négatif OMPIC", "Dépôt du capital", "Immatriculation au registre de commerce", "Publication au Journal Officiel", "Obtention de l'ICE", "Domiciliation 3 mois offerte"],
+    priceId: PRICE_ID,
+  },
+  sarl: {
+    title: "Pack SARL", subtitle: "Pour entreprendre à plusieurs avec une responsabilité limitée aux apports.",
+    price: "1 990 DH", priceNote: "Frais de greffe et Journal Officiel en sus",
+    features: ["Rédaction des statuts (jusqu'à 3 associés)", "Certificat négatif OMPIC", "Dépôt du capital", "Immatriculation au registre de commerce", "Publication au Journal Officiel", "Pacte d'associés simple", "Domiciliation 3 mois offerte"],
+    priceId: PRICE_ID,
+  },
+  sas: {
+    title: "Pack SAS", subtitle: "Des statuts sur mesure, adaptés à l'entrée d'investisseurs.",
+    price: "2 490 DH", priceNote: "Frais de greffe et publications légales en sus",
+    features: ["Statuts sur mesure", "Juriste dédié", "Traitement prioritaire", "Immatriculation complète", "Domiciliation 6 mois offerte", "Accompagnement fiscal 1 an"],
+    priceId: PRICE_ID,
+  },
+  sa: {
+    title: "Pack SA", subtitle: "Pour les grands projets avec plusieurs actionnaires.",
+    price: "2 490 DH", priceNote: "Frais de greffe, commissaire aux apports et publications en sus",
+    features: ["Statuts sur mesure", "Juriste dédié", "Organisation du conseil d'administration", "Immatriculation complète", "Domiciliation 6 mois offerte", "Accompagnement fiscal 1 an"],
+    priceId: PRICE_ID,
+  },
+  sci: {
+    title: "Pack SCI", subtitle: "Détenir, gérer et transmettre un patrimoine immobilier à plusieurs.",
+    price: "2 490 DH", priceNote: "Frais d'enregistrement et de publication en sus",
+    features: ["Statuts sur mesure", "Juriste dédié", "Immatriculation complète", "Conseils sur la transmission", "Accompagnement fiscal 1 an"],
+    priceId: PRICE_ID,
+  },
 };
 
-// ── Animated wrapper ──────────────────────────────────────────────────────────
-function StepWrapper({ children, stepKey }: { children: React.ReactNode; stepKey: string }) {
-  const [visible, setVisible] = useState(false);
+const gestionLabels: Record<string, string> = {
+  siege: "Transfert du siège social", gerant: "Changement de gérant", parts: "Cession de parts ou entrée d'un associé",
+  capital: "Modification du capital", denomination: "Changement de nom ou d'activité", marque: "Dépôt de marque à l'OMPIC",
+  domiciliation: "Domiciliation de la société", fermer: "Dissolution et liquidation",
+};
+
+function getService(a: Answers): Service {
+  const besoin = one(a, "besoin");
+  const profil = one(a, "a-profil");
+
+  if (besoin === "aides") {
+    return {
+      title: profil === "particulier" ? "Accompagnement aux aides sociales" : "Dossier d'aides de A à Z",
+      subtitle: "On vérifie votre éligibilité, on monte le dossier, on le dépose et on le suit jusqu'au versement.",
+      price: "Diagnostic gratuit",
+      priceNote: "Honoraires annoncés par écrit avant de commencer",
+      features: [
+        "Vérification de votre éligibilité à chaque aide",
+        "Liste précise des pièces à réunir",
+        "Montage et dépôt du dossier",
+        "Suivi auprès de l'organisme et relances",
+        "Accompagnement jusqu'au versement de l'aide",
+      ],
+    };
+  }
+  if (besoin === "creer") {
+    const p = packs[formeCreation(a)];
+    return { ...p, features: [...p.features, "Option : montage des dossiers d'aides ci-dessous"] };
+  }
+  if (besoin === "gerer") {
+    const actions = (a["g-action"] ?? []).map((x) => gestionLabels[x]).filter(Boolean);
+    return {
+      title: actions.length === 1 ? actions[0] : "Formalités juridiques de votre société",
+      subtitle: "Rédaction des actes, dépôt au greffe, publications légales et mise à jour du registre de commerce.",
+      price: "Sur devis",
+      priceNote: "Devis gratuit sous 24 h, frais de greffe et publications en sus",
+      features: [...actions, "Rédaction des procès-verbaux et actes", "Dépôt au tribunal de commerce", "Publications légales", "Mise à jour du registre de commerce"],
+    };
+  }
+  if (besoin === "compta") {
+    const forme = one(a, "k-forme");
+    const sal = one(a, "k-salaries");
+    const paie = sal && sal !== "non" ? ["Paie et déclarations CNSS"] : [];
+    if (forme === "ae") return { title: "Comptabilité Starter", subtitle: "Pour les auto-entrepreneurs et entreprises individuelles.", price: "490 DH / mois", priceNote: "Sans engagement de durée", features: ["Tenue comptable", "Déclarations fiscales", "Bilan simplifié", "Une consultation par mois", ...paie] };
+    if (forme === "societe" && sal !== "5plus") return { title: "Comptabilité Business", subtitle: "Pour les SARLAU et SARL en activité.", price: "990 DH / mois", priceNote: "Paie incluse jusqu'à 5 salariés", features: ["Tenue complète", "IS, TVA, IR et taxe professionnelle", "Bilan et liasse fiscale", "Paie jusqu'à 5 salariés", "Consultations illimitées"] };
+    return { title: "Comptabilité sur mesure", subtitle: "Pour les structures plus complexes.", price: "Sur devis", priceNote: "Devis gratuit sous 24 h", features: ["Tenue complète", "Multi-sociétés", "Paie et déclarations CNSS", "Bilan, liasse fiscale et audit", "Conseil fiscal"] };
+  }
+  if (besoin === "etranger") {
+    const s = one(a, "x-situation");
+    return {
+      title: s === "mre" ? "Pack MRE" : s === "zai" ? "Dossier zone franche ou CFC" : "Pack International",
+      subtitle: "Créer et gérer votre structure au Maroc sans vous déplacer.",
+      price: s === "mre" ? "2 490 DH" : s === "zai" ? "Sur devis" : "3 990 DH",
+      priceNote: "Frais de greffe et publications légales en sus",
+      features: ["Choix de la structure juridique", "Procurations et apostilles", "Compte en devises ou en dirhams convertibles", "Immatriculation à distance", "Domiciliation incluse", s === "zai" ? "Dossier d'éligibilité ZAI ou CFC" : "Conformité Office des Changes"],
+      priceId: s === "zai" ? undefined : PRICE_ID,
+    };
+  }
+  return packs.sarlau;
+}
+
+function summaryLines(a: Answers) {
+  return Object.entries(a).flatMap(([stepId, ids]) => {
+    const s = stepById(stepId);
+    const labels = ids.map((id) => s.options.find((o) => o.id === id)?.label).filter(Boolean);
+    return labels.length ? [`${s.question} ${labels.join(", ")}`] : [];
+  });
+}
+
+// ── UI ───────────────────────────────────────────────────────────────────────
+export default function OnboardingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-[calc(100vh-76px)] bg-zinc-50" />}>
+      <QuestionnaireFromUrl />
+    </Suspense>
+  );
+}
+
+// Entrée directe depuis une page : /onboarding?besoin=aides
+function QuestionnaireFromUrl() {
+  const b = useSearchParams().get("besoin");
+  const valid = b && stepById("besoin").options.some((o) => o.id === b) ? b : null;
+  return <Questionnaire key={valid ?? "start"} besoin={valid} />;
+}
+
+function Questionnaire({ besoin }: { besoin: string | null }) {
+  const start: Answers = besoin ? { besoin: [besoin] } : {};
+  const [stepId, setStepId] = useState(() => (besoin ? stepById("besoin").next(start) : "besoin"));
+  const [answers, setAnswers] = useState<Answers>(start);
+  const [history, setHistory] = useState<string[]>(besoin ? ["besoin"] : []);
+  const [pending, setPending] = useState<string[]>([]);
+  const done = stepId === "result";
+
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 20);
-    return () => clearTimeout(t);
-  }, [stepKey]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [stepId]);
+
+  function goTo(id: string, a: Answers) {
+    setStepId(id);
+    setPending(a[id] ?? []);
+  }
+
+  const step = done ? null : stepById(stepId);
+  const progress = done ? 100 : Math.round((history.length / (history.length + (step!.left + 1))) * 100);
+
+  function commit(ids: string[]) {
+    // On efface les réponses des questions situées après celle-ci (le parcours peut changer)
+    const keep = new Set([...history, stepId]);
+    const next: Answers = Object.fromEntries(Object.entries(answers).filter(([k]) => keep.has(k)));
+    next[stepId] = ids;
+    setAnswers(next);
+    setHistory([...history, stepId]);
+    goTo(step!.next(next), next);
+  }
+
+  function choose(o: Option) {
+    if (!step) return;
+    if (!step.multi) return commit([o.id]);
+    setPending((p) => {
+      if (o.id === "aucun") return p.includes("aucun") ? [] : ["aucun"];
+      const base = p.filter((x) => x !== "aucun");
+      return base.includes(o.id) ? base.filter((x) => x !== o.id) : [...base, o.id];
+    });
+  }
+
+  function back() {
+    const prev = history[history.length - 1];
+    if (!prev) return;
+    setHistory(history.slice(0, -1));
+    goTo(prev, answers);
+  }
+
+  function restart() {
+    setAnswers({});
+    setHistory([]);
+    goTo("besoin", {});
+  }
 
   return (
-    <div
-      key={stepKey}
-      className={cn(
-        "transition-all duration-500",
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      )}
-    >
-      {children}
+    <div className="min-h-[calc(100vh-76px)] bg-zinc-50 pb-24">
+      <div className="mx-auto max-w-[760px] px-6 pt-12 max-sm:pt-8">
+        {/* Progression */}
+        <div className="mb-10 flex items-center gap-4">
+          <button
+            type="button"
+            onClick={back}
+            disabled={!history.length}
+            aria-label="Question précédente"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-zinc-200 bg-white text-zinc-700 transition hover:border-blue-500 hover:text-blue-700 disabled:opacity-0"
+          >
+            <ArrowLeft className="h-4 w-4" />
+          </button>
+          <div className="h-2 flex-1 overflow-hidden rounded-full bg-zinc-200" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+            <div className="h-full rounded-full bg-blue-600 transition-all duration-500" style={{ width: `${progress}%` }} />
+          </div>
+          <span className="w-12 text-right text-sm font-semibold tabular-nums text-zinc-500">{progress} %</span>
+        </div>
+
+        {step && (
+          <div key={step.id} className="animate-in fade-in slide-in-from-bottom-3 duration-500">
+            <h1 className="text-[clamp(1.8rem,4.5vw,2.6rem)] font-extrabold leading-tight tracking-tight text-zinc-900 text-balance">{step.question}</h1>
+            <p className="mt-3 mb-8 text-[17px] text-zinc-600">{step.subtitle}</p>
+
+            <div className={cn("grid gap-3", step.options.length > 4 && "sm:grid-cols-2")}>
+              {step.options.map((o) => {
+                const selected = step.multi ? pending.includes(o.id) : answers[step.id]?.includes(o.id);
+                const Icon = o.icon;
+                return (
+                  <button
+                    key={o.id}
+                    type="button"
+                    onClick={() => choose(o)}
+                    aria-pressed={step.multi ? selected : undefined}
+                    className={cn(
+                      "group flex items-center gap-4 rounded-2xl border-2 bg-white p-4 text-left transition duration-200 hover:-translate-y-0.5 hover:border-blue-500 hover:shadow-[0_12px_30px_-8px_rgba(31,42,61,.18)] focus-visible:outline-2 focus-visible:outline-blue-600",
+                      selected ? "border-blue-600 bg-blue-50" : "border-zinc-200"
+                    )}
+                  >
+                    <span className={cn("grid h-11 w-11 shrink-0 place-items-center rounded-xl transition", selected ? "bg-blue-600 text-white" : "bg-zinc-50 text-blue-700 group-hover:bg-blue-50")}>
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-semibold text-zinc-900">{o.label}</span>
+                      {o.description && <span className="mt-0.5 block text-sm leading-snug text-zinc-600">{o.description}</span>}
+                    </span>
+                    {step.multi ? (
+                      <span className={cn("grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 transition", selected ? "border-blue-600 bg-blue-600 text-white" : "border-zinc-300")}>
+                        {selected && <Check className="h-4 w-4" strokeWidth={3} />}
+                      </span>
+                    ) : (
+                      <ArrowRight className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-blue-600" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {step.multi && (
+              <button
+                type="button"
+                disabled={!pending.length}
+                onClick={() => commit(pending)}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-[0_17px_20px_-8px_rgba(0,132,153,.35)] transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto"
+              >
+                Continuer <ArrowRight className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+        )}
+
+        {done && <Result answers={answers} onRestart={restart} />}
+      </div>
     </div>
   );
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
-export default function OnboardingPage() {
-  const [currentStepId, setCurrentStepId] = useState("type");
-  const [answers, setAnswers] = useState<Answers>({});
-  const [history, setHistory] = useState<string[]>([]);
-  const [done, setDone] = useState(false);
-  const [stepKey, setStepKey] = useState("type");
-
-  const totalSteps = 5;
-  const currentStep = steps.find((s) => s.id === currentStepId)!;
-  const progress = done ? 100 : ((currentStep?.num ?? 1) - 1) / totalSteps * 100;
-
-  function handleSelect(option: Option) {
-    const newAnswers = { ...answers, [currentStepId]: option.id };
-    setAnswers(newAnswers);
-    setHistory([...history, currentStepId]);
-    if (option.next === "result") {
-      setDone(true);
-      setStepKey("result");
-    } else {
-      setCurrentStepId(option.next);
-      setStepKey(option.next + Date.now());
-    }
-  }
-
-  function handleBack() {
-    if (done) {
-      setDone(false);
-      const prev = history[history.length - 1];
-      setCurrentStepId(prev);
-      setHistory(history.slice(0, -1));
-      setStepKey(prev + "-back");
-      return;
-    }
-    if (history.length === 0) return;
-    const prev = history[history.length - 1];
-    setCurrentStepId(prev);
-    setHistory(history.slice(0, -1));
-    setStepKey(prev + "-back");
-  }
-
-  const recommendation = done ? getRecommendation(answers) : null;
+function Result({ answers, onRestart }: { answers: Answers; onRestart: () => void }) {
+  const service = getService(answers);
+  const aides = matchAides(answers);
+  const lines = summaryLines(answers);
+  const body = [
+    "Bonjour,", "", "Voici mes réponses au questionnaire Mziane :", ...lines.map((l) => `- ${l}`), "",
+    `Service recommandé : ${service.title}`,
+    ...(aides.length ? ["", "Aides identifiées :", ...aides.map((x) => `- ${x.titre}`)] : []),
+    "", "Mes coordonnées (nom, téléphone, ville) :", "",
+  ].join("\n");
+  const mailto = `mailto:contact@mziane.com?subject=${encodeURIComponent(`Demande : ${service.title}`)}&body=${encodeURIComponent(body)}`;
 
   return (
-    <div className="min-h-screen bg-ghost flex flex-col">
-      {/* Progress */}
-      <div className="w-full h-1.5 bg-zinc-100">
-        <div className="h-full bg-amber-400 transition-all duration-700 ease-out" style={{ width: `${progress}%` }} />
-      </div>
+    <div className="animate-in fade-in slide-in-from-bottom-3 duration-500">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-[13px] font-semibold text-blue-700">
+        <Check className="h-3.5 w-3.5" /> Votre recommandation
+      </span>
+      <h1 className="mt-4 text-[clamp(1.8rem,4.5vw,2.6rem)] font-extrabold leading-tight tracking-tight text-zinc-900">{service.title}</h1>
+      <p className="mt-3 text-[17px] text-zinc-600">{service.subtitle}</p>
 
-      {/* Header */}
-      <div className="max-w-3xl mx-auto w-full px-6 pt-6 pb-2 flex items-center justify-between">
-        <button
-          onClick={handleBack}
-          className={cn(
-            "flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-900 transition-colors",
-            history.length === 0 && !done ? "opacity-0 pointer-events-none" : ""
+      <div className="mt-8 overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-[0_24px_50px_-20px_rgba(31,42,61,.22)]">
+        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-zinc-200 bg-zinc-50 p-6">
+          <div>
+            <span className="block text-sm font-semibold text-zinc-500">Tarif</span>
+            <span className="text-3xl font-extrabold tracking-tight text-zinc-900">{service.price}</span>
+          </div>
+          <span className="max-w-[240px] text-right text-sm text-zinc-500 max-sm:text-left">{service.priceNote}</span>
+        </div>
+        <ul className="grid gap-3 p-6">
+          {service.features.map((f) => (
+            <li key={f} className="flex items-start gap-3 text-[15px] text-zinc-800">
+              <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-50 text-blue-700"><Check className="h-3 w-3" strokeWidth={3} /></span>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-col gap-3 border-t border-zinc-200 p-6 sm:flex-row">
+          {service.priceId && (
+            <div className="flex-1">
+              <PaddleCheckoutButton priceId={service.priceId} label="Commander maintenant" popular />
+            </div>
           )}
-        >
-          <ArrowLeft className="w-4 h-4" /> Retour
-        </button>
-        {!done ? (
-          <span className="text-sm text-zinc-400 font-medium">{currentStep?.num} / {totalSteps}</span>
-        ) : (
-          <span className="text-sm font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
-            🇲🇦 Votre recommandation
-          </span>
-        )}
+          <a href={mailto} className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-blue-600 px-6 font-bold text-white transition hover:bg-blue-700">
+            <Mail className="h-4 w-4" /> {service.priceId ? "Parler à un expert" : "Demander mon diagnostic gratuit"}
+          </a>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-10">
-        {!done ? (
-          <StepWrapper stepKey={stepKey}>
-            <div className="max-w-3xl w-full">
-              <div className="mb-10 text-center">
-                <p className="text-blue-500 font-semibold text-sm mb-3 uppercase tracking-widest">
-                  Question {currentStep?.num}
-                </p>
-                <h1 className="text-4xl md:text-5xl font-black text-zinc-900 mb-4 leading-tight">
-                  {currentStep?.question}
-                </h1>
-                <p className="text-zinc-500 text-lg max-w-xl mx-auto">{currentStep?.subtitle}</p>
-              </div>
+      {aides.length > 0 && (
+        <section className="mt-12">
+          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900">
+            {aides.length} aide{aides.length > 1 ? "s" : ""} pour votre situation
+          </h2>
+          <p className="mt-2 text-zinc-600">
+            D&apos;après vos réponses, vous pourriez y avoir droit. On vérifie chaque condition avec vous avant de monter le dossier.
+          </p>
+          <div className="mt-6 grid gap-3">
+            {aides.map((x) => (
+              <Link key={x.id} href={`/aides#${x.id}`} className="group rounded-2xl border border-zinc-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-blue-500 hover:shadow-[0_12px_30px_-8px_rgba(31,42,61,.18)]">
+                <span className="block font-bold text-zinc-900 group-hover:text-blue-700">{x.titre}</span>
+                <span className="mt-1 block text-sm text-zinc-500">{x.organisme}</span>
+                <span className="mt-2 block text-[15px] leading-relaxed text-zinc-700 line-clamp-3">{x.apport}</span>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-zinc-500">Montants indicatifs, susceptibles d&apos;évoluer selon les textes en vigueur.</p>
+        </section>
+      )}
 
-              <div className={cn(
-                "grid gap-4",
-                currentStep?.options.length === 2 ? "grid-cols-1 md:grid-cols-2" :
-                currentStep?.options.length >= 4 ? "grid-cols-1 md:grid-cols-2" :
-                "grid-cols-1 md:grid-cols-3"
-              )}>
-                {currentStep?.options.map((option) => (
-                  <button
-                    key={option.id}
-                    onClick={() => handleSelect(option)}
-                    className="group text-left bg-white border-2 border-zinc-200 rounded-2xl p-6 hover:border-zinc-900 hover:shadow-[4px_4px_0px_0px] hover:shadow-zinc-900 hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 focus:outline-none"
-                  >
-                    <div className="text-4xl mb-4">{option.emoji}</div>
-                    <h3 className="font-black text-xl text-zinc-900 mb-1">{option.label}</h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed">{option.description}</p>
-                    <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-transparent group-hover:text-zinc-700 transition-colors">
-                      Choisir <ChevronRight className="w-4 h-4" />
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </StepWrapper>
-        ) : (
-          <StepWrapper stepKey={stepKey}>
-            <div className="max-w-2xl w-full">
-              <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 bg-amber-100 border-2 border-amber-400 rounded-full px-4 py-1.5 text-sm font-bold text-amber-800 mb-6 rotate-[-1deg]">
-                  🎉 Profil analysé !
-                </div>
-                <h1 className="text-4xl md:text-5xl font-black text-zinc-900 mb-4 leading-tight">
-                  Votre recommandation
-                </h1>
-                <p className="text-zinc-500 text-lg">
-                  Basée sur le marché marocain et vos réponses.
-                </p>
-              </div>
-
-              {/* Summary chips */}
-              <div className="flex flex-wrap gap-2 justify-center mb-8">
-                {Object.entries(answers).map(([stepId, optionId]) => {
-                  const label = answerLabels[stepId]?.[optionId];
-                  if (!label) return null;
-                  return (
-                    <span key={stepId} className="bg-zinc-100 border border-zinc-300 text-zinc-700 text-xs font-semibold px-3 py-1 rounded-full">
-                      {label}
-                    </span>
-                  );
-                })}
-              </div>
-
-              {recommendation && (
-                <div className="border-2 border-zinc-900 rounded-2xl bg-white shadow-[6px_6px_0px_0px] shadow-zinc-900 overflow-hidden">
-                  <div className={cn("p-6 border-b-2 border-zinc-900", recommendation.badgeColor)}>
-                    <div className="flex items-start justify-between gap-4 flex-wrap">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border-2 border-zinc-900 bg-white inline-block mb-3">
-                          {recommendation.badge}
-                        </span>
-                        <h2 className="text-2xl font-black text-zinc-900">{recommendation.title}</h2>
-                        <p className="text-zinc-600 mt-1">{recommendation.subtitle}</p>
-                      </div>
-                      <div className="text-right shrink-0">
-                        <p className="text-3xl font-black text-zinc-900">{recommendation.price}</p>
-                        <p className="text-xs text-zinc-500 mt-1 max-w-[160px]">{recommendation.priceNote}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <p className="text-sm font-bold text-zinc-500 uppercase tracking-widest mb-4">Ce qui est inclus</p>
-                    <ul className="space-y-3 mb-6">
-                      {recommendation.features.map((f) => (
-                        <li key={f} className="flex items-start gap-3">
-                          <div className="w-5 h-5 rounded-full border-2 border-zinc-900 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="w-3 h-3" />
-                          </div>
-                          <span className="text-zinc-800 font-medium text-sm">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {recommendation.extras.length > 0 && (
-                      <div className="bg-zinc-50 border-2 border-zinc-200 rounded-xl p-4 mb-6">
-                        <p className="text-sm font-bold text-zinc-700 mb-2">Options recommandées pour vous</p>
-                        {recommendation.extras.map((e) => (
-                          <p key={e} className="text-sm text-zinc-600 mb-1">{e}</p>
-                        ))}
-                      </div>
-                    )}
-
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      {recommendation.priceId ? (
-                        <div className="flex-1">
-                          <PaddleCheckoutButton
-                            priceId={recommendation.priceId}
-                            label={recommendation.cta}
-                            popular
-                          />
-                        </div>
-                      ) : (
-                        <Button className="flex-1 h-12 bg-zinc-900 text-white font-bold rounded-full text-base shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-                          {recommendation.cta}
-                        </Button>
-                      )}
-                      <Button variant="outline" className="flex-1 h-12 border-2 border-zinc-900 rounded-full text-base font-bold hover:bg-zinc-50">
-                        Parler à un expert
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="text-center mt-8">
-                <button
-                  onClick={() => { setAnswers({}); setHistory([]); setDone(false); setCurrentStepId("type"); setStepKey("restart-" + Date.now()); }}
-                  className="text-sm text-zinc-400 hover:text-zinc-600 underline transition-colors"
-                >
-                  Recommencer le questionnaire
-                </button>
-              </div>
-            </div>
-          </StepWrapper>
-        )}
+      <div className="mt-10 text-center">
+        <button type="button" onClick={onRestart} className="text-sm text-zinc-500 underline transition hover:text-zinc-800">
+          Recommencer le questionnaire
+        </button>
       </div>
     </div>
   );

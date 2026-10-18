@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Clock, Shield, Users } from "lucide-react";
+import { Clock, Shield, Users, FolderOpen, FileText, TrendingUp, Briefcase, Search, BarChart3 } from "lucide-react";
 
 const prestations = [
-  { icon: "📁", title: "Tenue de comptabilité", desc: "Saisie des pièces, lettrage des comptes, rapprochements bancaires et grand livre mensuel conformes au CGNC (Code Général de Normalisation Comptable)." },
-  { icon: "📋", title: "Déclarations fiscales (DGI)", desc: "TVA, IS, IR, Patente, taxe professionnelle — déclarations et télépaiement sur Simpl-IS, Simpl-TVA et portail DGI." },
-  { icon: "📈", title: "Bilan & liasse fiscale", desc: "Établissement du bilan annuel, CPC, tableau de financement et liasse fiscale dans les délais légaux au Maroc." },
-  { icon: "💼", title: "Gestion de la paie (CNSS)", desc: "Bulletins de paie, déclarations CNSS, CIMR, AMO et bordereau de versement mensuel." },
-  { icon: "🔍", title: "Conseil & optimisation fiscale", desc: "Analyse de votre résultat, optimisation IS/IR, recommandations sur les régimes d'imposition et avantages fiscaux disponibles." },
-  { icon: "📊", title: "Tableaux de bord financiers", desc: "Reporting mensuel sur votre trésorerie, chiffre d'affaires et résultat pour piloter votre activité en temps réel." },
+  { icon: FolderOpen, title: "Tenue de comptabilité", desc: "Saisie des pièces, lettrage des comptes, rapprochements bancaires et grand livre mensuel conformes au CGNC (Code Général de Normalisation Comptable)." },
+  { icon: FileText, title: "Déclarations fiscales (DGI)", desc: "TVA, IS, IR, Patente, taxe professionnelle — déclarations et télépaiement sur Simpl-IS, Simpl-TVA et portail DGI." },
+  { icon: TrendingUp, title: "Bilan & liasse fiscale", desc: "Établissement du bilan annuel, CPC, tableau de financement et liasse fiscale dans les délais légaux au Maroc." },
+  { icon: Briefcase, title: "Gestion de la paie (CNSS)", desc: "Bulletins de paie, déclarations CNSS, CIMR, AMO et bordereau de versement mensuel." },
+  { icon: Search, title: "Conseil & optimisation fiscale", desc: "Analyse de votre résultat, optimisation IS/IR, recommandations sur les régimes d'imposition et avantages fiscaux disponibles." },
+  { icon: BarChart3, title: "Tableaux de bord financiers", desc: "Reporting mensuel sur votre trésorerie, chiffre d'affaires et résultat pour piloter votre activité en temps réel." },
 ];
 
 const obligations = [
@@ -28,7 +28,7 @@ export default function ComptabilitePage() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-60 -z-10" />
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-amber-100 rounded-full blur-3xl opacity-60 -z-10" />
         <div className="inline-flex items-center gap-2 bg-blue-100 border-2 border-blue-400 rounded-full px-4 py-1.5 text-sm font-semibold text-blue-800 mb-8 rotate-[-1deg]">
-          📊 Experts-comptables & comptables agréés au Maroc
+          <BarChart3 className="h-4 w-4" /> Experts-comptables et comptables agréés au Maroc
         </div>
         <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
           Votre comptabilité marocaine,
@@ -44,7 +44,7 @@ export default function ComptabilitePage() {
         </p>
         <div className="flex flex-wrap gap-4">
           <Button className="h-14 px-8 bg-zinc-900 text-white text-lg font-bold rounded-full shadow-[4px_4px_0px_0px] shadow-amber-400 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            Obtenir un devis →
+            Obtenir un devis
           </Button>
           <Button asChild variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-2 border-zinc-900 hover:bg-zinc-100 transition-all">
             <Link href="/tarifs">Voir les tarifs</Link>
@@ -60,9 +60,9 @@ export default function ComptabilitePage() {
           <p className="text-zinc-600 max-w-xl mx-auto">Conformes au CGNC, au Code Général des Impôts marocain et aux obligations DGI/CNSS.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {prestations.map(({ icon, title, desc }) => (
+          {prestations.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="bg-white border-2 border-zinc-200 rounded-2xl p-6 hover:border-zinc-900 hover:shadow-[4px_4px_0px_0px] hover:shadow-zinc-900 transition-all duration-200">
-              <div className="text-3xl mb-4">{icon}</div>
+              <Icon className="mb-4 h-8 w-8 text-blue-600" />
               <h3 className="font-black text-lg text-zinc-900 mb-2">{title}</h3>
               <p className="text-zinc-600 text-sm leading-relaxed">{desc}</p>
             </div>
@@ -122,7 +122,7 @@ export default function ComptabilitePage() {
           <h2 className="text-4xl font-black text-white mb-4">Externalisons votre comptabilité.</h2>
           <p className="text-zinc-400 text-lg mb-10">Premier mois offert pour tout nouveau client.</p>
           <Button className="h-14 px-10 bg-amber-400 text-zinc-900 text-lg font-black rounded-full shadow-[4px_4px_0px_0px] shadow-amber-600 hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            Obtenir un devis gratuit →
+            Obtenir un devis gratuit
           </Button>
         </div>
       </section>
