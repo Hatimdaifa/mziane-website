@@ -30,7 +30,7 @@ const GROUPS: { title: string; rows: Row[] }[] = [
     rows: [
       { label: "Prix", cell: (p) => <strong className="text-base text-zinc-900">{p.monthly ? `${fmtDH(p.monthly)} / mois` : fmtDH(p.once ?? 0)}</strong> },
       { label: "Total sur la durée", cell: (p) => (p.monthly ? `${fmtDH(packTotal(p))} sur ${p.months} mois` : "Paiement unique") },
-      { label: "Payé d'avance", cell: (p) => (p.upfront ? fmtDH(p.upfront) : p.once ? "En 3 fois sans frais" : "Au mois") },
+      { label: "Payé d'avance", cell: (p) => (p.upfront ? fmtDH(p.upfront) : p.once ? (p.installments ? `En une fois ou en ${p.installments} fois sans frais` : "En une fois") : "Au mois") },
       { label: "Valeur à la carte", cell: (p) => <span className="text-zinc-500 line-through">{fmtDH(packValue(p))}</span> },
       { label: "Vous économisez", cell: (p) => <span className="font-bold text-amber-800">{fmtDH(Math.max(packSavings(p), packSavingsUpfront(p)))}{p.upfront ? " max." : ""}</span> },
     ],

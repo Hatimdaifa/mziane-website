@@ -1,15 +1,16 @@
 // Modèle de la commande : lecture des paramètres d'URL, lignes, totaux et message WhatsApp.
 // Aucun prix ici : tout vient de src/lib/offers.ts.
 import {
-  ADDONS, AIDES_MIN, AIDES_PLAFOND, FORMALITE_SUPPLEMENT, FORMALITE_SUPPLEMENT_TAUX, FORMES, FRAIS_ETAT, PRIX_CREATION, TVA,
-  compta, comptaParForme, creationAE, creationSociete, fmtDH, formalites, offerById, packById, packTerre,
-  packValue, type AddOn, type FormeId, type Offer, type Pack, type Tax,
+  ADDONS, AIDES_MIN, AIDES_PLAFOND, COMPTA_EXTRAS, FORMALITE_SUPPLEMENT, FORMALITE_SUPPLEMENT_TAUX, FORMES, FRAIS_ETAT, PRIX_CREATION, TVA,
+  compta, comptaParForme, creationAE, creationSociete, fmtDH, formalites, offerById, packById, packSavingsUpfront, packTerre,
+  packTotal, packValue, type AddOn, type FormeId, type Offer, type Pack, type Tax,
 } from "@/lib/offers";
 
 // ── Paramètres d'URL ────────────────────────────────────────────────────────
 // /commande?pack=<id> | ?offre=<id> | ?formalite=<id,id>
-//   &forme=<FormeId> &opt=<addon ou compta id, séparés par des virgules> &aides=1 &paiement=avance|mensuel
-export type PayMode = "avance" | "mensuel";
+//   &forme=<FormeId> &opt=<addon ou compta id, séparés par des virgules> &aides=1 &paiement=avance|mensuel|3fois
+export type PayMode = "avance" | "mensuel" | "3fois";
+const PAY_MODES: PayMode[] = ["avance", "mensuel", "3fois"];
 
 export interface OrderSpec {
   packId?: string;
@@ -35,7 +36,7 @@ export function parseSpec(sp: ParamReader): OrderSpec {
     formalites: list(sp.get("formalite")).filter((id) => formalites.some((f) => f.id === id)),
     forme: isForme(sp.get("forme")) ? (sp.get("forme") as FormeId) : undefined,
     opts,
-    mode: paiement === "avance" || paiement === "mensuel" ? paiement : undefined,
+    mode: PAY_MODES.includes(paiement as PayMode) ? (paiement as PayMode) : undefined,
   };
 }
 
@@ -79,6 +80,7 @@ export const baseKey = (b: Base) =>
 const isCreationAE = (id?: string) => !!id && creationAE.some((o) => o.id === id);
 const isCreationSoc = (id?: string) => !!id && creationSociete.some((o) => o.id === id);
 export const isCreationOffer = (id?: string) => isCreationAE(id) || isCreationSoc(id);
+const isComptaId = (id: string) => compta.some((o) => o.id === id);
 const isIntlCreation = (id?: string) => id === "intl-mre" || id === "intl-etranger";
 
 /** Offre de création équivalente pour la forme choisie, et son prix (null = sur devis). */
@@ -111,6 +113,52 @@ export function defaultForme(base: Base, wanted?: FormeId): FormeId | undefined 
   return choices.includes("sarlau") ? "sarlau" : choices[0];
 }
 
+// ── Mode de paiement ────────────────────────────────────────────────────────
+export interface PayChoice { mode: PayMode; title: string; price: string; hint: string }
+
+/** Échéances d'un prix payé en plusieurs fois : la première absorbe l'arrondi. */
+export function splitInstallments(total: number, n: number) {
+  const next = Math.floor(total / n);
+  return { first: total - next * (n - 1), next };
+}
+
+/** Modes de paiement proposés pour cette commande (le premier est celui par défaut). */
+export function payChoices(base: Base): PayChoice[] {
+  if (base.kind === "pack") {
+    const p = base.pack;
+    if (p.monthly && p.upfront) {
+      const gain = packTotal(p) - p.upfront;
+      const months = Math.round(gain / p.monthly);
+      return [
+        { mode: "mensuel", title: "Chaque mois", price: `${fmtDH(p.monthly)} ${p.tax} / mois pendant ${p.months} mois`, hint: "Rien à payer sur le pack avant le démarrage." },
+        { mode: "avance", title: "D'avance", price: `${fmtDH(p.upfront)} ${p.tax} en une fois`, hint: gain > 0 ? `${fmtDH(gain)} de moins${months > 0 ? `, soit ${months} mois offerts` : ""}. Économie totale ${fmtDH(packSavingsUpfront(p))}.` : "" },
+      ];
+    }
+    if (p.once != null && p.installments) {
+      const { first, next } = splitInstallments(p.once, p.installments);
+      return [
+        { mode: "avance", title: "En une fois", price: `${fmtDH(p.once)} ${p.tax}`, hint: "Réglé au démarrage." },
+        { mode: "3fois", title: `En ${p.installments} fois sans frais`, price: `${fmtDH(first)} puis ${p.installments - 1} x ${fmtDH(next)} ${p.tax}`, hint: "Première échéance au démarrage, puis une par mois. Même prix total." },
+      ];
+    }
+  }
+  if (base.kind === "items" && base.offer && isComptaId(base.offer.id) && base.offer.price) {
+    const o = base.offer;
+    const paid = COMPTA_EXTRAS.annuelMoisPayes;
+    return [
+      { mode: "mensuel", title: "Chaque mois", price: `${fmtDH(o.price!)} ${o.tax} / mois`, hint: "Facturé chaque mois." },
+      { mode: "avance", title: "À l'année", price: `${fmtDH(o.price! * paid)} ${o.tax} pour 12 mois`, hint: `${paid} mois payés pour 12, soit ${fmtDH(o.price! * (12 - paid))} de moins.` },
+    ];
+  }
+  return [];
+}
+
+export function defaultMode(base: Base, wanted?: PayMode): PayMode {
+  const choices = payChoices(base);
+  if (wanted && choices.some((c) => c.mode === wanted)) return wanted;
+  return choices[0]?.mode ?? "mensuel";
+}
+
 // ── Options ─────────────────────────────────────────────────────────────────
 /** Services déjà compris dans chaque pack ("compta" = toute formule de comptabilité). */
 const PACK_INCLUDES: Record<string, string[]> = {
@@ -123,7 +171,6 @@ const PACK_INCLUDES: Record<string, string[]> = {
 };
 
 export const WEB_IDS = ["web-page", "web-vitrine"];
-const isComptaId = (id: string) => compta.some((o) => o.id === id);
 
 export interface OptionDef extends AddOn { kind: "addon" | "compta" }
 
@@ -206,7 +253,11 @@ export function compute(base: Base, forme: FormeId | undefined, opts: string[], 
     title = `Pack ${p.name}`;
     creation = p.id !== "identite";
     marqueFee = p.id === "identite";
-    if (p.once != null) {
+    if (p.once != null && p.installments && mode === "3fois") {
+      const { first, next } = splitInstallments(p.once, p.installments);
+      start.push({ label: `Pack ${p.name}, 1re échéance sur ${p.installments}`, amount: first, tax: p.tax, note: `prix total ${fmtDH(p.once)} ${p.tax}` });
+      recurring.push({ label: `Pack ${p.name}, échéances suivantes`, amount: next, tax: p.tax, unit: "mois", months: p.installments - 1, from: "à partir du mois suivant" });
+    } else if (p.once != null) {
       start.push({ label: `Pack ${p.name}`, amount: p.once, tax: p.tax, strike: packValue(p) });
     } else if (p.monthly) {
       if (mode === "avance" && p.upfront) {
@@ -236,6 +287,9 @@ export function compute(base: Base, forme: FormeId | undefined, opts: string[], 
           success.push({ label: o.name, text: `${fmtDH(o.price ?? 0)} ${o.tax}, ${o.pill.toLowerCase()}. Rien à payer si refus.` });
         } else if (o.price === null) {
           start.push({ label: title, amount: null, tax: o.tax, note: o.priceLabel ?? "Sur devis" });
+        } else if (o.billing === "month" && isComptaId(o.id) && mode === "avance") {
+          const paid = COMPTA_EXTRAS.annuelMoisPayes;
+          start.push({ label: `${title}, 12 mois payés à l'année`, amount: o.price * paid, tax: o.tax, strike: o.price * 12, note: `${paid} mois payés pour 12` });
         } else if (o.billing === "month") {
           const months = o.id.startsWith("domi-") ? 6 : undefined;
           recurring.push({ label: title, amount: o.price, tax: o.tax, unit: "mois", months, from: "à partir du début de la prise en charge" });
@@ -396,7 +450,8 @@ export function buildMessage(p: { ref: string; c: Computed; forme?: FormeId; mod
   // La forme n'est utile que si elle a été choisie (création) ou indiquée (formalités)
   const formeUtile = formeChoices(p.base).length > 0 || (p.base.kind === "items" && p.base.formalites.length > 0);
   if (p.forme && formeUtile) L.push(`Forme : ${FORMES.find((f) => f.id === p.forme)?.label ?? p.forme}`);
-  if (p.base.kind === "pack" && p.base.pack.monthly && p.base.pack.upfront) L.push(`Paiement : ${p.mode === "avance" ? "d'avance" : "mensuel"}`);
+  const choice = payChoices(p.base).find((x) => x.mode === p.mode);
+  if (choice) L.push(`Paiement : ${choice.title.toLowerCase()}`);
   L.push("");
   if (c.start.length) {
     L.push("*À payer au démarrage*");

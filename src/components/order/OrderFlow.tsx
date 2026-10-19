@@ -13,13 +13,13 @@ import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   PRIX_CREATION, PROMESSES, compta, comptaParForme, creationAE, creationSociete, fmtDH, mailLink,
-  offerById, packSavingsUpfront, packTotal, packValue, packTerre, packs, waLink, type FormeId,
+  offerById, packValue, packTerre, packs, waLink, type FormeId,
 } from "@/lib/offers";
 import { PackCard } from "@/components/offer-ui";
 import {
   EMPTY_CONTACT, PAY_LABELS, PREF_LABELS, WEB_IDS, availableOptions, baseKey, buildMessage, commandeHref, compute,
-  creationFor, defaultForme, emailValid, formeChoices, formeLabel, isCreationOffer, makeReference, parseSpec,
-  phoneValid, recurringText, resolveBase, upgradeFor, type Base, type Contact, type OrderSpec, type PayMode,
+  creationFor, defaultForme, defaultMode, emailValid, formeChoices, formeLabel, isCreationOffer, makeReference, parseSpec,
+  payChoices, phoneValid, recurringText, resolveBase, upgradeFor, type Base, type Contact, type OrderSpec, type PayMode,
 } from "./model";
 import { readJSON, useHydrated, writeJSON } from "./storage";
 
@@ -83,8 +83,7 @@ function Order({ spec, base: urlBase }: { spec: OrderSpec; base: Base }) {
     const avail = availableOptions(urlBase, defaultForme(urlBase, spec.forme), wanted.find((w) => compta.some((c) => c.id === w)));
     return wanted.filter((w) => avail.some((a) => a.id === w));
   });
-  const hasUpfront = urlBase.kind === "pack" && !!urlBase.pack.monthly && !!urlBase.pack.upfront;
-  const [mode, setMode] = useState<PayMode>(() => (hasUpfront ? (spec.mode ?? (sameBase ? draft?.mode : undefined) ?? "mensuel") : "mensuel"));
+  const [mode, setMode] = useState<PayMode>(() => defaultMode(urlBase, spec.mode ?? (sameBase ? draft?.mode : undefined)));
   const [contact, setContact] = useState<Contact>(() => ({ ...EMPTY_CONTACT, ...(draft?.contact ?? {}) }));
   const [step, setStep] = useState(0);
   const [accepted, setAccepted] = useState(false);
@@ -225,7 +224,7 @@ function Order({ spec, base: urlBase }: { spec: OrderSpec; base: Base }) {
           <div className="min-w-0 flex-1">
             <span className="block text-[11px] font-semibold uppercase tracking-wide text-zinc-500">Au démarrage</span>
             <span className="block truncate text-lg font-extrabold leading-tight text-zinc-900 tabular-nums">{fmtDH(c.startTotal)} TTC</span>
-            {firstRecurring && <span className="block truncate text-[12px] text-zinc-500">puis {fmtDH(firstRecurring.amount)} {firstRecurring.tax} / mois</span>}
+            {firstRecurring && <span className="block truncate text-[12px] text-zinc-500">puis {fmtDH(firstRecurring.amount)} {firstRecurring.tax} / {firstRecurring.unit}{firstRecurring.label.endsWith("échéances suivantes") ? `, ${firstRecurring.months} fois` : ""}</span>}
           </div>
           <button type="button" onClick={primary} className="inline-flex h-12 shrink-0 items-center gap-1.5 rounded-2xl bg-amber-400 px-4 text-[15px] font-bold text-zinc-900">
             {step === 2 ? <><MessageCircle className="h-4 w-4" /> Envoyer</> : <>{step === 0 ? "Récapitulatif" : "Continuer"} <ArrowRight className="h-4 w-4" /></>}
@@ -279,6 +278,7 @@ function StepOffer({ base, forme, onForme, offreId, onOffre, mode, onMode, optio
   upgrade: ReturnType<typeof upgradeFor>;
 }) {
   const formes = formeChoices(base);
+  const choices = payChoices(base);
   const pack = base.kind === "pack" ? base.pack : null;
   const prixForme = forme ? PRIX_CREATION[forme] : null;
   const prixUnique = !!prixForme && prixForme.every((p) => p === prixForme[0]);
@@ -369,24 +369,18 @@ function StepOffer({ base, forme, onForme, offreId, onOffre, mode, onMode, optio
         )}
       </Card>
 
-      {pack && pack.monthly && pack.upfront && (
+      {choices.length > 0 && (
         <Card>
           <h2 className="text-lg font-bold text-zinc-900">Comment souhaitez-vous payer ?</h2>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Mode de paiement du pack">
-            {(["mensuel", "avance"] as const).map((m) => {
-              const on = mode === m;
-              const gain = packTotal(pack) - pack.upfront!;
-              const months = pack.monthly ? Math.round(gain / pack.monthly) : 0;
+          <div className="mt-4 grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Mode de paiement">
+            {choices.map((ch) => {
+              const on = mode === ch.mode;
               return (
-                <button key={m} type="button" role="radio" aria-checked={on} onClick={() => onMode(m)}
+                <button key={ch.mode} type="button" role="radio" aria-checked={on} onClick={() => onMode(ch.mode)}
                   className={cn("rounded-2xl border-2 p-4 text-left transition", on ? "border-blue-700 bg-blue-50" : "border-zinc-200 hover:border-blue-500")}>
-                  <span className="block font-bold text-zinc-900">{m === "mensuel" ? "Chaque mois" : "D'avance"}</span>
-                  <span className="mt-0.5 block text-sm font-semibold text-zinc-700 tabular-nums">
-                    {m === "mensuel" ? `${fmtDH(pack.monthly!)} ${pack.tax} / mois pendant ${pack.months} mois` : `${fmtDH(pack.upfront!)} ${pack.tax} en une fois`}
-                  </span>
-                  <span className="mt-1 block text-[13px] text-zinc-500">
-                    {m === "mensuel" ? "Rien à payer sur le pack avant le démarrage." : gain > 0 ? `${fmtDH(gain)} de moins${months > 0 ? `, soit ${months} mois offerts` : ""}. Économie totale ${fmtDH(packSavingsUpfront(pack))}.` : ""}
-                  </span>
+                  <span className="block font-bold text-zinc-900">{ch.title}</span>
+                  <span className="mt-0.5 block text-sm font-semibold text-zinc-700 tabular-nums">{ch.price}</span>
+                  {ch.hint && <span className="mt-1 block text-[13px] text-zinc-500">{ch.hint}</span>}
                 </button>
               );
             })}

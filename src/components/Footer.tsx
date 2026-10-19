@@ -98,7 +98,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <p className="text-xs leading-relaxed text-zinc-500">{PROMESSES.societePrivee}</p>
+          <p className="text-xs leading-relaxed text-zinc-500 max-md:pb-16">{PROMESSES.societePrivee}</p>
         </div>
       </div>
     </footer>

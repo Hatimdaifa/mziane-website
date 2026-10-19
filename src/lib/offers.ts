@@ -112,6 +112,8 @@ export const COMPTA_EXTRAS = {
   bulletinPaie: 80,
   bilanSeul: 4990,
   annuel: "Payé à l'année : 10 mois payés pour 12.",
+  /** Nombre de mois facturés quand la comptabilité est payée à l'année */
+  annuelMoisPayes: 10,
 };
 
 export const comptaParForme = (forme: FormeId) => (forme === "auto" ? "compta-declaratif" : "compta-essentiel");
@@ -221,6 +223,8 @@ export interface Pack {
   upfront?: number;
   /** Prix unique (pack sans mensualité) */
   once?: number;
+  /** Paiement du prix unique en plusieurs fois sans frais */
+  installments?: number;
   tax: Tax;
   items: PackItem[];
   freebie?: string;
@@ -317,7 +321,7 @@ export const packs: Pack[] = [
     name: "Identité",
     audience: "Société qui veut protéger son nom et se montrer",
     profils: ["societe", "auto"],
-    once: 5990, tax: "HT",
+    once: 5990, installments: 3, tax: "HT",
     items: [
       { label: "Marque Protection (jusqu'à 3 classes)", value: 1990 },
       { label: "Site vitrine 5 pages", value: 4990 },

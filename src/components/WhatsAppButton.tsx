@@ -44,13 +44,13 @@ export default function WhatsAppButton() {
       title="Écrire sur WhatsApp"
       style={{ right: "calc(1rem + env(safe-area-inset-right, 0px))" }}
       className={cn(
-        "group fixed z-40 grid h-14 w-14 place-items-center rounded-full bg-[#128C4B] text-white shadow-[0_12px_28px_-8px_rgba(18,140,75,.6)] ring-4 ring-white transition hover:-translate-y-0.5 hover:bg-[#0E7A40] focus-visible:outline-none focus-visible:ring-[#00697A] motion-reduce:transition-none",
+        "group fixed z-40 grid h-12 w-12 place-items-center md:h-14 md:w-14 rounded-full bg-[#128C4B] text-white shadow-[0_12px_28px_-8px_rgba(18,140,75,.6)] ring-4 ring-white transition hover:-translate-y-0.5 hover:bg-[#0E7A40] focus-visible:outline-none focus-visible:ring-[#00697A] motion-reduce:transition-none",
         raised
           ? "bottom-[calc(6rem+env(safe-area-inset-bottom,0px))] md:bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))]"
           : "bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] md:bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))]",
       )}
     >
-      <WhatsAppIcon className="h-7 w-7" />
+      <WhatsAppIcon className="h-6 w-6 md:h-7 md:w-7" />
     </a>
   );
 }
