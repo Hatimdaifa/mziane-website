@@ -20,6 +20,8 @@ export interface Option {
 export interface Step {
   id: string;
   question: string;
+  /** Mot clé en arabe standard, affiché sous la question. */
+  ar?: string;
   subtitle: string;
   multi?: boolean;
   options: Option[];
@@ -35,7 +37,8 @@ export const steps: Step[] = [
   {
     id: "besoin",
     question: "De quoi avez-vous besoin ?",
-    subtitle: "Choisissez ce qui vous amène, on vous pose ensuite quelques questions ciblées.",
+    ar: "نوع الخدمة",
+    subtitle: "Ensuite, quelques questions ciblées.",
     options: [
       { id: "creer", icon: Building2, label: "Créer mon entreprise", description: "Auto-entrepreneur, SARLAU, SARL, SAS, SA ou SCI." },
       { id: "aides", icon: HandCoins, label: "Obtenir une aide de l'État", description: "Subventions, primes, prêts d'honneur à 0 % et exonérations." },
@@ -50,17 +53,19 @@ export const steps: Step[] = [
   {
     id: "c-equipe",
     question: "Vous lancez votre activité...",
-    subtitle: "Le nombre d'associés détermine la forme juridique possible.",
+    ar: "عدد الشركاء",
+    subtitle: "Cela détermine la forme juridique.",
     options: [
-      { id: "seul", icon: User, label: "Seul", description: "Vous êtes le seul propriétaire de l'activité." },
+      { id: "seul", icon: User, label: "Seul", description: "Seul propriétaire." },
       { id: "plusieurs", icon: Users, label: "À plusieurs", description: "Avec un ou plusieurs associés." },
-      { id: "immo", icon: House, label: "Pour gérer un bien immobilier", description: "Détenir et transmettre un patrimoine immobilier." },
+      { id: "immo", icon: House, label: "Pour gérer un bien immobilier", description: "Détenir et transmettre un patrimoine." },
     ],
     next: (a) => ({ seul: "c-ca", plusieurs: "c-financement" } as Record<string, string>)[one(a, "c-equipe") ?? ""] ?? "result",
   },
   {
     id: "c-secteur",
     question: "Dans quel secteur ?",
+    ar: "قطاع النشاط",
     subtitle: "Certaines aides sont réservées à des secteurs précis.",
     options: [
       { id: "commerce", icon: ShoppingBag, label: "Commerce", description: "Négoce, boutique, import-export, vente en ligne." },
@@ -77,7 +82,8 @@ export const steps: Step[] = [
   {
     id: "c-ca",
     question: "Chiffre d'affaires prévu la première année ?",
-    subtitle: "Le statut auto-entrepreneur est plafonné à 200 000 DH (services) et 500 000 DH (commerce, industrie, artisanat).",
+    ar: "رقم المعاملات",
+    subtitle: "Auto-entrepreneur : plafond de 200 000 DH (services) ou 500 000 DH (commerce, industrie, artisanat).",
     options: [
       { id: "petit", icon: Receipt, label: "Moins de 200 000 DH" },
       { id: "moyen-commerce", icon: ShoppingBag, label: "200 000 à 500 000 DH, en commerce, industrie ou artisanat" },
@@ -90,18 +96,20 @@ export const steps: Step[] = [
   {
     id: "c-financement",
     question: "Comment sera financé le projet ?",
+    ar: "تمويل المشروع",
     subtitle: "Cela oriente vers une SARL, une SAS ou une SA.",
     options: [
       { id: "associes", icon: Users, label: "Entre associés", description: "Capital apporté par les associés." },
-      { id: "investisseurs", icon: Lightbulb, label: "Avec des investisseurs", description: "Levée de fonds, entrée de nouveaux actionnaires." },
-      { id: "gros", icon: Landmark, label: "Grand projet", description: "Capital de 300 000 DH ou plus, nombreux actionnaires." },
+      { id: "investisseurs", icon: Lightbulb, label: "Avec des investisseurs", description: "Levée de fonds." },
+      { id: "gros", icon: Landmark, label: "Grand projet", description: "Capital de 300 000 DH ou plus." },
     ],
     next: () => "c-salaries",
   },
   {
     id: "c-invest",
     question: "Combien prévoyez-vous d'investir ?",
-    subtitle: "Matériel, local, travaux, stock. Les primes de l'État dépendent de ce montant.",
+    ar: "مبلغ الاستثمار",
+    subtitle: "Matériel, local, travaux, stock.",
     options: [
       { id: "lt100k", icon: HandCoins, label: "Moins de 100 000 DH" },
       { id: "100k-1m", icon: HandCoins, label: "100 000 DH à 1 million DH" },
@@ -113,7 +121,8 @@ export const steps: Step[] = [
   {
     id: "c-salaries",
     question: "Prévoyez-vous de recruter ?",
-    subtitle: "L'État peut prendre en charge une partie des charges des premiers salariés.",
+    ar: "تشغيل الأجراء",
+    subtitle: "L'État peut aider pour les premiers salariés.",
     options: [
       { id: "non", icon: User, label: "Non, pas au début" },
       { id: "1-5", icon: Users, label: "1 à 5 salariés" },
@@ -124,7 +133,8 @@ export const steps: Step[] = [
   {
     id: "c-aide",
     question: "Voulez-vous qu'on cherche une aide de l'État ?",
-    subtitle: "Primes, subventions et prêts d'honneur à 0 %. Jamais de prêt avec intérêt. Le montant dépend surtout de votre investissement.",
+    ar: "دعم الدولة",
+    subtitle: "Primes et prêts d'honneur à 0 %. Jamais de prêt à intérêt.",
     options: [
       { id: "non", icon: CircleOff, label: "Non, pas pour l'instant" },
       { id: "lt100k", icon: HandCoins, label: "Oui, j'investis moins de 100 000 DH" },
@@ -139,11 +149,12 @@ export const steps: Step[] = [
   {
     id: "a-profil",
     question: "Vous êtes...",
-    subtitle: "Les aides ne sont pas les mêmes pour un agriculteur, une entreprise ou un particulier.",
+    ar: "من أنتم؟",
+    subtitle: "Les aides dépendent de votre profil.",
     options: [
-      { id: "agri", icon: Tractor, label: "Agriculteur ou éleveur", description: "Vous exploitez ou voulez exploiter une terre." },
+      { id: "agri", icon: Tractor, label: "Agriculteur ou éleveur", description: "Vous exploitez une terre." },
       { id: "porteur", icon: Lightbulb, label: "Porteur de projet", description: "Vous voulez créer votre activité." },
-      { id: "entreprise", icon: Store, label: "Une entreprise en activité", description: "Vous voulez investir, recruter, former ou exporter." },
+      { id: "entreprise", icon: Store, label: "Une entreprise en activité", description: "Investir, recruter, exporter." },
       { id: "coop", icon: HeartHandshake, label: "Une coopérative ou association", description: "Agricole, artisanale, féminine..." },
       { id: "particulier", icon: User, label: "Un particulier", description: "Une aide pour vous ou votre famille." },
     ],
@@ -152,6 +163,7 @@ export const steps: Step[] = [
   {
     id: "a-agri",
     question: "Quel est votre projet agricole ?",
+    ar: "المشروع الفلاحي",
     subtitle: "Plusieurs choix possibles.",
     multi: true,
     options: [
@@ -168,7 +180,8 @@ export const steps: Step[] = [
   {
     id: "a-surface",
     question: "Quelle surface exploitez-vous ?",
-    subtitle: "Les petites exploitations ont droit à des taux de subvention plus élevés.",
+    ar: "المساحة المستغلة",
+    subtitle: "Les petites exploitations sont mieux subventionnées.",
     options: [
       { id: "petit", icon: Sprout, label: "5 hectares ou moins" },
       { id: "moyen", icon: Sprout, label: "Entre 5 et 20 hectares" },
@@ -180,6 +193,7 @@ export const steps: Step[] = [
   {
     id: "e-besoins",
     question: "Que voulez-vous financer ?",
+    ar: "ماذا تريدون تمويله؟",
     subtitle: "Plusieurs choix possibles.",
     multi: true,
     options: [
@@ -195,6 +209,7 @@ export const steps: Step[] = [
   {
     id: "c-invest-e",
     question: "Montant de l'investissement prévu ?",
+    ar: "مبلغ الاستثمار",
     subtitle: "Les primes à l'investissement dépendent de ce montant.",
     options: [
       { id: "lt100k", icon: HandCoins, label: "Moins de 100 000 DH" },
@@ -207,6 +222,7 @@ export const steps: Step[] = [
   {
     id: "coop-secteur",
     question: "Dans quel domaine est votre coopérative ?",
+    ar: "مجال التعاونية",
     subtitle: "Chaque domaine a ses programmes d'appui.",
     options: [
       { id: "agricole", icon: Sprout, label: "Agriculture ou élevage" },
@@ -219,6 +235,7 @@ export const steps: Step[] = [
   {
     id: "part-situation",
     question: "Quelle est votre situation ?",
+    ar: "وضعيتكم",
     subtitle: "Plusieurs choix possibles.",
     multi: true,
     options: [
@@ -238,7 +255,8 @@ export const steps: Step[] = [
   {
     id: "p-profil",
     question: "Votre profil",
-    subtitle: "Plusieurs choix possibles. Certains programmes sont réservés à ces profils.",
+    ar: "صفتكم",
+    subtitle: "Plusieurs choix possibles.",
     multi: true,
     options: [
       { id: "femme", icon: User, label: "Je suis une femme" },
@@ -255,6 +273,7 @@ export const steps: Step[] = [
   {
     id: "g-action",
     question: "Que voulez-vous faire ?",
+    ar: "الإجراء المطلوب",
     subtitle: "Plusieurs choix possibles.",
     multi: true,
     options: [
@@ -272,6 +291,7 @@ export const steps: Step[] = [
   {
     id: "g-forme",
     question: "Quelle est la forme de votre entreprise ?",
+    ar: "الشكل القانوني",
     subtitle: "Les formalités et le coût dépendent de la forme.",
     options: [
       { id: "sarlau", icon: User, label: "SARLAU" },
@@ -287,6 +307,7 @@ export const steps: Step[] = [
   {
     id: "k-forme",
     question: "Quelle est votre structure ?",
+    ar: "الشكل القانوني",
     subtitle: "Les obligations comptables ne sont pas les mêmes.",
     options: [
       { id: "ae", icon: Store, label: "Auto-entrepreneur ou entreprise individuelle" },
@@ -298,6 +319,7 @@ export const steps: Step[] = [
   {
     id: "k-salaries",
     question: "Combien de salariés ?",
+    ar: "عدد الأجراء",
     subtitle: "Pour prévoir la gestion de la paie et des déclarations CNSS.",
     options: [
       { id: "non", icon: User, label: "Aucun" },
@@ -311,7 +333,8 @@ export const steps: Step[] = [
   {
     id: "x-situation",
     question: "Quelle est votre situation ?",
-    subtitle: "Cela détermine les démarches bancaires et administratives.",
+    ar: "وضعيتكم",
+    subtitle: "Cela détermine les démarches.",
     options: [
       { id: "mre", icon: Plane, label: "Marocain résidant à l'étranger (MRE)" },
       { id: "etranger", icon: Globe, label: "Étranger non-résident" },

@@ -27,10 +27,10 @@ export default function Result({ answers, onRestart, onBack }: { answers: Answer
   ].join("\n");
 
   const steps = [
-    { t: "Vous validez votre commande", d: "Récapitulatif clair, puis vos coordonnées. Pas de compte à créer." },
-    { t: "Un conseiller vous confirme tout", d: "Sur WhatsApp ou par téléphone, il vérifie votre dossier avec vous." },
-    { t: "Vous recevez le lien de paiement", d: PROMESSES.paiement },
-    { t: "On lance vos démarches", d: "Vous suivez chaque étape avec votre conseiller jusqu'au bout." },
+    { t: "Vous validez votre commande", d: "Sans compte à créer." },
+    { t: "Un conseiller vous confirme tout", d: "Sur WhatsApp ou par téléphone." },
+    { t: "Vous recevez le lien de paiement", d: "Carte, virement ou espèces (Cash Plus, Wafacash)." },
+    { t: "On lance vos démarches", d: "Vous suivez chaque étape." },
   ];
 
   return (
@@ -62,7 +62,7 @@ export default function Result({ answers, onRestart, onBack }: { answers: Answer
           <h2 className="text-2xl font-extrabold tracking-tight text-zinc-900">
             {plan.aides.length} aide{plan.aides.length > 1 ? "s" : ""} pour votre situation
           </h2>
-          <p className="mt-2 text-zinc-600">D&apos;après vos réponses, vous pourriez y avoir droit. On vérifie chaque condition avec vous avant de monter le dossier.</p>
+          <p className="mt-2 text-zinc-600">Vous pourriez y avoir droit. On vérifie chaque condition avec vous.</p>
 
           {canAddAides && (
             <label className={cn("mt-5 flex cursor-pointer items-start gap-3 rounded-2xl border-2 p-4 transition", withAides ? "border-blue-700 bg-blue-50" : "border-zinc-200 bg-white hover:border-blue-500")}>
@@ -84,7 +84,7 @@ export default function Result({ answers, onRestart, onBack }: { answers: Answer
               </Link>
             ))}
           </div>
-          <p className="mt-4 text-sm text-zinc-500">Montants indicatifs, susceptibles d&apos;évoluer selon les textes en vigueur. {PROMESSES.societePrivee}</p>
+          <p className="mt-4 text-sm text-zinc-500">Montants indicatifs. {PROMESSES.societePrivee}</p>
         </section>
       )}
 

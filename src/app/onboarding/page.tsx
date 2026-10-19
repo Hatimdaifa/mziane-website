@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { readJSON, removeKey, useHydrated, writeJSON } from "@/components/order/storage";
 import { BESOINS, maxRemaining, pathAnswers, stepById, type Answers, type Option } from "./questions";
 import Result from "./Result";
+import { Ar } from "@/components/Ar";
 
 const SAVE_KEY = "mziane-onboarding-v1";
 
@@ -133,11 +134,11 @@ function Questionnaire({ besoin }: { besoin: string | null }) {
               </span>
             </div>
             {stepId === "besoin" && (
-              <p className="mt-3 flex items-center gap-1.5 text-[13px] text-zinc-500"><Clock className="h-3.5 w-3.5" /> Quelques questions selon votre besoin, environ 1 minute. Sans inscription.</p>
+              <p className="mt-3 flex items-center gap-1.5 text-[13px] text-zinc-500"><Clock className="h-3.5 w-3.5" /> Environ 1 minute, sans inscription.</p>
             )}
             {resumed && history.length > 0 && (
               <p className="mt-3 text-[13px] text-zinc-500">
-                Nous avons repris vos réponses là où vous vous étiez arrêté.{" "}
+                Vos réponses ont été reprises.{" "}
                 <button type="button" onClick={restart} className="font-semibold text-blue-700 underline">Recommencer</button>
               </p>
             )}
@@ -146,7 +147,7 @@ function Questionnaire({ besoin }: { besoin: string | null }) {
 
         {step && (
           <div key={step.id} className="animate-in fade-in slide-in-from-bottom-3 duration-500">
-            <h1 className="text-[clamp(1.8rem,4.5vw,2.6rem)] font-extrabold leading-tight tracking-tight text-zinc-900 text-balance">{step.question}</h1>
+            <h1 className="text-[clamp(1.8rem,4.5vw,2.6rem)] font-extrabold leading-tight tracking-tight text-zinc-900 text-balance">{step.question}{step.ar && <Ar block>{step.ar}</Ar>}</h1>
             <p className="mt-3 mb-8 text-[17px] text-zinc-600">{step.subtitle}</p>
 
             <div className={cn("grid gap-3", step.options.length > 4 && "sm:grid-cols-2")}>

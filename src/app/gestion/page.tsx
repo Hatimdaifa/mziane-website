@@ -14,20 +14,20 @@ export const metadata: Metadata = {
 };
 
 const details: Record<string, { icon: LucideIcon; desc: string }> = {
-  gerant: { icon: User, desc: "Nomination ou démission, procès-verbal, mise à jour du registre de commerce." },
-  siege: { icon: MapPin, desc: "Décision des associés, statuts mis à jour, dépôt au greffe et annonce légale." },
-  denomination: { icon: FilePen, desc: "Nouveau certificat négatif OMPIC, statuts modifiés, annonces légales." },
-  parts: { icon: ArrowLeftRight, desc: "Acte de cession, agrément du nouvel associé, enregistrement et statuts." },
-  capital: { icon: Landmark, desc: "Augmentation ou réduction, dépôt des fonds, formalités au greffe." },
-  objet: { icon: Shuffle, desc: "Ajout ou changement d'activité, statuts et registre de commerce mis à jour." },
-  sommeil: { icon: Moon, desc: "Suspendre l'activité sans fermer la société, puis la reprendre plus tard." },
+  gerant: { icon: User, desc: "Nomination ou démission, registre de commerce mis à jour." },
+  siege: { icon: MapPin, desc: "Statuts mis à jour, greffe et annonce légale." },
+  denomination: { icon: FilePen, desc: "Nouveau certificat négatif, statuts modifiés." },
+  parts: { icon: ArrowLeftRight, desc: "Acte de cession, agrément et statuts." },
+  capital: { icon: Landmark, desc: "Augmentation ou réduction, formalités au greffe." },
+  objet: { icon: Shuffle, desc: "Ajout ou changement d'activité." },
+  sommeil: { icon: Moon, desc: "Suspendre l'activité sans fermer la société." },
   fermer: { icon: CircleOff, desc: "Dissolution, liquidation et radiation du registre de commerce." },
 };
 
 const confiance = [
-  { icon: Receipt, title: "Prix fixe affiché", desc: "Vous connaissez nos honoraires avant de commencer." },
-  { icon: Landmark, title: "Frais officiels au réel", desc: "Greffe, annonces et enregistrement, sans marge." },
-  { icon: FileCheck2, title: "Actes rédigés pour vous", desc: "Vous relisez, vous signez, nous déposons." },
+  { icon: Receipt, title: "Prix fixe affiché", desc: "Connu avant de commencer." },
+  { icon: Landmark, title: "Frais officiels au réel", desc: "Sans marge." },
+  { icon: FileCheck2, title: "Actes rédigés pour vous", desc: "Vous signez, nous déposons." },
   { icon: MessageCircle, title: "Suivi sur WhatsApp", desc: "Vous savez où en est votre dossier." },
 ];
 
@@ -41,9 +41,8 @@ const inclus = [
 ];
 
 const faq = [
-  { q: "Que comprend le prix affiché ?", a: "Nos honoraires : rédaction des actes, dépôt et suivi jusqu'au registre de commerce mis à jour. Les frais officiels (greffe, annonces légales, enregistrement) s'ajoutent, au réel et sans marge." },
-  { q: "Je fais plusieurs changements en même temps ?", a: `Ils peuvent souvent passer dans le même acte. ${FORMALITE_SUPPLEMENT} Vous payez donc moins que deux formalités séparées.` },
-  { q: "Ma formalité n'est pas dans la liste ?", a: "Écrivez-nous sur WhatsApp. Nous vous répondons avec un prix fixe avant de commencer." },
+  { q: "Plusieurs changements en même temps ?", a: `Ils passent souvent dans le même acte. ${FORMALITE_SUPPLEMENT}` },
+  { q: "Ma formalité n'est pas dans la liste ?", a: "Écrivez-nous sur WhatsApp, nous vous donnons un prix fixe avant de commencer." },
 ];
 
 export default function GestionPage() {
@@ -53,7 +52,7 @@ export default function GestionPage() {
         icon={FilePen}
         tag="Vie de la société"
         title="Modifiez ou fermez votre société, à prix fixe"
-        subtitle="Siège, gérant, associés, capital, marque ou fermeture : nous rédigeons les actes et faisons les formalités au greffe pour vous."
+        subtitle="Nous rédigeons les actes et faisons les formalités au greffe pour vous."
         note="Prix HT · Frais officiels en sus, au réel et sans marge"
       >
         <HeroButton href="#formalites">Voir les prix <ArrowRight className="h-4 w-4" /></HeroButton>
@@ -64,7 +63,7 @@ export default function GestionPage() {
 
       <section id="formalites" className="scroll-mt-24 bg-zinc-50 py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
-          <SectionHeader tag="Formalités" title="Le prix de chaque formalité" subtitle="Honoraires HT, paiement unique. Choisissez votre formalité, un conseiller vous confirme tout sur WhatsApp avant le paiement." />
+          <SectionHeader tag="Formalités" title="Le prix de chaque formalité" subtitle="Honoraires HT, paiement unique, confirmés avant paiement." />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {formalites.map((f) => {
               const d = details[f.id];
@@ -91,7 +90,7 @@ export default function GestionPage() {
               <Layers className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" /> {FORMALITE_SUPPLEMENT}
             </p>
             <p className="flex items-start gap-2.5 rounded-3xl border border-zinc-200 bg-white p-5 text-[15px] text-zinc-700">
-              <Landmark className="mt-0.5 h-5 w-5 shrink-0 text-zinc-500" /> Frais officiels en sus (greffe, annonces légales, enregistrement), au réel et sans marge.
+              <Landmark className="mt-0.5 h-5 w-5 shrink-0 text-zinc-500" /> Frais officiels en sus, au réel et sans marge.
             </p>
           </div>
         </div>
@@ -102,7 +101,7 @@ export default function GestionPage() {
           <div>
             <h2 className="mb-4 text-[clamp(1.6rem,3vw,2.5rem)] font-bold tracking-tight text-zinc-900">Ce qui est inclus</h2>
             <p className="text-[17px] leading-relaxed text-zinc-600">
-              Chaque formalité est prise en charge du début à la fin. Vous recevez les documents à signer, nous nous occupons du reste.
+              Vous signez, nous faisons le reste.
             </p>
           </div>
           <CheckList items={inclus} className="rounded-3xl border border-zinc-200 bg-white p-6" />
@@ -111,7 +110,7 @@ export default function GestionPage() {
 
       <section id="marque" className="scroll-mt-24 bg-zinc-50 py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
-          <SectionHeader tag="Marque OMPIC" tagClass="bg-amber-100 text-amber-800" title="Protégez le nom de votre entreprise" subtitle={`Honoraires HT. Taxe OMPIC en sus, environ ${fmtDH(FRAIS_ETAT.marqueParClasse)} par classe.`} />
+          <SectionHeader tag="Marque OMPIC" tagClass="bg-amber-100 text-amber-800" title="Protégez le nom de votre entreprise" ar="العلامة التجارية" subtitle={`Honoraires HT. Taxe OMPIC en sus, environ ${fmtDH(FRAIS_ETAT.marqueParClasse)} par classe.`} />
           <div className="grid gap-6 md:grid-cols-3">
             {marque.map((o) => <PriceCard key={o.id} icon={Stamp} tier={offerToTier(o, commandeOffre(o.id))} />)}
           </div>
@@ -120,7 +119,7 @@ export default function GestionPage() {
 
       <section id="domiciliation" className="scroll-mt-24 bg-white py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
-          <SectionHeader tag="Domiciliation" title="Une adresse pour le siège de votre société" subtitle="Mensuel HT, engagement 6 mois. Attestation de domiciliation fournie pour le greffe." />
+          <SectionHeader tag="Domiciliation" title="Une adresse pour votre siège" ar="التوطين" subtitle="Mensuel HT, engagement 6 mois, attestation fournie." />
           <div className="grid gap-6 md:grid-cols-3">
             {domiciliation.map((o) => <PriceCard key={o.id} icon={Building2} tier={offerToTier(o, commandeOffre(o.id))} />)}
           </div>
@@ -134,7 +133,7 @@ export default function GestionPage() {
         </div>
       </section>
 
-      <CtaBand title="Une formalité à faire ?" subtitle="Dites-nous ce que vous voulez changer. Nous vous indiquons la démarche et le prix fixe." href="/onboarding?besoin=gerer" label="Décrire mon besoin" />
+      <CtaBand title="Une formalité à faire ?" subtitle="Dites-nous ce qui change, nous vous donnons le prix." href="/onboarding?besoin=gerer" label="Décrire mon besoin" />
     </>
   );
 }

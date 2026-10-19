@@ -165,7 +165,7 @@ export default function PackConfigurator() {
 
         {devis ? (
           <p className="rounded-2xl bg-zinc-50 p-4 text-[15px] leading-relaxed text-zinc-700">
-            La {FORMES.find((f) => f.id === sel.forme)?.label} demande une étude de votre projet (capital, associés, apports). Nous vous envoyons un devis précis sur WhatsApp.
+            La {FORMES.find((f) => f.id === sel.forme)?.label} demande une étude de votre projet. Devis précis sur WhatsApp.
           </p>
         ) : (
           <>

@@ -86,7 +86,7 @@ export default function AidesCatalogue({ initial = "toutes" }: { initial?: AideC
               <dd className="pt-1 text-[15px] text-zinc-700 sm:pt-4">{a.site}</dd>
             </dl>
             <div className="flex flex-col gap-2 border-t border-zinc-200 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-zinc-600">Nous vérifions si vous y avez droit, gratuitement.</p>
+              <p className="text-sm text-zinc-600">Vérification gratuite.</p>
               <a
                 href={waLink(`Bonjour, je voudrais savoir si j'ai droit à cette aide : ${a.titre} (${a.id}).`)}
                 target="_blank"

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "@/components/site";
+import { Ar } from "@/components/Ar";
 import { PackCard, OfficialFeesNote } from "@/components/offer-ui";
 import {
   AIDES_BAREME, AIDES_MIN, AIDES_PLAFOND, CONTACT, FRAIS_ETAT, PRIX_CREATION, PROMESSES,
@@ -32,27 +33,27 @@ const homePacks: { id: string; icon: LucideIcon }[] = [
 const packHref = (p: Pack) => `/commande?pack=${p.id}${p.formes?.[0] ? `&forme=${p.formes[0]}` : ""}`;
 
 const engagements: { icon: IconType; title: string; desc: string }[] = [
-  { icon: Ban, title: "Sans prêt à intérêt", desc: "Subventions, primes, exonérations et prêts d'honneur à 0 % uniquement." },
-  { icon: HandCoins, title: "Pas d'aide obtenue, pas de frais", desc: "Sur les dossiers d'aides, nos honoraires sont dus seulement si l'aide est versée." },
-  { icon: Landmark, title: "Frais d'État au réel", desc: "Refacturés au montant exact payé à l'administration, sans aucune marge." },
-  { icon: WhatsAppGlyph, title: "Suivi sur WhatsApp", desc: "Vos pièces et vos questions passent par WhatsApp, à chaque étape." },
+  { icon: Ban, title: "Sans prêt à intérêt", desc: "Subventions, primes et prêts d'honneur à 0 %." },
+  { icon: HandCoins, title: "Pas d'aide obtenue, pas de frais", desc: "Honoraires dus seulement si l'aide est versée." },
+  { icon: Landmark, title: "Frais d'État au réel", desc: "Reversés au montant exact, sans marge." },
+  { icon: WhatsAppGlyph, title: "Suivi sur WhatsApp", desc: "Pièces et questions, à chaque étape." },
 ];
 
 const organismes = ["OMPIC", "Tribunal de commerce", "DGI", "CNSS", "CRI", "Dar Al Moukawil", "Bulletin officiel", "Banques marocaines"];
 
 // Montants repris des fiches de src/lib/aides.ts (indicatifs, conditions sur chaque fiche).
 const aidesTeaser = [
-  { icon: Tractor, title: "Agriculteurs", value: "Jusqu'à 100 %", desc: "de l'irrigation goutte-à-goutte subventionnée pour les petites exploitations.", href: "/aides#A01" },
-  { icon: Building2, title: "Investisseurs", value: "Jusqu'à 30 %", desc: "de l'investissement en primes de la Charte de l'investissement (TPME).", href: "/aides#B01" },
-  { icon: Rocket, title: "Créateurs", value: "100 000 DH", desc: "au plus de prêt d'honneur à 0 % avec le programme Forsa.", href: "/aides#B03" },
-  { icon: User, title: "Particuliers", value: "100 000 DH", desc: "au plus d'aide directe pour l'achat d'un premier logement.", href: "/aides#D01" },
+  { icon: Tractor, title: "Agriculteurs", value: "Jusqu'à 100 %", desc: "du goutte-à-goutte subventionné.", href: "/aides#A01" },
+  { icon: Building2, title: "Investisseurs", value: "Jusqu'à 30 %", desc: "de l'investissement en primes (TPME).", href: "/aides#B01" },
+  { icon: Rocket, title: "Créateurs", value: "Jusqu'à 100 000 DH", desc: "de prêt d'honneur à 0 % (Forsa).", href: "/aides#B03" },
+  { icon: User, title: "Particuliers", value: "Jusqu'à 100 000 DH", desc: "d'aide pour un premier logement.", href: "/aides#D01" },
 ];
 
 const etapes: { icon: IconType; title: string; desc: string }[] = [
-  { icon: ShoppingCart, title: "Vous commandez", desc: "Choisissez un pack ou un service, ou laissez le questionnaire vous orienter. Rien n'est payé à ce stade." },
-  { icon: PhoneCall, title: "Un conseiller confirme", desc: PROMESSES.paiement },
-  { icon: WhatsAppGlyph, title: "Vos pièces par WhatsApp", desc: "Vous recevez la liste exacte des pièces et vous nous les envoyez en photo, sans vous déplacer." },
-  { icon: FileCheck2, title: "On dépose et on suit", desc: "Nous déposons le dossier auprès de l'organisme et vous prévenons à chaque étape, jusqu'au document final ou au versement de l'aide." },
+  { icon: ShoppingCart, title: "Vous commandez", desc: "Un pack ou un service. Rien à payer à ce stade." },
+  { icon: PhoneCall, title: "Un conseiller confirme", desc: "Il vous envoie le lien de paiement : carte, virement ou espèces." },
+  { icon: WhatsAppGlyph, title: "Vos pièces par WhatsApp", desc: "Vous les envoyez en photo, sans vous déplacer." },
+  { icon: FileCheck2, title: "On dépose et on suit", desc: "Nous déposons le dossier et vous prévenons à chaque étape." },
 ];
 
 const tranches = AIDES_BAREME.map(([top, rate], n) => {
@@ -64,39 +65,23 @@ const tranches = AIDES_BAREME.map(([top, rate], n) => {
 const faq = [
   {
     q: "Combien coûte la création de ma société ?",
-    a: `Nos honoraires commencent à ${fmtDH(sarl[0])} HT pour une SARLAU ou une SARL avec des statuts types, et ${fmtDH(sarl[1])} HT avec des statuts sur mesure et un juriste dédié. Les frais d'État s'ajoutent, au réel et sans marge : environ ${fmtDH(FRAIS_ETAT.societe.estimate)} (${FRAIS_ETAT.societe.range}). Dans les packs, la création est offerte.`,
+    a: `À partir de ${fmtDH(sarl[0])} HT pour une SARLAU ou une SARL. Les frais d'État s'ajoutent au réel, environ ${fmtDH(FRAIS_ETAT.societe.estimate)}. Dans les packs, la création est offerte.`,
   },
   {
     q: "Et pour un auto-entrepreneur ?",
-    a: `L'inscription au registre national de l'auto-entrepreneur est gratuite. Vous pouvez la faire vous-même avec notre guide, sans frais, ou nous la confier pour ${fmtDH(prix("ae-accompagne"))} TTC. Le chiffre d'affaires annuel est plafonné à 500 000 DH pour le commerce et l'industrie, et à 200 000 DH pour les services.`,
+    a: `L'inscription est gratuite. Faites-la seul avec notre guide, ou confiez-la nous pour ${fmtDH(prix("ae-accompagne"))} TTC.`,
   },
   {
     q: "Comment se passe le paiement ?",
-    a: `Vous passez commande en ligne sans payer. ${PROMESSES.paiement}`,
-  },
-  {
-    q: "Comment fonctionnent les packs ?",
-    a: `Un pack réunit la création, la comptabilité et, selon le pack, un site web ou la domiciliation, pour une mensualité fixe pendant ${MOIS} mois. La création est offerte. La comptabilité n'est facturée qu'à partir de l'obtention du registre de commerce. En cas d'arrêt anticipé, la remise accordée est due au prorata des mois restants.`,
-  },
-  {
-    q: "Combien coûte l'accompagnement pour une aide ?",
-    a: `Le diagnostic est gratuit. Si nous montons votre dossier, nos honoraires sont un pourcentage de l'aide effectivement versée, de ${pct(AIDES_BAREME[0][1])} à ${pct(AIDES_BAREME[AIDES_BAREME.length - 1][1])} selon le montant, avec un minimum de ${fmtDH(AIDES_MIN)} et un plafond de ${fmtDH(AIDES_PLAFOND)}. ${PROMESSES.zeroRefus}`,
+    a: `Vous commandez en ligne sans payer. ${PROMESSES.paiement}`,
   },
   {
     q: "Pouvez-vous garantir que j'obtiendrai l'aide ?",
-    a: `Non, et personne ne le peut : c'est l'organisme public qui décide. Nous vérifions chaque condition avant de déposer et vous ne payez nos honoraires que si l'aide est versée. ${PROMESSES.societePrivee}`,
+    a: `Non : c'est l'organisme public qui décide. Nous vérifions chaque condition avant de déposer. Vous ne payez que si l'aide est versée. ${PROMESSES.sansInteret}`,
   },
   {
-    q: "Proposez-vous des crédits ?",
-    a: `Non, aucun. ${PROMESSES.sansInteret}`,
-  },
-  {
-    q: "Combien de temps faut-il pour créer ma société ?",
-    a: "Le délai dépend surtout de l'administration : certificat négatif, greffe du tribunal de commerce et publications légales. Nous déposons votre dossier dès qu'il est complet et vous prévenons sur WhatsApp à chaque étape franchie.",
-  },
-  {
-    q: "Je vis à l'étranger, puis-je créer ma société au Maroc ?",
-    a: `Oui, sans vous déplacer : nous vous guidons pour la procuration et faisons les démarches sur place. L'offre MRE est à ${fmtDH(prix("intl-mre"))} HT, ou offerte dans le pack Diaspora.`,
+    q: "Je vis à l'étranger, est-ce possible ?",
+    a: `Oui, sans vous déplacer, avec une procuration. L'offre MRE est à ${fmtDH(prix("intl-mre"))} HT, ou offerte dans le pack Diaspora.`,
   },
 ];
 
@@ -177,9 +162,9 @@ export default function HomePage() {
               Créez votre entreprise et obtenez vos aides.{" "}
               <span className="text-blue-700">Sans prêt à intérêt.</span>
             </h1>
-            <p className="mb-8 max-w-[540px] text-lg leading-relaxed text-zinc-600">
-              Société, auto-entrepreneur, comptabilité, marque, domiciliation, site web : nous faisons les démarches pour vous, au Maroc ou depuis l&apos;étranger.
-              Et pour les aides de l&apos;État, <strong className="text-zinc-900">pas d&apos;aide obtenue, pas de frais</strong>.
+            <p className="mb-8 max-w-[520px] text-lg leading-relaxed text-zinc-600">
+              Nous faisons vos démarches, au Maroc ou depuis l&apos;étranger.
+              Pour les aides : <strong className="text-zinc-900">pas d&apos;aide obtenue, pas de frais</strong>.
             </p>
             <div className="mb-6 flex flex-wrap gap-3 max-sm:grid">
               <Link href="/onboarding" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-700 px-8 py-4 font-semibold text-white shadow-[0_17px_20px_-8px_rgba(0,105,122,.4)] transition hover:-translate-y-0.5 hover:bg-blue-800">
@@ -189,12 +174,7 @@ export default function HomePage() {
                 Voir les packs
               </Link>
             </div>
-            <ul className="grid gap-2 text-[14px] text-zinc-700 sm:grid-cols-2">
-              {["Prix affichés avant de commander", "Frais d'État reversés sans marge", "Rien à payer en ligne pour commander", "Diagnostic des aides gratuit"].map((t) => (
-                <li key={t} className="flex items-center gap-2"><Check className="h-4 w-4 shrink-0 text-blue-700" strokeWidth={2.5} /> {t}</li>
-              ))}
-            </ul>
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-zinc-900 hover:text-blue-800">
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-2 text-[15px] font-semibold text-zinc-900 hover:text-blue-800">
               <WhatsAppIcon className="h-5 w-5 text-[#128C4B]" /> Une question ? Écrivez-nous sur WhatsApp
             </a>
           </div>
@@ -223,7 +203,7 @@ export default function HomePage() {
           <SectionHeader
             tag={<><Search className="h-3.5 w-3.5" /> Votre situation</>}
             title="Par où commencer ?"
-            subtitle="Choisissez ce qui vous ressemble, nous vous montrons les démarches, les prix et les aides possibles."
+            subtitle="Choisissez votre situation."
           />
           <div className="mx-auto grid max-w-[1100px] auto-rows-[minmax(180px,auto)] gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
             <Link href="/creation-entreprise" className={cn("group relative flex flex-col justify-between gap-4 overflow-hidden rounded-3xl border border-zinc-200 bg-white p-10 sm:col-span-2 lg:row-span-2 max-sm:p-6", card)}>
@@ -231,7 +211,7 @@ export default function HomePage() {
               <span className="relative self-start rounded-full bg-blue-700 px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[.1em] text-white">À partir de {fmtDH(sarl[0])} HT</span>
               <span className="relative text-[clamp(2.2rem,5vw,3.4rem)] font-black leading-none tracking-[-.04em] text-zinc-900">Je crée une société</span>
               <span className="relative max-w-[400px] text-[17px] leading-relaxed text-zinc-600">
-                SARLAU, SARL ou SAS : certificat négatif, statuts, greffe, registre de commerce, ICE et inscriptions fiscales. Frais d&apos;État en sus, au réel.
+                SARLAU, SARL ou SAS, jusqu&apos;au registre de commerce<Ar>السجل التجاري</Ar> et à l&apos;ICE.
               </span>
               <span className="relative inline-flex items-center gap-2.5 self-start rounded-full bg-blue-700 px-6 py-3.5 font-bold text-white transition group-hover:-translate-y-0.5 group-hover:bg-blue-800 max-sm:self-stretch max-sm:justify-center">
                 Créer ma société <ArrowRight className="h-4 w-4" />
@@ -260,7 +240,7 @@ export default function HomePage() {
               <span className="grid h-[42px] w-[42px] place-items-center rounded-xl bg-amber-100 text-amber-900"><Tractor className="h-5 w-5" /></span>
               <span>
                 <span className="block text-[1.75rem] font-black leading-[1.05] tracking-tight">Je suis agriculteur</span>
-                <span className="mt-1.5 block text-[15px] text-zinc-600">Irrigation, matériel, élevage, coopérative</span>
+                <span className="mt-1.5 block text-[15px] text-zinc-600">Irrigation, matériel, élevage</span>
               </span>
               <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-800">{pct(packTerre.taux)} de la subvention, au paiement <ArrowRight className="h-3.5 w-3.5" /></span>
             </Link>
@@ -280,7 +260,7 @@ export default function HomePage() {
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-[1.35rem] font-extrabold leading-tight tracking-tight">J&apos;ai déjà une société</span>
-                <span className="mt-1 block text-sm text-zinc-600">Siège, gérant, associés, capital, marque, domiciliation, comptabilité ou fermeture.</span>
+                <span className="mt-1 block text-sm text-zinc-600">Modifications, marque, domiciliation, fermeture.</span>
               </span>
               <span className="grid h-[72px] w-[72px] shrink-0 place-items-center rounded-full bg-zinc-50 text-zinc-900 transition-transform group-hover:translate-x-1 max-sm:hidden"><ArrowRight className="h-7 w-7" /></span>
             </Link>
@@ -288,7 +268,7 @@ export default function HomePage() {
           <p className="mt-8 text-center text-[15px] text-zinc-600">
             Vous hésitez ?{" "}
             <Link href="/onboarding" className="inline-flex items-center gap-1 font-semibold text-blue-800 underline-offset-4 hover:underline">
-              Le questionnaire vous oriente en quelques questions <ArrowRight className="h-3.5 w-3.5" />
+              Répondez au questionnaire <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </p>
         </div>
@@ -300,8 +280,8 @@ export default function HomePage() {
           <SectionHeader
             tag={<><Rocket className="h-3.5 w-3.5" /> Packs</>}
             tagClass="bg-amber-100 text-amber-900"
-            title="La création offerte, tout le reste réglé pendant un an"
-            subtitle={`Une mensualité fixe pendant ${MOIS} mois. La comptabilité ne démarre qu'avec votre registre de commerce.`}
+            title="La création offerte"
+            subtitle={`Une mensualité fixe pendant ${MOIS} mois.`}
           />
           <div className="mx-auto grid max-w-[1120px] items-start gap-6 pt-3 md:grid-cols-3">
             {shownPacks.map(({ p, icon }) => (
@@ -322,13 +302,13 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-[1150px] items-start gap-12 px-6 max-sm:px-4 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1 text-[13px] font-bold text-zinc-900">
-              <HandCoins className="h-3.5 w-3.5" /> Aides de l&apos;État
+              <HandCoins className="h-3.5 w-3.5" /> Aides de l&apos;État <Ar className="text-zinc-800">دعم الدولة</Ar>
             </span>
             <h2 className="mt-5 mb-4 text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.05] tracking-tight text-white text-balance">
               Pas d&apos;aide obtenue, pas de frais.
             </h2>
             <p className="mb-6 text-lg leading-relaxed text-white/80">
-              On repère les aides auxquelles vous avez droit, on monte le dossier et on le suit jusqu&apos;au versement. {PROMESSES.sansInteret}
+              On trouve vos aides, on monte le dossier, on le suit jusqu&apos;au versement. Aucun prêt à intérêt.
             </p>
 
             <div className="mb-6 overflow-hidden rounded-2xl border border-white/15">
@@ -346,8 +326,8 @@ export default function HomePage() {
                 </tbody>
               </table>
               <p className="border-t border-white/10 px-4 py-3 text-[13px] leading-relaxed text-white/75">
-                Par tranche, minimum {fmtDH(AIDES_MIN)}, plafond {fmtDH(AIDES_PLAFOND)}. Exemple : pour une aide de {fmtDH(EXEMPLE_AIDE)} versée, {`${fmtDH(feeAide(EXEMPLE_AIDE))} HT d'honoraires.`}
-                Agriculteurs : {pct(packTerre.taux)} de la subvention, minimum {fmtDH(packTerre.min)}. Prêt d&apos;honneur : forfait de {`${fmtDH(prix("aides-honneur"))} HT, payé à l'accord.`}
+                Minimum {fmtDH(AIDES_MIN)}, plafond {fmtDH(AIDES_PLAFOND)}. Exemple : aide de {fmtDH(EXEMPLE_AIDE)}, {`${fmtDH(feeAide(EXEMPLE_AIDE))} HT.`}
+                Agriculteurs : {pct(packTerre.taux)} (minimum {fmtDH(packTerre.min)}). Prêt d&apos;honneur : {`${fmtDH(prix("aides-honneur"))} HT à l'accord.`}
               </p>
             </div>
 
@@ -359,7 +339,7 @@ export default function HomePage() {
                 Voir toutes les aides
               </Link>
             </div>
-            <p className="mt-5 text-[13px] leading-relaxed text-white/70">{PROMESSES.societePrivee} Aucune aide n&apos;est garantie : la décision appartient à l&apos;organisme.</p>
+            <p className="mt-5 text-[13px] leading-relaxed text-white/70">Aucune aide n&apos;est garantie : l&apos;organisme public décide.</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
@@ -371,7 +351,7 @@ export default function HomePage() {
                 <span className="mt-1.5 block text-sm leading-relaxed text-white/75">{desc}</span>
               </Link>
             ))}
-            <p className="text-[13px] text-white/65 sm:col-span-2">Montants indicatifs, conditions et pièces détaillées sur chaque fiche.</p>
+            <p className="text-[13px] text-white/65 sm:col-span-2">Montants indicatifs, détails sur chaque fiche.</p>
           </div>
         </div>
       </section>
@@ -382,7 +362,6 @@ export default function HomePage() {
           <SectionHeader
             tag={<><Clock className="h-3.5 w-3.5" /> Comment ça marche</>}
             title="Quatre étapes, sans vous déplacer"
-            subtitle="Vous commandez, on vous rappelle, vous envoyez vos pièces, on s'occupe du reste."
           />
           <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {etapes.map(({ icon: Icon, title, desc }, n) => (
@@ -405,7 +384,7 @@ export default function HomePage() {
           <SectionHeader
             tag={<><Scale className="h-3.5 w-3.5" /> Transparence</>}
             title="Ce que vous payez, et à qui"
-            subtitle="Deux lignes bien séparées sur chaque devis : nos honoraires, et les frais d'État que nous reversons à l'administration."
+            subtitle="Deux lignes séparées sur chaque devis."
           />
           <div className="grid gap-5 md:grid-cols-2">
             <div className="rounded-3xl border border-zinc-200 bg-white p-7 max-sm:p-6">
@@ -413,10 +392,10 @@ export default function HomePage() {
               <h3 className="mb-3 text-xl font-extrabold tracking-tight text-zinc-900">Nos honoraires</h3>
               <ul className="grid gap-2.5 text-[15px] text-zinc-700">
                 {[
-                  "Affichés sur le site avant toute commande.",
-                  "Hors taxes pour les entreprises (TVA de 20 % en sus), TTC pour les auto-entrepreneurs et les particuliers.",
-                  "Payés après la confirmation de votre conseiller, jamais au moment de la commande.",
-                  "Sur les aides : un pourcentage de l'aide versée, rien si elle est refusée.",
+                  "Affichés avant toute commande.",
+                  "HT pour les sociétés (TVA 20 % en sus), TTC pour les auto-entrepreneurs et particuliers.",
+                  "Payés après confirmation, jamais à la commande.",
+                  "Aides : rien à payer si l'aide est refusée.",
                 ].map((t) => (
                   <li key={t} className="flex gap-2.5"><Check className="mt-1 h-4 w-4 shrink-0 text-blue-700" strokeWidth={2.5} /> {t}</li>
                 ))}
@@ -425,7 +404,7 @@ export default function HomePage() {
             <div className="rounded-3xl border border-zinc-200 bg-white p-7 max-sm:p-6">
               <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-amber-100 text-amber-900"><Landmark className="h-5 w-5" /></span>
               <h3 className="mb-1 text-xl font-extrabold tracking-tight text-zinc-900">Les frais d&apos;État, au réel</h3>
-              <p className="mb-4 text-sm text-zinc-600">Exemple pour une SARL, reversés sans marge :</p>
+              <p className="mb-4 text-sm text-zinc-600">Exemple pour une SARL, sans marge :</p>
               <table className="w-full text-[14px]">
                 <tbody>
                   {FRAIS_ETAT.societe.lines.map((l) => (
@@ -443,7 +422,6 @@ export default function HomePage() {
               <p className="mt-4 text-[13px] leading-relaxed text-zinc-600">{FRAIS_ETAT.societe.note} {FRAIS_ETAT.autoEntrepreneur.note}</p>
             </div>
           </div>
-          <p className="mx-auto mt-6 max-w-[760px] text-center text-[13px] leading-relaxed text-zinc-600">{PROMESSES.societePrivee}</p>
         </div>
       </section>
 
@@ -470,7 +448,7 @@ export default function HomePage() {
             <span className="inline-block rounded-full bg-blue-50 px-3 py-1.5 text-[11px] font-extrabold tracking-[.12em] text-blue-800">FAQ</span>
             <h2 className="mt-3.5 mb-3 text-[clamp(1.8rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-tight text-zinc-900">Vos questions, nos réponses</h2>
             <p className="mb-6 leading-relaxed text-zinc-600">
-              Une autre question ? Un conseiller vous répond sur WhatsApp ou par e-mail.
+              Un conseiller vous répond sur WhatsApp ou par e-mail.
             </p>
             <div className="grid gap-2.5 rounded-[20px] border border-zinc-200 bg-zinc-50 p-4.5">
               <a href={waLink("Bonjour, j'ai une question avant de commander.")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0E7A40] py-3 text-sm font-bold text-white transition hover:bg-[#0B6634]">

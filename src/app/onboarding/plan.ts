@@ -184,9 +184,9 @@ export function buildPlan(a: Answers): Plan {
     const forme = formeCreation(a);
     const ca = one(a, "c-ca");
     const formeReason: Record<string, string> = {
-      auto: "Vous démarrez seul avec un chiffre d'affaires sous le plafond : le statut auto-entrepreneur est le plus simple et le moins cher.",
-      sarlau: ca === "nsp" ? "Vous ne connaissez pas encore votre chiffre d'affaires : la SARLAU vous protège et vous laisse grandir sans plafond." : "Seul, au-delà du plafond auto-entrepreneur : la SARLAU protège votre patrimoine personnel.",
-      sarl: "Vous créez entre associés : la SARL est la forme la plus courante, avec une responsabilité limitée aux apports.",
+      auto: "Seul, sous le plafond : l'auto-entrepreneur est le plus simple et le moins cher.",
+      sarlau: ca === "nsp" ? "Chiffre d'affaires inconnu : la SARLAU vous protège, sans plafond." : "Seul, au-delà du plafond auto-entrepreneur : la SARLAU protège votre patrimoine personnel.",
+      sarl: "Entre associés : la SARL est la forme la plus courante.",
       sas: "Vous accueillez des investisseurs : la SAS facilite leur entrée au capital.",
       sa: "Pour un grand projet avec plusieurs actionnaires, la SA est adaptée. Elle se fait sur devis.",
       sci: "Pour détenir un bien immobilier, la SCI est adaptée. Elle se fait sur devis.",
@@ -263,7 +263,7 @@ export function buildPlan(a: Answers): Plan {
     const s = one(a, "x-situation");
     if (s === "zai") {
       choices = mark(compact([itemsChoice({ offre: "intl-zai" }, "Étude d'éligibilité")]));
-      reasons.push("Les avantages des zones d'accélération industrielle et de Casablanca Finance City dépendent de votre projet : on étudie d'abord votre éligibilité.");
+      reasons.push("Zones d'accélération et CFC : on étudie d'abord votre éligibilité.");
     } else if (s === "mre") {
       choices = mark(compact([
         itemsChoice({ offre: "intl-mre", forme: "sarlau" }, "Formule seule"),
@@ -280,7 +280,7 @@ export function buildPlan(a: Answers): Plan {
         itemsChoice({ offre: "intl-etranger", forme: "sarlau", opt: ["compta-essentiel", "domi-business", "web-vitrine", "marque-protection"] }, "Le plus complet", "International + gestion, site et marque"),
       ]));
       reasons.push("Procurations, apostilles et régime de convertibilité sont gérés pour vous, sans vous déplacer.");
-      reasons.push("Domiciliation et comptabilité sur place : votre société reste en règle pendant que vous êtes à l'étranger.");
+      reasons.push("Domiciliation et comptabilité sur place : votre société reste en règle.");
     }
     if (nAides) reasons.push(nAides);
   }

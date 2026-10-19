@@ -7,18 +7,19 @@ import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Star, Handshake, Rocket, Zap, Briefcase, House, UsersRound, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CheckList } from "@/components/site";
+import { Ar } from "@/components/Ar";
 import { OfficialFeesNote } from "@/components/offer-ui";
 import { FORMES, PRIX_CREATION, type FormeId, fmt, waLink } from "@/lib/offers";
 import { commandeOffre } from "@/components/services/blocks";
 
-const formes: { id: FormeId; icon: LucideIcon; part: string; desc: string; avantages: string[]; popular?: boolean }[] = [
-  { id: "sarlau", icon: Star, part: "La plus créée au Maroc", desc: "Société à responsabilité limitée à associé unique. Vous êtes seul, votre patrimoine personnel est protégé et vous fixez librement le capital.", avantages: ["Un seul associé", "Responsabilité limitée à l'apport", "Capital libre", "Passage en SARL possible plus tard"], popular: true },
-  { id: "sarl", icon: Handshake, part: "Pour s'associer", desc: "Société à responsabilité limitée de 2 à 50 associés. Pour créer en famille ou entre partenaires.", avantages: ["2 à 50 associés", "Capital libre", "Patrimoine protégé", "Entrée des associés encadrée"] },
-  { id: "sas", icon: Rocket, part: "Statuts flexibles", desc: "Société par actions simplifiée. Des statuts très libres, adaptés aux startups et à l'entrée d'investisseurs.", avantages: ["Statuts libres", "Adaptée aux startups", "Entrée d'investisseurs", "Actions faciles à céder"] },
-  { id: "auto", icon: Zap, part: "Démarrer seul, sans capital", desc: "Régime simplifié pour démarrer seul. Plafonds de chiffre d'affaires : 500 000 DH (commerce, industrie, artisanat) et 200 000 DH (services).", avantages: ["Sans capital", "Inscription gratuite à l'État", "Impôt de 0,5 % à 1 % du chiffre d'affaires", "Couverture AMO"] },
-  { id: "cooperative", icon: UsersRound, part: "Produire ensemble", desc: "Coopérative d'au moins 5 membres (loi 112-12). Pour les agriculteurs, artisanes et producteurs qui veulent vendre ensemble.", avantages: ["5 membres minimum", "Accès aux aides ODCo et FDA", "Un membre, une voix", "Gestion collective"] },
-  { id: "sa", icon: Briefcase, part: "Grands projets", desc: "Société anonyme. Au moins 5 actionnaires et 300 000 DH de capital. Pour les levées de fonds et les gros projets.", avantages: ["Capital minimum 300 000 DH", "5 actionnaires minimum", "Actions librement cessibles", "Conseil d'administration"] },
-  { id: "sci", icon: House, part: "Patrimoine immobilier", desc: "Société civile immobilière. Détenir et gérer des biens immobiliers à plusieurs, faciliter leur transmission.", avantages: ["Gestion patrimoniale", "Transmission facilitée", "Plusieurs associés", "Fiscalité à étudier au cas par cas"] },
+const formes: { id: FormeId; icon: LucideIcon; ar: string; part: string; desc: string; avantages: string[]; popular?: boolean }[] = [
+  { id: "sarlau", ar: "شركة ذات مسؤولية محدودة بشريك وحيد", icon: Star, part: "La plus créée au Maroc", desc: "Vous êtes seul, votre patrimoine personnel est protégé.", avantages: ["Un seul associé", "Responsabilité limitée à l'apport", "Capital libre", "Passage en SARL possible plus tard"], popular: true },
+  { id: "sarl", ar: "شركة ذات مسؤولية محدودة", icon: Handshake, part: "Pour s'associer", desc: "Société à responsabilité limitée, de 2 à 50 associés.", avantages: ["2 à 50 associés", "Capital libre", "Patrimoine protégé", "Entrée des associés encadrée"] },
+  { id: "sas", ar: "شركة المساهمة المبسطة", icon: Rocket, part: "Statuts flexibles", desc: "Société par actions simplifiée, pour les startups et les investisseurs.", avantages: ["Statuts libres", "Adaptée aux startups", "Entrée d'investisseurs", "Actions faciles à céder"] },
+  { id: "auto", ar: "المقاول الذاتي", icon: Zap, part: "Démarrer seul, sans capital", desc: "Plafonds de chiffre d'affaires : 500 000 DH (commerce, industrie, artisanat), 200 000 DH (services).", avantages: ["Sans capital", "Inscription gratuite à l'État", "Impôt de 0,5 % à 1 % du chiffre d'affaires", "Couverture AMO"] },
+  { id: "cooperative", ar: "تعاونية", icon: UsersRound, part: "Produire ensemble", desc: "Au moins 5 membres (loi 112-12), pour produire et vendre ensemble.", avantages: ["5 membres minimum", "Accès aux aides ODCo et FDA", "Un membre, une voix", "Gestion collective"] },
+  { id: "sa", ar: "شركة المساهمة", icon: Briefcase, part: "Grands projets", desc: "Pour les levées de fonds et les gros projets.", avantages: ["Capital minimum 300 000 DH", "5 actionnaires minimum", "Actions librement cessibles", "Conseil d'administration"] },
+  { id: "sci", ar: "الشركة المدنية العقارية", icon: House, part: "Patrimoine immobilier", desc: "Détenir des biens immobiliers à plusieurs et les transmettre.", avantages: ["Gestion patrimoniale", "Transmission facilitée", "Plusieurs associés", "Fiscalité à étudier au cas par cas"] },
 ];
 
 const label = (id: FormeId) => FORMES.find((f) => f.id === id)?.short ?? id;
@@ -75,6 +76,7 @@ export default function FormesSelector({ initial = 0 }: { initial?: number }) {
           <span className="grid h-12 w-12 place-items-center rounded-xl bg-blue-700 text-white"><Icon className="h-6 w-6" /></span>
           <span>
             <span className="block text-2xl font-extrabold tracking-tight text-zinc-900">{FORMES.find((x) => x.id === f.id)?.label}</span>
+            <span className="block"><Ar className="ml-0 text-[13px] leading-normal">{f.ar}</Ar></span>
             <span className="text-sm font-semibold text-blue-700">{f.part}</span>
           </span>
         </div>
@@ -89,7 +91,7 @@ export default function FormesSelector({ initial = 0 }: { initial?: number }) {
               {kind === "ae" && <span className="mt-1 block text-sm text-zinc-600">Ou gratuit si vous faites l&apos;inscription vous-même avec notre guide.</span>}
             </p>
           ) : (
-            <p className="text-[15px] text-zinc-700">Prix selon votre projet. Devis écrit et gratuit avant de commencer.</p>
+            <p className="text-[15px] text-zinc-700">Devis écrit et gratuit.</p>
           )}
         </div>
 

@@ -66,7 +66,7 @@ export function FeesBreakdown({ className }: { className?: string }) {
         </li>
       </ul>
       <p className="px-6 py-4 text-sm leading-relaxed text-zinc-600">
-        Montants payés à l&apos;administration et aux journaux, au réel, sans marge de notre part. {f.note}
+        Payés au réel, sans marge. {f.note}
       </p>
     </div>
   );

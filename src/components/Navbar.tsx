@@ -13,15 +13,16 @@ import {
 import { cn } from "@/lib/utils";
 import { CONTACT, waLink } from "@/lib/offers";
 import { WhatsAppIcon } from "@/components/site";
+import { Ar } from "@/components/Ar";
 
 // ── Contenu des menus ────────────────────────────────────────────────────────
 interface MenuLink { icon: LucideIcon; label: string; desc?: string; href: string }
 interface MenuGroup { title: string; links: MenuLink[]; side?: boolean }
-interface NavItem { name: string; link: string; groups?: MenuGroup[]; highlight?: boolean }
+interface NavItem { name: string; ar?: string; link: string; groups?: MenuGroup[]; highlight?: boolean }
 
 const navItems: NavItem[] = [
   {
-    name: "Création d'entreprise", link: "/creation-entreprise",
+    name: "Création d'entreprise", ar: "إحداث المقاولة", link: "/creation-entreprise",
     groups: [
       {
         title: "Par forme juridique",
@@ -52,7 +53,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    name: "Aides de l'État", link: "/aides",
+    name: "Aides de l'État", ar: "دعم الدولة", link: "/aides",
     groups: [
       {
         title: "Par profil",
@@ -103,7 +104,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    name: "Comptabilité", link: "/comptabilite",
+    name: "Comptabilité", ar: "المحاسبة", link: "/comptabilite",
     groups: [
       {
         title: "Nos prestations",
@@ -147,7 +148,10 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
   return (
     <div className="grid gap-8 p-8 lg:grid-cols-[1fr_290px]">
       <div>
-        <div className="mb-4 text-xs font-bold uppercase tracking-[.1em] text-zinc-500">{main.title}</div>
+        <div className="mb-4 flex items-baseline justify-between gap-4">
+          <span className="text-xs font-bold uppercase tracking-[.1em] text-zinc-500">{main.title}</span>
+          {item.ar && <Ar className="text-sm">{item.ar}</Ar>}
+        </div>
         <div className="grid grid-cols-2 gap-1">
           {main.links.map(({ icon: Icon, label, desc, href }) => (
             <Link key={label} href={href} onClick={onNavigate} className="group flex items-start gap-3 rounded-2xl p-3 transition hover:bg-zinc-50">
@@ -287,7 +291,7 @@ export default function SiteNavbar() {
             className={cn("hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors hover:bg-zinc-50", pathname === "/connexion" ? "text-blue-700" : "text-zinc-900")}
           >
             <CircleUserRound className="h-4.5 w-4.5" aria-hidden="true" />
-            <span className="xl:sr-only 2xl:not-sr-only">Connexion</span>
+            <span className="xl:sr-only 2xl:not-sr-only">Espace client</span>
           </Link>
           <Link
             href="/onboarding"
@@ -329,7 +333,7 @@ export default function SiteNavbar() {
                   onClick={() => setMobileSection(mobileSection === item.name ? null : item.name)}
                   className="flex w-full items-center justify-between py-3 font-semibold text-zinc-900"
                 >
-                  {item.name}
+                  <span>{item.name}{item.ar && <Ar className="text-sm">{item.ar}</Ar>}</span>
                   <ChevronDown className={cn("h-4 w-4 text-zinc-400 transition-transform", mobileSection === item.name && "rotate-180")} />
                 </button>
                 {mobileSection === item.name && (
@@ -350,7 +354,7 @@ export default function SiteNavbar() {
             )
           )}
           <Link href="/connexion" onClick={closeAll} className="flex items-center gap-2 py-3 font-semibold text-zinc-900">
-            <CircleUserRound className="h-4.5 w-4.5" /> Connexion
+            <CircleUserRound className="h-4.5 w-4.5" /> Espace client
           </Link>
           <a
             href={waLink("Bonjour, je souhaite créer mon entreprise et connaître les aides auxquelles j'ai droit.")}

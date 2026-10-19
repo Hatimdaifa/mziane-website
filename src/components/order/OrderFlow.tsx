@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
-  ArrowLeft, ArrowRight, BadgeCheck, Check, Copy, Gift, Landmark, Lock, Mail, MessageCircle, Phone,
+  ArrowLeft, ArrowRight, BadgeCheck, Check, Copy, FolderUp, Gift, Landmark, Lock, Mail, MessageCircle, Phone,
   PiggyBank, ShieldCheck, Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -19,9 +19,10 @@ import { PackCard } from "@/components/offer-ui";
 import {
   EMPTY_CONTACT, PAY_LABELS, PREF_LABELS, WEB_IDS, availableOptions, baseKey, buildMessage, commandeHref, compute,
   creationFor, defaultForme, defaultMode, emailValid, formeChoices, formeLabel, isCreationOffer, makeReference, parseSpec,
-  payChoices, phoneValid, recurringText, resolveBase, upgradeFor, type Base, type Contact, type OrderSpec, type PayMode,
+  fullPhone, payChoices, phoneValid, recurringText, resolveBase, upgradeFor, type Base, type Contact, type OrderSpec, type PayMode,
 } from "./model";
 import { readJSON, useHydrated, writeJSON } from "./storage";
+import { createDossier, type PendingDossier } from "@/lib/espace";
 
 const DRAFT_KEY = "mziane-commande-v1";
 
@@ -88,7 +89,7 @@ function Order({ spec, base: urlBase }: { spec: OrderSpec; base: Base }) {
   const [step, setStep] = useState(0);
   const [accepted, setAccepted] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
-  const [confirmed, setConfirmed] = useState<{ reference: string; message: string } | null>(null);
+  const [confirmed, setConfirmed] = useState<{ reference: string; message: string; dossierId?: string | null } | null>(null);
 
   const key = baseKey(urlBase);
   useEffect(() => {
@@ -148,6 +149,21 @@ function Order({ spec, base: urlBase }: { spec: OrderSpec; base: Base }) {
     const message = buildMessage({ ref, c, forme, mode, base, contact, accepted });
     window.open(waLink(message), "_blank", "noopener,noreferrer");
     setConfirmed({ reference: ref, message });
+    // Le dossier est créé dans l'espace client (ou gardé jusqu'à la création du compte)
+    const amount = (l: (typeof c.start)[number]) => (l.amount === null ? (l.note ?? "Sur devis") : l.amount === 0 ? "Gratuit" : `${fmtDH(l.amount)} ${l.tax}`);
+    const pending: PendingDossier = {
+      reference: ref,
+      title: c.title,
+      spec: { packId: base.kind === "pack" ? base.pack.id : base.kind === "terre" ? packTerre.id : undefined, offreId: base.kind === "items" ? base.offer?.id : undefined, formalites: base.kind === "items" ? base.formalites.map((f) => f.id) : [], forme, opts: activeOpts, mode },
+      summary: {
+        start: [...c.start.map((l) => ({ label: l.label, value: amount(l) })), ...(c.tva ? [{ label: "TVA 20 %", value: fmtDH(c.tva) }] : []), ...c.fees.map((f) => ({ label: f.label, value: f.amount === null ? "au réel" : fmtDH(f.amount) }))],
+        startTotal: c.start.length || c.fees.length ? `${fmtDH(c.startTotal)}${c.hasQuote ? " + éléments au réel" : ""}` : undefined,
+        recurring: c.recurring.map((l) => ({ label: l.label, value: recurringText(l) })),
+        success: c.success.map((x) => ({ label: x.label, value: x.text })),
+        contact: { nom: contact.nom.trim(), tel: fullPhone(contact), email: contact.email.trim(), ville: contact.ville.trim() },
+      },
+    };
+    createDossier(pending).then((dossierId) => setConfirmed((x) => (x && x.reference === ref ? { ...x, dossierId } : x)));
   }
 
   if (confirmed) return <Confirmation {...confirmed} title={c.title} onEdit={() => setConfirmed(null)} />;
@@ -593,7 +609,7 @@ function Reassurance({ aides, step }: { aides: boolean; step: number }) {
 }
 
 // ── Confirmation ────────────────────────────────────────────────────────────
-function Confirmation({ reference, message, title, onEdit }: { reference: string; message: string; title: string; onEdit: () => void }) {
+function Confirmation({ reference, message, title, dossierId, onEdit }: { reference: string; message: string; title: string; dossierId?: string | null; onEdit: () => void }) {
   const [copied, setCopied] = useState(false);
   async function copy() {
     try {
@@ -630,6 +646,17 @@ function Confirmation({ reference, message, title, onEdit }: { reference: string
           <button type="button" onClick={copy} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:underline">
             {copied ? <><Check className="h-4 w-4" /> Récapitulatif copié</> : <><Copy className="h-4 w-4" /> Copier le récapitulatif</>}
           </button>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-4 rounded-3xl border-2 border-blue-200 bg-white p-6 sm:flex-row sm:items-center max-sm:p-5">
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-blue-700 text-white"><FolderUp className="h-6 w-6" aria-hidden /></span>
+          <div className="flex-1">
+            <p className="font-bold text-zinc-900">{dossierId ? "Votre dossier est dans votre espace client" : "Envoyez vos documents en ligne"}</p>
+            <p className="text-[14px] text-zinc-600">{dossierId ? "Vous y trouvez la liste des pièces à fournir et vous pouvez les ajouter tout de suite." : "Créez votre espace client : la liste des pièces de votre dossier vous y attend."}</p>
+          </div>
+          <Link href={dossierId ? `/espace/dossier/${dossierId}` : "/connexion?mode=inscription"} className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-2xl bg-blue-700 px-5 font-bold text-white hover:bg-blue-800">
+            {dossierId ? "Ajouter mes documents" : "Créer mon espace"} <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
         </div>
 
         <ol className="mt-6 grid gap-3">

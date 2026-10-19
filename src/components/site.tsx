@@ -3,10 +3,11 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Check, Plus, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Ar } from "@/components/Ar";
 
 // ── Bandeau d'en-tête en dégradé ────────────────────────────────────────────
-export function PageHero({ icon: Icon, tag, title, subtitle, children, note }: {
-  icon: LucideIcon; tag: string; title: string; subtitle: string; children?: React.ReactNode; note?: string;
+export function PageHero({ icon: Icon, tag, title, ar, subtitle, children, note }: {
+  icon: LucideIcon; tag: string; title: string; ar?: string; subtitle: string; children?: React.ReactNode; note?: string;
 }) {
   return (
     <section className="relative -mt-[76px] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 pt-[calc(76px+64px)] pb-20 text-center max-sm:pb-14">
@@ -16,7 +17,7 @@ export function PageHero({ icon: Icon, tag, title, subtitle, children, note }: {
         <span className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[13px] font-semibold text-white">
           <Icon className="h-3.5 w-3.5" /> {tag}
         </span>
-        <h1 className="mb-5 text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.08] tracking-[-.03em] text-white text-balance">{title}</h1>
+        <h1 className="mb-5 text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.08] tracking-[-.03em] text-white text-balance">{title}{ar && <Ar tone="light" block>{ar}</Ar>}</h1>
         <p className="mx-auto max-w-[620px] text-lg leading-relaxed text-white/80">{subtitle}</p>
         {children && <div className="mt-8 flex flex-wrap justify-center gap-3">{children}</div>}
         {note && <p className="mt-4 text-[13px] text-white/80">{note}</p>}
@@ -40,13 +41,13 @@ export function HeroButton({ href, children, variant = "primary" }: { href: stri
 }
 
 // ── Titre de section ────────────────────────────────────────────────────────
-export function SectionHeader({ tag, title, subtitle, tagClass = "bg-blue-50 text-blue-700", left = false }: {
-  tag?: React.ReactNode; title: string; subtitle?: string; tagClass?: string; left?: boolean;
+export function SectionHeader({ tag, title, ar, subtitle, tagClass = "bg-blue-50 text-blue-700", left = false }: {
+  tag?: React.ReactNode; title: string; ar?: string; subtitle?: React.ReactNode; tagClass?: string; left?: boolean;
 }) {
   return (
     <div className={cn("mb-12", left ? "text-left" : "text-center")}>
       {tag && <span className={cn("inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[13px] font-semibold", tagClass)}>{tag}</span>}
-      <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.5rem)] font-bold tracking-tight text-zinc-900 text-balance">{title}</h2>
+      <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.5rem)] font-bold tracking-tight text-zinc-900 text-balance">{title}{ar && <Ar block>{ar}</Ar>}</h2>
       {subtitle && <p className={cn("mt-3 max-w-[620px] text-[17px] text-zinc-600", !left && "mx-auto")}>{subtitle}</p>}
     </div>
   );

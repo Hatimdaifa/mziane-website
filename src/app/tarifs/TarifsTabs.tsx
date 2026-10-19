@@ -78,14 +78,14 @@ function PacksTab() {
   return (
     <>
       <p className="mx-auto mb-10 max-w-[640px] text-center text-[15px] text-zinc-600">
-        La création est offerte dans chaque pack. Vous payez un prix mensuel sur 12 mois, moins cher que les services pris à part.
+        Création offerte. Un prix mensuel sur 12 mois, moins cher qu&apos;à la carte.
       </p>
       <Grid>
         {list.map((p) => (
           <PackCard key={p.id} pack={p} icon={PACK_ICONS[p.id]} href={packHref(p)} className={p.popular ? "max-md:order-first" : ""} />
         ))}
       </Grid>
-      <MoreLink href="/packs">Voir tous les packs et composer le vôtre</MoreLink>
+      <MoreLink href="/packs">Tous les packs</MoreLink>
     </>
   );
 }
@@ -138,7 +138,7 @@ function ComptaTab() {
           </div>
         ))}
       </div>
-      <Note>Formule seule : mensuelle et sans engagement. Prise dans un pack : engagement 12 mois, facturée à partir du registre de commerce.</Note>
+      <Note>Seule : sans engagement. En pack : 12 mois, facturée dès le registre de commerce.</Note>
     </>
   );
 }
@@ -156,7 +156,7 @@ function AidesTab() {
         <div className="rounded-3xl border border-zinc-200 bg-white p-6">
           <h3 className="mb-3 text-lg font-bold text-zinc-900">Le barème du dossier de A à Z</h3>
           <BaremeTable />
-          <p className="mt-3 text-[13px] text-zinc-500">Barème par tranches, comme l&apos;impôt : chaque taux s&apos;applique à sa tranche seulement.</p>
+          <p className="mt-3 text-[13px] text-zinc-500">Par tranches, comme l&apos;impôt.</p>
         </div>
         <AideFeeCalculator />
         <div className="flex flex-col rounded-3xl border-2 border-amber-300 bg-amber-50 p-6">
@@ -172,7 +172,7 @@ function AidesTab() {
           </Link>
         </div>
       </div>
-      <Note>{PROMESSES.sansInteret} {PROMESSES.societePrivee}</Note>
+      <Note>{PROMESSES.sansInteret}</Note>
     </>
   );
 }
@@ -198,7 +198,7 @@ function FormalitesTab() {
           ))}
         </ul>
       </div>
-      <Note>Honoraires à prix fixe. {FORMALITE_SUPPLEMENT} Frais officiels (greffe, annonces, enregistrement) en sus, au réel.</Note>
+      <Note>Prix fixe. {FORMALITE_SUPPLEMENT} Frais officiels en sus, au réel.</Note>
 
       <h3 className="mb-8 mt-16 text-center text-2xl font-bold text-zinc-900">Dépôt de marque à l&apos;OMPIC</h3>
       <Offers list={marque} icon={Stamp} href={(o) => offerHref(o.id)} />
@@ -233,7 +233,7 @@ function TabPanel({ id }: { id: TabId }) {
       return (
         <>
           <Offers list={web} icon={Laptop} href={(o) => offerHref(o.id)} />
-          <Note>Hébergement et nom de domaine : {fmtDH(HEBERGEMENT_AN)} HT par an, la première année est incluse dans les packs.</Note>
+          <Note>Hébergement et domaine : {fmtDH(HEBERGEMENT_AN)} HT par an, 1re année incluse dans les packs.</Note>
         </>
       );
     case "international":

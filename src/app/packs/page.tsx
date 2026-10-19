@@ -23,35 +23,35 @@ const ttc = (n: number) => Math.round(n * (1 + TVA));
 const COMPARE: { label: string; seul: string; cabinet: string; mziane: string; good?: [boolean, boolean, boolean] }[] = [
   {
     label: "Création d'une SARL",
-    seul: `Frais d'État seuls, environ ${FRAIS_ETAT.societe.range}, et plusieurs passages à l'OMPIC, au greffe et aux impôts`,
-    cabinet: "2 500 à 5 500 DH TTC clé en main selon les cabinets",
-    mziane: `${fmtDH(ttc(sarlStandard))} TTC (${fmtDH(sarlStandard)} HT), frais d'État affichés à part, ou offerte dans un pack`,
+    seul: `Frais d'État seuls (${FRAIS_ETAT.societe.range}), plusieurs guichets`,
+    cabinet: "2 500 à 5 500 DH TTC selon les cabinets",
+    mziane: `${fmtDH(ttc(sarlStandard))} TTC, ou offerte dans un pack`,
   },
   {
     label: "Comptabilité d'une SARL",
-    seul: "Possible, mais déclarations TVA, IS et liasse fiscale à maîtriser vous-même",
-    cabinet: "500 à 2 500 DH par mois selon le cabinet et le volume",
+    seul: "TVA, IS et liasse fiscale à maîtriser seul",
+    cabinet: "500 à 2 500 DH par mois selon le cabinet",
     mziane: `${fmtDH(comptaEssentiel)} HT par mois, bilan et liasse inclus`,
   },
   {
     label: "Prix connu avant de commencer",
-    seul: "Oui pour les frais d'État, le temps passé ne se chiffre pas",
-    cabinet: "Souvent sur devis, à comparer à périmètre égal",
-    mziane: "Oui, chaque prix est affiché sur ce site",
+    seul: "Oui pour les frais d'État",
+    cabinet: "Souvent sur devis",
+    mziane: "Oui, chaque prix est affiché",
     good: [false, false, true],
   },
   {
     label: "Contact",
     seul: "Vous seul face aux guichets",
-    cabinet: "Rendez-vous au cabinet, utile si vous préférez le face à face",
-    mziane: "WhatsApp et appel vidéo, sans vous déplacer",
+    cabinet: "Rendez-vous au cabinet",
+    mziane: "WhatsApp et appel vidéo",
     good: [false, true, true],
   },
   {
     label: "Aides de l'État",
     seul: "À rechercher et monter seul",
     cabinet: "Variable selon le cabinet",
-    mziane: "Diagnostic gratuit, honoraires seulement si l'aide est versée",
+    mziane: "Payé seulement si l'aide est versée",
     good: [false, false, true],
   },
 ];
@@ -59,15 +59,11 @@ const COMPARE: { label: string; seul: string; cabinet: string; mziane: string; g
 const faq = [
   {
     q: "Les packs ont-ils un engagement ?",
-    a: `Oui, les packs au mois engagent sur 12 mois : c'est ce qui nous permet d'offrir la création. Si vous arrêtez avant, vous payez seulement la part de la remise qui correspond aux mois restants, au prorata. Exemple avec le pack ${lancement.name} : la remise totale est de ${fmtDH(packSavings(lancement))} sur 12 mois.`,
+    a: `Oui, 12 mois : c'est ce qui permet d'offrir la création. En cas d'arrêt anticipé, la remise est due au prorata des mois restants (pack ${lancement.name} : ${fmtDH(packSavings(lancement))} de remise sur 12 mois). La comptabilité n'est facturée qu'à partir du registre de commerce.`,
   },
   {
-    q: "Quand commence la facturation de la comptabilité ?",
-    a: "La comptabilité n'est facturée qu'à partir de l'obtention de votre registre de commerce. Les semaines de création ne vous coûtent rien en abonnement.",
-  },
-  {
-    q: "Les frais d'État sont-ils compris dans le prix ?",
-    a: `Non. Ils sont payés à l'administration au réel, sans marge : environ ${fmtDH(FRAIS_ETAT.societe.estimate)} pour une SARL (${FRAIS_ETAT.societe.range}). ${FRAIS_ETAT.societe.note} ${FRAIS_ETAT.autoEntrepreneur.note}`,
+    q: "Les frais d'État sont-ils compris ?",
+    a: `Non. Ils sont payés au réel, sans marge : environ ${fmtDH(FRAIS_ETAT.societe.estimate)} pour une SARL (${FRAIS_ETAT.societe.range}). ${FRAIS_ETAT.autoEntrepreneur.note}`,
   },
   {
     q: "Comment se passe le paiement ?",
@@ -75,15 +71,11 @@ const faq = [
   },
   {
     q: "Pourquoi payer d'avance ?",
-    a: `Payer les 12 mois en une fois revient moins cher : ${MOIS_OFFERTS_AVANCE} mois offerts. Pour le pack ${lancement.name}, ${fmtDH(lancement.upfront ?? 0)} au lieu de ${fmtDH(packTotal(lancement))}, soit ${fmtDH(packSavingsUpfront(lancement))} d'économie au total par rapport aux services pris séparément.`,
-  },
-  {
-    q: "Quelle différence entre un pack et une formule seule ?",
-    a: "Une formule seule couvre un seul service : la comptabilité seule est mensuelle et sans engagement, la création se paie une fois. Un pack réunit plusieurs services pour 12 mois, avec la création offerte et un prix total plus bas. Le configurateur ci-dessus vous montre les deux prix côte à côte.",
+    a: `${MOIS_OFFERTS_AVANCE} mois offerts. Pack ${lancement.name} : ${fmtDH(lancement.upfront ?? 0)} au lieu de ${fmtDH(packTotal(lancement))}, soit ${fmtDH(packSavingsUpfront(lancement))} d'économie par rapport aux services séparés.`,
   },
   {
     q: "Le pack Envol garantit-il l'aide ?",
-    a: `Non, aucune aide n'est garantie : c'est l'organisme public qui décide. ${PROMESSES.zeroRefus} ${PROMESSES.sansInteret}`,
+    a: `Non, l'organisme public décide. ${PROMESSES.zeroRefus} ${PROMESSES.sansInteret}`,
   },
 ];
 
@@ -94,8 +86,8 @@ export default function PacksPage() {
         icon={Boxes}
         tag="Création offerte dans les packs"
         title="Tout pour lancer votre activité, en un seul prix"
-        subtitle="Création, site web, comptabilité et domiciliation réunis dans un pack. Un prix mensuel clair, et moins cher que chaque service pris à part."
-        note="Prix en DH HT. Frais d'État affichés à part, reversés sans marge."
+        subtitle="Création, site web et comptabilité dans un seul pack. Moins cher que chaque service à part."
+        note="Prix en DH HT. Frais d'État à part, sans marge."
       >
         <HeroButton href="#packs">Voir les packs</HeroButton>
         <HeroButton href="#composer" variant="ghost">Composer mon pack</HeroButton>
@@ -103,21 +95,21 @@ export default function PacksPage() {
 
       <section id="packs" className="scroll-mt-[96px] bg-white py-20 max-md:py-14">
         <div className="mx-auto max-w-[1180px] px-6 max-sm:px-4">
-          <SectionHeader title="Choisissez votre pack" subtitle="Filtrez selon votre situation. Chaque pack indique ce que vous économisez par rapport aux services pris séparément." />
+          <SectionHeader title="Choisissez votre pack" subtitle="Filtrez selon votre situation." />
           <PacksExplorer />
         </div>
       </section>
 
       <section id="composer" className="scroll-mt-[96px] bg-zinc-50 py-20 max-md:py-14">
         <div className="mx-auto max-w-[1180px] px-6 max-sm:px-4">
-          <SectionHeader tag="Configurateur" title="Composez votre pack" subtitle="Cochez ce dont vous avez besoin. Si un pack couvre votre sélection pour moins cher, on vous le montre." />
+          <SectionHeader tag="Configurateur" title="Composez votre pack" subtitle="Cochez vos besoins, on vous montre le meilleur prix." />
           <PackConfigurator />
         </div>
       </section>
 
       <section className="bg-white py-20 max-md:py-14">
         <div className="mx-auto max-w-[1180px] px-6 max-sm:px-4">
-          <SectionHeader title="Comparer les packs" subtitle="Faites défiler le tableau sur mobile pour voir tous les packs." />
+          <SectionHeader title="Comparer les packs" />
           <PackComparison />
         </div>
       </section>
@@ -126,8 +118,8 @@ export default function PacksPage() {
         <div className="mx-auto max-w-[1100px] px-6 max-sm:px-4">
           <SectionHeader
             tag={<><Scale className="h-3.5 w-3.5" aria-hidden /> Comparaison honnête</>}
-            title="Mziane, un cabinet traditionnel ou tout faire seul"
-            subtitle="Les trois choix sont valables. Voici ce qui change, avec les fourchettes de prix constatées au Maroc."
+            title="Mziane, un cabinet ou tout faire seul"
+            subtitle="Trois choix valables. Voici ce qui change."
           />
           <div className="grid gap-4 md:hidden">
             {COMPARE.map((r) => (
@@ -170,21 +162,21 @@ export default function PacksPage() {
             </table>
           </div>
           <p className="mt-4 text-center text-[13px] text-zinc-500">
-            Fourchettes indicatives du marché marocain. Pour comparer, vérifiez toujours si les frais d&apos;État sont inclus dans le prix annoncé.
+            Fourchettes indicatives. Vérifiez toujours si les frais d&apos;État sont inclus.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-6 max-sm:px-4">
-          <SectionHeader title="Questions fréquentes sur les packs" />
+          <SectionHeader title="Questions fréquentes" />
           <Faq items={faq} />
         </div>
       </section>
 
       <CtaBand
         title="Pas sûr du pack qui vous convient ?"
-        subtitle="Répondez à quelques questions en deux minutes, on vous recommande le pack ou la formule adaptée."
+        subtitle="Quelques questions, et on vous recommande le bon pack."
         href="/onboarding"
         label="Trouver mon pack"
       />
