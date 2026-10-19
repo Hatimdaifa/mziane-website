@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, Info, Mail, Lock, User, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { WhatsAppIcon } from "@/components/site";
+import { CONTACT, mailLink, waLink } from "@/lib/offers";
 
 type Mode = "connexion" | "inscription";
 
@@ -52,7 +54,7 @@ export default function ConnexionForm() {
             onClick={() => { setMode(m); setNotice(false); }}
             className={cn("rounded-full py-2.5 text-sm font-semibold transition", mode === m ? "bg-white text-zinc-900 shadow-sm" : "text-zinc-600 hover:text-zinc-900")}
           >
-            {m === "connexion" ? "Se connecter" : "Créer mon espace"}
+            {m === "connexion" ? "Se connecter" : "Créer un compte"}
           </button>
         ))}
       </div>
@@ -78,30 +80,41 @@ export default function ConnexionForm() {
 
         {mode === "connexion" && (
           <div className="flex justify-end">
-            <a href="mailto:contact@mziane.com?subject=Mot%20de%20passe%20oubli%C3%A9" className="text-sm font-semibold text-blue-700 hover:underline">
+            <a href={mailLink("Mot de passe oublié")} className="text-sm font-semibold text-blue-700 hover:underline">
               Mot de passe oublié ?
             </a>
           </div>
         )}
 
-        <button type="submit" className="mt-1 h-12 rounded-xl bg-blue-600 font-bold text-white shadow-[0_10px_20px_-8px_rgba(0,132,153,.5)] transition hover:bg-blue-700">
-          {mode === "connexion" ? "Se connecter" : "Créer mon espace"}
+        <button type="submit" className="mt-1 h-12 rounded-xl bg-blue-700 font-bold text-white shadow-[0_10px_20px_-8px_rgba(0,105,122,.5)] transition hover:bg-blue-800">
+          {mode === "connexion" ? "Se connecter" : "Créer un compte"}
         </button>
 
         {notice && (
           <div role="status" className="flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
             <Info className="mt-0.5 h-4.5 w-4.5 shrink-0" />
             <p>
-              L&apos;espace client en ligne ouvre très bientôt. En attendant, votre conseiller suit votre dossier et vous répond à{" "}
-              <a href="mailto:contact@mziane.com" className="font-semibold underline">contact@mziane.com</a>.
+              L&apos;espace client en ligne n&apos;est pas encore ouvert et aucune donnée n&apos;a été envoyée. Votre conseiller suit votre dossier et vous répond sur{" "}
+              <a href={waLink("Bonjour, je souhaite avoir des nouvelles de mon dossier.")} target="_blank" rel="noopener noreferrer" className="font-semibold underline">WhatsApp</a>{" "}
+              ou à{" "}
+              <a href={`mailto:${CONTACT.email}`} className="font-semibold underline">{CONTACT.email}</a>.
             </p>
           </div>
         )}
       </form>
 
+      <a
+        href={waLink("Bonjour, je souhaite avoir des nouvelles de mon dossier.")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 flex h-12 items-center justify-center gap-2 rounded-xl bg-[#0E7A40] font-bold text-white transition hover:bg-[#0B6634]"
+      >
+        <WhatsAppIcon className="h-5 w-5" /> Suivre mon dossier sur WhatsApp
+      </a>
+
       <p className="mt-6 text-center text-sm text-zinc-600">
         Pas encore client ?{" "}
-        <Link href="/onboarding" className="font-semibold text-blue-700 hover:underline">Démarrer mon projet</Link>
+        <Link href="/onboarding" className="font-semibold text-blue-700 hover:underline">Trouver ma solution</Link>
       </p>
     </div>
   );

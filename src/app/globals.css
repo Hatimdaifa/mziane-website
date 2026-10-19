@@ -118,6 +118,8 @@
   --color-zinc-50: #F4F4F8;
   --color-zinc-100: #EDEDF1;
   --color-zinc-200: #E6E6EA;
+  /* Gris de texte secondaire un peu plus foncé : contraste AA aussi sur fond Ghost White */
+  --color-zinc-500: #67676F;
 }
 
 :root {

@@ -11,11 +11,13 @@ import {
   Calculator, FileText, TrendingUp, BarChart3, ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CONTACT, waLink } from "@/lib/offers";
+import { WhatsAppIcon } from "@/components/site";
 
 // ── Contenu des menus ────────────────────────────────────────────────────────
 interface MenuLink { icon: LucideIcon; label: string; desc?: string; href: string }
 interface MenuGroup { title: string; links: MenuLink[]; side?: boolean }
-interface NavItem { name: string; link: string; groups?: MenuGroup[]; cta?: { label: string; desc: string; href: string } }
+interface NavItem { name: string; link: string; groups?: MenuGroup[]; highlight?: boolean }
 
 const navItems: NavItem[] = [
   {
@@ -31,7 +33,7 @@ const navItems: NavItem[] = [
           { icon: Landmark, label: "SA", desc: "Grands projets", href: "/creation-entreprise?forme=sa#formes" },
           { icon: House, label: "SCI", desc: "Patrimoine immobilier", href: "/creation-entreprise?forme=sci#formes" },
           { icon: Zap, label: "Auto-entrepreneur", desc: "Démarrer seul sans capital", href: "/creation-entreprise?forme=auto#formes" },
-          { icon: HeartHandshake, label: "Coopérative", desc: "Agricole, artisanale, féminine", href: "/onboarding?besoin=aides" },
+          { icon: HeartHandshake, label: "Coopérative", desc: "Agricole, artisanale, féminine", href: "/creation-entreprise?forme=cooperative#formes" },
           { icon: CircleHelp, label: "Choisir mon statut", desc: "Questionnaire personnalisé", href: "/onboarding?besoin=creer" },
           { icon: Plane, label: "Depuis l'étranger", desc: "MRE et non-résidents", href: "/expatriation" },
         ],
@@ -50,7 +52,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    name: "Aides et subventions", link: "/aides",
+    name: "Aides de l'État", link: "/aides",
     groups: [
       {
         title: "Par profil",
@@ -60,7 +62,7 @@ const navItems: NavItem[] = [
           { icon: UsersRound, label: "Femmes entrepreneures", desc: "Programmes dédiés", href: "/aides?cat=femmes#catalogue" },
           { icon: User, label: "Particuliers", desc: "Logement, aide sociale, santé", href: "/aides?cat=particuliers#catalogue" },
           { icon: Search, label: "Trouver mes aides", desc: "Diagnostic gratuit en ligne", href: "/onboarding?besoin=aides" },
-          { icon: HandCoins, label: "Toutes les aides", desc: "47 fiches détaillées", href: "/aides#catalogue" },
+          { icon: HandCoins, label: "Toutes les aides", desc: "Conditions, montants, pièces", href: "/aides#catalogue" },
         ],
       },
       {
@@ -122,13 +124,14 @@ const navItems: NavItem[] = [
       },
     ],
   },
+  { name: "Packs", link: "/packs", highlight: true },
   { name: "Tarifs", link: "/tarifs" },
 ];
 
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-2 shrink-0">
-      <span className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center">
+    <Link href="/" aria-label="Mziane, accueil" className="flex items-center gap-2 shrink-0">
+      <span className="w-9 h-9 rounded-xl bg-blue-700 flex items-center justify-center">
         <Building2 className="w-4.5 h-4.5 text-amber-400" />
       </span>
       <span className={cn("text-xl font-extrabold tracking-tight", dark ? "text-white" : "text-zinc-900")}>
@@ -148,7 +151,7 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
         <div className="grid grid-cols-2 gap-1">
           {main.links.map(({ icon: Icon, label, desc, href }) => (
             <Link key={label} href={href} onClick={onNavigate} className="group flex items-start gap-3 rounded-2xl p-3 transition hover:bg-zinc-50">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
                 <Icon className="h-4.5 w-4.5" />
               </span>
               <span className="min-w-0">
@@ -165,7 +168,7 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
           <div className="grid gap-1">
             {side.links.map(({ icon: Icon, label, href }) => (
               <Link key={label} href={href} onClick={onNavigate} className="flex items-center gap-3 rounded-xl px-3 py-2.5 font-semibold text-zinc-900 transition hover:bg-zinc-50 hover:text-blue-700">
-                <Icon className="h-4.5 w-4.5 text-blue-600" /> {label}
+                <Icon className="h-4.5 w-4.5 text-blue-700" /> {label}
               </Link>
             ))}
           </div>
@@ -185,6 +188,7 @@ export default function SiteNavbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -199,12 +203,24 @@ export default function SiteNavbar() {
     };
   }, []);
 
-  const open = (name: string) => {
+  const clearTimers = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (openTimer.current) clearTimeout(openTimer.current);
+  };
+  const open = (name: string) => {
+    clearTimers();
     setOpenMenu(name);
   };
+  // Au survol, petit délai avant d'ouvrir un panneau (aucun délai si un panneau est déjà ouvert) :
+  // évite les ouvertures accidentelles quand la souris traverse la barre (recommandation NN/g).
+  const hoverOpen = (name: string) => {
+    clearTimers();
+    if (openMenu) setOpenMenu(name);
+    else openTimer.current = setTimeout(() => setOpenMenu(name), 200);
+  };
   const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setOpenMenu(null), 150);
+    clearTimers();
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 200);
   };
   const closeAll = () => {
     setOpenMenu(null);
@@ -235,7 +251,7 @@ export default function SiteNavbar() {
                 key={item.name}
                 type="button"
                 aria-expanded={isOpen}
-                onMouseEnter={() => open(item.name)}
+                onMouseEnter={() => hoverOpen(item.name)}
                 onClick={() => (isOpen ? setOpenMenu(null) : open(item.name))}
                 className={cn(
                   "inline-flex items-center gap-1 rounded-full px-2.5 py-2 text-[15px] whitespace-nowrap transition-colors",
@@ -244,14 +260,20 @@ export default function SiteNavbar() {
                 )}
               >
                 {item.name}
-                <ChevronDown className={cn("h-4 w-4 text-zinc-400 transition-transform", isOpen && "rotate-180 text-blue-600")} />
+                <ChevronDown className={cn("h-4 w-4 text-zinc-400 transition-transform", isOpen && "rotate-180 text-blue-700")} />
               </button>
             ) : (
               <Link
                 key={item.name}
                 href={item.link}
-                onMouseEnter={() => setOpenMenu(null)}
-                className={cn("rounded-full px-2.5 py-2 text-[15px] whitespace-nowrap transition-colors hover:text-blue-700", active ? "font-semibold text-blue-700" : "font-medium text-zinc-900")}
+                aria-current={active ? "page" : undefined}
+                onMouseEnter={() => { clearTimers(); setOpenMenu(null); }}
+                className={cn(
+                  "rounded-full px-2.5 py-2 text-[15px] whitespace-nowrap transition-colors",
+                  item.highlight
+                    ? cn("mx-1 bg-amber-100 px-3.5 font-bold text-zinc-900 ring-1 ring-amber-300 hover:bg-amber-200", active && "bg-amber-200")
+                    : cn("hover:text-blue-700", active ? "font-semibold text-blue-700" : "font-medium text-zinc-900"),
+                )}
               >
                 {item.name}
               </Link>
@@ -264,11 +286,12 @@ export default function SiteNavbar() {
             href="/connexion"
             className={cn("hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors hover:bg-zinc-50", pathname === "/connexion" ? "text-blue-700" : "text-zinc-900")}
           >
-            <CircleUserRound className="h-4.5 w-4.5" /> Connexion
+            <CircleUserRound className="h-4.5 w-4.5" aria-hidden="true" />
+            <span className="xl:sr-only 2xl:not-sr-only">Connexion</span>
           </Link>
           <Link
             href="/onboarding"
-            className="hidden sm:inline-flex px-4 py-2 rounded-full text-sm font-bold text-white whitespace-nowrap bg-blue-600 hover:bg-blue-700 shadow-[0_10px_20px_-8px_rgba(0,132,153,.5)] transition-colors"
+            className="hidden sm:inline-flex px-4 py-2 rounded-full text-sm font-bold text-white whitespace-nowrap bg-blue-700 hover:bg-blue-800 shadow-[0_10px_20px_-8px_rgba(0,105,122,.5)] transition-colors"
           >
             Commencer
           </Link>
@@ -313,23 +336,32 @@ export default function SiteNavbar() {
                   <div className="grid gap-1 pb-3">
                     {item.groups.flatMap((g) => g.links).map(({ icon: Icon, label, href }) => (
                       <Link key={label + href} href={href} onClick={closeAll} className="flex items-center gap-3 rounded-xl px-2 py-2 text-[15px] text-zinc-700 hover:bg-zinc-50">
-                        <Icon className="h-4 w-4 text-blue-600" /> {label}
+                        <Icon className="h-4 w-4 text-blue-700" /> {label}
                       </Link>
                     ))}
                   </div>
                 )}
               </div>
             ) : (
-              <Link key={item.name} href={item.link} onClick={closeAll} className="block border-b border-zinc-100 py-3 font-semibold text-zinc-900">
+              <Link key={item.name} href={item.link} onClick={closeAll} className="flex items-center justify-between border-b border-zinc-100 py-3 font-semibold text-zinc-900">
                 {item.name}
+                {item.highlight && <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-900">Création offerte</span>}
               </Link>
             )
           )}
           <Link href="/connexion" onClick={closeAll} className="flex items-center gap-2 py-3 font-semibold text-zinc-900">
             <CircleUserRound className="h-4.5 w-4.5" /> Connexion
           </Link>
-          <Link href="/onboarding" onClick={closeAll} className="mt-2 block rounded-full bg-blue-600 py-3 text-center font-bold text-white">
-            Démarrer mon projet
+          <a
+            href={waLink("Bonjour, je souhaite créer mon entreprise et connaître les aides auxquelles j'ai droit.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 py-3 font-semibold text-zinc-900"
+          >
+            <WhatsAppIcon className="h-4.5 w-4.5 text-[#128C4B]" /> WhatsApp {CONTACT.whatsappDisplay}
+          </a>
+          <Link href="/onboarding" onClick={closeAll} className="mt-2 block rounded-full bg-blue-700 py-3 text-center font-bold text-white hover:bg-blue-800">
+            Trouver ma solution
           </Link>
         </div>
       )}

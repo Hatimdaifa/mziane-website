@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Plus } from "lucide-react";
+import { MessageCircle, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { aides, categories, type AideCategorie } from "@/lib/aides";
+import { waLink } from "@/lib/offers";
 
 const rows = [
   ["Pour qui ?", "pourQui"],
@@ -48,7 +49,7 @@ export default function AidesCatalogue({ initial = "toutes" }: { initial?: AideC
             onClick={() => setCat(c.id)}
             className={cn(
               "rounded-full border px-4 py-2 text-sm font-semibold transition",
-              cat === c.id ? "border-blue-600 bg-blue-600 text-white" : "border-zinc-200 bg-white text-zinc-700 hover:border-blue-500 hover:text-blue-700"
+              cat === c.id ? "border-blue-700 bg-blue-700 text-white" : "border-zinc-200 bg-white text-zinc-700 hover:border-blue-500 hover:text-blue-700"
             )}
           >
             {c.label}
@@ -84,6 +85,17 @@ export default function AidesCatalogue({ initial = "toutes" }: { initial?: AideC
               <dt className="pt-4 text-sm font-bold text-blue-700">Se renseigner</dt>
               <dd className="pt-1 text-[15px] text-zinc-700 sm:pt-4">{a.site}</dd>
             </dl>
+            <div className="flex flex-col gap-2 border-t border-zinc-200 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-zinc-600">Nous vérifions si vous y avez droit, gratuitement.</p>
+              <a
+                href={waLink(`Bonjour, je voudrais savoir si j'ai droit à cette aide : ${a.titre} (${a.id}).`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800"
+              >
+                <MessageCircle className="h-4 w-4" /> Vérifier mon droit à cette aide
+              </a>
+            </div>
           </details>
         ))}
       </div>

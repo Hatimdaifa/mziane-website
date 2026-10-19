@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PaddleProvider from "@/components/PaddleProvider";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -12,9 +12,21 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Mziane — Cabinet de conseil",
+  title: {
+    template: "%s | Mziane",
+    default: "Mziane | Créez votre entreprise au Maroc et obtenez vos aides",
+  },
   description:
-    "Accompagnement en création d'entreprise, comptabilité et expatriation.",
+    "Création d'entreprise au Maroc, formalités, marque, domiciliation, comptabilité et accompagnement aux aides de l'État sans prêt à intérêt. Pas d'aide obtenue, pas de frais.",
+  applicationName: "Mziane",
+  openGraph: {
+    type: "website",
+    locale: "fr_MA",
+    siteName: "Mziane",
+    title: "Créez votre entreprise et obtenez vos aides. Sans prêt à intérêt.",
+    description:
+      "Création de société, auto-entrepreneur, comptabilité et aides de l'État au Maroc. Prix affichés, frais d'État reversés au réel, suivi sur WhatsApp.",
+  },
 };
 
 export default function RootLayout({
@@ -23,10 +35,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white font-sans">
-        <PaddleProvider />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

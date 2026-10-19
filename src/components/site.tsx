@@ -9,7 +9,7 @@ export function PageHero({ icon: Icon, tag, title, subtitle, children, note }: {
   icon: LucideIcon; tag: string; title: string; subtitle: string; children?: React.ReactNode; note?: string;
 }) {
   return (
-    <section className="relative -mt-[76px] overflow-hidden bg-gradient-to-br from-blue-800 via-blue-700 to-blue-500 pt-[calc(76px+64px)] pb-20 text-center max-sm:pb-14">
+    <section className="relative -mt-[76px] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 pt-[calc(76px+64px)] pb-20 text-center max-sm:pb-14">
       <div className="pointer-events-none absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(254,215,102,.22)_0%,transparent_65%)]" />
       <div className="pointer-events-none absolute -bottom-40 -left-40 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(254,74,73,.16)_0%,transparent_65%)]" />
       <div className="relative z-10 mx-auto max-w-[860px] px-6">
@@ -19,7 +19,7 @@ export function PageHero({ icon: Icon, tag, title, subtitle, children, note }: {
         <h1 className="mb-5 text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.08] tracking-[-.03em] text-white text-balance">{title}</h1>
         <p className="mx-auto max-w-[620px] text-lg leading-relaxed text-white/80">{subtitle}</p>
         {children && <div className="mt-8 flex flex-wrap justify-center gap-3">{children}</div>}
-        {note && <p className="mt-4 text-[13px] text-white/65">{note}</p>}
+        {note && <p className="mt-4 text-[13px] text-white/80">{note}</p>}
       </div>
     </section>
   );
@@ -77,7 +77,7 @@ export function CheckList({ items, className }: { items: string[]; className?: s
     <ul className={cn("grid gap-2.5", className)}>
       {items.map((f) => (
         <li key={f} className="flex items-start gap-2.5 text-[15px] text-zinc-700">
-          <Check className="mt-1 h-4 w-4 shrink-0 text-blue-500" strokeWidth={2.5} />
+          <Check className="mt-1 h-4 w-4 shrink-0 text-blue-600" strokeWidth={2.5} />
           {f}
         </li>
       ))}
@@ -106,12 +106,12 @@ export function PriceCard({ tier, icon: Icon }: { tier: Tier; icon: LucideIcon }
       tier.popular ? "border-blue-500 bg-gradient-to-b from-blue-50 to-white shadow-[0_24px_48px_-16px_rgba(0,132,153,.35)]" : "border-zinc-200 hover:shadow-[0_24px_48px_-12px_rgba(31,42,61,.15)]"
     )}>
       {tier.popular && (
-        <span className="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full bg-blue-600 px-3 py-1 text-xs font-bold text-white">
-          <Star className="h-3 w-3" /> Le plus choisi
+        <span className="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full bg-blue-700 px-3 py-1 text-xs font-bold text-white">
+          <Star className="h-3 w-3" /> Recommandé
         </span>
       )}
       <div className="mb-5 flex items-start justify-between gap-3">
-        <span className={cn("grid h-11 w-11 place-items-center rounded-xl", tier.popular ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-700")}>
+        <span className={cn("grid h-11 w-11 place-items-center rounded-xl", tier.popular ? "bg-blue-700 text-white" : "bg-blue-50 text-blue-700")}>
           <Icon className="h-5 w-5" />
         </span>
         <span className="text-right text-lg font-bold text-zinc-900">{tier.name}</span>
@@ -134,7 +134,7 @@ export function PriceCard({ tier, icon: Icon }: { tier: Tier; icon: LucideIcon }
         href={tier.href}
         className={cn(
           "rounded-xl py-3 text-center text-[15px] font-semibold transition",
-          tier.popular ? "bg-blue-600 text-white shadow-[0_10px_20px_-8px_rgba(0,132,153,.5)] hover:bg-blue-700" : "bg-zinc-900 text-white hover:bg-zinc-800"
+          tier.popular ? "bg-blue-700 text-white shadow-[0_10px_20px_-8px_rgba(0,105,122,.5)] hover:bg-blue-800" : "bg-zinc-900 text-white hover:bg-zinc-800"
         )}
       >
         {tier.cta}
@@ -184,9 +184,9 @@ export function CtaBand({ title, subtitle, href, label }: { title: string; subti
 export function LegalShell({ title, updated, children }: { title: string; updated: string; children: React.ReactNode }) {
   return (
     <>
-      <section className="relative -mt-[76px] bg-gradient-to-br from-blue-800 via-blue-700 to-blue-500 pt-[calc(76px+56px)] pb-14 text-center">
+      <section className="relative -mt-[76px] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 pt-[calc(76px+56px)] pb-14 text-center">
         <h1 className="px-6 text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold tracking-tight text-white">{title}</h1>
-        <p className="mt-2 text-sm text-white/70">{updated}</p>
+        <p className="mt-2 text-sm text-white/85">{updated}</p>
       </section>
       <div className="bg-zinc-50 py-14">
         <article className="mx-auto max-w-[760px] rounded-3xl border border-zinc-200 bg-white px-8 py-10 max-sm:mx-4 max-sm:px-5 [&_a]:font-semibold [&_a]:text-blue-700 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-zinc-900 [&_p]:leading-relaxed [&_p]:text-zinc-600 [&_section]:mb-8 [&_section:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:text-zinc-600">
@@ -194,5 +194,14 @@ export function LegalShell({ title, updated, children }: { title: string; update
         </article>
       </div>
     </>
+  );
+}
+
+// ── Logo WhatsApp (pictogramme seul, décoratif par défaut) ──────────────────
+export function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" className={className} fill="currentColor">
+      <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.45 9.45 0 0 1-4.82-1.32l-.35-.21-3.58.94.96-3.49-.23-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.22 4.25-9.47 9.48-9.47 2.53 0 4.91.99 6.7 2.78a9.41 9.41 0 0 1 2.77 6.7c0 5.22-4.25 9.46-9.47 9.46zm8.06-17.53A11.33 11.33 0 0 0 12.04.63C5.76.63.65 5.74.65 12.02c0 2 .52 3.96 1.52 5.69L.55 23.6l6.03-1.58a11.36 11.36 0 0 0 5.45 1.39h.01c6.28 0 11.39-5.11 11.39-11.39 0-3.04-1.19-5.9-3.33-8.05z" />
+    </svg>
   );
 }
