@@ -55,14 +55,17 @@ export const FRAIS_ETAT = {
       { label: "Bulletin officiel", amount: 450, range: "400 à 600" },
       { label: "Timbres et légalisations", amount: 120, range: "100 à 250" },
     ] as FeeLine[],
-    note: "Droits d'enregistrement exonérés à la constitution pour un capital jusqu'à 500 000 DH, taxe professionnelle exonérée 5 ans.",
+    note: "Apports en argent exonérés de droits d'enregistrement à la constitution, taxe professionnelle exonérée 5 ans.",
   },
   autoEntrepreneur: {
     estimate: 0,
     note: "L'inscription au registre national de l'auto-entrepreneur est gratuite.",
   },
-  marqueParClasse: 1800,
+  /** Taxe OMPIC 2026, dépôt en ligne, TPE/PME, personnes physiques et auto-entrepreneurs (grille publiée sur ompic.ma). */
+  marque: { premiereClasse: 1250, classeSup: 250 },
 };
+
+export const MARQUE_TAXE = `taxe OMPIC en sus, au réel : ${fmtDH(FRAIS_ETAT.marque.premiereClasse)} TTC pour la 1re classe puis ${fmtDH(FRAIS_ETAT.marque.classeSup)} par classe en plus (dépôt en ligne, TPE et particuliers)`;
 
 // ── Création ────────────────────────────────────────────────────────────────
 export type FormeId = "auto" | "sarlau" | "sarl" | "sas" | "cooperative" | "sa" | "sci";
@@ -122,7 +125,7 @@ export const comptaParForme = (forme: FormeId) => (forme === "auto" ? "compta-de
 export const aidesOffers: Offer[] = [
   { id: "aides-diagnostic", name: "Diagnostic", price: 0, billing: "once", tax: "HT", pill: "Gratuit et sans engagement", desc: "On repère les aides auxquelles vous avez droit.", features: ["Questionnaire de 2 minutes", "Appel avec un conseiller", "Liste des aides possibles", "Montants estimés"] },
   { id: "aides-dossier", name: "Dossier de A à Z", price: null, priceLabel: "10 à 4 %", billing: "once", tax: "HT", pill: "De l'aide versée, 0 DH si refus", desc: "On monte et suit votre dossier jusqu'au versement.", features: ["Vérification de chaque condition", "Liste précise des pièces", "Montage et dépôt du dossier", "Relances auprès de l'organisme", "Rien à payer si l'aide est refusée"], popular: true },
-  { id: "aides-honneur", name: "Prêt d'honneur", price: 1490, billing: "once", tax: "HT", pill: "Payé seulement à l'accord", desc: "Forsa et prêts d'honneur à 0 %.", features: ["Business plan", "Dossier de candidature", "Préparation au comité", "Forfait fixe, pas de pourcentage"] },
+  { id: "aides-honneur", name: "Prêt d'honneur", price: 1490, billing: "once", tax: "HT", pill: "Payé seulement à l'accord", desc: "Prêts d'honneur à 0 % des réseaux d'entrepreneurs.", features: ["Business plan", "Dossier de candidature", "Préparation au comité", "Forfait fixe, pas de pourcentage"] },
 ];
 
 /** Barème marginal sur le montant de l'aide effectivement versée. */
@@ -167,7 +170,7 @@ export const formalites: { id: string; label: string; price: number; detail?: st
   { id: "gerant", label: "Changement de gérant", price: 1290 },
   { id: "siege", label: "Transfert de siège, même tribunal", price: 1490, detail: "1 990 DH vers un autre tribunal" },
   { id: "denomination", label: "Changement de dénomination", price: 1490 },
-  { id: "parts", label: "Cession de parts", price: 1990, detail: "droits d'enregistrement en sus" },
+  { id: "parts", label: "Cession de parts", price: 1990, detail: "enregistrement exonéré avec l'attestation de non-prépondérance immobilière, sinon 5 %" },
   { id: "capital", label: "Augmentation ou réduction de capital", price: 1990 },
   { id: "objet", label: "Changement d'activité", price: 1290 },
   { id: "sommeil", label: "Mise en sommeil", price: 990 },
@@ -293,7 +296,7 @@ export const packs: Pack[] = [
     monthly: 990, months: 12, tax: "HT",
     items: [
       { label: "Création Standard", value: 1490, offered: true },
-      { label: "Business plan et dossier Forsa ou prime TPME", value: 2990, offered: true },
+      { label: "Business plan et dossier prime TPME ou prêt d'honneur à 0 %", value: 2990, offered: true },
       { label: "Comptabilité Business 12 mois", value: 990 * 12 },
     ],
     freebie: "Création et business plan offerts",
@@ -326,7 +329,7 @@ export const packs: Pack[] = [
       { label: "Marque Protection (jusqu'à 3 classes)", value: 1990 },
       { label: "Site vitrine 5 pages", value: 4990 },
     ],
-    conditions: "Payable en 3 fois sans frais. Taxe OMPIC en sus (environ 1 800 DH par classe).",
+    conditions: `Payable en 3 fois sans frais. ${MARQUE_TAXE.charAt(0).toUpperCase()}${MARQUE_TAXE.slice(1)}.`,
   },
 ];
 

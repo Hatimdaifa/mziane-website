@@ -1,18 +1,54 @@
 {
   "id": "marque",
   "title": "Déposer une marque à l'OMPIC",
-  "offers": ["marque-simple", "marque-protection", "marque-veille"],
+  "offers": [
+    "marque-simple",
+    "marque-protection",
+    "marque-veille"
+  ],
   "summary": "Le client obtient le dépôt de sa marque à l'OMPIC dans 1 classe (Simple) ou jusqu'à 3 classes (Protection et Veille), puis le certificat d'enregistrement qui le protège 10 ans au Maroc, renouvelable sans limite. Avec Protection, une recherche d'antériorité est faite avant le dépôt. Avec Veille, les nouveaux dépôts proches de sa marque sont surveillés pendant 12 mois.",
   "duree": "Dépôt en 2 à 5 jours ouvrés après réception des pièces. Enregistrement en général 3 à 6 mois après le dépôt s'il n'y a ni régularisation ni opposition. Jusqu'à 6 mois de plus en cas d'opposition.",
   "frais_officiels": [
-    { "label": "Taxe de dépôt OMPIC, 1re classe, en ligne, TPE/PME, personne physique, auto-entrepreneur, artisan (liste 1)", "montant": "1 250 DH TTC", "note": "1 800 DH au guichet. Grille 2026 publiée sur ompic.ma, rubrique Marques > Tarifs." },
-    { "label": "Classe supplémentaire, en ligne, liste 1", "montant": "250 DH TTC par classe", "note": "360 DH au guichet." },
-    { "label": "Taxe de dépôt OMPIC, 1re classe, en ligne, autres déposants (liste 2)", "montant": "1 865 DH TTC", "note": "2 400 DH au guichet. Concerne les entreprises qui ne sont pas TPE/PME." },
-    { "label": "Classe supplémentaire, en ligne, liste 2", "montant": "372 DH TTC par classe", "note": "480 DH au guichet." },
-    { "label": "Renouvellement (dans 10 ans), même tarif que le dépôt", "montant": "1 250 DH (liste 1) ou 1 865 DH (liste 2) en ligne, plus 250 ou 372 DH par classe supplémentaire", "note": "Retard dans le délai de grâce : 240 DH par mois de retard entamé." },
-    { "label": "Opposition contre le dépôt d'un tiers (veille)", "montant": "2 400 DH par classe opposée, plus 720 DH par classe supplémentaire", "note": "Payé seulement si le client décide de s'opposer. Non compris dans l'offre Veille." },
-    { "label": "Contestation d'une décision d'opposition (formulaire M13)", "montant": "2 400 DH", "note": "Cas rare, devis séparé." },
-    { "label": "Requête en poursuite de procédure (délai de régularisation manqué)", "montant": "50 % de la taxe de la procédure concernée", "note": "À éviter en respectant les délais." }
+    {
+      "label": "Taxe de dépôt OMPIC, 1re classe, en ligne, TPE/PME, personne physique, auto-entrepreneur, artisan (liste 1)",
+      "montant": "1 250 DH TTC",
+      "note": "1 800 DH au guichet. Grille 2026 publiée sur ompic.ma, rubrique Marques > Tarifs."
+    },
+    {
+      "label": "Classe supplémentaire, en ligne, liste 1",
+      "montant": "250 DH TTC par classe",
+      "note": "360 DH au guichet."
+    },
+    {
+      "label": "Taxe de dépôt OMPIC, 1re classe, en ligne, autres déposants (liste 2)",
+      "montant": "1 865 DH TTC",
+      "note": "2 400 DH au guichet. Concerne les entreprises qui ne sont pas TPE/PME."
+    },
+    {
+      "label": "Classe supplémentaire, en ligne, liste 2",
+      "montant": "372 DH TTC par classe",
+      "note": "480 DH au guichet."
+    },
+    {
+      "label": "Renouvellement (dans 10 ans), même tarif que le dépôt",
+      "montant": "1 250 DH (liste 1) ou 1 865 DH (liste 2) en ligne, plus 250 ou 372 DH par classe supplémentaire",
+      "note": "Retard dans le délai de grâce : 240 DH par mois de retard entamé."
+    },
+    {
+      "label": "Opposition contre le dépôt d'un tiers (veille)",
+      "montant": "2 400 DH par classe opposée, plus 720 DH par classe supplémentaire",
+      "note": "Payé seulement si le client décide de s'opposer. Non compris dans l'offre Veille."
+    },
+    {
+      "label": "Contestation d'une décision d'opposition (formulaire M13)",
+      "montant": "2 400 DH",
+      "note": "Cas rare, devis séparé."
+    },
+    {
+      "label": "Requête en poursuite de procédure (délai de régularisation manqué)",
+      "montant": "50 % de la taxe de la procédure concernée",
+      "note": "À éviter en respectant les délais."
+    }
   ],
   "avant_de_commencer": [
     "Savoir qui sera le titulaire de la marque : la société (personne morale) ou le client en nom propre (personne physique). Le titulaire ne se change ensuite qu'avec une inscription payante.",
@@ -39,7 +75,9 @@
           "pieces": [],
           "delai": "Le jour même",
           "cout": "0 DH",
-          "pieges": ["Oublier que la taxe OMPIC est en plus des honoraires : le dire au client dès le premier contact."],
+          "pieges": [
+            "Oublier que la taxe OMPIC est en plus des honoraires : le dire au client dès le premier contact."
+          ],
           "preuve": "Dossier ouvert avec la formule et le statut à jour",
           "offers": []
         },
@@ -55,10 +93,18 @@
             "Demander au client une copie du dépôt étranger s'il veut revendiquer une priorité (dépôt fait à l'étranger il y a moins de 6 mois).",
             "Relancer le client par WhatsApp pour toute pièce manquante ou illisible."
           ],
-          "pieces": ["CIN ou extrait RC", "ICE si société", "Logo en couleur et en noir et blanc si la marque n'est pas un simple mot", "Liste des produits ou services", "Copie du dépôt antérieur à l'étranger si priorité"],
+          "pieces": [
+            "CIN ou extrait RC",
+            "ICE si société",
+            "Logo en couleur et en noir et blanc si la marque n'est pas un simple mot",
+            "Liste des produits ou services",
+            "Copie du dépôt antérieur à l'étranger si priorité"
+          ],
           "delai": "1 à 3 jours selon le client",
           "cout": "0 DH",
-          "pieges": ["Accepter un extrait RC dont le nom ou l'adresse ne correspond plus à la réalité : le titulaire sera mal inscrit."],
+          "pieges": [
+            "Accepter un extrait RC dont le nom ou l'adresse ne correspond plus à la réalité : le titulaire sera mal inscrit."
+          ],
           "preuve": "Toutes les pièces marquées « validées » dans l'espace client",
           "offers": []
         },
@@ -72,10 +118,14 @@
             "Sinon, le classer en liste 2.",
             "En cas de doute sur la taille de l'entreprise, appeler le centre de relation client de l'OMPIC (0802 000 018 ou 0802 000 019, ligne pro 0802 000 029) pour savoir quel justificatif est demandé."
           ],
-          "pieces": ["Taille de l'entreprise (chiffre d'affaires, effectif) si société"],
+          "pieces": [
+            "Taille de l'entreprise (chiffre d'affaires, effectif) si société"
+          ],
           "delai": "Le jour même",
           "cout": "0 DH",
-          "pieges": ["Appliquer le tarif liste 1 à une grande entreprise : la demande peut être bloquée ou le complément réclamé."],
+          "pieges": [
+            "Appliquer le tarif liste 1 à une grande entreprise : la demande peut être bloquée ou le complément réclamé."
+          ],
           "preuve": "Grille et montant notés dans le dossier",
           "offers": []
         }
@@ -95,10 +145,14 @@
             "Vérifier que le signe n'est pas descriptif (ex. « Pain frais » pour une boulangerie), ni trompeur, ni contraire à l'ordre public, ni un emblème officiel : ce sont des motifs de rejet de la loi 17-97 (articles 133 à 135).",
             "Faire confirmer par écrit au client l'orthographe exacte et les couleurs revendiquées."
           ],
-          "pieces": ["Logo final si marque figurative"],
+          "pieces": [
+            "Logo final si marque figurative"
+          ],
           "delai": "1 jour",
           "cout": "0 DH",
-          "pieges": ["Déposer un logo provisoire : toute modification du signe oblige à refaire un dépôt complet."],
+          "pieges": [
+            "Déposer un logo provisoire : toute modification du signe oblige à refaire un dépôt complet."
+          ],
           "preuve": "Message écrit du client validant le signe",
           "offers": []
         },
@@ -113,10 +167,15 @@
             "Limiter à 1 classe pour l'offre Simple et à 3 classes pour Protection et Veille. Au delà, envoyer un devis complémentaire.",
             "Penser aux classes voisines utiles (ex. classe 35 vente au détail si le client vend en boutique)."
           ],
-          "pieces": ["Liste des produits ou services du client"],
+          "pieces": [
+            "Liste des produits ou services du client"
+          ],
           "delai": "1 jour",
           "cout": "0 DH",
-          "pieges": ["Recopier tout l'intitulé de classe sans réfléchir : plus la liste est large, plus le risque de conflit avec une marque existante augmente.", "Oublier une activité future du client : il faudra un nouveau dépôt payant pour l'ajouter."],
+          "pieges": [
+            "Recopier tout l'intitulé de classe sans réfléchir : plus la liste est large, plus le risque de conflit avec une marque existante augmente.",
+            "Oublier une activité future du client : il faudra un nouveau dépôt payant pour l'ajouter."
+          ],
           "preuve": "Tableau classes + libellés validé par le client",
           "offers": []
         },
@@ -132,12 +191,21 @@
             "Chercher le nom dans les noms commerciaux sur DirectInfo (https://www.directinfo.ma) et sur Google.",
             "Noter pour chaque résultat proche : numéro, titulaire, classes, statut (en instance, publiée, enregistrée, radiée)."
           ],
-          "pieces": ["Signe validé", "Classes choisies"],
+          "pieces": [
+            "Signe validé",
+            "Classes choisies"
+          ],
           "delai": "1 à 2 jours",
           "cout": "0 DH (bases gratuites)",
-          "pieges": ["Se limiter à la recherche du nom identique : l'OMPIC rappelle que les ressemblances visuelles et phonétiques comptent aussi.", "Oublier les marques internationales désignant le Maroc, qui ne sont pas toujours visibles dans la base nationale."],
+          "pieges": [
+            "Se limiter à la recherche du nom identique : l'OMPIC rappelle que les ressemblances visuelles et phonétiques comptent aussi.",
+            "Oublier les marques internationales désignant le Maroc, qui ne sont pas toujours visibles dans la base nationale."
+          ],
           "preuve": "Captures des recherches datées dans le dossier",
-          "offers": ["marque-protection", "marque-veille"]
+          "offers": [
+            "marque-protection",
+            "marque-veille"
+          ]
         },
         {
           "id": "note-risque",
@@ -149,12 +217,19 @@
             "En cas de feu rouge, proposer de modifier le nom ou de réduire les classes avant de payer la taxe.",
             "Obtenir l'accord écrit du client pour déposer."
           ],
-          "pieces": ["Résultats de la recherche"],
+          "pieces": [
+            "Résultats de la recherche"
+          ],
           "delai": "1 jour",
           "cout": "0 DH",
-          "pieges": ["Garantir au client que la marque sera acceptée : la recherche réduit le risque mais ne le supprime pas."],
+          "pieges": [
+            "Garantir au client que la marque sera acceptée : la recherche réduit le risque mais ne le supprime pas."
+          ],
           "preuve": "Note de risque déposée et accord écrit du client",
-          "offers": ["marque-protection", "marque-veille"]
+          "offers": [
+            "marque-protection",
+            "marque-veille"
+          ]
         },
         {
           "id": "devis-taxe",
@@ -169,7 +244,9 @@
           "pieces": [],
           "delai": "Le jour même",
           "cout": "Taxe OMPIC refacturée sans marge",
-          "pieges": ["Annoncer « environ 1 800 DH par classe » : c'est le tarif guichet de la liste 1 pour la 1re classe seulement. En ligne, les classes suivantes coûtent beaucoup moins."],
+          "pieges": [
+            "Annoncer « environ 1 800 DH par classe » : c'est le tarif guichet de la liste 1 pour la 1re classe seulement. En ligne, les classes suivantes coûtent beaucoup moins."
+          ],
           "preuve": "Paiement des frais d'État reçu",
           "offers": []
         },
@@ -183,10 +260,14 @@
             "Faire signer par le client lui-même ou par le gérant de la société (cachet si société).",
             "Faire légaliser la signature si l'OMPIC le demande."
           ],
-          "pieces": ["Modèle de pouvoir Mziane"],
+          "pieces": [
+            "Modèle de pouvoir Mziane"
+          ],
           "delai": "1 à 2 jours",
           "cout": "Légalisation éventuelle à la charge du client (quelques dirhams en commune)",
-          "pieges": ["Pouvoir signé par une personne qui n'a pas la signature sociale (vérifier sur le RC ou les statuts)."],
+          "pieges": [
+            "Pouvoir signé par une personne qui n'a pas la signature sociale (vérifier sur le RC ou les statuts)."
+          ],
           "preuve": "Pouvoir signé déposé dans l'espace client",
           "offers": []
         }
@@ -205,10 +286,14 @@
             "Ouvrir le service « Dépôt de marque ».",
             "En cas de blocage, appeler le support en ligne de l'OMPIC (+212 522 586 482 ou 483, du lundi au vendredi 8h30 à 16h30) ou écrire à s_ligne.list@ompic.ma."
           ],
-          "pieces": ["Identifiants du compte Mziane"],
+          "pieces": [
+            "Identifiants du compte Mziane"
+          ],
           "delai": "Le jour même",
           "cout": "0 DH",
-          "pieges": ["Déposer au guichet par habitude : la taxe est plus chère d'environ 30 %."],
+          "pieges": [
+            "Déposer au guichet par habitude : la taxe est plus chère d'environ 30 %."
+          ],
           "preuve": "Accès au formulaire de dépôt en ligne",
           "offers": []
         },
@@ -225,10 +310,18 @@
             "Ajouter la revendication de priorité si le client a un dépôt étranger de moins de 6 mois.",
             "Relire tout avant de valider : une faute dans le signe ne se corrige pas sans nouveau dépôt."
           ],
-          "pieces": ["Pouvoir signé", "Logo", "Pièce d'identité ou RC du titulaire", "Copie du dépôt étranger si priorité"],
+          "pieces": [
+            "Pouvoir signé",
+            "Logo",
+            "Pièce d'identité ou RC du titulaire",
+            "Copie du dépôt étranger si priorité"
+          ],
           "delai": "1 heure",
           "cout": "0 DH",
-          "pieges": ["Inverser déposant et mandataire : la marque appartiendrait à Mziane.", "Image du logo floue ou recadrée."],
+          "pieges": [
+            "Inverser déposant et mandataire : la marque appartiendrait à Mziane.",
+            "Image du logo floue ou recadrée."
+          ],
           "preuve": "Récapitulatif de la demande avant paiement",
           "offers": []
         },
@@ -242,10 +335,14 @@
             "Payer par carte bancaire.",
             "Enregistrer le reçu de paiement dans le dossier."
           ],
-          "pieces": ["Carte de paiement"],
+          "pieces": [
+            "Carte de paiement"
+          ],
           "delai": "Immédiat",
           "cout": "1 250 DH (liste 1) ou 1 865 DH (liste 2) + 250 ou 372 DH par classe supplémentaire",
-          "pieges": ["Une demande sans paiement n'est pas recevable : la date de dépôt n'est pas acquise."],
+          "pieges": [
+            "Une demande sans paiement n'est pas recevable : la date de dépôt n'est pas acquise."
+          ],
           "preuve": "Reçu de paiement OMPIC",
           "offers": []
         },
@@ -283,7 +380,9 @@
           "pieces": [],
           "delai": "En général quelques semaines",
           "cout": "0 DH",
-          "pieges": ["Ne pas surveiller l'e-mail du compte : une notification sans réponse fait perdre la demande."],
+          "pieges": [
+            "Ne pas surveiller l'e-mail du compte : une notification sans réponse fait perdre la demande."
+          ],
           "preuve": "Statut de la demande à jour",
           "offers": []
         },
@@ -298,10 +397,14 @@
             "Si le délai est dépassé, déposer une requête en poursuite de procédure (formulaire RPP) dans les 2 mois suivants, en payant 50 % de la taxe concernée.",
             "En cas de refus sur le fond, préparer des observations (ODR) avec le client."
           ],
-          "pieces": ["Pièce ou correction demandée"],
+          "pieces": [
+            "Pièce ou correction demandée"
+          ],
           "delai": "3 mois maximum à compter du dépôt",
           "cout": "0 DH si dans les délais",
-          "pieges": ["Laisser passer le délai de 3 mois."],
+          "pieges": [
+            "Laisser passer le délai de 3 mois."
+          ],
           "preuve": "Accusé de réception de la régularisation",
           "offers": []
         },
@@ -319,7 +422,9 @@
           "pieces": [],
           "delai": "En général 1 à 3 mois après le dépôt",
           "cout": "0 DH",
-          "pieges": ["Une erreur dans la publication doit être corrigée vite (formulaire M2, rectification d'erreur matérielle)."],
+          "pieges": [
+            "Une erreur dans la publication doit être corrigée vite (formulaire M2, rectification d'erreur matérielle)."
+          ],
           "preuve": "Extrait du catalogue avec la date de publication",
           "offers": []
         },
@@ -351,12 +456,20 @@
             "Si l'opposition est sérieuse (marque très proche, enjeu commercial), proposer au client un conseil en propriété industrielle ou un avocat, sur devis séparé.",
             "Pour la formule Simple, la réponse aux oppositions n'est pas incluse : envoyer un devis."
           ],
-          "pieces": ["Avis d'opposition", "Preuves d'usage ou arguments du client"],
+          "pieces": [
+            "Avis d'opposition",
+            "Preuves d'usage ou arguments du client"
+          ],
           "delai": "Délai indiqué dans la notification (en pratique environ 2 mois). L'OMPIC décide en 6 mois maximum.",
           "cout": "0 DH de taxe pour répondre. 2 400 DH si on demande une suspension.",
-          "pieges": ["Ne pas répondre : l'OMPIC statue sans les arguments du client."],
+          "pieges": [
+            "Ne pas répondre : l'OMPIC statue sans les arguments du client."
+          ],
           "preuve": "Réponse déposée puis décision de l'OMPIC",
-          "offers": ["marque-protection", "marque-veille"]
+          "offers": [
+            "marque-protection",
+            "marque-veille"
+          ]
         }
       ]
     },
@@ -373,7 +486,11 @@
             "Récupérer le certificat d'enregistrement notifié, ou le retirer avec le formulaire RTM et le pouvoir.",
             "Contrôler le certificat : titulaire, signe, classes, numéro, date de dépôt."
           ],
-          "pieces": ["Formulaire RTM si retrait au guichet", "Pouvoir", "CIN du gérant de Mziane"],
+          "pieces": [
+            "Formulaire RTM si retrait au guichet",
+            "Pouvoir",
+            "CIN du gérant de Mziane"
+          ],
           "delai": "Quelques semaines après la fin du délai d'opposition",
           "cout": "0 DH",
           "pieges": [],
@@ -410,7 +527,9 @@
           "pieces": [],
           "delai": "Le jour même",
           "cout": "0 DH",
-          "pieges": ["Compter les 10 ans depuis la date du certificat : ils courent depuis la date de dépôt."],
+          "pieges": [
+            "Compter les 10 ans depuis la date du certificat : ils courent depuis la date de dépôt."
+          ],
           "preuve": "Rappels créés",
           "offers": []
         }
@@ -434,7 +553,9 @@
           "cout": "0 DH",
           "pieges": [],
           "preuve": "Fiche de veille enregistrée",
-          "offers": ["marque-veille"]
+          "offers": [
+            "marque-veille"
+          ]
         },
         {
           "id": "controle-catalogue",
@@ -449,9 +570,13 @@
           "pieces": [],
           "delai": "Toutes les 2 semaines pendant 12 mois",
           "cout": "0 DH",
-          "pieges": ["Rater une parution : le délai d'opposition de 2 mois ne se prolonge pas pour le client."],
+          "pieges": [
+            "Rater une parution : le délai d'opposition de 2 mois ne se prolonge pas pour le client."
+          ],
           "preuve": "Journal de veille daté",
-          "offers": ["marque-veille"]
+          "offers": [
+            "marque-veille"
+          ]
         },
         {
           "id": "alerter-client",
@@ -468,7 +593,9 @@
           "cout": "0 DH",
           "pieges": [],
           "preuve": "Alerte envoyée et lue",
-          "offers": ["marque-veille"]
+          "offers": [
+            "marque-veille"
+          ]
         },
         {
           "id": "former-opposition",
@@ -481,12 +608,21 @@
             "Déposer avant la fin des 2 mois suivant la publication et payer 2 400 DH pour la 1re classe opposée, plus 720 DH par classe supplémentaire.",
             "Suivre les échanges écrits avec le déposant et la décision de l'OMPIC (6 mois maximum)."
           ],
-          "pieces": ["Certificat de la marque du client", "Pouvoir pour l'opposition", "Preuves d'usage si utiles"],
+          "pieces": [
+            "Certificat de la marque du client",
+            "Pouvoir pour l'opposition",
+            "Preuves d'usage si utiles"
+          ],
           "delai": "Avant la fin des 2 mois de publication",
           "cout": "2 400 DH + 720 DH par classe supplémentaire",
-          "pieges": ["Déposer l'opposition le dernier jour sans marge.", "S'opposer sans marque antérieure enregistrée ou déposée : seuls les titulaires de droits antérieurs (ou licenciés) peuvent le faire."],
+          "pieges": [
+            "Déposer l'opposition le dernier jour sans marge.",
+            "S'opposer sans marque antérieure enregistrée ou déposée : seuls les titulaires de droits antérieurs (ou licenciés) peuvent le faire."
+          ],
           "preuve": "Récépissé d'opposition OMPIC",
-          "offers": ["marque-veille"]
+          "offers": [
+            "marque-veille"
+          ]
         },
         {
           "id": "bilan-veille",
@@ -503,7 +639,9 @@
           "cout": "0 DH",
           "pieges": [],
           "preuve": "Bilan déposé dans l'espace client",
-          "offers": ["marque-veille"]
+          "offers": [
+            "marque-veille"
+          ]
         }
       ]
     }
@@ -531,22 +669,60 @@
     "Proposer la veille ou son renouvellement à la fin des 12 mois."
   ],
   "sources": [
-    { "title": "OMPIC, Dépôt de marque au Maroc (6 étapes, pièces, mandataire)", "url": "http://www.ompic.ma/fr/content/depot-de-marque-au-maroc" },
-    { "title": "OMPIC, Tarifs marques (grilles liste 1 et liste 2, 2026)", "url": "http://www.ompic.ma/fr/content/tarifs-marques" },
-    { "title": "OMPIC, grille tarifaire liste 1 (PDF)", "url": "http://www.ompic.ma/sites/default/files/visuel%20tarif%2026%20VF%201.pdf" },
-    { "title": "OMPIC, grille tarifaire liste 2 (PDF)", "url": "http://www.ompic.ma/sites/default/files/visuel%20tarif%2026%20VF%202.pdf" },
-    { "title": "OMPIC, Recherche de marque", "url": "http://www.ompic.ma/fr/content/recherche-de-marque" },
-    { "title": "OMPIC, Gestion de la marque (renouvellement, cession, changements)", "url": "http://www.ompic.ma/fr/content/gestion-de-la-marque" },
-    { "title": "OMPIC, Formulaires marques (M1, M7, MR, RTM, RG, ODR...)", "url": "http://www.ompic.ma/fr/content/formulaires-marques" },
-    { "title": "OMPIC, Catalogue officiel des marques", "url": "http://www.ompic.ma/fr/content/catalogue-officiel-des-marques" },
-    { "title": "DirectOMPIC, e-démarches (dépôt en ligne)", "url": "https://edemarche.directompic.ma" },
-    { "title": "DirectInfo (OMPIC)", "url": "https://www.directinfo.ma" },
-    { "title": "OMPI, Classification de Nice", "url": "https://www.wipo.int/classifications/nice/fr/" },
-    { "title": "INPI, Fiche PI Maroc 2025 (opposition, durée de protection)", "url": "https://www.inpi.fr/sites/default/files/2025-09/Fiche%20PI%20Maroc%202025.pdf" },
-    { "title": "S.S. Rana, Trademark opposition in Morocco (délais de la procédure)", "url": "https://ssrana.in/global-ip/international-trademark-filing-registration/trademark-opposition-in-morocco/" }
+    {
+      "title": "OMPIC, Dépôt de marque au Maroc (6 étapes, pièces, mandataire)",
+      "url": "http://www.ompic.ma/fr/content/depot-de-marque-au-maroc"
+    },
+    {
+      "title": "OMPIC, Tarifs marques (grilles liste 1 et liste 2, 2026)",
+      "url": "http://www.ompic.ma/fr/content/tarifs-marques"
+    },
+    {
+      "title": "OMPIC, grille tarifaire liste 1 (PDF)",
+      "url": "http://www.ompic.ma/sites/default/files/visuel%20tarif%2026%20VF%201.pdf"
+    },
+    {
+      "title": "OMPIC, grille tarifaire liste 2 (PDF)",
+      "url": "http://www.ompic.ma/sites/default/files/visuel%20tarif%2026%20VF%202.pdf"
+    },
+    {
+      "title": "OMPIC, Recherche de marque",
+      "url": "http://www.ompic.ma/fr/content/recherche-de-marque"
+    },
+    {
+      "title": "OMPIC, Gestion de la marque (renouvellement, cession, changements)",
+      "url": "http://www.ompic.ma/fr/content/gestion-de-la-marque"
+    },
+    {
+      "title": "OMPIC, Formulaires marques (M1, M7, MR, RTM, RG, ODR...)",
+      "url": "http://www.ompic.ma/fr/content/formulaires-marques"
+    },
+    {
+      "title": "OMPIC, Catalogue officiel des marques",
+      "url": "http://www.ompic.ma/fr/content/catalogue-officiel-des-marques"
+    },
+    {
+      "title": "DirectOMPIC, e-démarches (dépôt en ligne)",
+      "url": "https://edemarche.directompic.ma"
+    },
+    {
+      "title": "DirectInfo (OMPIC)",
+      "url": "https://www.directinfo.ma"
+    },
+    {
+      "title": "OMPI, Classification de Nice",
+      "url": "https://www.wipo.int/classifications/nice/fr/"
+    },
+    {
+      "title": "INPI, Fiche PI Maroc 2025 (opposition, durée de protection)",
+      "url": "https://www.inpi.fr/sites/default/files/2025-09/Fiche%20PI%20Maroc%202025.pdf"
+    },
+    {
+      "title": "S.S. Rana, Trademark opposition in Morocco (délais de la procédure)",
+      "url": "https://ssrana.in/global-ip/international-trademark-filing-registration/trademark-opposition-in-morocco/"
+    }
   ],
   "a_verifier": [
-    "Le site Mziane (offers.ts, FRAIS_ETAT.marqueParClasse = 1800 et pack Identité « environ 1 800 DH par classe ») est faux pour un dépôt en ligne : la grille 2026 donne 1 250 DH la 1re classe + 250 DH par classe (liste 1) ou 1 865 + 372 DH (liste 2). 1 800 DH n'est que le tarif guichet de la 1re classe en liste 1.",
     "Le justificatif exact demandé pour bénéficier de la liste 1 (TPE/PME) n'est pas publié sur ompic.ma : à confirmer auprès du centre de relation client OMPIC.",
     "Les écrans exacts du dépôt de marque sur edemarche.directompic.ma (création de compte mandataire, pièces téléversées, signature) n'ont pas pu être consultés : faire un premier dépôt test et noter le parcours.",
     "Confirmer qu'un mandataire non professionnel (le gérant de Mziane avec pouvoir) peut déposer en ligne au nom d'un tiers sur DirectOMPIC, et si la légalisation du pouvoir est exigée.",

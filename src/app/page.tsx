@@ -45,7 +45,7 @@ const organismes = ["OMPIC", "Tribunal de commerce", "DGI", "CNSS", "CRI", "Dar 
 const aidesTeaser = [
   { icon: Tractor, title: "Agriculteurs", value: "Jusqu'à 100 %", desc: "du goutte-à-goutte subventionné.", href: "/aides#A01" },
   { icon: Building2, title: "Investisseurs", value: "Jusqu'à 30 %", desc: "de l'investissement en primes (TPME).", href: "/aides#B01" },
-  { icon: Rocket, title: "Créateurs", value: "Jusqu'à 100 000 DH", desc: "de prêt d'honneur à 0 % (Forsa).", href: "/aides#B03" },
+  { icon: Rocket, title: "Créateurs", value: "Jusqu'à 100 000 DH", desc: "de prêt d'honneur à 0 %, sans garantie.", href: "/aides#B04" },
   { icon: User, title: "Particuliers", value: "Jusqu'à 100 000 DH", desc: "d'aide pour un premier logement.", href: "/aides#D01" },
 ];
 

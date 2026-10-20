@@ -143,7 +143,7 @@ export default function AidesPage() {
       <section id="envol" className="scroll-mt-24 bg-white py-20 max-md:py-14">
         <div className="mx-auto grid max-w-[1100px] items-center gap-10 px-4 sm:px-6 md:grid-cols-2">
           <div>
-            <SectionHeader left tag="Créer avec une aide" tagClass="bg-red-50 text-red-700" title="Pack Envol : la création et le business plan offerts" subtitle={`Pour créer avec une aide (Forsa, prime TPME). ${envol.extra ?? ""}.`} />
+            <SectionHeader left tag="Créer avec une aide" tagClass="bg-red-50 text-red-700" title="Pack Envol : la création et le business plan offerts" subtitle={`Pour créer avec une aide (prime TPME, prêt d'honneur à 0 %). ${envol.extra ?? ""}.`} />
           </div>
           <PackCard pack={envol} href={commandePack(envol.id)} icon={PACK_ICONS.envol} highlighted />
         </div>

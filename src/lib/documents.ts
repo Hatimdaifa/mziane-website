@@ -678,7 +678,7 @@ const groups: ServiceDocs[] = [
   },
   {
     key: "aides-honneur",
-    title: "Forsa et prêt d'honneur",
+    title: "Prêt d'honneur à 0 %",
     titleAr: "برنامج فرصة وقرض الشرف",
     docs: [
       { ...D.cinDemandeur, hint: "Être de nationalité marocaine et majeur" },

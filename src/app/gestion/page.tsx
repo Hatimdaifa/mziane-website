@@ -5,7 +5,7 @@ import { ArrowRight, FilePen, MapPin, User, ArrowLeftRight, Landmark, Stamp, Bui
 import { PageHero, HeroButton, SectionHeader, CheckList, PriceCard, Faq, CtaBand } from "@/components/site";
 import { offerToTier } from "@/components/offer-ui";
 import { TrustStrip, PriceTag, commandeOffre } from "@/components/services/blocks";
-import { FORMALITE_SUPPLEMENT, FRAIS_ETAT, domiciliation, fmtDH, formalites, marque } from "@/lib/offers";
+import { FORMALITE_SUPPLEMENT, MARQUE_TAXE, domiciliation, formalites, marque } from "@/lib/offers";
 
 export const metadata: Metadata = {
   title: "Modifier ou fermer sa société au Maroc, à prix fixe | Mziane",
@@ -110,7 +110,7 @@ export default function GestionPage() {
 
       <section id="marque" className="scroll-mt-24 bg-zinc-50 py-20 max-md:py-14">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
-          <SectionHeader tag="Marque OMPIC" tagClass="bg-amber-100 text-amber-800" title="Protégez le nom de votre entreprise" ar="العلامة التجارية" subtitle={`Honoraires HT. Taxe OMPIC en sus, environ ${fmtDH(FRAIS_ETAT.marqueParClasse)} par classe.`} />
+          <SectionHeader tag="Marque OMPIC" tagClass="bg-amber-100 text-amber-800" title="Protégez le nom de votre entreprise" ar="العلامة التجارية" subtitle={`Honoraires HT, ${MARQUE_TAXE}.`} />
           <div className="grid gap-6 md:grid-cols-3">
             {marque.map((o) => <PriceCard key={o.id} icon={Stamp} tier={offerToTier(o, commandeOffre(o.id))} />)}
           </div>

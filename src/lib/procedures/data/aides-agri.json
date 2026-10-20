@@ -1,20 +1,42 @@
 {
   "id": "aides-agri",
   "title": "Obtenir une subvention agricole du FDA (pack Terre)",
-  "offers": ["terre"],
+  "offers": [
+    "terre"
+  ],
   "summary": "L'agriculteur obtient la subvention du Fonds de Développement Agricole (FDA) pour son irrigation goutte-à-goutte, et si besoin pour son matériel ou ses plantations : approbation préalable avant les travaux, travaux par un installateur qualifié, demande de subvention, contrôle sur place, paiement. Mziane facture 5 % de la subvention (minimum 990 DH HT) seulement à la notification de paiement, rien si refus. En option, Mziane crée la coopérative agricole.",
   "duree": "Approbation préalable : quelques semaines (environ 30 jours ouvrés annoncés pour le traitement d'un dossier). Travaux : selon l'installateur. Demande de subvention à déposer au plus tard 24 mois après l'approbation (30 mois en collectif). Paiement : plusieurs semaines à plusieurs mois après le constat. Total réaliste : 4 à 12 mois.",
   "frais_officiels": [
-    { "label": "Dépôt au guichet unique DPA ou ORMVA", "montant": "0 DH", "note": "Aucun frais de dossier FDA." },
-    { "label": "Certificat de propriété (Conservation foncière)", "montant": "Tarif ANCFCC", "note": "Si terrain titré ; montant à vérifier." },
-    { "label": "Légalisation de signatures (bail, mandat, engagements)", "montant": "Quelques dirhams par signature", "note": "À la commune." },
-    { "label": "Enregistrement du bail agricole", "montant": "Droit d'enregistrement DGI", "note": "Si le terrain est loué ; montant selon le loyer, à vérifier." },
-    { "label": "Étude technique et devis de l'installateur", "montant": "Selon l'installateur", "note": "Souvent incluse dans le prix de l'installation ; entre dans le coût du projet." }
+    {
+      "label": "Dépôt au guichet unique DPA ou ORMVA",
+      "montant": "0 DH",
+      "note": "Aucun frais de dossier FDA."
+    },
+    {
+      "label": "Certificat de propriété (Conservation foncière)",
+      "montant": "Tarif ANCFCC",
+      "note": "Si terrain titré ; montant à vérifier."
+    },
+    {
+      "label": "Légalisation de signatures (bail, mandat, engagements)",
+      "montant": "Quelques dirhams par signature",
+      "note": "À la commune."
+    },
+    {
+      "label": "Enregistrement du bail agricole",
+      "montant": "Droit d'enregistrement DGI",
+      "note": "Si le terrain est loué ; montant selon le loyer, à vérifier."
+    },
+    {
+      "label": "Étude technique et devis de l'installateur",
+      "montant": "Selon l'installateur",
+      "note": "Souvent incluse dans le prix de l'installation ; entre dans le coût du projet."
+    }
   ],
   "avant_de_commencer": [
     "Règle numéro un : AUCUN travail, AUCUN achat avant l'attestation d'approbation préalable (irrigation, matériel, plantations). Sinon la subvention est perdue.",
     "Barème 2026 de l'irrigation localisée individuelle (Book FDA 2026, arrêté conjoint n°1323.22 du 18 mai 2022) : petit agriculteur jusqu'à 5 ha : 100 % du coût, plafond 38 000 DH par hectare net équipé (+ bassin jusqu'à 12 000 DH/ha) ; plus de 5 ha à 20 ha : 75 %, plafond 28 500 DH/ha (+ bassin 9 000 DH/ha) ; plus de 20 ha : 60 %, plafond 23 000 DH/ha (+ bassin 7 000 DH/ha). Projets collectifs : 100 %, 38 000 DH/ha. Cet arrêté prend fin le 31/12/2027 ou dès que 350 000 ha auront été approuvés.",
-    "Attention : la fiche A01 du site indique 80 % au-delà de 5 ha. Le Book FDA 2026 indique 75 % (5 à 20 ha) et 60 % (plus de 20 ha). Annoncer les chiffres du Book au client.",
+    "Taux de subvention irrigation (Book FDA 2026) : 100 % jusqu'à 5 ha, 75 % de 5 à 20 ha, 60 % au-delà. Annoncer ces chiffres au client.",
     "Honoraires pack Terre : 5 % de la subvention, minimum 990 DH HT, payés seulement à la notification de paiement du FDA. Rien si refus.",
     "Si le terrain est loué : il faut un bail avec encore au moins 6 ans à courir à la date de la demande.",
     "Il faut une ressource en eau autorisée : autorisation ou concession de l'Agence de bassin hydraulique pour le puits ou forage, ou attestation ORMVA ou DPA d'accès au réseau collectif. Sans elle, ne pas lancer le dossier."
@@ -36,7 +58,9 @@
           "pieces": [],
           "delai": "30 minutes",
           "cout": "0 DH",
-          "pieges": ["Oublier de demander si les travaux ont commencé."],
+          "pieges": [
+            "Oublier de demander si les travaux ont commencé."
+          ],
           "preuve": "Compte rendu dans l'espace client",
           "offers": []
         },
@@ -51,10 +75,14 @@
             "Calculer les honoraires : 5 % de la subvention, minimum 990 DH HT.",
             "Envoyer l'estimation écrite au client avec la mention « estimation, décision du FDA »."
           ],
-          "pieces": ["Devis de l'installateur si disponible"],
+          "pieces": [
+            "Devis de l'installateur si disponible"
+          ],
           "delai": "1 à 2 jours",
           "cout": "0 DH",
-          "pieges": ["Calculer sur la surface à équiper au lieu de la surface totale exploitée pour choisir la tranche (à confirmer avec la DPA)."],
+          "pieges": [
+            "Calculer sur la surface à équiper au lieu de la surface totale exploitée pour choisir la tranche (à confirmer avec la DPA)."
+          ],
           "preuve": "Estimation envoyée au client",
           "offers": []
         },
@@ -68,7 +96,9 @@
             "Y écrire : 5 % de la subvention, minimum 990 DH HT, payables à la notification de paiement, rien si refus.",
             "Faire légaliser la signature à la commune si le mandataire dépose physiquement."
           ],
-          "pieces": ["CIN de l'agriculteur"],
+          "pieces": [
+            "CIN de l'agriculteur"
+          ],
           "delai": "1 à 3 jours",
           "cout": "Légalisation",
           "pieges": [],
@@ -89,10 +119,15 @@
             "Contrôler : CIN, justificatif foncier (certificat de propriété de moins de 3 mois, moulkia ou bail enregistré d'au moins 6 ans restants), attestation de l'autorité locale si terrain collectif ou sans titre, plan de situation, justificatif de l'eau, étude et devis de l'installateur, justificatif de superficie pour la tranche 5 ha et moins.",
             "Remplir le formulaire de lien juridique avec la parcelle disponible sur agriculture.gov.ma (rubrique FDA)."
           ],
-          "pieces": ["Pièces de la clé « terre » dans src/lib/documents.ts"],
+          "pieces": [
+            "Pièces de la clé « terre » dans src/lib/documents.ts"
+          ],
           "delai": "1 jour après réception",
           "cout": "0 DH",
-          "pieges": ["Bail non enregistré ou trop court.", "Puits non autorisé par l'Agence de bassin : dossier bloqué."],
+          "pieges": [
+            "Bail non enregistré ou trop court.",
+            "Puits non autorisé par l'Agence de bassin : dossier bloqué."
+          ],
           "preuve": "Pièces au statut « validé »",
           "offers": []
         },
@@ -106,10 +141,15 @@
             "Obtenir de l'installateur : note de calcul (eau disponible et besoins des cultures, dimensionnement, stabilité du bassin si plus de 10 000 m3), plan détaillé signé et cacheté avec la mention « approuvé » par l'ingénieur ou le technicien, plan coté si le terrain est en pente, devis estimatif par composante.",
             "Obtenir aussi : engagement du fournisseur à poser du matériel conforme à la Norme Marocaine NM 12.1.100-2007, bulletins d'essais des équipements de moins de 2 ans, catalogues des pompes, vannes, filtres, goutteurs."
           ],
-          "pieces": ["Dossier technique complet de l'installateur"],
+          "pieces": [
+            "Dossier technique complet de l'installateur"
+          ],
           "delai": "1 à 3 semaines",
           "cout": "Inclus dans le devis de l'installateur",
-          "pieges": ["Bulletins d'essais de plus de 2 ans.", "Devis global sans détail par composante : la DPA ne peut pas appliquer les plafonds."],
+          "pieges": [
+            "Bulletins d'essais de plus de 2 ans.",
+            "Devis global sans détail par composante : la DPA ne peut pas appliquer les plafonds."
+          ],
           "preuve": "Dossier technique signé et cacheté",
           "offers": []
         },
@@ -124,10 +164,15 @@
             "Mettre l'accord par écrit (qui paie quoi et quand) et demander à la DPA le modèle de délégation en vigueur.",
             "Ne jamais proposer de crédit bancaire à intérêt pour financer le reste."
           ],
-          "pieces": ["Accord écrit agriculteur et installateur"],
+          "pieces": [
+            "Accord écrit agriculteur et installateur"
+          ],
           "delai": "1 semaine",
           "cout": "0 DH",
-          "pieges": ["Promettre que l'agriculteur n'avancera rien : avec le plafond de 50 %, il doit souvent payer une partie lui-même.", "Le Book FDA 2026 exige les preuves de paiement des factures dans la demande de subvention : vérifier avec la DPA comment cela se combine avec la délégation."],
+          "pieges": [
+            "Promettre que l'agriculteur n'avancera rien : avec le plafond de 50 %, il doit souvent payer une partie lui-même.",
+            "Le Book FDA 2026 exige les preuves de paiement des factures dans la demande de subvention : vérifier avec la DPA comment cela se combine avec la délégation."
+          ],
           "preuve": "Accord de délégation signé",
           "offers": []
         }
@@ -147,10 +192,18 @@
             "Déposer en version électronique ET papier, comme demandé par le Book FDA 2026.",
             "Exiger un récépissé de dépôt daté et signé."
           ],
-          "pieces": ["Imprimé de demande", "Dossier technique", "Pièces foncières et eau", "Identité et mandat"],
+          "pieces": [
+            "Imprimé de demande",
+            "Dossier technique",
+            "Pièces foncières et eau",
+            "Identité et mandat"
+          ],
           "delai": "Dépôt en 1 jour",
           "cout": "0 DH",
-          "pieges": ["Partir sans récépissé daté et signé.", "Se fier uniquement à la plateforme en ligne : le Book 2026 parle d'un portail encore en projet ; toujours déposer aussi le papier."],
+          "pieges": [
+            "Partir sans récépissé daté et signé.",
+            "Se fier uniquement à la plateforme en ligne : le Book 2026 parle d'un portail encore en projet ; toujours déposer aussi le papier."
+          ],
           "preuve": "Récépissé de dépôt daté et signé",
           "offers": []
         },
@@ -159,7 +212,10 @@
           "title": "Passer le dossier au statut « déposé » et informer le client",
           "who": "moi",
           "where": "Espace client Mziane",
-          "how": ["Scanner le récépissé dans l'espace client.", "Rappeler au client par écrit : pas de travaux avant l'attestation."],
+          "how": [
+            "Scanner le récépissé dans l'espace client.",
+            "Rappeler au client par écrit : pas de travaux avant l'attestation."
+          ],
           "pieces": [],
           "delai": "Le jour même",
           "cout": "0 DH",
@@ -172,7 +228,11 @@
           "title": "Suivre l'étude du dossier et la visite éventuelle",
           "who": "administration",
           "where": "DPA ou ORMVA",
-          "how": ["Appeler le guichet unique toutes les 2 semaines.", "Répondre sous 48 h aux demandes de complément.", "Être présent ou faire présent l'agriculteur si un technicien visite la parcelle."],
+          "how": [
+            "Appeler le guichet unique toutes les 2 semaines.",
+            "Répondre sous 48 h aux demandes de complément.",
+            "Être présent ou faire présent l'agriculteur si un technicien visite la parcelle."
+          ],
           "pieces": [],
           "delai": "Environ 30 jours ouvrés annoncés, souvent plus",
           "cout": "0 DH",
@@ -185,11 +245,16 @@
           "title": "Récupérer l'attestation d'approbation préalable et la lire",
           "who": "moi",
           "where": "Guichet unique DPA ou ORMVA",
-          "how": ["Vérifier : surface approuvée, montant ou plafond retenu, mention sur la délégation de créance, date limite de dépôt de la demande de subvention (24 mois en individuel).", "Mettre la date limite dans l'agenda avec une alerte 3 mois avant."],
+          "how": [
+            "Vérifier : surface approuvée, montant ou plafond retenu, mention sur la délégation de créance, date limite de dépôt de la demande de subvention (24 mois en individuel).",
+            "Mettre la date limite dans l'agenda avec une alerte 3 mois avant."
+          ],
           "pieces": [],
           "delai": "Le jour de la notification",
           "cout": "0 DH",
-          "pieges": ["Laisser passer le délai de 24 mois : demander une prolongation AVANT son expiration si les travaux traînent."],
+          "pieges": [
+            "Laisser passer le délai de 24 mois : demander une prolongation AVANT son expiration si les travaux traînent."
+          ],
           "preuve": "Attestation d'approbation préalable dans l'espace client",
           "offers": []
         }
@@ -203,11 +268,18 @@
           "title": "Donner le feu vert à l'installateur",
           "who": "client",
           "where": "Exploitation",
-          "how": ["L'agriculteur signe le bon de commande conforme au devis approuvé.", "L'installateur réalise exactement ce qui a été approuvé (surface, matériel, plan)."],
-          "pieces": ["Bon de commande signé"],
+          "how": [
+            "L'agriculteur signe le bon de commande conforme au devis approuvé.",
+            "L'installateur réalise exactement ce qui a été approuvé (surface, matériel, plan)."
+          ],
+          "pieces": [
+            "Bon de commande signé"
+          ],
           "delai": "Selon l'installateur",
           "cout": "Coût du projet moins la part déléguée",
-          "pieges": ["Changer de matériel ou de surface sans prévenir la DPA : écart au contrôle, subvention réduite."],
+          "pieges": [
+            "Changer de matériel ou de surface sans prévenir la DPA : écart au contrôle, subvention réduite."
+          ],
           "preuve": "Bon de commande signé",
           "offers": []
         },
@@ -216,7 +288,10 @@
           "title": "Faire photographier le chantier et la mise en service",
           "who": "client",
           "where": "Exploitation",
-          "how": ["Photos datées : tranchées, station de tête, bassin, goutteurs posés, réseau en marche.", "Les déposer dans l'espace client."],
+          "how": [
+            "Photos datées : tranchées, station de tête, bassin, goutteurs posés, réseau en marche.",
+            "Les déposer dans l'espace client."
+          ],
           "pieces": [],
           "delai": "Pendant et à la fin des travaux",
           "cout": "0 DH",
@@ -234,10 +309,17 @@
             "Récupérer les copies des preuves de paiement (virement, chèque).",
             "Pour un petit agriculteur qui a creusé les tranchées lui-même : préparer le mémoire justificatif des travaux de terrassement."
           ],
-          "pieces": ["Factures définitives originales", "Preuves de paiement", "RIB de l'agriculteur"],
+          "pieces": [
+            "Factures définitives originales",
+            "Preuves de paiement",
+            "RIB de l'agriculteur"
+          ],
           "delai": "Fin des travaux",
           "cout": "0 DH",
-          "pieges": ["Facture globale non détaillée.", "Paiement en espèces sans trace."],
+          "pieges": [
+            "Facture globale non détaillée.",
+            "Paiement en espèces sans trace."
+          ],
           "preuve": "Factures et preuves de paiement validées",
           "offers": []
         }
@@ -256,10 +338,18 @@
             "Joindre : factures définitives originales détaillées, copies des justificatifs de paiement, attestation de RIB du demandeur, acte de délégation de créance s'il y en a une.",
             "Exiger le récépissé daté et signé."
           ],
-          "pieces": ["Demande de subvention", "Factures", "Preuves de paiement", "RIB", "Délégation éventuelle"],
+          "pieces": [
+            "Demande de subvention",
+            "Factures",
+            "Preuves de paiement",
+            "RIB",
+            "Délégation éventuelle"
+          ],
           "delai": "Au plus tard 24 mois après l'approbation (30 mois en collectif)",
           "cout": "0 DH",
-          "pieges": ["RIB au nom d'une autre personne que le demandeur."],
+          "pieges": [
+            "RIB au nom d'une autre personne que le demandeur."
+          ],
           "preuve": "Récépissé de la demande de subvention",
           "offers": []
         },
@@ -268,11 +358,20 @@
           "title": "Accompagner la commission au constat sur le terrain",
           "who": "administration",
           "where": "Exploitation, commission de la DPA ou de l'ORMVA",
-          "how": ["Prévenir l'agriculteur et l'installateur de la date.", "Faire fonctionner l'installation devant la commission.", "Demander une copie ou la référence du procès-verbal de constat."],
-          "pieces": ["Attestation d'approbation", "Factures"],
+          "how": [
+            "Prévenir l'agriculteur et l'installateur de la date.",
+            "Faire fonctionner l'installation devant la commission.",
+            "Demander une copie ou la référence du procès-verbal de constat."
+          ],
+          "pieces": [
+            "Attestation d'approbation",
+            "Factures"
+          ],
           "delai": "Selon la DPA",
           "cout": "0 DH",
-          "pieges": ["Installation à l'arrêt ou incomplète le jour du constat."],
+          "pieges": [
+            "Installation à l'arrêt ou incomplète le jour du constat."
+          ],
           "preuve": "PV de constat de réalisation",
           "offers": []
         },
@@ -281,11 +380,17 @@
           "title": "Suivre l'ordonnancement et le paiement de la subvention",
           "who": "administration",
           "where": "DPA ou ORMVA, puis Crédit Agricole du Maroc",
-          "how": ["Relancer la DPA toutes les 2 semaines jusqu'à la notification de paiement.", "Vérifier le montant notifié par rapport à l'estimation.", "En cas de réduction, demander l'explication écrite."],
+          "how": [
+            "Relancer la DPA toutes les 2 semaines jusqu'à la notification de paiement.",
+            "Vérifier le montant notifié par rapport à l'estimation.",
+            "En cas de réduction, demander l'explication écrite."
+          ],
           "pieces": [],
           "delai": "Plusieurs semaines à plusieurs mois",
           "cout": "0 DH",
-          "pieges": ["Condition d'adhésion à l'AMO de l'agriculteur : vérifier qu'il est à jour à la CNSS (voir a_verifier)."],
+          "pieges": [
+            "Condition d'adhésion à l'AMO de l'agriculteur : vérifier qu'il est à jour à la CNSS (voir a_verifier)."
+          ],
           "preuve": "Notification de paiement du FDA",
           "offers": []
         },
@@ -294,11 +399,19 @@
           "title": "Émettre la facture d'honoraires à la notification de paiement",
           "who": "moi",
           "where": "Outil de facturation Mziane",
-          "how": ["Calculer 5 % du montant notifié, minimum 990 DH HT, plus TVA.", "Exemple : subvention de 76 000 DH = 3 800 DH HT.", "Envoyer la facture et le lien de paiement (carte, virement, Cash Plus, Wafacash)."],
-          "pieces": ["Notification de paiement"],
+          "how": [
+            "Calculer 5 % du montant notifié, minimum 990 DH HT, plus TVA.",
+            "Exemple : subvention de 76 000 DH = 3 800 DH HT.",
+            "Envoyer la facture et le lien de paiement (carte, virement, Cash Plus, Wafacash)."
+          ],
+          "pieces": [
+            "Notification de paiement"
+          ],
           "delai": "Sous 48 h",
           "cout": "0 DH",
-          "pieges": ["Facturer avant la notification de paiement."],
+          "pieges": [
+            "Facturer avant la notification de paiement."
+          ],
           "preuve": "Facture payée",
           "offers": []
         },
@@ -307,7 +420,11 @@
           "title": "Livrer le dossier final et clôturer",
           "who": "moi",
           "where": "Espace client Mziane",
-          "how": ["Déposer : approbation, récépissés, PV de constat, notification de paiement.", "Rappeler au client l'engagement de garder et utiliser l'investissement 5 ans.", "Passer le dossier au statut « payé »."],
+          "how": [
+            "Déposer : approbation, récépissés, PV de constat, notification de paiement.",
+            "Rappeler au client l'engagement de garder et utiliser l'investissement 5 ans.",
+            "Passer le dossier au statut « payé »."
+          ],
           "pieces": [],
           "delai": "Le jour même",
           "cout": "0 DH",
@@ -330,10 +447,17 @@
             "Après l'achat chez un distributeur : déposer la demande de subvention avec factures définitives de matériel neuf, lien juridique avec l'exploitation, documents de conformité aux normes, engagement de garder le matériel 5 ans, RIB.",
             "Taux et plafonds par type de matériel : voir le Book FDA 2026."
           ],
-          "pieces": ["Imprimé d'accord de principe", "Factures", "RIB"],
+          "pieces": [
+            "Imprimé d'accord de principe",
+            "Factures",
+            "RIB"
+          ],
           "delai": "Selon la DPA",
           "cout": "0 DH",
-          "pieges": ["Acheter avant l'accord de principe.", "Matériel d'occasion : non subventionné."],
+          "pieges": [
+            "Acheter avant l'accord de principe.",
+            "Matériel d'occasion : non subventionné."
+          ],
           "preuve": "Accord de principe puis notification de paiement",
           "offers": []
         },
@@ -347,10 +471,16 @@
             "Après la plantation : attestation d'approbation, demande de subvention, factures originales de pépiniéristes agréés avec la mention « plants certifiés », engagement de garder le verger 5 ans, RIB.",
             "Délai de dépôt de la demande de subvention : 12 mois après l'approbation."
           ],
-          "pieces": ["Fiche descriptive", "Factures de plants certifiés", "RIB"],
+          "pieces": [
+            "Fiche descriptive",
+            "Factures de plants certifiés",
+            "RIB"
+          ],
           "delai": "Selon la DPA",
           "cout": "0 DH",
-          "pieges": ["Plants non certifiés ou pépiniériste non agréé."],
+          "pieges": [
+            "Plants non certifiés ou pépiniériste non agréé."
+          ],
           "preuve": "PV de constat et notification de paiement",
           "offers": []
         }
@@ -364,8 +494,13 @@
           "title": "Réunir au moins 5 membres fondateurs et le projet de statuts",
           "who": "client",
           "where": "Village ou douar des membres",
-          "how": ["Lister les membres (5 minimum), leur CIN, la part de capital de chacun.", "Mziane rédige les statuts selon la loi 112-12 et le modèle de l'ODCo."],
-          "pieces": ["CIN des membres"],
+          "how": [
+            "Lister les membres (5 minimum), leur CIN, la part de capital de chacun.",
+            "Mziane rédige les statuts selon la loi 112-12 et le modèle de l'ODCo."
+          ],
+          "pieces": [
+            "CIN des membres"
+          ],
           "delai": "1 à 2 semaines",
           "cout": "0 DH",
           "pieges": [],
@@ -377,8 +512,13 @@
           "title": "Obtenir le certificat négatif de dénomination de la coopérative",
           "who": "moi",
           "where": "Office du Développement de la Coopération (ODCo), délégation régionale ou odco.gov.ma",
-          "how": ["Proposer plusieurs noms.", "Récupérer le certificat négatif."],
-          "pieces": ["CIN du demandeur"],
+          "how": [
+            "Proposer plusieurs noms.",
+            "Récupérer le certificat négatif."
+          ],
+          "pieces": [
+            "CIN du demandeur"
+          ],
           "delai": "Environ 48 h (source ancienne)",
           "cout": "À vérifier",
           "pieges": [],
@@ -396,10 +536,17 @@
             "Faire immatriculer la coopérative au registre local des coopératives du tribunal.",
             "Suivre ensuite la procédure de la fiche « création de coopérative » (IF, ICE, CNSS, compte bancaire)."
           ],
-          "pieces": ["Statuts signés", "PV de l'assemblée constitutive", "Liste des membres", "Certificat négatif"],
+          "pieces": [
+            "Statuts signés",
+            "PV de l'assemblée constitutive",
+            "Liste des membres",
+            "Certificat négatif"
+          ],
           "delai": "Quelques semaines",
           "cout": "Légalisations",
-          "pieges": ["Membre sans CIN valide : bloque le dépôt."],
+          "pieges": [
+            "Membre sans CIN valide : bloque le dépôt."
+          ],
           "preuve": "Attestation d'immatriculation au registre des coopératives",
           "offers": []
         },
@@ -408,7 +555,10 @@
           "title": "Démarrer la comptabilité de la coopérative à 490 DH HT par mois",
           "who": "moi",
           "where": "Espace client Mziane",
-          "how": ["Créer l'abonnement comptable 12 mois à 490 DH HT par mois (création offerte dans le pack Terre).", "Transmettre au cabinet partenaire si une liasse ou une attestation d'expert-comptable est exigée."],
+          "how": [
+            "Créer l'abonnement comptable 12 mois à 490 DH HT par mois (création offerte dans le pack Terre).",
+            "Transmettre au cabinet partenaire si une liasse ou une attestation d'expert-comptable est exigée."
+          ],
           "pieces": [],
           "delai": "Dès l'immatriculation",
           "cout": "0 DH",
@@ -439,13 +589,34 @@
     "Coopérative : rappeler les échéances comptables et l'assemblée annuelle."
   ],
   "sources": [
-    { "title": "Book FDA 2026 : incitations financières de l'État au secteur agricole (CAGOR)", "url": "https://cagor.net/wp-content/uploads/2026/08/book-fda-2026.pdf" },
-    { "title": "CAGOR : Fonds de Développement Agricole, édition 2026", "url": "https://cagor.net/aides-fda/" },
-    { "title": "CRI Fès-Meknès : guide FDA (mentionne le Guichet Unique Électronique)", "url": "https://fesmeknesinvest.ma/wp-content/uploads/2024/01/Fond-de-developpement-Agricole.pdf" },
-    { "title": "Guichet Unique Électronique du FDA", "url": "https://fda.agriculture.gov.ma/gue/" },
-    { "title": "Agrimaroc : subventions agricoles digitalisées", "url": "https://www.agrimaroc.ma/subventions-agricoles-digitalisees/" },
-    { "title": "EcoActu : délégation de créances FDA plafonnée depuis 2020", "url": "https://ecoactu.ma/fonds-de-developpement-agricole-des-changements-relatifs-a-la-delegation-de-creances-des-2020/" },
-    { "title": "Médias24 : subventions irrigation bloquées puis débloquées (circulaire AMO)", "url": "https://medias24.com/2023/02/13/des-subventions-a-lirrigation-debloquees-les-professionnels-en-partie-soulages/" }
+    {
+      "title": "Book FDA 2026 : incitations financières de l'État au secteur agricole (CAGOR)",
+      "url": "https://cagor.net/wp-content/uploads/2026/08/book-fda-2026.pdf"
+    },
+    {
+      "title": "CAGOR : Fonds de Développement Agricole, édition 2026",
+      "url": "https://cagor.net/aides-fda/"
+    },
+    {
+      "title": "CRI Fès-Meknès : guide FDA (mentionne le Guichet Unique Électronique)",
+      "url": "https://fesmeknesinvest.ma/wp-content/uploads/2024/01/Fond-de-developpement-Agricole.pdf"
+    },
+    {
+      "title": "Guichet Unique Électronique du FDA",
+      "url": "https://fda.agriculture.gov.ma/gue/"
+    },
+    {
+      "title": "Agrimaroc : subventions agricoles digitalisées",
+      "url": "https://www.agrimaroc.ma/subventions-agricoles-digitalisees/"
+    },
+    {
+      "title": "EcoActu : délégation de créances FDA plafonnée depuis 2020",
+      "url": "https://ecoactu.ma/fonds-de-developpement-agricole-des-changements-relatifs-a-la-delegation-de-creances-des-2020/"
+    },
+    {
+      "title": "Médias24 : subventions irrigation bloquées puis débloquées (circulaire AMO)",
+      "url": "https://medias24.com/2023/02/13/des-subventions-a-lirrigation-debloquees-les-professionnels-en-partie-soulages/"
+    }
   ],
   "a_verifier": [
     "Le Guichet Unique Électronique (fda.agriculture.gov.ma/gue) fonctionne-t-il encore en 2026 ? Le Book 2026 parle d'un portail et d'une application « qui seront mis en place » ; demander à la DPA si le dépôt en ligne est accepté.",
@@ -454,7 +625,6 @@
     "Condition d'adhésion à l'AMO (circulaire n°987) pour toucher la subvention en 2026.",
     "Critère exact de la tranche (surface totale exploitée ou surface équipée) pour le taux 100 %, 75 % ou 60 %.",
     "Délai réel d'instruction de l'approbation préalable et du paiement dans la province du client.",
-    "Mettre à jour la fiche A01 du site (80 % au-delà de 5 ha) avec les taux du Book 2026 (75 % et 60 %).",
     "Coopérative : procédure 2026 (certificat négatif en ligne ODCo, rôle de l'autorité locale, frais du greffe)."
   ]
 }

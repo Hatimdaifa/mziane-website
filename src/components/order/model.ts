@@ -350,7 +350,7 @@ export function compute(base: Base, forme: FormeId | undefined, opts: string[], 
       fees.push({ label: "Frais d'État de création (estimation)", amount: FRAIS_ETAT.societe.estimate, note: `${FRAIS_ETAT.societe.range}, au réel et sans marge` });
     }
   }
-  if (marqueFee) fees.push({ label: "Taxe OMPIC, 1 classe (estimation)", amount: FRAIS_ETAT.marqueParClasse, note: "par classe déposée, au réel et sans marge" });
+  if (marqueFee) fees.push({ label: "Taxe OMPIC, 1re classe (dépôt en ligne)", amount: FRAIS_ETAT.marque.premiereClasse, note: `+ ${FRAIS_ETAT.marque.classeSup} DH par classe en plus, au réel et sans marge` });
 
   const startHT = start.filter((l) => l.tax === "HT").reduce((s, l) => s + (l.amount ?? 0), 0);
   const startTTCnoVat = start.filter((l) => l.tax === "TTC").reduce((s, l) => s + (l.amount ?? 0), 0);

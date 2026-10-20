@@ -71,7 +71,7 @@ const navItems: NavItem[] = [
         links: [
           { icon: Droplets, label: "Goutte-à-goutte", href: "/aides#A01" },
           { icon: Landmark, label: "Primes TPME", href: "/aides#B01" },
-          { icon: Rocket, label: "Programme Forsa", href: "/aides#B03" },
+          { icon: Rocket, label: "Prêts d'honneur à 0 %", href: "/aides#B04" },
           { icon: Users, label: "Aide à l'embauche", href: "/aides#B11" },
           { icon: House, label: "Aide au logement", href: "/aides#D01" },
         ],

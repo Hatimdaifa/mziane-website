@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ArrowRight, Check, MessageCircle, PiggyBank } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
-  ADDONS, FORMES, FRAIS_ETAT, type FormeId, HEBERGEMENT_AN, type Pack, PRIX_CREATION,
+  ADDONS, FORMES, FRAIS_ETAT, MARQUE_TAXE, type FormeId, HEBERGEMENT_AN, type Pack, PRIX_CREATION,
   fmtDH, offerById, packById, packTotal,
 } from "@/lib/offers";
 import { devisHref, offerHref, packHref } from "./links";
@@ -51,7 +51,7 @@ function buildLines(s: Sel): Line[] {
     lines.push({ key: "domi", label: `Domiciliation Business, ${DOMI_MOIS} mois`, once: 0, monthly: price("domi-business"), months: DOMI_MOIS, addon: "domi-business" });
   }
   if (s.marque) {
-    lines.push({ key: "marque", label: "Dépôt de marque Protection", once: price("marque-protection"), monthly: 0, months: 0, note: `taxe OMPIC en sus, environ ${fmtDH(FRAIS_ETAT.marqueParClasse)} par classe`, addon: "marque-protection" });
+    lines.push({ key: "marque", label: "Dépôt de marque Protection", once: price("marque-protection"), monthly: 0, months: 0, note: MARQUE_TAXE, addon: "marque-protection" });
   }
   if (s.aides) {
     lines.push({ key: "aides", label: "Dossier d'aides de A à Z", once: 0, monthly: 0, months: 0, note: addon("aides-dossier")?.hint, addon: "aides-dossier" });

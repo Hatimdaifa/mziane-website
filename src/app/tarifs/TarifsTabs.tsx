@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
-  AIDES_TAUX_AGRI, COMPTA_EXTRAS, FORMALITE_SUPPLEMENT, FRAIS_ETAT, type FormeId, HEBERGEMENT_AN, type Offer,
+  AIDES_TAUX_AGRI, COMPTA_EXTRAS, FORMALITE_SUPPLEMENT, MARQUE_TAXE, type FormeId, HEBERGEMENT_AN, type Offer,
   PRIX_CREATION, PROMESSES, aidesOffers, compta, creationAE, creationSociete, domiciliation, fmtDH, formalites,
   international, marque, packById, packTerre, particuliers, web,
 } from "@/lib/offers";
@@ -202,7 +202,7 @@ function FormalitesTab() {
 
       <h3 className="mb-8 mt-16 text-center text-2xl font-bold text-zinc-900">Dépôt de marque à l&apos;OMPIC</h3>
       <Offers list={marque} icon={Stamp} href={(o) => offerHref(o.id)} />
-      <Note>Taxe OMPIC en sus, environ {fmtDH(FRAIS_ETAT.marqueParClasse)} par classe.</Note>
+      <Note>{MARQUE_TAXE.charAt(0).toUpperCase()}{MARQUE_TAXE.slice(1)}.</Note>
     </>
   );
 }

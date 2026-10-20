@@ -30,7 +30,7 @@ export const aides: Aide[] = [
     "organisme": "Fonds de Développement Agricole (ministère de l'Agriculture), via la DPA ou l'ORMVA",
     "site": "agriculture.gov.ma",
     "pourQui": "Tout agriculteur (propriétaire ou exploitant) qui veut passer à l'irrigation localisée, à titre individuel ou en groupement.",
-    "apport": "Subvention NON remboursable : 100 % pour les petites exploitations (environ 5 ha et moins) et 80 % au-delà, dans la limite de plafonds par hectare (barème fixé par décision conjointe, la dernière connue date d'avril 2023 - n° 559.23 ; pour les grandes exploitations la presse cite environ 23 000 DH/ha sur la première tranche). Couvre le réseau, la filtration, le bassin de stockage et, selon les cas, le pompage (y compris solaire).",
+    "apport": "Subvention NON remboursable : 100 % jusqu'à 5 ha, 75 % de 5 à 20 ha et 60 % au-delà de 20 ha (barème FDA 2026), dans la limite de plafonds par hectare. Couvre le réseau, la filtration, le bassin de stockage et, selon les cas, le pompage (y compris solaire).",
     "conditions": "Disposer d'une ressource en eau autorisée (puits ou forage déclaré, ou eau d'un périmètre). Justifier de l'exploitation du terrain. Installation réalisée par un fournisseur agréé. Accord de principe obtenu AVANT les travaux.",
     "demarche": "1) Dossier de demande d'accord de principe à la DPA/ORMVA. 2) Réalisation des travaux par le fournisseur. 3) Dépôt du dossier de subvention avec factures. 4) Contrôle sur le terrain par la commission. 5) Paiement à l'agriculteur, ou directement au fournisseur si l'agriculteur lui a cédé la subvention (il avance alors peu ou rien)."
   },
@@ -196,7 +196,7 @@ export const aides: Aide[] = [
     "site": "forsa.ma",
     "pourQui": "Porteurs de projet de 18 ans et plus, tous secteurs, résidant au Maroc ou Marocains du monde (selon les éditions).",
     "apport": "Formation et accompagnement, puis PRÊT D'HONNEUR À 0 % D'INTÉRÊT jusqu'à 100 000 DH, dont environ 10 000 DH de subvention. Remboursement sur 10 ans maximum avec 2 ans de différé. Report d'échéances possible (mesure 2026).",
-    "conditions": "Candidature pendant l'ouverture d'une édition, sélection sur le projet, suivi de la formation.",
+    "conditions": "Aucune nouvelle édition ouverte depuis 2023 : les candidatures ne sont possibles qu'à la réouverture d'un appel. En attendant, les prêts d'honneur à 0 % des réseaux associatifs (fiche suivante) prennent le relais. Les bénéficiaires actuels peuvent demander un report d'échéances.",
     "demarche": "Candidature en ligne, présélection, formation et incubation, comité de sélection, déblocage du prêt d'honneur."
   },
   {
