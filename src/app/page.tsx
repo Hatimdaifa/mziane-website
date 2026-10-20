@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight, Building2, Rocket, Globe, Clock, ShieldCheck, Check, Plus, Zap,
-  HandCoins, FilePen, Calculator, Tractor, User, Search, ShoppingCart, PhoneCall, FileCheck2, Landmark, Ban, Scale, Mail,
+  HandCoins, FilePen, Tractor, User, Search, ShoppingCart, PhoneCall, FileCheck2, Landmark, Ban, Scale, Mail,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "@/components/site";
@@ -14,15 +14,6 @@ import {
   AIDES_BAREME, AIDES_MIN, AIDES_PLAFOND, CONTACT, FRAIS_ETAT, PRIX_CREATION, PROMESSES,
   feeAide, fmt, fmtDH, mailLink, offerById, packById, packTerre, waLink, type Pack,
 } from "@/lib/offers";
-
-// Première question du questionnaire, posée directement dans le hero (ids = BESOINS de onboarding/questions.ts).
-const besoins: { id: string; icon: LucideIcon; label: string }[] = [
-  { id: "creer", icon: Building2, label: "Créer mon entreprise" },
-  { id: "aides", icon: HandCoins, label: "Obtenir une aide de l'État" },
-  { id: "compta", icon: Calculator, label: "Confier ma comptabilité" },
-  { id: "gerer", icon: FilePen, label: "Modifier ou fermer ma société" },
-  { id: "etranger", icon: Globe, label: "Investir depuis l'étranger" },
-];
 
 type IconType = LucideIcon | ((props: { className?: string }) => React.ReactNode);
 
@@ -168,40 +159,21 @@ export default function HomePage() {
               Créez votre entreprise et obtenez vos aides.{" "}
               <span className="text-blue-700">Sans prêt à intérêt.</span>
             </h1>
-            <p className="mb-7 max-w-[520px] text-lg leading-relaxed text-zinc-600">
+            <p className="mb-8 max-w-[520px] text-lg leading-relaxed text-zinc-600">
               Nous faisons vos démarches, au Maroc ou depuis l&apos;étranger.
               Pour les aides : <strong className="text-zinc-900">pas d&apos;aide obtenue, pas de frais</strong>.
             </p>
-            <div className="mb-6 max-w-[560px] rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_24px_50px_-24px_rgba(31,42,61,.25)] max-sm:p-4">
-              <p className="mb-1 font-bold text-zinc-900">Trouver ma solution : de quoi avez-vous besoin ?</p>
-              <p className="mb-4 flex items-center gap-1.5 text-[13px] text-zinc-500">
-                <Clock className="h-3.5 w-3.5" /> Seulement les questions utiles à votre cas, sans inscription.
-              </p>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {besoins.map(({ id, icon: Icon, label }, n) => (
-                  <Link
-                    key={id}
-                    href={`/onboarding?besoin=${id}`}
-                    className={cn(
-                      "group flex items-center gap-3 rounded-2xl border-2 border-zinc-200 px-3.5 py-3 text-[15px] font-semibold text-zinc-900 transition hover:border-blue-600 hover:bg-blue-50",
-                      n === besoins.length - 1 && "sm:col-span-2"
-                    )}
-                  >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-700 group-hover:text-white">
-                      <Icon className="h-4.5 w-4.5" />
-                    </span>
-                    <span className="min-w-0 flex-1">{label}</span>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-blue-700" />
-                  </Link>
-                ))}
-              </div>
+            <div className="mb-6 flex flex-wrap gap-3 max-sm:grid">
+              <Link href="/onboarding" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-700 px-8 py-4 font-semibold text-white shadow-[0_17px_20px_-8px_rgba(0,105,122,.4)] transition hover:-translate-y-0.5 hover:bg-blue-800">
+                Trouver ma solution <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/packs" className="inline-flex items-center justify-center rounded-2xl border-2 border-blue-700 px-8 py-4 font-semibold text-blue-800 transition hover:bg-blue-700 hover:text-white">
+                Voir les packs
+              </Link>
             </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <Link href="/packs" className="text-[15px] font-semibold text-blue-800 hover:underline">Voir les packs →</Link>
-              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[15px] font-semibold text-zinc-900 hover:text-blue-800">
-                <WhatsAppIcon className="h-5 w-5 text-[#128C4B]" /> Une question ? WhatsApp
-              </a>
-            </div>
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-2 text-[15px] font-semibold text-zinc-900 hover:text-blue-800">
+              <WhatsAppIcon className="h-5 w-5 text-[#128C4B]" /> Une question ? Écrivez-nous sur WhatsApp
+            </a>
           </div>
           <HeroMock />
         </div>
