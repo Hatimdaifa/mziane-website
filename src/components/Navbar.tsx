@@ -136,7 +136,7 @@ export function Logo({ dark = false }: { dark?: boolean }) {
       aria-label="Mziane, accueil"
       className={cn("shrink-0 text-2xl font-extrabold tracking-tight", dark ? "text-white" : "text-zinc-900")}
     >
-      Mziane<span className="text-red-500">.</span>
+      Mziane<span className="text-blue-500">.</span>
     </Link>
   );
 }

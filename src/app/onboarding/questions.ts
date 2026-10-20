@@ -54,13 +54,15 @@ export const steps: Step[] = [
     id: "c-equipe",
     question: "Vous lancez votre activité...",
     ar: "عدد الشركاء",
-    subtitle: "Cela détermine la forme juridique.",
+    subtitle: "Cela suffit presque à choisir la forme juridique.",
     options: [
-      { id: "seul", icon: User, label: "Seul", description: "Seul propriétaire." },
-      { id: "plusieurs", icon: Users, label: "À plusieurs", description: "Avec un ou plusieurs associés." },
+      { id: "seul", icon: User, label: "Seul", description: "Vous êtes le seul propriétaire." },
+      { id: "associes", icon: Users, label: "Avec des associés", description: "Le capital est apporté entre vous." },
+      { id: "investisseurs", icon: Lightbulb, label: "Avec des investisseurs", description: "Une levée de fonds est prévue." },
+      { id: "gros", icon: Landmark, label: "Un grand projet", description: "Capital de 300 000 DH ou plus." },
       { id: "immo", icon: House, label: "Pour gérer un bien immobilier", description: "Détenir et transmettre un patrimoine." },
     ],
-    next: (a) => ({ seul: "c-ca", plusieurs: "c-financement" } as Record<string, string>)[one(a, "c-equipe") ?? ""] ?? "result",
+    next: (a) => ({ seul: "c-ca", immo: "result" } as Record<string, string>)[one(a, "c-equipe") ?? ""] ?? "c-aide",
   },
   {
     id: "c-secteur",
@@ -77,7 +79,7 @@ export const steps: Step[] = [
       { id: "agriculture", icon: Sprout, label: "Agriculture et élevage", description: "Exploitation agricole, élevage, apiculture." },
       { id: "btp", icon: HardHat, label: "BTP et immobilier", description: "Construction, travaux, promotion." },
     ],
-    next: (a) => (one(a, "besoin") === "creer" ? "p-profil" : "c-invest"),
+    next: (a) => (one(a, "besoin") === "creer" ? "c-salaries" : "c-invest"),
   },
   {
     id: "c-ca",
@@ -91,19 +93,7 @@ export const steps: Step[] = [
       { id: "grand", icon: Receipt, label: "Plus de 500 000 DH" },
       { id: "nsp", icon: Lightbulb, label: "Je ne sais pas encore" },
     ],
-    next: () => "c-salaries",
-  },
-  {
-    id: "c-financement",
-    question: "Comment sera financé le projet ?",
-    ar: "تمويل المشروع",
-    subtitle: "Cela oriente vers une SARL, une SAS ou une SA.",
-    options: [
-      { id: "associes", icon: Users, label: "Entre associés", description: "Capital apporté par les associés." },
-      { id: "investisseurs", icon: Lightbulb, label: "Avec des investisseurs", description: "Levée de fonds." },
-      { id: "gros", icon: Landmark, label: "Grand projet", description: "Capital de 300 000 DH ou plus." },
-    ],
-    next: () => "c-salaries",
+    next: () => "c-aide",
   },
   {
     id: "c-invest",
@@ -122,13 +112,13 @@ export const steps: Step[] = [
     id: "c-salaries",
     question: "Prévoyez-vous de recruter ?",
     ar: "تشغيل الأجراء",
-    subtitle: "L'État peut aider pour les premiers salariés.",
+    subtitle: "Pour prévoir la paie, et les aides à l'embauche.",
     options: [
       { id: "non", icon: User, label: "Non, pas au début" },
       { id: "1-5", icon: Users, label: "1 à 5 salariés" },
       { id: "5plus", icon: UsersRound, label: "Plus de 5 salariés" },
     ],
-    next: (a) => (one(a, "besoin") === "creer" ? "c-aide" : "p-profil"),
+    next: (a) => (one(a, "besoin") === "creer" && one(a, "c-aide") === "non" ? "result" : "p-profil"),
   },
   {
     id: "c-aide",
@@ -142,7 +132,8 @@ export const steps: Step[] = [
       { id: "1m-50m", icon: HandCoins, label: "Oui, j'investis de 1 à 50 millions DH" },
       { id: "gt50m", icon: HandCoins, label: "Oui, j'investis plus de 50 millions DH" },
     ],
-    next: (a) => (one(a, "c-aide") === "non" ? "result" : "c-secteur"),
+    // Sans aide, les salariés ne changent le pack que pour une SARLAU ou une SARL.
+    next: (a) => (one(a, "c-aide") !== "non" ? "c-secteur" : ["sarlau", "sarl"].includes(formeCreation(a)) ? "c-salaries" : "result"),
   },
 
   // ── Aides ──
@@ -314,7 +305,7 @@ export const steps: Step[] = [
       { id: "societe", icon: Building2, label: "SARLAU ou SARL" },
       { id: "multi", icon: Landmark, label: "SA, SAS ou plusieurs sociétés" },
     ],
-    next: () => "k-salaries",
+    next: (a) => (one(a, "k-forme") === "ae" ? "result" : "k-salaries"),
   },
   {
     id: "k-salaries",
@@ -340,7 +331,7 @@ export const steps: Step[] = [
       { id: "etranger", icon: Globe, label: "Étranger non-résident" },
       { id: "zai", icon: Factory, label: "Projet en zone franche ou à Casablanca Finance City" },
     ],
-    next: () => "c-invest",
+    next: (a) => (one(a, "x-situation") === "zai" ? "result" : "c-invest"),
   },
 ];
 
@@ -475,7 +466,9 @@ export function matchAides(a: Answers): Aide[] {
 export function formeCreation(a: Answers): FormeId {
   const equipe = one(a, "c-equipe");
   if (equipe === "immo") return "sci";
-  if (equipe === "plusieurs") return ({ associes: "sarl", investisseurs: "sas", gros: "sa" } as Record<string, FormeId>)[one(a, "c-financement") ?? ""] ?? "sarl";
+  if (equipe === "associes") return "sarl";
+  if (equipe === "investisseurs") return "sas";
+  if (equipe === "gros") return "sa";
   const ca = one(a, "c-ca");
   if (ca === "petit" || ca === "moyen-commerce") return "auto";
   return "sarlau";
