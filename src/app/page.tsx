@@ -155,9 +155,6 @@ export default function HomePage() {
         <div className="pointer-events-none absolute -top-48 -right-48 h-[800px] w-[800px] rounded-full bg-[radial-gradient(circle,rgba(0,159,183,.08)_0%,transparent_65%)]" />
         <div className="relative z-10 mx-auto grid max-w-[1200px] items-center gap-14 px-6 max-sm:gap-8 max-sm:px-4 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <span className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-[13px] font-semibold text-blue-800">
-              <Building2 className="h-3.5 w-3.5" /> Création d&apos;entreprise et aides de l&apos;État au Maroc
-            </span>
             <h1 className="mb-6 text-[clamp(2.1rem,5.2vw,3.9rem)] font-extrabold leading-[1.05] tracking-[-.035em] text-zinc-900 text-balance">
               Créez votre entreprise et obtenez vos aides.{" "}
               <span className="text-blue-700">Sans prêt à intérêt.</span>
