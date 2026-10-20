@@ -131,13 +131,12 @@ const navItems: NavItem[] = [
 
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
-    <Link href="/" aria-label="Mziane, accueil" className="flex items-center gap-2 shrink-0">
-      <span className="w-9 h-9 rounded-xl bg-blue-700 flex items-center justify-center">
-        <Building2 className="w-4.5 h-4.5 text-amber-400" />
-      </span>
-      <span className={cn("text-xl font-extrabold tracking-tight", dark ? "text-white" : "text-zinc-900")}>
-        Mziane
-      </span>
+    <Link
+      href="/"
+      aria-label="Mziane, accueil"
+      className={cn("shrink-0 text-2xl font-extrabold tracking-tight", dark ? "text-white" : "text-zinc-900")}
+    >
+      Mziane<span className="text-red-500">.</span>
     </Link>
   );
 }
