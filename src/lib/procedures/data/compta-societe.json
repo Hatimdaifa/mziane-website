@@ -1,0 +1,647 @@
+{
+  "id": "compta-societe",
+  "title": "Tenir la comptabilité et les déclarations d'une société",
+  "offers": ["compta-essentiel", "compta-business", "compta-premium"],
+  "summary": "La société du client a une comptabilité tenue chaque mois, toutes ses déclarations (TVA, IS, IR sur salaires, CNSS, taxe professionnelle) faites et payées à temps, et chaque année un bilan, une liasse fiscale et des comptes déposés au greffe. Mziane collecte, classe, prépare et télédéclare ; le cabinet comptable partenaire valide, arrête les comptes et signe tout ce qui engage un professionnel de la comptabilité.",
+  "duree": "Mise en place : 1 à 3 semaines. Ensuite cycle continu : 2 à 6 heures par mois et par client selon l'offre, et une clôture annuelle de janvier à juillet.",
+  "frais_officiels": [
+    { "label": "Impôt sur les sociétés 2026", "montant": "20 % du bénéfice fiscal (35 % au-delà de 100 millions de DH de bénéfice)", "note": "Taux de la réforme de la loi de finances 2023, arrivée à terme en 2026. Payé par la société." },
+    { "label": "Cotisation minimale (IS minimum)", "montant": "0,25 % du chiffre d'affaires et produits, minimum 3 000 DH par an", "note": "Exonérée pendant les 36 premiers mois après le début d'activité. Due même en cas de perte ensuite." },
+    { "label": "Acomptes d'IS", "montant": "4 x 25 % de l'impôt de l'exercice précédent", "note": "Pas d'acompte la première année, faute d'exercice précédent." },
+    { "label": "TVA", "montant": "TVA collectée moins TVA déductible (taux normal 20 %)", "note": "Payée par la société au moment de la télédéclaration." },
+    { "label": "Cotisations CNSS employeur (régime général)", "montant": "Environ 21 % du salaire brut côté employeur, plus la part salariale retenue", "note": "Allocations familiales, prestations sociales plafonnées à 6 000 DH, AMO, taxe de formation professionnelle. Taux à confirmer chaque année." },
+    { "label": "Taxe professionnelle", "montant": "10 %, 20 % ou 30 % de la valeur locative selon la classe de l'activité", "note": "Exonérée 5 ans à partir du début d'activité." },
+    { "label": "Dépôt des états de synthèse au greffe", "montant": "À confirmer", "note": "Frais de greffe, plus éventuellement le certificat de signature électronique pour le dépôt en ligne." }
+  ],
+  "avant_de_commencer": [
+    "Comprendre la règle du jeu : tenir la comptabilité d'autres entreprises à titre habituel et contre rémunération est réservé aux experts-comptables (loi 15-89) et aux comptables agréés (loi 127-12). Mziane n'est ni l'un ni l'autre : la lettre de mission doit donc être signée par le cabinet partenaire, et Mziane intervient comme collecteur, préparateur et assistant sous sa responsabilité. Faire valider ce montage par écrit avec le cabinet avant le premier client.",
+    "Choisir avec le cabinet le logiciel comptable commun (accès partagé) et le plan de classement des pièces.",
+    "Vérifier que l'offre correspond au client : Essentiel = pas de salarié et chiffre d'affaires sous 500 000 DH ; Business = jusqu'à 5 salariés ; Premium = jusqu'à 10 salariés. Au-delà, devis.",
+    "Récupérer les pièces de documents.ts : modèle J, statuts, IF/ICE/CNSS, accès SIMPL et Damancom, relevés bancaires, factures, dernier bilan et liasse si un exercice est déjà clos, dossier de chaque salarié.",
+    "Savoir où l'on déclare : SIMPL (DGI) sur https://www.tax.gov.ma pour la TVA, l'IS, l'IR ; Damancom sur https://www.damancom.ma pour la CNSS."
+  ],
+  "phases": [
+    {
+      "title": "1. Mise en place (une seule fois)",
+      "steps": [
+        {
+          "id": "lettre-mission",
+          "title": "Faire signer la lettre de mission tripartite",
+          "who": "cabinet",
+          "where": "Cabinet partenaire, puis signature électronique ou papier du client",
+          "how": [
+            "Envoyer au cabinet la fiche du client : forme, activité, CA estimé, nombre de salariés, offre choisie.",
+            "Le cabinet émet la lettre de mission à son nom (responsable de la comptabilité) et prévoit l'intervention de Mziane pour la collecte, la saisie et les télédéclarations.",
+            "Faire signer le client, puis déposer la lettre signée dans l'espace client."
+          ],
+          "pieces": ["Fiche client", "Modèle J", "Statuts"],
+          "delai": "2 à 5 jours",
+          "cout": "Selon accord Mziane / cabinet",
+          "pieges": ["Commencer à travailler sans lettre de mission signée par le cabinet : Mziane exercerait seul une activité réglementée."],
+          "preuve": "Lettre de mission signée par le client et le cabinet",
+          "offers": []
+        },
+        {
+          "id": "verifier-pieces-compta",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane, dossier « Reprise de la comptabilité »",
+          "how": [
+            "Cocher chaque pièce de la liste et vérifier qu'elle est lisible et complète.",
+            "Comparer l'IF, l'ICE et le numéro CNSS avec le modèle J.",
+            "Envoyer au client une seule liste des pièces manquantes."
+          ],
+          "pieces": ["Modèle J", "Statuts", "IF, ICE, CNSS", "Relevés bancaires depuis le début de l'exercice", "Factures d'achat et de vente", "Dernier bilan et liasse si exercice clos", "Dossier de chaque salarié"],
+          "delai": "1 à 2 jours",
+          "cout": "0 DH",
+          "pieges": ["Reprendre un client sans le dernier bilan ni les soldes : le cabinet ne peut pas ouvrir l'exercice correctement."],
+          "preuve": "Statut « pièces validées » dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "acces-simpl",
+          "title": "Obtenir ou vérifier l'accès SIMPL de la société",
+          "who": "moi",
+          "where": "DGI, services en ligne SIMPL : https://www.tax.gov.ma (adhésion en ligne, puis dossier à la direction régionale ou provinciale des impôts du siège si demandé)",
+          "how": [
+            "Si la société a déjà un compte : tester la connexion avec le client (code de validation envoyé par e-mail à chaque connexion).",
+            "Si elle n'en a pas : faire l'adhésion en ligne avec l'IF et l'ICE, puis préparer avec le client le formulaire de création d'utilisateur et l'autorisation de prélèvement bancaire, et les déposer à la direction des impôts du siège si la DGI le demande.",
+            "Faire mettre comme adresse e-mail de connexion une adresse que le client et Mziane peuvent consulter, ou convenir que le client transmet le code.",
+            "Vérifier que le compte bancaire de prélèvement est actif : c'est lui qui paie la TVA, l'IS et l'IR."
+          ],
+          "pieces": ["IF", "ICE", "CIN du gérant", "RIB de la société"],
+          "delai": "Immédiat à 2 semaines",
+          "cout": "0 DH",
+          "pieges": ["Utiliser l'adresse e-mail personnelle de Mziane comme e-mail officiel de la société : la société perdrait l'accès en cas de départ.", "Oublier l'autorisation de prélèvement : la déclaration passe mais le paiement échoue."],
+          "preuve": "Connexion réussie à SIMPL, capture de l'écran d'accueil de la société",
+          "offers": []
+        },
+        {
+          "id": "acces-damancom",
+          "title": "Obtenir ou vérifier l'accès Damancom de la société",
+          "who": "moi",
+          "where": "CNSS, portail Damancom : https://www.damancom.ma",
+          "how": [
+            "Vérifier avec le client que la société est affiliée à la CNSS (numéro d'affiliation) même sans salarié.",
+            "Se connecter au portail avec le client : depuis 2025 l'authentification passe par Mon e-ID (identité numérique de la personne qui se connecte).",
+            "Vérifier le mandat de prélèvement bancaire pour le paiement des cotisations."
+          ],
+          "pieces": ["Numéro d'affiliation CNSS", "CIN du gérant", "RIB"],
+          "delai": "Immédiat à 1 semaine",
+          "cout": "0 DH",
+          "pieges": ["Compter se connecter seul : avec Mon e-ID, la connexion peut exiger le téléphone du gérant à chaque fois. Organiser un créneau fixe avec lui."],
+          "preuve": "Connexion réussie à Damancom",
+          "offers": ["compta-business", "compta-premium"]
+        },
+        {
+          "id": "fixer-regime-tva",
+          "title": "Déterminer le régime de TVA de la société",
+          "who": "moi",
+          "where": "Attestation d'inscription à la TVA, compte SIMPL, puis validation du cabinet",
+          "how": [
+            "Relever le chiffre d'affaires HT de l'année précédente.",
+            "Règle : moins de 1 000 000 DH = déclaration trimestrielle ; 1 000 000 DH et plus = déclaration mensuelle.",
+            "Une société nouvelle déclare en trimestriel pendant sa première année civile.",
+            "Faire confirmer le régime par le cabinet et l'inscrire dans la fiche client."
+          ],
+          "pieces": ["Dernière liasse fiscale", "Attestation d'identification fiscale"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Déclarer en trimestriel une société qui a dépassé 1 000 000 DH : déclarations hors délai pour 2 mois sur 3."],
+          "preuve": "Régime TVA noté et validé dans la fiche client",
+          "offers": []
+        },
+        {
+          "id": "ouvrir-dossier-comptable",
+          "title": "Ouvrir le dossier dans le logiciel comptable",
+          "who": "cabinet",
+          "where": "Logiciel comptable partagé cabinet / Mziane",
+          "how": [
+            "Le cabinet crée le dossier, le plan comptable (CGNC) et saisit les soldes d'ouverture à partir du dernier bilan.",
+            "Il crée les journaux (achats, ventes, banque, caisse, opérations diverses).",
+            "Il ouvre à Mziane un accès de saisie."
+          ],
+          "pieces": ["Dernier bilan et grand livre si exercice clos"],
+          "delai": "2 à 5 jours",
+          "cout": "Selon accord Mziane / cabinet",
+          "pieges": ["Saisir avant que les soldes d'ouverture soient validés."],
+          "preuve": "Dossier créé, accès de saisie Mziane actif",
+          "offers": []
+        },
+        {
+          "id": "calendrier-client",
+          "title": "Créer le calendrier fiscal propre au client",
+          "who": "moi",
+          "where": "Agenda Mziane et fiche client",
+          "how": [
+            "Recopier le calendrier mensuel de cette fiche (section « apres ») en ne gardant que ce qui concerne le client : TVA mensuelle ou trimestrielle, salariés ou non, acomptes ou non, taxe professionnelle exonérée ou non.",
+            "Noter les dates de fin des exonérations : 36 mois pour la cotisation minimale, 5 ans pour la taxe professionnelle.",
+            "Programmer les rappels au client 10 jours avant chaque échéance (promesse de l'offre)."
+          ],
+          "pieces": ["Modèle J (date de début d'activité)"],
+          "delai": "1 heure",
+          "cout": "0 DH",
+          "pieges": ["Oublier la date de fin d'exonération de cotisation minimale : la première année imposable passe inaperçue."],
+          "preuve": "Calendrier du client dans l'agenda",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Cycle mensuel",
+      "steps": [
+        {
+          "id": "collecter-pieces-mois",
+          "title": "Collecter les pièces du mois",
+          "who": "moi",
+          "where": "WhatsApp et espace client",
+          "how": [
+            "Le 1er jour ouvré du mois, demander : relevé bancaire du mois, factures de vente, factures d'achat, tickets de caisse, variables de paie (absences, primes, entrées, sorties).",
+            "Relancer le 5 si rien n'est arrivé."
+          ],
+          "pieces": ["Relevé bancaire", "Factures d'achat et de vente", "Justificatifs de caisse", "Variables de paie"],
+          "delai": "Pièces attendues avant le 5",
+          "cout": "0 DH",
+          "pieges": ["Accepter des factures d'achat sans ICE du fournisseur ou au nom du gérant : la TVA et la charge peuvent être refusées."],
+          "preuve": "Pièces du mois dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "classer-saisir",
+          "title": "Classer et saisir les pièces",
+          "who": "moi",
+          "where": "Logiciel comptable partagé",
+          "how": [
+            "Nommer chaque pièce : date_fournisseur_montant.",
+            "Saisir les ventes, les achats et la banque dans les journaux.",
+            "Lettrer les paiements avec les factures.",
+            "Mettre de côté, dans une liste « à valider cabinet », toute opération inhabituelle (immobilisation, emprunt, apport, opération en devises, cadeau, véhicule)."
+          ],
+          "pieces": [],
+          "delai": "Avant le 15",
+          "cout": "0 DH",
+          "pieges": ["Passer en charge un achat de matériel durable : c'est une immobilisation, à faire traiter par le cabinet.", "Déduire la TVA d'un achat payé en espèces au-delà des seuils légaux."],
+          "preuve": "Journaux du mois saisis, banque rapprochée",
+          "offers": []
+        },
+        {
+          "id": "rapprochement-bancaire",
+          "title": "Faire le rapprochement bancaire",
+          "who": "moi",
+          "where": "Logiciel comptable",
+          "how": [
+            "Comparer le solde du compte banque en comptabilité avec le solde du relevé.",
+            "Demander au client une explication pour chaque mouvement sans pièce.",
+            "Envoyer la liste des opérations à justifier."
+          ],
+          "pieces": ["Relevé bancaire"],
+          "delai": "Avant le 15",
+          "cout": "0 DH",
+          "pieges": ["Laisser des écarts s'accumuler jusqu'à la clôture."],
+          "preuve": "État de rapprochement du mois",
+          "offers": []
+        },
+        {
+          "id": "preparer-paie",
+          "title": "Préparer les bulletins de paie",
+          "who": "moi",
+          "where": "Logiciel de paie",
+          "how": [
+            "Saisir les variables du mois pour chaque salarié.",
+            "Éditer les bulletins, le journal de paie et le montant de l'IR retenu.",
+            "Envoyer au cabinet pour contrôle tout cas non standard : embauche, départ, solde de tout compte, heures supplémentaires, congé maladie, avantage en nature, salarié étranger, rupture de contrat.",
+            "Envoyer les bulletins au client pour paiement des salaires."
+          ],
+          "pieces": ["Variables de paie", "Contrats de travail"],
+          "delai": "Avant le dernier jour du mois",
+          "cout": "Bulletin supplémentaire au-delà du forfait : 80 DH HT",
+          "pieges": ["Payer un salaire sous le SMIG ou le SMAG en vigueur.", "Calculer seul un solde de tout compte ou une indemnité de licenciement : c'est de la paie complexe, c'est le cabinet."],
+          "preuve": "Bulletins et journal de paie du mois",
+          "offers": ["compta-business", "compta-premium"]
+        },
+        {
+          "id": "declarer-cnss",
+          "title": "Déclarer et payer la CNSS du mois",
+          "who": "moi",
+          "where": "Damancom : https://www.damancom.ma (bordereau de déclaration des salaires)",
+          "how": [
+            "Se connecter avec le gérant (Mon e-ID).",
+            "Vérifier le bordereau préétabli : salariés, jours travaillés, salaires.",
+            "Ajouter les entrées et retirer les sorties du mois.",
+            "Valider la déclaration puis le paiement par prélèvement.",
+            "Télécharger l'accusé et l'avis de prélèvement."
+          ],
+          "pieces": ["Journal de paie du mois"],
+          "delai": "Avant le 10 du mois suivant",
+          "cout": "Cotisations du mois (part employeur + part salariale)",
+          "pieges": ["Rater le 10 : majorations de retard.", "Oublier de déclarer un nouveau salarié : il n'est pas couvert."],
+          "preuve": "Accusé de déclaration et de paiement Damancom",
+          "offers": ["compta-business", "compta-premium"]
+        },
+        {
+          "id": "declarer-ir-salaires",
+          "title": "Déclarer et verser l'IR retenu sur les salaires",
+          "who": "moi",
+          "where": "SIMPL-IR sur https://www.tax.gov.ma",
+          "how": [
+            "Se connecter au compte SIMPL de la société.",
+            "Choisir le versement mensuel des retenues à la source sur salaires.",
+            "Saisir le montant d'IR retenu selon le journal de paie du mois.",
+            "Valider le télépaiement par prélèvement et télécharger l'accusé."
+          ],
+          "pieces": ["Journal de paie"],
+          "delai": "Avant la fin du mois qui suit le paiement des salaires",
+          "cout": "IR retenu sur les salaires",
+          "pieges": ["Ne verser que lorsqu'il y a de l'IR : vérifier avec le cabinet la conduite à tenir pour un mois à zéro."],
+          "preuve": "Accusé de versement SIMPL-IR",
+          "offers": ["compta-business", "compta-premium"]
+        },
+        {
+          "id": "preparer-tva-mensuelle",
+          "title": "Préparer la déclaration de TVA mensuelle",
+          "who": "moi",
+          "where": "Logiciel comptable",
+          "how": [
+            "Éditer l'état de TVA collectée sur les ventes encaissées ou facturées selon le régime du client.",
+            "Éditer le relevé des déductions (factures d'achat avec fournisseur, IF, ICE, montant, mode et date de paiement).",
+            "Envoyer le brouillon au cabinet pour validation le premier mois, puis en cas de crédit de TVA, d'achat important ou d'opération à l'export."
+          ],
+          "pieces": ["Journaux ventes et achats du mois"],
+          "delai": "Avant le 20 du mois suivant (objectif interne)",
+          "cout": "0 DH",
+          "pieges": ["Déduire la TVA d'une facture non payée : au Maroc la déduction suit en principe le paiement.", "Relevé des déductions incomplet : déductions rejetées."],
+          "preuve": "Brouillon TVA validé",
+          "offers": []
+        },
+        {
+          "id": "teledeclarer-tva",
+          "title": "Télédéclarer et payer la TVA",
+          "who": "moi",
+          "where": "SIMPL-TVA sur https://www.tax.gov.ma",
+          "how": [
+            "Choisir la période (mois ou trimestre).",
+            "Saisir le chiffre d'affaires, la TVA collectée et la TVA déductible, et joindre le relevé des déductions au format demandé.",
+            "Valider la déclaration puis le télépaiement.",
+            "Télécharger l'accusé de dépôt et l'accusé de paiement.",
+            "Faire une déclaration même à zéro."
+          ],
+          "pieces": ["Brouillon TVA validé", "Relevé des déductions"],
+          "delai": "Avant la fin du mois qui suit le mois (mensuel) ou le trimestre (trimestriel)",
+          "cout": "TVA nette due",
+          "pieges": ["Valider la déclaration sans le paiement : la TVA reste impayée avec pénalités.", "Attendre le dernier jour : SIMPL est souvent saturé."],
+          "preuve": "Accusés de dépôt et de paiement SIMPL",
+          "offers": []
+        },
+        {
+          "id": "tableau-de-bord",
+          "title": "Envoyer le tableau de bord mensuel",
+          "who": "moi",
+          "where": "Espace client, puis WhatsApp",
+          "how": [
+            "Sortir du logiciel : chiffre d'affaires du mois et cumulé, charges principales, résultat approximatif, trésorerie, clients en retard de paiement, TVA et charges à payer le mois suivant.",
+            "Le présenter sur une page simple, avec la comparaison au mois précédent.",
+            "Préciser que ce résultat est provisoire, avant travaux de clôture du cabinet."
+          ],
+          "pieces": [],
+          "delai": "Avant le 20 du mois suivant",
+          "cout": "0 DH",
+          "pieges": ["Présenter le résultat comme définitif."],
+          "preuve": "Tableau de bord du mois dans l'espace client",
+          "offers": ["compta-premium"]
+        },
+        {
+          "id": "previsionnel-tresorerie",
+          "title": "Mettre à jour le prévisionnel de trésorerie",
+          "who": "moi",
+          "where": "Tableur partagé avec le client",
+          "how": [
+            "Partir du solde bancaire réel de fin de mois.",
+            "Ajouter les encaissements attendus et les décaissements connus des 3 à 6 mois suivants : salaires, CNSS, TVA, acomptes IS, loyers, fournisseurs.",
+            "Signaler au client tout mois où la trésorerie passe sous zéro.",
+            "Si un besoin de financement apparaît, proposer uniquement des solutions sans intérêt (délais fournisseurs, apport en compte courant d'associé, aides publiques, prêt d'honneur à 0 %, financement participatif), jamais un prêt à intérêt."
+          ],
+          "pieces": ["Relevé bancaire", "Échéancier clients et fournisseurs"],
+          "delai": "Avant le 20 du mois suivant",
+          "cout": "0 DH",
+          "pieges": ["Oublier les acomptes d'IS et la TVA trimestrielle, qui créent des pics de dépenses."],
+          "preuve": "Prévisionnel mis à jour dans l'espace client",
+          "offers": ["compta-premium"]
+        },
+        {
+          "id": "statut-mois",
+          "title": "Clore le mois dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer tous les accusés du mois (TVA, IR, CNSS).",
+            "Passer le dossier au statut « mois clos » et envoyer un récapitulatif au client : ce qui a été déclaré, payé, et la prochaine échéance."
+          ],
+          "pieces": [],
+          "delai": "Fin du mois",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut « mois clos »",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Cycle trimestriel",
+      "steps": [
+        {
+          "id": "tva-trimestrielle",
+          "title": "Télédéclarer la TVA trimestrielle",
+          "who": "moi",
+          "where": "SIMPL-TVA sur https://www.tax.gov.ma",
+          "how": [
+            "Suivre les mêmes étapes que la TVA mensuelle, sur les 3 mois du trimestre.",
+            "Échéances : T1 avant le 30 avril, T2 avant le 31 juillet, T3 avant le 31 octobre, T4 avant le 31 janvier."
+          ],
+          "pieces": ["Journaux du trimestre", "Relevé des déductions"],
+          "delai": "Avant la fin du mois qui suit le trimestre",
+          "cout": "TVA nette due",
+          "pieges": ["Oublier de basculer en mensuel l'année qui suit un chiffre d'affaires de 1 000 000 DH ou plus."],
+          "preuve": "Accusés de dépôt et de paiement",
+          "offers": []
+        },
+        {
+          "id": "acompte-is",
+          "title": "Verser l'acompte d'IS",
+          "who": "moi",
+          "where": "SIMPL-IS sur https://www.tax.gov.ma (bordereau-avis de versement)",
+          "how": [
+            "Calculer 25 % de l'IS (ou de la cotisation minimale si elle était plus élevée) du dernier exercice clos ; faire confirmer le montant par le cabinet la première fois.",
+            "Remplir le bordereau de versement de l'acompte sur SIMPL et valider le télépaiement.",
+            "Échéances pour un exercice civil : 31 mars, 30 juin, 30 septembre, 31 décembre."
+          ],
+          "pieces": ["Dernière déclaration du résultat fiscal"],
+          "delai": "Avant la fin du 3e, 6e, 9e et 12e mois de l'exercice",
+          "cout": "25 % de l'IS de l'exercice précédent",
+          "pieges": ["Verser un acompte la première année : il n'y en a pas.", "Oublier l'acompte d'une société en perte qui payait la cotisation minimale (hors période d'exonération)."],
+          "preuve": "Accusé de versement de l'acompte",
+          "offers": []
+        },
+        {
+          "id": "point-trimestriel",
+          "title": "Organiser le point trimestriel avec le comptable",
+          "who": "cabinet",
+          "where": "Visio ou cabinet, avec le client et Mziane",
+          "how": [
+            "Mziane prépare un ordre du jour : chiffres du trimestre, liste « à valider cabinet », questions du client.",
+            "Le cabinet valide les écritures inhabituelles et répond aux questions fiscales.",
+            "Mziane rédige un compte rendu de 5 lignes et le dépose dans l'espace client."
+          ],
+          "pieces": ["Liste « à valider cabinet »"],
+          "delai": "Dans le mois qui suit chaque trimestre",
+          "cout": "Selon accord Mziane / cabinet",
+          "pieges": [],
+          "preuve": "Compte rendu du point trimestriel",
+          "offers": ["compta-business", "compta-premium"]
+        }
+      ]
+    },
+    {
+      "title": "4. Clôture annuelle (exercice civil : janvier à juillet)",
+      "steps": [
+        {
+          "id": "collecter-inventaire",
+          "title": "Collecter les éléments de fin d'année",
+          "who": "moi",
+          "where": "Espace client",
+          "how": [
+            "Début janvier, demander : relevés bancaires au 31 décembre, inventaire du stock au 31 décembre, liste des factures non encore payées (clients et fournisseurs), contrats d'emprunt sans intérêt ou de leasing, achats de matériel de l'année, caisse au 31 décembre.",
+            "Compléter la saisie jusqu'au 31 décembre."
+          ],
+          "pieces": ["Inventaire du stock", "Relevés au 31/12", "Liste des créances et dettes"],
+          "delai": "Avant le 31 janvier",
+          "cout": "0 DH",
+          "pieges": ["Inventaire du stock non daté ou non signé par le gérant."],
+          "preuve": "Dossier de clôture complet transmis au cabinet",
+          "offers": []
+        },
+        {
+          "id": "etat-9421",
+          "title": "Déposer la déclaration annuelle des salaires (état 9421)",
+          "who": "moi",
+          "where": "SIMPL-IR sur https://www.tax.gov.ma (déclaration des traitements et salaires, art. 79 CGI)",
+          "how": [
+            "Éditer depuis le logiciel de paie l'état annuel par salarié : identité, CIN, CNSS, salaires bruts, retenues, IR retenu.",
+            "Vérifier que le total de l'IR annuel correspond aux 12 versements mensuels.",
+            "Le faire contrôler par le cabinet, puis le déposer au format électronique sur SIMPL.",
+            "Télécharger l'accusé."
+          ],
+          "pieces": ["Journal de paie annuel", "Accusés des 12 versements IR"],
+          "delai": "Avant le 1er mars",
+          "cout": "0 DH",
+          "pieges": ["Écart entre l'IR déclaré dans l'état et l'IR versé : redressement."],
+          "preuve": "Accusé de dépôt de l'état 9421",
+          "offers": ["compta-business", "compta-premium"]
+        },
+        {
+          "id": "etat-honoraires",
+          "title": "Déposer la déclaration des honoraires versés à des tiers",
+          "who": "moi",
+          "where": "SIMPL sur https://www.tax.gov.ma",
+          "how": [
+            "Lister les honoraires, commissions et rémunérations versés dans l'année à des personnes non salariées (avocat, consultant, AE, etc.).",
+            "Faire valider par le cabinet si la société a des paiements à des non-résidents ou des loyers à des particuliers (retenues à la source spécifiques).",
+            "Déposer et télécharger l'accusé."
+          ],
+          "pieces": ["Factures d'honoraires de l'année"],
+          "delai": "Avant le 1er mars (à confirmer)",
+          "cout": "0 DH",
+          "pieges": ["Oublier les AE payés au-delà de 80 000 DH, sur lesquels la société devait retenir 30 %."],
+          "preuve": "Accusé de dépôt",
+          "offers": []
+        },
+        {
+          "id": "taxe-professionnelle",
+          "title": "Gérer la taxe professionnelle",
+          "who": "moi",
+          "where": "DGI (services en ligne sur https://www.tax.gov.ma, ou direction des impôts du siège)",
+          "how": [
+            "Vérifier si la société est encore dans ses 5 ans d'exonération à partir du début d'activité.",
+            "Avant le 31 janvier, déclarer tout changement des éléments imposables (nouveau local, matériel neuf, changement d'activité).",
+            "Au printemps, récupérer l'avis d'imposition de taxe professionnelle (et de taxe de services communaux) et le transmettre au client avec la date limite.",
+            "Faire payer le client et ranger la quittance."
+          ],
+          "pieces": ["Bail ou titre du local", "Liste des investissements de l'année"],
+          "delai": "Déclaration des changements avant le 31 janvier ; paiement à la date de l'avis",
+          "cout": "Selon la valeur locative et la classe de l'activité",
+          "pieges": ["Croire que l'exonération de 5 ans dispense de toute démarche : les changements doivent quand même être déclarés."],
+          "preuve": "Accusé de déclaration et quittance de paiement",
+          "offers": ["compta-business", "compta-premium"]
+        },
+        {
+          "id": "travaux-cloture",
+          "title": "Faire les travaux d'inventaire et arrêter les comptes",
+          "who": "cabinet",
+          "where": "Cabinet partenaire, logiciel comptable",
+          "how": [
+            "Le cabinet passe les écritures de fin d'année : amortissements, provisions, stocks, charges et produits constatés d'avance, impôt de l'exercice.",
+            "Il établit les états de synthèse (bilan, compte de produits et charges, ESG, tableau de financement si modèle normal, ETIC).",
+            "Il calcule le résultat fiscal, l'IS ou la cotisation minimale, et le reliquat à payer.",
+            "Mziane répond à ses questions et fournit les pièces manquantes sous 48 h."
+          ],
+          "pieces": ["Dossier de clôture"],
+          "delai": "Février à mi-mars",
+          "cout": "Inclus dans l'offre (bilan seul hors abonnement : 4 990 DH HT)",
+          "pieges": ["Laisser le cabinet sans réponse : la liasse sort en retard."],
+          "preuve": "États de synthèse arrêtés par le cabinet",
+          "offers": []
+        },
+        {
+          "id": "valider-gerant",
+          "title": "Faire valider les comptes par le gérant",
+          "who": "client",
+          "where": "Rendez-vous ou visio avec le cabinet et Mziane",
+          "how": [
+            "Présenter au gérant le résultat, l'impôt à payer et les principaux postes.",
+            "Faire signer par le gérant les états de synthèse arrêtés (arrêté des comptes par l'organe de gestion)."
+          ],
+          "pieces": ["États de synthèse"],
+          "delai": "Avant le 25 mars",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "États de synthèse signés par le gérant",
+          "offers": []
+        },
+        {
+          "id": "liasse-fiscale",
+          "title": "Déposer la liasse fiscale et payer le solde d'IS",
+          "who": "cabinet",
+          "where": "SIMPL-IS sur https://www.tax.gov.ma (déclaration du résultat fiscal + états de synthèse au format électronique)",
+          "how": [
+            "Le cabinet génère la liasse au format exigé par la DGI et la dépose, sous sa responsabilité.",
+            "Mziane vérifie avec le gérant que le compte de prélèvement est approvisionné.",
+            "Le reliquat d'IS (IS ou cotisation minimale moins acomptes versés) est payé en même temps ; si les acomptes dépassent l'impôt, l'excédent s'impute sur les acomptes suivants.",
+            "Mziane récupère et range l'accusé de dépôt et l'accusé de paiement."
+          ],
+          "pieces": ["États de synthèse signés"],
+          "delai": "Dans les 3 mois de la clôture : avant le 31 mars pour un exercice civil",
+          "cout": "Reliquat d'IS",
+          "pieges": ["Déposer sans payer le reliquat : majorations.", "Oublier la cotisation minimale de 3 000 DH d'une société en perte sortie de la période d'exonération de 36 mois."],
+          "preuve": "Accusés de dépôt et de paiement de la liasse",
+          "offers": []
+        },
+        {
+          "id": "assemblee-approbation",
+          "title": "Faire approuver les comptes par l'assemblée des associés",
+          "who": "moi",
+          "where": "Siège de la société (ou décision de l'associé unique)",
+          "how": [
+            "Rédiger le rapport de gestion simplifié, le procès-verbal d'assemblée (ou la décision de l'associé unique) : approbation des comptes, affectation du résultat, quitus au gérant.",
+            "Faire valider l'affectation du résultat par le cabinet (dividendes et retenue à la source sur dividendes).",
+            "Faire signer les associés et reporter le PV dans le registre des délibérations."
+          ],
+          "pieces": ["États de synthèse", "Rapport de gestion"],
+          "delai": "Dans les 6 mois de la clôture : avant le 30 juin",
+          "cout": "0 DH (légalisation des signatures si nécessaire)",
+          "pieges": ["Distribuer des dividendes sans déclarer et verser la retenue à la source correspondante."],
+          "preuve": "PV d'approbation signé",
+          "offers": []
+        },
+        {
+          "id": "depot-greffe",
+          "title": "Déposer les comptes au greffe",
+          "who": "moi",
+          "where": "Greffe du tribunal de commerce du siège, ou dépôt en ligne via la plateforme du registre de commerce électronique (OMPIC / ministère de la Justice, signature électronique requise)",
+          "how": [
+            "Préparer : états de synthèse signés, PV d'approbation, décision d'affectation du résultat.",
+            "En ligne : se connecter à la plateforme, joindre les documents signés électroniquement, payer les frais, attendre la validation du greffier.",
+            "Au guichet : déposer deux exemplaires et payer les frais.",
+            "Récupérer le récépissé de dépôt."
+          ],
+          "pieces": ["États de synthèse", "PV d'approbation"],
+          "delai": "Dans le délai légal qui suit l'approbation (30 jours selon le texte d'origine, 2 mois selon une réforme récente, à confirmer)",
+          "cout": "Frais de greffe à confirmer",
+          "pieges": ["Ne jamais déposer : amende pour les dirigeants et attestations du registre de commerce bloquées pour certaines démarches (banques, marchés publics)."],
+          "preuve": "Récépissé de dépôt des états de synthèse",
+          "offers": []
+        },
+        {
+          "id": "livrer-cloture",
+          "title": "Livrer le dossier de clôture au client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer : états de synthèse, liasse et accusés, PV, récépissé du greffe, état 9421 et accusés.",
+            "Envoyer le récapitulatif : impôt payé, acomptes de l'année à venir, date de fin des exonérations.",
+            "Passer le dossier au statut « exercice clos »."
+          ],
+          "pieces": [],
+          "delai": "Juillet",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut « exercice clos »",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Toujours : signer la lettre de mission et porter juridiquement la tenue de comptabilité, car Mziane n'est ni expert-comptable ni comptable agréé.",
+    "Mise en place : créer le dossier comptable, saisir les soldes d'ouverture, valider le régime de TVA.",
+    "Chaque mois : valider la liste « à valider cabinet » (immobilisations, opérations en devises, apports, crédits de TVA, export).",
+    "Paie complexe : embauche avec contrat spécial, départ, solde de tout compte, licenciement, maladie, avantages en nature, salarié étranger, et toute paie au-delà de 5 salariés (Business) ou 10 (Premium).",
+    "Clôture : travaux d'inventaire, états de synthèse, calcul de l'IS et de la cotisation minimale, dépôt de la liasse fiscale sous sa responsabilité.",
+    "Conseil fiscal : dividendes, retenues à la source particulières (non-résidents, loyers, AE au-delà de 80 000 DH), changement de régime, contrôle fiscal ou CNSS, réponse à une notification.",
+    "Point trimestriel avec le client pour les offres Business et Premium."
+  ],
+  "client": [
+    "Signer la lettre de mission.",
+    "Envoyer chaque mois avant le 5 : relevé bancaire, factures, variables de paie.",
+    "Garder son téléphone disponible pour Mon e-ID (Damancom) et les codes SIMPL.",
+    "Laisser assez d'argent sur le compte de prélèvement aux dates d'échéance.",
+    "Payer les salaires, la taxe professionnelle et les avis d'imposition reçus.",
+    "Faire l'inventaire du stock au 31 décembre et le signer.",
+    "Signer les états de synthèse et le PV d'approbation.",
+    "Prévenir Mziane avant toute embauche, tout départ, tout gros achat, et transmettre tout courrier des impôts ou de la CNSS dès réception."
+  ],
+  "apres": [
+    "Calendrier fiscal mensuel (exercice civil, société avec salariés ; retirer ce qui ne concerne pas le client) :",
+    "Chaque mois, avant le 10 : CNSS du mois précédent (Damancom).",
+    "Chaque mois, avant la fin du mois : IR sur salaires du mois précédent (SIMPL-IR) et TVA du mois précédent si régime mensuel (SIMPL-TVA).",
+    "Janvier : avant le 31, TVA du 4e trimestre (régime trimestriel), déclaration des changements de taxe professionnelle, vignette des véhicules de la société.",
+    "Février : avant le 1er mars, état 9421 des salaires et déclaration des honoraires versés.",
+    "Mars : avant le 31, liasse fiscale et reliquat d'IS de l'année précédente, 1er acompte d'IS de l'année.",
+    "Avril : avant le 30, TVA du 1er trimestre.",
+    "Mai : avis de taxe professionnelle à surveiller et à payer à la date indiquée.",
+    "Juin : avant le 30, 2e acompte d'IS et approbation des comptes par les associés.",
+    "Juillet : avant le 31, TVA du 2e trimestre ; dépôt des comptes au greffe dans le délai qui suit l'approbation.",
+    "Août : pas d'échéance annuelle, seulement les échéances mensuelles.",
+    "Septembre : avant le 30, 3e acompte d'IS.",
+    "Octobre : avant le 31, TVA du 3e trimestre.",
+    "Novembre : pas d'échéance annuelle ; préparer la clôture (inventaire, factures à recevoir).",
+    "Décembre : avant le 31, 4e acompte d'IS ; rappeler au client l'inventaire du 31 décembre.",
+    "Repérer les dates de fin d'exonération : cotisation minimale (36 mois) et taxe professionnelle (5 ans).",
+    "Surveiller le chiffre d'affaires : au-delà de 500 000 DH, l'offre Essentiel n'est plus adaptée ; au-delà de 1 000 000 DH, la TVA passe en mensuel l'année suivante.",
+    "Suivre l'arrivée de la facturation électronique obligatoire et son calendrier pour les petites entreprises."
+  ],
+  "sources": [
+    { "title": "DGI, services en ligne SIMPL", "url": "https://www.tax.gov.ma" },
+    { "title": "CNSS, portail Damancom", "url": "https://www.damancom.ma" },
+    { "title": "Calendrier fiscal Maroc 2026 (Upsilon Consulting)", "url": "https://www.upsilon-consulting.com/calendrier-fiscal-maroc-2026/" },
+    { "title": "Périodicité des déclarations de TVA (Fiscamaroc)", "url": "https://www.fiscamaroc.com/la-taxe-valeur-ajoutee-126/periodicite-declaration-157.htm" },
+    { "title": "Cotisation minimale IS 2026 (Upsilon Consulting)", "url": "https://upsilon-consulting.com/cotisation-minimale-is-2026/" },
+    { "title": "Déclaration 9421 des traitements et salaires (Upsilon Consulting)", "url": "https://upsilon-consulting.com/declaration-9421/" },
+    { "title": "Guide Damancom 2026 (Upsilon Consulting)", "url": "https://upsilon-consulting.com/guide-damancom-cnss-maroc/" },
+    { "title": "Note technique taxe professionnelle 2026 (Upsilon Consulting)", "url": "https://upsilon-consulting.com/note-technique-taxe-professionnelle-2026/" },
+    { "title": "Loi 127-12 sur la profession de comptable agréé (Adala)", "url": "https://adala.justice.gov.ma/api/uploads/2026/07/31/Dahir n° 1-15-111  portant promulgation de la loi n° 127-12 réglementant la profession de comptable agréé et instituant une Organisation profess-1785507928516.pdf" },
+    { "title": "Dépôt en ligne des états de synthèse (EcoActu)", "url": "https://ecoactu.ma/depots-en-ligne-la-procedure-a-suivre/" },
+    { "title": "Facturation électronique au Maroc 2026 (Upsilon Consulting)", "url": "https://upsilon-consulting.com/facturation-electronique-maroc-2026/" }
+  ],
+  "a_verifier": [
+    "Montage juridique Mziane / cabinet : faire confirmer par le cabinet et l'Ordre ou l'OPCA que la collecte, la saisie et la télédéclaration par Mziane sous lettre de mission du cabinet ne constituent pas un exercice illégal de la comptabilité.",
+    "Possibilité de créer un utilisateur SIMPL dédié à Mziane dans le compte de la société (profils d'habilitation) ou obligation de passer par le compte « intermédiaire » du cabinet.",
+    "Délai de dépôt des états de synthèse au greffe après approbation : 30 jours (texte d'origine) ou 2 mois (réforme citée par la presse en 2021), et frais exacts.",
+    "Plateforme exacte et URL du dépôt en ligne des comptes (registre de commerce électronique géré par l'OMPIC).",
+    "Date limite de la déclaration des honoraires versés à des tiers (fin février selon une source, 31 janvier selon une autre).",
+    "Taux exacts CNSS 2026 (part employeur et salariale) et barème des majorations de retard.",
+    "Date et plateforme de paiement de la taxe professionnelle et de la taxe de services communaux en 2026 (fin juin ou 30 novembre selon les sources).",
+    "Échéance TVA : fin du mois suivant selon la majorité des sources, le 20 selon une source ; garder l'objectif interne du 20.",
+    "Calendrier et seuils de la facturation électronique obligatoire pour les TPE (annoncée pour 2027 selon des sources privées, décret attendu).",
+    "Exonération de cotisation minimale de 36 mois : confirmer son point de départ (début d'exploitation) dans le CGI 2026.",
+    "Taux de la retenue à la source sur dividendes en 2026 (baisse progressive vers 10 % prévue par la loi de finances 2023)."
+  ]
+}

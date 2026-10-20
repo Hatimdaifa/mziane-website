@@ -1,0 +1,756 @@
+{
+  "id": "formalite-fermer",
+  "title": "Dissoudre et liquider à l'amiable une SARL ou une SARLAU",
+  "offers": [
+    "fermer"
+  ],
+  "summary": "Les associés décident la dissolution anticipée et nomment un liquidateur ; celui-ci vend l'actif, paie les dettes, fait approuver les comptes de liquidation, puis la société est radiée du registre de commerce, de la DGI et de la CNSS. À la fin, le client a la radiation du RC et les preuves de clôture fiscale et sociale.",
+  "duree": "3 à 12 mois selon les dettes, créances et biens à vendre ; au plus 3 ans sinon radiation d'office (code de commerce art. 55)",
+  "frais_officiels": [
+    {
+      "label": "Enregistrement du PV de dissolution",
+      "montant": "200 DH",
+      "note": "Droit fixe si la dissolution ne transmet aucun bien entre associés (CGI art. 135-II-10°)."
+    },
+    {
+      "label": "Enregistrement du PV de clôture de liquidation",
+      "montant": "200 DH ou 1,5 % du boni partagé",
+      "note": "Droit de partage de 1,5 % si des biens ou un boni sont partagés entre associés (CGI art. 133-I-C-6°) ; à confirmer par l'inspecteur."
+    },
+    {
+      "label": "Légalisations",
+      "montant": "100 à 250 DH par acte",
+      "note": "Estimation Mziane."
+    },
+    {
+      "label": "Greffe : inscription de la dissolution puis radiation",
+      "montant": "À confirmer",
+      "note": "Deux passages au greffe."
+    },
+    {
+      "label": "Annonces légales (dissolution puis clôture)",
+      "montant": "2 x (JAL 500 à 1 000 DH + BO 400 à 600 DH)",
+      "note": "Deux séries d'annonces (loi 5-96 art. 97). Estimations Mziane."
+    },
+    {
+      "label": "Impôts et cotisations restant dus",
+      "montant": "Variable",
+      "note": "IS de la dernière période, TVA, CNSS, taxe professionnelle, et éventuelle retenue sur le boni de liquidation."
+    }
+  ],
+  "avant_de_commencer": [
+    "Vérifier que la société peut payer toutes ses dettes : sinon, ce n'est pas une liquidation amiable mais une procédure collective devant le tribunal (avocat).",
+    "Choisir le liquidateur (souvent le gérant) et l'adresse du siège de la liquidation (garder un siège valable jusqu'à la fin).",
+    "Faire l'état des déclarations fiscales et CNSS en retard : les régulariser avant ou pendant la liquidation.",
+    "Avoir le dernier bilan, les relevés bancaires des 12 derniers mois et la liste des dettes et créances.",
+    "Prévenir le client que l'offre inclut le bilan de liquidation seulement s'il est client comptabilité Mziane ; sinon, devis séparé du cabinet."
+  ],
+  "phases": [
+    {
+      "title": "1. Préparer le dossier",
+      "steps": [
+        {
+          "id": "fermer-verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir le dossier du client et contrôler chaque pièce demandée.",
+            "Vérifier que le modèle J date de moins de 3 mois et que les statuts envoyés sont bien la dernière version (avec toutes les modifications déjà faites).",
+            "Lire les statuts : forme (SARL ou SARLAU), nombre d'associés, répartition des parts, nom du gérant, clauses d'agrément ou de majorité particulières.",
+            "Comparer les noms et numéros de CIN avec le modèle J : toute différence doit être expliquée avant de rédiger."
+          ],
+          "pieces": [
+            "Modèle J",
+            "Statuts à jour",
+            "CIN du liquidateur",
+            "CIN des associés",
+            "Identifiant fiscal, ICE, taxe professionnelle et numéro CNSS",
+            "Dernier bilan et liasse",
+            "Relevés bancaires des 12 derniers mois",
+            "Liste des dettes et créances"
+          ],
+          "delai": "1 jour ouvré",
+          "cout": "0 DH",
+          "pieges": [
+            "Travailler sur des statuts périmés : le greffe refuse un acte qui ne part pas de la dernière version déposée.",
+            "Liquider à l'amiable une société qui ne peut pas payer ses dettes : risque de responsabilité personnelle du liquidateur."
+          ],
+          "preuve": "Checklist des pièces cochée dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "fermer-devis-frais",
+          "title": "Envoyer le devis des frais d'État au client",
+          "who": "moi",
+          "where": "Espace client Mziane ou WhatsApp",
+          "how": [
+            "Lister les frais officiels de cette formalité (enregistrement, greffe, annonces légales, légalisations).",
+            "Préciser que ces frais sont reversés sans marge et payés en plus des honoraires.",
+            "Attendre l'accord écrit et le paiement avant d'engager les frais."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Oublier le Bulletin officiel ou le journal d'annonces légales dans le devis : ce sont les postes qui surprennent le plus le client."
+          ],
+          "preuve": "Devis accepté et frais encaissés",
+          "offers": []
+        },
+        {
+          "id": "fermer-diagnostic",
+          "title": "Faire le diagnostic de la liquidation avec le cabinet",
+          "who": "cabinet",
+          "where": "Cabinet d'expertise comptable partenaire",
+          "how": [
+            "Établir une situation comptable à la date prévue de dissolution.",
+            "Lister l'actif à vendre ou à récupérer et le passif à payer, y compris impôts et CNSS.",
+            "Estimer le boni (ou mali) de liquidation et la fiscalité correspondante.",
+            "Valider avec le client que la liquidation amiable est possible."
+          ],
+          "pieces": [
+            "Dernier bilan",
+            "Relevés bancaires",
+            "Liste des dettes et créances"
+          ],
+          "delai": "1 à 2 semaines",
+          "cout": "Inclus pour les clients compta Mziane, sinon honoraires du cabinet",
+          "pieges": [
+            "Découvrir un redressement fiscal ou une dette CNSS après la radiation : le liquidateur peut être recherché."
+          ],
+          "preuve": "Note de diagnostic avec actif, passif et boni estimé",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Décider la dissolution et nommer le liquidateur",
+      "steps": [
+        {
+          "id": "fermer-pv-dissolution",
+          "title": "Rédiger le PV d'AGE ou la décision de l'associé unique de dissolution anticipée",
+          "who": "moi",
+          "where": "Bureau Mziane (modèle interne)",
+          "how": [
+            "Décider la dissolution anticipée à compter d'une date précise (majorité des trois quarts du capital en SARL, loi 5-96 art. 75).",
+            "Nommer le liquidateur (nom, CIN, adresse), fixer ses pouvoirs et sa rémunération éventuelle.",
+            "Fixer le siège de la liquidation (adresse où envoyer la correspondance).",
+            "Mettre fin aux fonctions du gérant et prévoir l'ajout « société en liquidation » sur tous les documents."
+          ],
+          "pieces": [
+            "Statuts",
+            "CIN du liquidateur"
+          ],
+          "delai": "1 jour ouvré",
+          "cout": "Inclus dans les honoraires",
+          "pieges": [
+            "Oublier le siège de liquidation : le greffe et la DGI en ont besoin."
+          ],
+          "preuve": "Projet de PV ou de décision validé",
+          "offers": []
+        },
+        {
+          "id": "fermer-signer",
+          "title": "Faire signer le PV ou la décision de dissolution (et l'acceptation du liquidateur) et légaliser les signatures",
+          "who": "client",
+          "where": "Bureau de légalisation de la commune (moqataa / arrondissement) ou consulat pour un associé à l'étranger",
+          "how": [
+            "Envoyer au client le document final en PDF et en papier (3 à 5 originaux selon le nombre de dépôts).",
+            "Le faire signer par chaque signataire, à la main, sur chaque page.",
+            "Faire légaliser les signatures à la commune (le signataire vient en personne avec sa CIN).",
+            "Récupérer tous les originaux signés et légalisés."
+          ],
+          "pieces": [
+            "CIN originale de chaque signataire",
+            "Originaux imprimés du document"
+          ],
+          "delai": "1 à 3 jours selon la disponibilité des signataires",
+          "cout": "Environ 20 à 30 DH par signature légalisée (timbre)",
+          "pieges": [
+            "Un associé à l'étranger doit signer au consulat ou donner une procuration légalisée : prévoir 1 à 3 semaines de plus.",
+            "Une page non paraphée peut être refusée au greffe."
+          ],
+          "preuve": "Originaux signés et légalisés",
+          "offers": []
+        },
+        {
+          "id": "fermer-registre",
+          "title": "Recopier la décision dans le registre des décisions",
+          "who": "moi",
+          "where": "Registre coté et paraphé de la société (au siège)",
+          "how": [
+            "Recopier ou coller le PV ou la décision de l'associé unique dans le registre des procès-verbaux.",
+            "Faire signer la page par le gérant (et l'associé unique pour une SARLAU)."
+          ],
+          "pieces": [
+            "Registre des procès-verbaux de la société"
+          ],
+          "delai": "Le jour de la signature",
+          "cout": "0 DH",
+          "pieges": [
+            "Une décision d'associé unique non portée au registre peut être annulée à la demande de tout intéressé (loi 5-96 art. 76)."
+          ],
+          "preuve": "Page du registre signée",
+          "offers": []
+        },
+        {
+          "id": "fermer-enregistrer",
+          "title": "Enregistrer l'acte à la DGI et payer les droits",
+          "who": "moi",
+          "where": "DGI, portail https://www.tax.gov.ma, service SIMPL-Enregistrement (ou bureau de l'enregistrement de la DGI du lieu du siège)",
+          "how": [
+            "Se connecter à SIMPL-Enregistrement avec le compte adhérent (ou se présenter au bureau de l'enregistrement du siège).",
+            "Choisir le type d'acte (acte de société ou acte modificatif), saisir les parties, la date et la nature de l'opération.",
+            "Téléverser l'acte signé en PDF et payer les droits en ligne (ou au guichet).",
+            "Télécharger la quittance et l'acte portant la mention d'enregistrement."
+          ],
+          "pieces": [
+            "Acte signé et légalisé",
+            "Identifiant fiscal et ICE de la société",
+            "CIN des parties"
+          ],
+          "delai": "30 jours maximum à compter de la date de l'acte (CGI art. 128)",
+          "cout": "200 DH (droit fixe, CGI art. 135-II-10°)",
+          "pieges": [
+            "Dépasser 30 jours : majoration de 5 % des droits si le retard est de 30 jours au plus, 15 % au-delà (CGI art. 184), plus les majorations de paiement tardif.",
+            "Croire qu'un acte exonéré n'a pas besoin d'être présenté : les actes de société sont enregistrés « gratis » mais doivent passer à l'enregistrement (CGI art. 136-III)."
+          ],
+          "preuve": "Quittance d'enregistrement et acte revêtu de la mention d'enregistrement",
+          "offers": []
+        },
+        {
+          "id": "fermer-greffe",
+          "title": "Déposer l'acte et demander l'inscription modificative au registre de commerce",
+          "who": "moi",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Se connecter à Direct Entreprise avec le compte professionnel (ou se présenter au greffe du tribunal de commerce du siège).",
+            "Créer une demande de modification et choisir la nature : dissolution anticipée et nomination du liquidateur.",
+            "Remplir la déclaration modificative (formulaire du registre de commerce) avec les nouvelles données.",
+            "Joindre les pièces scannées et payer les frais de greffe.",
+            "Noter le numéro de dépôt donné par le greffe."
+          ],
+          "pieces": [
+            "Acte enregistré (PV ou décision) en 2 exemplaires",
+            "Statuts mis à jour certifiés conformes par le gérant",
+            "Modèle J récent",
+            "CIN du gérant",
+            "CIN du liquidateur",
+            "Acceptation du liquidateur"
+          ],
+          "delai": "Dépôt dans les 30 jours de l'acte (loi 5-96 art. 95 et 97) ; traitement par le greffe 2 à 7 jours ouvrés",
+          "cout": "Frais de greffe : montant à confirmer au dépôt",
+          "pieges": [
+            "Oublier les statuts mis à jour : le greffe les exige pour toute modification statutaire.",
+            "Retard d'inscription : amende de 1 000 à 5 000 DH après mise en demeure (code de commerce art. 62), et la modification n'est pas opposable aux tiers (art. 61)."
+          ],
+          "preuve": "Récépissé de dépôt au greffe avec numéro de dépôt",
+          "offers": []
+        },
+        {
+          "id": "fermer-annonces",
+          "title": "Publier l'annonce légale au journal d'annonces légales et au Bulletin officiel",
+          "who": "moi",
+          "where": "Un journal habilité à recevoir les annonces légales (liste fixée chaque année par arrêté) et le Bulletin officiel, édition des annonces légales (Imprimerie officielle, Rabat)",
+          "how": [
+            "Rédiger un avis court : dénomination, forme, capital, siège, numéro RC, dissolution anticipée, nom et adresse du liquidateur, siège de la liquidation, tribunal et numéro de dépôt au greffe.",
+            "Envoyer l'avis au journal d'annonces légales et payer l'insertion.",
+            "Envoyer le même avis à l'Imprimerie officielle pour le Bulletin officiel et payer.",
+            "Conserver un exemplaire du journal et de la page du Bulletin officiel."
+          ],
+          "pieces": [
+            "Récépissé de dépôt au greffe",
+            "Texte de l'avis"
+          ],
+          "delai": "Dans les 30 jours ; parution JAL 2 à 5 jours, Bulletin officiel 1 à 3 semaines",
+          "cout": "JAL 500 à 1 000 DH ; Bulletin officiel 400 à 600 DH (estimations Mziane)",
+          "pieges": [
+            "Écrire un avis différent entre le JAL et le Bulletin officiel : en cas d'écart, c'est le texte du BO qui ne peut pas être opposé aux tiers (loi 5-96 art. 94).",
+            "Faire publier avant le dépôt au greffe : l'avis doit citer le numéro de dépôt."
+          ],
+          "preuve": "Exemplaire du journal et attestation ou page du Bulletin officiel",
+          "offers": []
+        },
+        {
+          "id": "fermer-modele-j",
+          "title": "Récupérer le nouveau modèle J",
+          "who": "administration",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Suivre le statut de la demande sur Direct Entreprise ou au greffe.",
+            "Une fois l'inscription faite, télécharger ou retirer le modèle J à jour.",
+            "Vérifier sur le modèle J que la mention « en liquidation » et le liquidateur apparaît correctement."
+          ],
+          "pieces": [],
+          "delai": "2 à 7 jours ouvrés après le dépôt",
+          "cout": "Coût de l'extrait : à confirmer au greffe",
+          "pieges": [
+            "Ne pas relire le modèle J : une faute de frappe sur un nom ou une adresse bloque ensuite la banque et la DGI."
+          ],
+          "preuve": "Modèle J à jour",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Déclarer la cessation aux organismes",
+      "steps": [
+        {
+          "id": "fermer-declaration-cessation",
+          "title": "Déposer la déclaration fiscale de cessation dans les 45 jours",
+          "who": "cabinet",
+          "where": "DGI, SIMPL (https://www.tax.gov.ma)",
+          "how": [
+            "Établir les comptes de la dernière période d'activité (du début de l'exercice à la date de cessation).",
+            "Déposer la déclaration du résultat fiscal de cette période, et celle de l'exercice précédent si elle n'est pas encore déposée, dans les 45 jours de la cessation (CGI art. 150-I).",
+            "Y indiquer le nom, l'adresse et les pouvoirs du liquidateur (CGI art. 150-II).",
+            "Payer l'IS ou la cotisation minimale dus."
+          ],
+          "pieces": [
+            "Situation comptable à la date de cessation",
+            "PV de dissolution enregistré"
+          ],
+          "delai": "45 jours après la date de cessation",
+          "cout": "IS ou cotisation minimale dus",
+          "pieges": [
+            "Dépasser 45 jours : pénalités et risque de taxation d'office."
+          ],
+          "preuve": "Accusé de dépôt SIMPL de la déclaration de cessation",
+          "offers": []
+        },
+        {
+          "id": "fermer-tva",
+          "title": "Régulariser la TVA de la cessation",
+          "who": "cabinet",
+          "where": "DGI, SIMPL",
+          "how": [
+            "Déposer la dernière déclaration de TVA.",
+            "Calculer les régularisations éventuelles (stocks, biens d'investissement vendus ou conservés)."
+          ],
+          "pieces": [
+            "Factures de la période",
+            "Inventaire des biens"
+          ],
+          "delai": "Avec la déclaration de la période",
+          "cout": "TVA due",
+          "pieges": [
+            "Oublier la TVA sur les ventes d'actifs pendant la liquidation."
+          ],
+          "preuve": "Accusé de dépôt TVA",
+          "offers": []
+        },
+        {
+          "id": "fermer-cnss-salaries",
+          "title": "Faire sortir les salariés et payer les dernières cotisations",
+          "who": "cabinet",
+          "where": "CNSS, Damancom (https://www.damancom.ma)",
+          "how": [
+            "Déclarer la sortie de chaque salarié après la fin des contrats.",
+            "Payer les derniers bordereaux et les indemnités dues aux salariés."
+          ],
+          "pieces": [
+            "Liste des salariés",
+            "Soldes de tout compte"
+          ],
+          "delai": "Le mois de la sortie",
+          "cout": "Cotisations dues",
+          "pieges": [
+            "Fermer la société avec des salariés encore déclarés."
+          ],
+          "preuve": "Dernier bordereau Damancom payé",
+          "offers": []
+        },
+        {
+          "id": "fermer-banque-mention",
+          "title": "Prévenir la banque de la liquidation",
+          "who": "client",
+          "where": "Agence bancaire de la société",
+          "how": [
+            "Remettre le modèle J « en liquidation » et le PV.",
+            "Faire donner la signature au liquidateur et garder le compte ouvert pour encaisser et payer jusqu'à la clôture."
+          ],
+          "pieces": [
+            "Modèle J en liquidation",
+            "PV enregistré",
+            "CIN du liquidateur"
+          ],
+          "delai": "1 à 2 semaines",
+          "cout": "0 DH",
+          "pieges": [
+            "Fermer le compte trop tôt : impossible de payer les derniers impôts ou de recevoir une créance."
+          ],
+          "preuve": "Confirmation de la banque",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Mener les opérations de liquidation",
+      "steps": [
+        {
+          "id": "fermer-realiser-actif",
+          "title": "Vendre l'actif et encaisser les créances",
+          "who": "client",
+          "where": "Liquidateur avec l'appui de Mziane",
+          "how": [
+            "Vendre stocks, matériel et autres biens ; facturer avec la mention « société en liquidation ».",
+            "Relancer les clients qui doivent de l'argent.",
+            "Conserver chaque justificatif pour le cabinet."
+          ],
+          "pieces": [
+            "Inventaire de l'actif"
+          ],
+          "delai": "Variable",
+          "cout": "Selon les biens",
+          "pieges": [
+            "Attribuer un bien à un associé sans le chiffrer : droits d'enregistrement et fiscalité à prévoir."
+          ],
+          "preuve": "Justificatifs de ventes et d'encaissements",
+          "offers": []
+        },
+        {
+          "id": "fermer-payer-passif",
+          "title": "Payer toutes les dettes",
+          "who": "client",
+          "where": "Liquidateur",
+          "how": [
+            "Payer fournisseurs, bailleur, salariés, CNSS, DGI, banque.",
+            "Résilier les contrats (bail, domiciliation, téléphone, assurances) à la date utile."
+          ],
+          "pieces": [
+            "Liste des dettes"
+          ],
+          "delai": "Variable",
+          "cout": "Selon les dettes",
+          "pieges": [
+            "Partager l'argent entre associés avant d'avoir payé tous les créanciers."
+          ],
+          "preuve": "Justificatifs de paiement de chaque dette",
+          "offers": []
+        },
+        {
+          "id": "fermer-resultats-provisoires",
+          "title": "Déposer les déclarations de résultat pendant la liquidation",
+          "who": "cabinet",
+          "where": "DGI, SIMPL",
+          "how": [
+            "Si la liquidation dure plus de 12 mois, déposer une déclaration de résultat provisoire pour chaque période de 12 mois, dans les délais normaux (CGI art. 150-II).",
+            "Continuer les déclarations TVA tant que des opérations ont lieu."
+          ],
+          "pieces": [],
+          "delai": "Chaque période de 12 mois",
+          "cout": "Impôts dus éventuels",
+          "pieges": [],
+          "preuve": "Accusés de dépôt",
+          "offers": []
+        },
+        {
+          "id": "fermer-prorogation",
+          "title": "Surveiller le délai de 3 ans de la liquidation",
+          "who": "moi",
+          "where": "Outil de suivi Mziane ; président du tribunal de commerce si prorogation",
+          "how": [
+            "Noter la date d'inscription de la dissolution au RC.",
+            "Si la liquidation risque de dépasser 3 ans, demander une prorogation d'un an au président du tribunal (code de commerce art. 55), sinon radiation d'office."
+          ],
+          "pieces": [],
+          "delai": "3 ans à partir de la mention de dissolution",
+          "cout": "Frais de requête éventuels",
+          "pieges": [],
+          "preuve": "Alerte programmée ou ordonnance de prorogation",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Clôturer la liquidation",
+      "steps": [
+        {
+          "id": "fermer-comptes-liquidation",
+          "title": "Établir les comptes définitifs et le bilan de liquidation",
+          "who": "cabinet",
+          "where": "Cabinet d'expertise comptable partenaire",
+          "how": [
+            "Arrêter les comptes de liquidation une fois tout l'actif vendu et tout le passif payé.",
+            "Calculer le boni ou le mali de liquidation et sa répartition entre associés.",
+            "Préparer le rapport du liquidateur sur les opérations de liquidation."
+          ],
+          "pieces": [
+            "Tous les justificatifs de la liquidation",
+            "Relevés bancaires"
+          ],
+          "delai": "1 à 3 semaines",
+          "cout": "Inclus pour les clients compta Mziane, sinon honoraires",
+          "pieges": [
+            "Clôturer avec un solde bancaire non expliqué."
+          ],
+          "preuve": "Bilan de liquidation et rapport du liquidateur",
+          "offers": []
+        },
+        {
+          "id": "fermer-pv-cloture",
+          "title": "Rédiger le PV de clôture de liquidation",
+          "who": "moi",
+          "where": "Bureau Mziane (modèle interne)",
+          "how": [
+            "Approuver les comptes définitifs de liquidation.",
+            "Donner quitus au liquidateur et le décharger de son mandat.",
+            "Constater la clôture de la liquidation et la répartition du boni.",
+            "Indiquer le lieu de conservation des documents comptables (CGI art. 150-II).",
+            "Faire signer, légaliser et recopier au registre."
+          ],
+          "pieces": [
+            "Bilan de liquidation",
+            "Rapport du liquidateur"
+          ],
+          "delai": "1 à 3 jours",
+          "cout": "Légalisations",
+          "pieges": [],
+          "preuve": "PV de clôture signé",
+          "offers": []
+        },
+        {
+          "id": "fermer-cloture-enregistrer",
+          "title": "Enregistrer l'acte à la DGI et payer les droits",
+          "who": "moi",
+          "where": "DGI, portail https://www.tax.gov.ma, service SIMPL-Enregistrement (ou bureau de l'enregistrement de la DGI du lieu du siège)",
+          "how": [
+            "Se connecter à SIMPL-Enregistrement avec le compte adhérent (ou se présenter au bureau de l'enregistrement du siège).",
+            "Choisir le type d'acte (acte de société ou acte modificatif), saisir les parties, la date et la nature de l'opération.",
+            "Téléverser l'acte signé en PDF et payer les droits en ligne (ou au guichet).",
+            "Télécharger la quittance et l'acte portant la mention d'enregistrement."
+          ],
+          "pieces": [
+            "Acte signé et légalisé",
+            "Identifiant fiscal et ICE de la société",
+            "CIN des parties"
+          ],
+          "delai": "30 jours maximum à compter de la date de l'acte (CGI art. 128)",
+          "cout": "200 DH, ou 1,5 % du boni partagé si droit de partage (CGI art. 133-I-C-6°, à confirmer)",
+          "pieges": [
+            "Dépasser 30 jours : majoration de 5 % des droits si le retard est de 30 jours au plus, 15 % au-delà (CGI art. 184), plus les majorations de paiement tardif.",
+            "Croire qu'un acte exonéré n'a pas besoin d'être présenté : les actes de société sont enregistrés « gratis » mais doivent passer à l'enregistrement (CGI art. 136-III)."
+          ],
+          "preuve": "Quittance d'enregistrement et acte revêtu de la mention d'enregistrement",
+          "offers": []
+        },
+        {
+          "id": "fermer-cloture-greffe",
+          "title": "Déposer la clôture au greffe et publier les annonces",
+          "who": "moi",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège ; Un journal habilité à recevoir les annonces légales (liste fixée chaque année par arrêté) et le Bulletin officiel, édition des annonces légales (Imprimerie officielle, Rabat)",
+          "how": [
+            "Déposer le PV de clôture enregistré et les comptes de liquidation au greffe.",
+            "Publier l'avis de clôture de liquidation au JAL et au Bulletin officiel (loi 5-96 art. 97)."
+          ],
+          "pieces": [
+            "PV de clôture enregistré",
+            "Comptes de liquidation"
+          ],
+          "delai": "Dans les 30 jours de l'acte",
+          "cout": "Greffe à confirmer ; JAL 500 à 1 000 DH ; BO 400 à 600 DH",
+          "pieges": [
+            "Demander la radiation avant que l'avis de clôture soit publié."
+          ],
+          "preuve": "Récépissé du greffe et exemplaires JAL et BO",
+          "offers": []
+        },
+        {
+          "id": "fermer-declaration-finale",
+          "title": "Déposer la déclaration du résultat final de liquidation dans les 45 jours",
+          "who": "cabinet",
+          "where": "DGI, SIMPL (https://www.tax.gov.ma)",
+          "how": [
+            "Déposer la déclaration du résultat final dans les 45 jours qui suivent la clôture de la liquidation (CGI art. 150-II).",
+            "Indiquer le lieu de conservation des documents comptables.",
+            "Payer l'IS final et, le cas échéant, déclarer la retenue sur le boni distribué aux associés."
+          ],
+          "pieces": [
+            "Bilan de liquidation",
+            "PV de clôture"
+          ],
+          "delai": "45 jours après la clôture de la liquidation",
+          "cout": "IS final et retenue éventuelle",
+          "pieges": [
+            "Oublier cette déclaration : la société reste ouverte aux yeux de la DGI."
+          ],
+          "preuve": "Accusé de dépôt de la déclaration finale",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. Radier et fermer les comptes",
+      "steps": [
+        {
+          "id": "fermer-radiation-rc",
+          "title": "Demander la radiation du registre de commerce",
+          "who": "moi",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Déposer la demande de radiation signée par le liquidateur (code de commerce art. 51).",
+            "Joindre le PV de clôture enregistré, les annonces JAL et BO, et les pièces demandées par le greffe (souvent une attestation fiscale).",
+            "Récupérer le certificat de radiation."
+          ],
+          "pieces": [
+            "PV de clôture enregistré",
+            "Annonces de clôture",
+            "CIN du liquidateur",
+            "Attestation fiscale si exigée"
+          ],
+          "delai": "1 à 3 semaines",
+          "cout": "Frais de greffe à confirmer",
+          "pieges": [
+            "Laisser des inscriptions (nantissements) non levées : elles doivent être apurées avant la radiation (art. 51)."
+          ],
+          "preuve": "Certificat de radiation du registre de commerce",
+          "offers": []
+        },
+        {
+          "id": "fermer-radiation-dgi",
+          "title": "Faire radier la société des rôles fiscaux",
+          "who": "moi",
+          "where": "DGI, service local des impôts du siège",
+          "how": [
+            "Remettre le certificat de radiation du RC (nécessaire pour sortir des rôles de taxe professionnelle, code de commerce art. 51).",
+            "Demander la clôture du dossier fiscal (IS, TVA, taxe professionnelle) et une attestation de cessation ou de situation."
+          ],
+          "pieces": [
+            "Certificat de radiation du RC",
+            "Accusé de la déclaration finale"
+          ],
+          "delai": "2 à 6 semaines",
+          "cout": "0 DH",
+          "pieges": [
+            "Ne pas faire radier la taxe professionnelle : avis d'imposition l'année suivante."
+          ],
+          "preuve": "Attestation de cessation ou de radiation fiscale",
+          "offers": []
+        },
+        {
+          "id": "fermer-cnss-cloture",
+          "title": "Clôturer le compte employeur CNSS",
+          "who": "moi",
+          "where": "Agence CNSS du siège",
+          "how": [
+            "Déposer la demande de cessation d'activité de l'employeur avec le certificat de radiation du RC et le dernier bordereau.",
+            "Demander une attestation de situation ou de cessation."
+          ],
+          "pieces": [
+            "Certificat de radiation",
+            "Numéro d'affiliation",
+            "Dernier bordereau payé"
+          ],
+          "delai": "2 à 6 semaines",
+          "cout": "0 DH",
+          "pieges": [
+            "Laisser le compte ouvert : la CNSS peut taxer d'office des cotisations."
+          ],
+          "preuve": "Attestation de cessation ou de radiation CNSS",
+          "offers": []
+        },
+        {
+          "id": "fermer-banque-cloture",
+          "title": "Fermer le compte bancaire et répartir le boni",
+          "who": "client",
+          "where": "Agence bancaire",
+          "how": [
+            "Virer à chaque associé sa part du boni selon le PV de clôture.",
+            "Demander la clôture du compte et l'attestation de clôture."
+          ],
+          "pieces": [
+            "PV de clôture",
+            "Certificat de radiation"
+          ],
+          "delai": "1 à 2 semaines",
+          "cout": "Frais de clôture éventuels",
+          "pieges": [],
+          "preuve": "Attestation de clôture du compte",
+          "offers": []
+        },
+        {
+          "id": "fermer-livrer",
+          "title": "Livrer les documents finaux et clôturer le dossier",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer dans l'espace client : PV de dissolution et de clôture enregistrés, annonces, certificat de radiation du RC, accusés des déclarations fiscales, attestations DGI et CNSS, attestation de clôture bancaire, indication du lieu de conservation des archives.",
+            "Mettre à jour la fiche société du client (dirigeant, adresse, capital, nom, associés selon le cas).",
+            "Passer le dossier au statut « Terminé » et noter les échéances à venir dans le suivi."
+          ],
+          "pieces": [],
+          "delai": "Le jour de réception du dernier document",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut Terminé avec tous les justificatifs en ligne",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Faire le diagnostic d'actif et de passif avant la décision.",
+    "Établir les comptes de la dernière période d'activité et déposer la déclaration de cessation dans les 45 jours (CGI art. 150-I).",
+    "Déposer la dernière TVA, les sorties CNSS et les derniers bordereaux.",
+    "Déposer les déclarations provisoires si la liquidation dépasse 12 mois.",
+    "Établir le bilan de liquidation et le rapport du liquidateur, calculer le boni et sa fiscalité.",
+    "Déposer la déclaration du résultat final dans les 45 jours de la clôture (CGI art. 150-II).",
+    "Bilan de liquidation inclus pour les clients compta Mziane ; devis séparé sinon."
+  ],
+  "client": [
+    "Signer les PV et accepter la mission de liquidateur.",
+    "Vendre l'actif, encaisser les créances, payer les dettes et conserver les justificatifs.",
+    "Garder un siège et un compte bancaire jusqu'à la clôture.",
+    "Conserver les documents comptables à l'adresse indiquée dans le PV de clôture (10 ans en pratique).",
+    "Payer les frais d'État, les impôts et les cotisations encore dus."
+  ],
+  "apres": [
+    "Rappeler au client de conserver les archives comptables (contrôle fiscal possible pendant le délai de prescription).",
+    "Vérifier 2 à 3 mois après la radiation qu'aucun avis d'imposition ou relance CNSS n'arrive.",
+    "Résilier la domiciliation Mziane éventuelle à la date de radiation."
+  ],
+  "sources": [
+    {
+      "title": "Loi n° 5-96 (SARL), version consolidée au 19 août 2021, portail Adala du ministère de la Justice",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/26/LA%20SOCIETE%20EN%20NOM%20COLLECTIF-1711463631100.pdf"
+    },
+    {
+      "title": "Code de commerce (loi n° 15-95), art. 37 à 64 sur le registre de commerce, portail Adala",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/01/Code%20de%20commerce_compressed-1709282723074.pdf"
+    },
+    {
+      "title": "Code général des impôts 2026 (DGI) : art. 127, 128, 129-IV-23° et 25°, 133, 135, 144, 149, 150, 150 bis, 173",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "Direct Entreprise, plateforme électronique de création et d'accompagnement des entreprises (OMPIC)",
+      "url": "https://www.directentreprise.ma"
+    },
+    {
+      "title": "Portail de la DGI (SIMPL, enregistrement, attestations)",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "CNSS, portail employeurs Damancom",
+      "url": "https://www.damancom.ma"
+    },
+    {
+      "title": "Upsilon Consulting, registre de commerce : modifications et radiation (source privée)",
+      "url": "https://upsilon-consulting.com/registre-commerce-maroc/"
+    }
+  ],
+  "a_verifier": [
+    "Liste exacte des modifications que Direct Entreprise accepte en ligne en 2026 et qui peut déposer (compte professionnel : avocat, expert-comptable, comptable agréé, fiduciaire ?). Sinon, dépôt papier au greffe.",
+    "Barème des frais de greffe pour une inscription modificative et pour l'extrait modèle J.",
+    "Droit d'enregistrement des actes modificatifs : 200 DH (CGI art. 135-II-15°) à faire confirmer par le bureau de l'enregistrement.",
+    "Canal actuel de transmission des avis au Bulletin officiel (en ligne ou papier) et tarif à la ligne.",
+    "Délai légal précis de l'inscription modificative au registre de commerce (le code de commerce ne fixe pas de délai chiffré ; la pratique et le décret n° 2-96-906 parlent d'un mois).",
+    "Pièces exactes exigées par le greffe pour la radiation (attestation fiscale, quitus, comptes de liquidation) selon le tribunal.",
+    "Procédure CNSS 2026 de cessation du compte employeur et attestation délivrée.",
+    "Taux d'enregistrement du PV de clôture quand seul un boni en argent est partagé (200 DH ou 1,5 %).",
+    "Traitement fiscal du boni de liquidation chez les associés (retenue à la source sur produits des actions, taux 2026) à confirmer avec le cabinet.",
+    "Majorité exacte de la dissolution anticipée en SARL (trois quarts du capital, art. 75, sauf statuts).",
+    "Délai de conservation des documents comptables exigé (10 ans pour le code de commerce, prescription fiscale plus courte)."
+  ]
+}

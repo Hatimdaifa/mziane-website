@@ -1,0 +1,578 @@
+{
+  "id": "formalite-siege",
+  "title": "Transférer le siège social d'une SARL ou d'une SARLAU",
+  "offers": [
+    "siege"
+  ],
+  "summary": "Le siège est déplacé à la nouvelle adresse par décision des associés, l'acte est enregistré, les statuts et le registre de commerce sont mis à jour. À la fin, le client a un modèle J à la nouvelle adresse et la DGI, la CNSS et la banque sont informées. Si la nouvelle adresse dépend d'un autre tribunal, le dossier passe d'un registre de commerce à l'autre.",
+  "duree": "2 à 4 semaines dans le même tribunal ; 4 à 8 semaines vers un autre tribunal",
+  "frais_officiels": [
+    {
+      "label": "Enregistrement de l'acte modificatif (DGI)",
+      "montant": "200 DH",
+      "note": "Droit fixe des actes innommés sans droit proportionnel (CGI art. 135-II-15°). Montant à confirmer par l'inspecteur de l'enregistrement."
+    },
+    {
+      "label": "Légalisation des signatures",
+      "montant": "100 à 250 DH",
+      "note": "Selon le nombre de signataires et d'originaux (estimation Mziane)."
+    },
+    {
+      "label": "Frais de greffe (inscription modificative et extrait)",
+      "montant": "À confirmer",
+      "note": "Barème du greffe non confirmé par une source officielle."
+    },
+    {
+      "label": "Annonce au journal d'annonces légales",
+      "montant": "500 à 1 000 DH",
+      "note": "Selon la longueur de l'avis (estimation Mziane)."
+    },
+    {
+      "label": "Bulletin officiel",
+      "montant": "400 à 600 DH",
+      "note": "Selon la longueur de l'avis (estimation Mziane)."
+    },
+    {
+      "label": "Nouvelle immatriculation au tribunal d'arrivée (si autre tribunal)",
+      "montant": "À confirmer",
+      "note": "Frais de greffe au tribunal d'arrivée, en plus de la radiation au tribunal de départ."
+    }
+  ],
+  "avant_de_commencer": [
+    "Avoir reçu le modèle J de moins de 3 mois et les statuts à jour de la société.",
+    "Savoir si la société est une SARLAU (un seul associé : décision de l'associé unique) ou une SARL (plusieurs associés : procès-verbal d'assemblée générale extraordinaire).",
+    "Vérifier que les comptes annuels du dernier exercice ont été approuvés et déposés au greffe : sinon, le régulariser en même temps.",
+    "Regrouper si possible plusieurs changements dans le même acte (honoraire + 50 % par opération en plus, un seul jeu de frais d'État).",
+    "Avoir un justificatif de la nouvelle adresse : bail commercial, titre de propriété avec autorisation, ou contrat de domiciliation (offres domiciliation Mziane).",
+    "Savoir de quel tribunal de commerce dépend la nouvelle adresse : même tribunal ou autre tribunal change toute la procédure et le prix (1 490 DH ou 1 990 DH HT).",
+    "Si l'ancien siège était une domiciliation, prévenir le domiciliataire et prévoir la date de fin du contrat après l'inscription au registre."
+  ],
+  "phases": [
+    {
+      "title": "1. Préparer le dossier",
+      "steps": [
+        {
+          "id": "siege-verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir le dossier du client et contrôler chaque pièce demandée.",
+            "Vérifier que le modèle J date de moins de 3 mois et que les statuts envoyés sont bien la dernière version (avec toutes les modifications déjà faites).",
+            "Lire les statuts : forme (SARL ou SARLAU), nombre d'associés, répartition des parts, nom du gérant, clauses d'agrément ou de majorité particulières.",
+            "Comparer les noms et numéros de CIN avec le modèle J : toute différence doit être expliquée avant de rédiger."
+          ],
+          "pieces": [
+            "Modèle J de moins de 3 mois",
+            "Statuts à jour",
+            "CIN du gérant",
+            "Justificatif de la nouvelle adresse",
+            "Identifiant fiscal, ICE, taxe professionnelle et numéro CNSS"
+          ],
+          "delai": "1 jour ouvré",
+          "cout": "0 DH",
+          "pieges": [
+            "Travailler sur des statuts périmés : le greffe refuse un acte qui ne part pas de la dernière version déposée.",
+            "Un bail au nom du gérant et non de la société n'est en général pas accepté comme justificatif du siège."
+          ],
+          "preuve": "Checklist des pièces cochée dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "siege-devis-frais",
+          "title": "Envoyer le devis des frais d'État au client",
+          "who": "moi",
+          "where": "Espace client Mziane ou WhatsApp",
+          "how": [
+            "Lister les frais officiels de cette formalité (enregistrement, greffe, annonces légales, légalisations).",
+            "Préciser que ces frais sont reversés sans marge et payés en plus des honoraires.",
+            "Attendre l'accord écrit et le paiement avant d'engager les frais."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Oublier le Bulletin officiel ou le journal d'annonces légales dans le devis : ce sont les postes qui surprennent le plus le client."
+          ],
+          "preuve": "Devis accepté et frais encaissés",
+          "offers": []
+        },
+        {
+          "id": "siege-tribunal",
+          "title": "Vérifier le tribunal compétent pour la nouvelle adresse",
+          "who": "moi",
+          "where": "Greffe du tribunal de commerce ou Direct Entreprise",
+          "how": [
+            "Identifier la commune de la nouvelle adresse.",
+            "Vérifier si elle relève du même tribunal de commerce que l'ancienne (ressort territorial).",
+            "Si c'est un autre tribunal, basculer sur la variante « autre tribunal » (phase 5) et facturer le tarif correspondant."
+          ],
+          "pieces": [
+            "Adresse complète"
+          ],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Confondre ville et ressort : deux communes proches peuvent dépendre de tribunaux différents."
+          ],
+          "preuve": "Note au dossier : même tribunal ou autre tribunal",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Rédiger et signer la décision",
+      "steps": [
+        {
+          "id": "siege-rediger",
+          "title": "Rédiger le PV d'AGE ou la décision de l'associé unique avec les statuts mis à jour",
+          "who": "moi",
+          "where": "Bureau Mziane (modèle interne)",
+          "how": [
+            "Rédiger la résolution de transfert : ancienne adresse, nouvelle adresse complète, date d'effet.",
+            "Modifier l'article des statuts sur le siège social et préparer les statuts mis à jour.",
+            "En SARL, vérifier la majorité : trois quarts du capital car c'est une modification des statuts (loi 5-96 art. 75).",
+            "Ajouter le pouvoir au porteur pour les formalités."
+          ],
+          "pieces": [
+            "Statuts à jour",
+            "Justificatif de la nouvelle adresse"
+          ],
+          "delai": "1 jour ouvré",
+          "cout": "Inclus dans les honoraires",
+          "pieges": [
+            "Écrire une adresse différente de celle du bail ou de la domiciliation : le greffe compare les deux."
+          ],
+          "preuve": "Projet de PV ou de décision et statuts mis à jour validés",
+          "offers": []
+        },
+        {
+          "id": "siege-signer",
+          "title": "Faire signer le PV ou la décision et les statuts mis à jour et légaliser les signatures",
+          "who": "client",
+          "where": "Bureau de légalisation de la commune (moqataa / arrondissement) ou consulat pour un associé à l'étranger",
+          "how": [
+            "Envoyer au client le document final en PDF et en papier (3 à 5 originaux selon le nombre de dépôts).",
+            "Le faire signer par chaque signataire, à la main, sur chaque page.",
+            "Faire légaliser les signatures à la commune (le signataire vient en personne avec sa CIN).",
+            "Récupérer tous les originaux signés et légalisés."
+          ],
+          "pieces": [
+            "CIN originale de chaque signataire",
+            "Originaux imprimés du document"
+          ],
+          "delai": "1 à 3 jours selon la disponibilité des signataires",
+          "cout": "Environ 20 à 30 DH par signature légalisée (timbre)",
+          "pieges": [
+            "Un associé à l'étranger doit signer au consulat ou donner une procuration légalisée : prévoir 1 à 3 semaines de plus.",
+            "Une page non paraphée peut être refusée au greffe."
+          ],
+          "preuve": "Originaux signés et légalisés",
+          "offers": []
+        },
+        {
+          "id": "siege-registre",
+          "title": "Recopier la décision dans le registre des décisions",
+          "who": "moi",
+          "where": "Registre coté et paraphé de la société (au siège)",
+          "how": [
+            "Recopier ou coller le PV ou la décision de l'associé unique dans le registre des procès-verbaux.",
+            "Faire signer la page par le gérant (et l'associé unique pour une SARLAU)."
+          ],
+          "pieces": [
+            "Registre des procès-verbaux de la société"
+          ],
+          "delai": "Le jour de la signature",
+          "cout": "0 DH",
+          "pieges": [
+            "Une décision d'associé unique non portée au registre peut être annulée à la demande de tout intéressé (loi 5-96 art. 76)."
+          ],
+          "preuve": "Page du registre signée",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Enregistrer et déposer (même tribunal)",
+      "steps": [
+        {
+          "id": "siege-enregistrer",
+          "title": "Enregistrer l'acte à la DGI et payer les droits",
+          "who": "moi",
+          "where": "DGI, portail https://www.tax.gov.ma, service SIMPL-Enregistrement (ou bureau de l'enregistrement de la DGI du lieu du siège)",
+          "how": [
+            "Se connecter à SIMPL-Enregistrement avec le compte adhérent (ou se présenter au bureau de l'enregistrement du siège).",
+            "Choisir le type d'acte (acte de société ou acte modificatif), saisir les parties, la date et la nature de l'opération.",
+            "Téléverser l'acte signé en PDF et payer les droits en ligne (ou au guichet).",
+            "Télécharger la quittance et l'acte portant la mention d'enregistrement."
+          ],
+          "pieces": [
+            "Acte signé et légalisé",
+            "Identifiant fiscal et ICE de la société",
+            "CIN des parties"
+          ],
+          "delai": "30 jours maximum à compter de la date de l'acte (CGI art. 128)",
+          "cout": "200 DH (droit fixe, à confirmer)",
+          "pieges": [
+            "Dépasser 30 jours : majoration de 5 % des droits si le retard est de 30 jours au plus, 15 % au-delà (CGI art. 184), plus les majorations de paiement tardif.",
+            "Croire qu'un acte exonéré n'a pas besoin d'être présenté : les actes de société sont enregistrés « gratis » mais doivent passer à l'enregistrement (CGI art. 136-III)."
+          ],
+          "preuve": "Quittance d'enregistrement et acte revêtu de la mention d'enregistrement",
+          "offers": []
+        },
+        {
+          "id": "siege-greffe",
+          "title": "Déposer l'acte et demander l'inscription modificative au registre de commerce",
+          "who": "moi",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Se connecter à Direct Entreprise avec le compte professionnel (ou se présenter au greffe du tribunal de commerce du siège).",
+            "Créer une demande de modification et choisir la nature : transfert de siège social.",
+            "Remplir la déclaration modificative (formulaire du registre de commerce) avec les nouvelles données.",
+            "Joindre les pièces scannées et payer les frais de greffe.",
+            "Noter le numéro de dépôt donné par le greffe."
+          ],
+          "pieces": [
+            "Acte enregistré (PV ou décision) en 2 exemplaires",
+            "Statuts mis à jour certifiés conformes par le gérant",
+            "Modèle J récent",
+            "CIN du gérant",
+            "Justificatif de la nouvelle adresse (bail enregistré, titre ou contrat de domiciliation)"
+          ],
+          "delai": "Dépôt dans les 30 jours de l'acte (loi 5-96 art. 95 et 97) ; traitement par le greffe 2 à 7 jours ouvrés",
+          "cout": "Frais de greffe : montant à confirmer au dépôt",
+          "pieges": [
+            "Oublier les statuts mis à jour : le greffe les exige pour toute modification statutaire.",
+            "Retard d'inscription : amende de 1 000 à 5 000 DH après mise en demeure (code de commerce art. 62), et la modification n'est pas opposable aux tiers (art. 61)."
+          ],
+          "preuve": "Récépissé de dépôt au greffe avec numéro de dépôt",
+          "offers": []
+        },
+        {
+          "id": "siege-annonces",
+          "title": "Publier l'annonce légale au journal d'annonces légales et au Bulletin officiel",
+          "who": "moi",
+          "where": "Un journal habilité à recevoir les annonces légales (liste fixée chaque année par arrêté) et le Bulletin officiel, édition des annonces légales (Imprimerie officielle, Rabat)",
+          "how": [
+            "Rédiger un avis court : dénomination, forme, capital, siège, numéro RC, ancienne et nouvelle adresse du siège, tribunal et numéro de dépôt au greffe.",
+            "Envoyer l'avis au journal d'annonces légales et payer l'insertion.",
+            "Envoyer le même avis à l'Imprimerie officielle pour le Bulletin officiel et payer.",
+            "Conserver un exemplaire du journal et de la page du Bulletin officiel."
+          ],
+          "pieces": [
+            "Récépissé de dépôt au greffe",
+            "Texte de l'avis"
+          ],
+          "delai": "Dans les 30 jours ; parution JAL 2 à 5 jours, Bulletin officiel 1 à 3 semaines",
+          "cout": "JAL 500 à 1 000 DH ; Bulletin officiel 400 à 600 DH (estimations Mziane)",
+          "pieges": [
+            "Écrire un avis différent entre le JAL et le Bulletin officiel : en cas d'écart, c'est le texte du BO qui ne peut pas être opposé aux tiers (loi 5-96 art. 94).",
+            "Faire publier avant le dépôt au greffe : l'avis doit citer le numéro de dépôt."
+          ],
+          "preuve": "Exemplaire du journal et attestation ou page du Bulletin officiel",
+          "offers": []
+        },
+        {
+          "id": "siege-modele-j",
+          "title": "Récupérer le nouveau modèle J",
+          "who": "administration",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Suivre le statut de la demande sur Direct Entreprise ou au greffe.",
+            "Une fois l'inscription faite, télécharger ou retirer le modèle J à jour.",
+            "Vérifier sur le modèle J que la nouvelle adresse apparaît correctement."
+          ],
+          "pieces": [],
+          "delai": "2 à 7 jours ouvrés après le dépôt",
+          "cout": "Coût de l'extrait : à confirmer au greffe",
+          "pieges": [
+            "Ne pas relire le modèle J : une faute de frappe sur un nom ou une adresse bloque ensuite la banque et la DGI."
+          ],
+          "preuve": "Modèle J à jour",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Informer les organismes",
+      "steps": [
+        {
+          "id": "siege-dgi",
+          "title": "Déclarer le changement à la DGI",
+          "who": "moi",
+          "where": "DGI, portail https://www.tax.gov.ma (SIMPL) ou service local des impôts du siège",
+          "how": [
+            "Déclarer le changement (transfert du siège social, CGI art. 149) au service local des impôts du siège, par l'espace SIMPL ou par lettre déposée contre récépissé.",
+            "Joindre le modèle J à jour et l'acte enregistré.",
+            "Vérifier ensuite que la fiche d'identification fiscale de la société affiche la bonne donnée."
+          ],
+          "pieces": [
+            "Modèle J à jour",
+            "Acte enregistré",
+            "Identifiant fiscal et ICE"
+          ],
+          "delai": "30 jours après le transfert (CGI art. 149), sinon la DGI impose à la dernière adresse connue",
+          "cout": "0 DH",
+          "pieges": [
+            "Laisser une ancienne adresse ou un ancien dirigeant à la DGI : les avis et relances partent au mauvais endroit et les pénalités courent quand même."
+          ],
+          "preuve": "Récépissé ou accusé de dépôt de la DGI",
+          "offers": []
+        },
+        {
+          "id": "siege-tp",
+          "title": "Vérifier la taxe professionnelle pour le nouveau local",
+          "who": "moi",
+          "where": "DGI, service local des impôts du nouveau siège",
+          "how": [
+            "Demander si la taxe professionnelle doit être rattachée au nouveau local (nouvelle commune ou nouvel établissement).",
+            "Récupérer, le cas échéant, le nouveau numéro de taxe professionnelle et le transmettre au client et au cabinet."
+          ],
+          "pieces": [
+            "Modèle J à jour",
+            "Justificatif du nouveau local"
+          ],
+          "delai": "1 à 3 semaines",
+          "cout": "0 DH",
+          "pieges": [
+            "Continuer à facturer avec un ancien numéro de taxe professionnelle s'il a changé."
+          ],
+          "preuve": "Attestation ou numéro de taxe professionnelle à jour",
+          "offers": []
+        },
+        {
+          "id": "siege-cnss",
+          "title": "Mettre à jour le dossier employeur à la CNSS",
+          "who": "moi",
+          "where": "CNSS, portail Damancom https://www.damancom.ma ou agence CNSS du siège",
+          "how": [
+            "Signaler à la CNSS le changement (nouvelle adresse du siège) depuis Damancom ou à l'agence.",
+            "Joindre le modèle J à jour et l'acte enregistré.",
+            "Vérifier que l'attestation d'affiliation suivante reprend la bonne donnée."
+          ],
+          "pieces": [
+            "Modèle J à jour",
+            "Acte enregistré",
+            "Numéro d'affiliation CNSS"
+          ],
+          "delai": "Dans le mois qui suit",
+          "cout": "0 DH",
+          "pieges": [
+            "Oublier la CNSS quand la société n'a pas de salarié : le dossier employeur existe quand même et les courriers partent à l'ancienne adresse."
+          ],
+          "preuve": "Accusé de la demande ou attestation CNSS à jour",
+          "offers": []
+        },
+        {
+          "id": "siege-banque",
+          "title": "Informer la banque de la société",
+          "who": "client",
+          "where": "Agence bancaire de la société",
+          "how": [
+            "Envoyer ou déposer à l'agence le modèle J à jour, les statuts mis à jour et l'acte enregistré.",
+            "Demander la mise à jour du dossier : nouvelle adresse de la société.",
+            "Faire signer les nouveaux spécimens de signature si nécessaire."
+          ],
+          "pieces": [
+            "Modèle J à jour",
+            "Statuts mis à jour",
+            "Acte enregistré",
+            "CIN des signataires"
+          ],
+          "delai": "1 à 2 semaines selon la banque",
+          "cout": "0 DH en général",
+          "pieges": [
+            "Laisser l'ancien signataire sur le compte : il peut encore engager la société auprès de la banque."
+          ],
+          "preuve": "Accusé ou courrier de la banque confirmant la mise à jour",
+          "offers": []
+        },
+        {
+          "id": "siege-courrier",
+          "title": "Faire mettre à jour l'adresse sur les documents et chez les partenaires",
+          "who": "client",
+          "where": "Prestataires du client",
+          "how": [
+            "Mettre à jour factures, devis, site web, fiche Google, cachet si l'adresse y figure.",
+            "Prévenir clients, fournisseurs, assurance, Barid Al-Maghrib (réexpédition) si besoin.",
+            "Si une marque est déposée à l'OMPIC, prévoir l'inscription du changement d'adresse du titulaire."
+          ],
+          "pieces": [],
+          "delai": "Quelques jours",
+          "cout": "Selon le prestataire",
+          "pieges": [],
+          "preuve": "Documents commerciaux à la nouvelle adresse",
+          "offers": []
+        },
+        {
+          "id": "siege-livrer",
+          "title": "Livrer les documents finaux et clôturer le dossier",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer dans l'espace client : acte enregistré, statuts mis à jour, récépissé du greffe, annonces, nouveau modèle J, accusés DGI et CNSS.",
+            "Mettre à jour la fiche société du client (dirigeant, adresse, capital, nom, associés selon le cas).",
+            "Passer le dossier au statut « Terminé » et noter les échéances à venir dans le suivi."
+          ],
+          "pieces": [],
+          "delai": "Le jour de réception du dernier document",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut Terminé avec tous les justificatifs en ligne",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Variante : nouvelle adresse dans le ressort d'un autre tribunal",
+      "steps": [
+        {
+          "id": "siege-autre-depart",
+          "title": "Demander l'inscription du transfert au registre de commerce de départ",
+          "who": "moi",
+          "where": "Greffe du tribunal de commerce de l'ancien siège (ou Direct Entreprise)",
+          "how": [
+            "Déposer l'acte enregistré et les statuts mis à jour au greffe de départ.",
+            "Demander la mention du transfert puis la radiation du registre local de départ (code de commerce art. 39 : une seule immatriculation principale).",
+            "Récupérer le certificat de radiation ou l'extrait portant la mention du transfert."
+          ],
+          "pieces": [
+            "Acte enregistré",
+            "Statuts mis à jour",
+            "Modèle J"
+          ],
+          "delai": "1 à 2 semaines",
+          "cout": "Frais de greffe à confirmer",
+          "pieges": [
+            "Ouvrir la nouvelle immatriculation sans fermer l'ancienne : le juge radie d'office les doublons et le dossier se bloque."
+          ],
+          "preuve": "Certificat de radiation ou attestation de transfert du greffe de départ",
+          "offers": []
+        },
+        {
+          "id": "siege-autre-arrivee",
+          "title": "Immatriculer la société au registre de commerce du nouveau tribunal",
+          "who": "moi",
+          "where": "Greffe du tribunal de commerce du nouveau siège (ou Direct Entreprise)",
+          "how": [
+            "Déposer au greffe d'arrivée : statuts mis à jour, acte enregistré, certificat du greffe de départ, justificatif du siège, CIN du gérant.",
+            "Remplir la déclaration d'immatriculation par transfert.",
+            "Payer les frais et récupérer le nouveau numéro de registre de commerce."
+          ],
+          "pieces": [
+            "Statuts mis à jour",
+            "Acte enregistré",
+            "Certificat du greffe de départ",
+            "Justificatif du nouveau siège",
+            "CIN du gérant"
+          ],
+          "delai": "1 à 3 semaines",
+          "cout": "Frais de greffe à confirmer",
+          "pieges": [
+            "Oublier que le numéro de RC change : il faut le corriger partout (factures, banque, DGI, CNSS)."
+          ],
+          "preuve": "Modèle J du nouveau tribunal avec le nouveau numéro de RC",
+          "offers": []
+        },
+        {
+          "id": "siege-autre-annonces",
+          "title": "Publier les annonces légales dans les deux ressorts",
+          "who": "moi",
+          "where": "Un journal habilité à recevoir les annonces légales (liste fixée chaque année par arrêté) et le Bulletin officiel, édition des annonces légales (Imprimerie officielle, Rabat)",
+          "how": [
+            "Publier l'avis de transfert en citant l'ancien et le nouveau numéro de RC et les deux tribunaux.",
+            "Faire la parution au Bulletin officiel."
+          ],
+          "pieces": [
+            "Récépissés des deux greffes"
+          ],
+          "delai": "Dans les 30 jours",
+          "cout": "JAL 500 à 1 000 DH ; BO 400 à 600 DH (estimations)",
+          "pieges": [
+            "Publier avant d'avoir le nouveau numéro de RC."
+          ],
+          "preuve": "Exemplaires JAL et BO",
+          "offers": []
+        },
+        {
+          "id": "siege-autre-organismes",
+          "title": "Transférer le dossier fiscal et CNSS vers les nouveaux services",
+          "who": "moi",
+          "where": "DGI (service local du nouveau siège) et CNSS (agence du nouveau siège)",
+          "how": [
+            "Déposer la déclaration de transfert de siège à l'inspecteur du NOUVEAU siège dans les 30 jours (CGI art. 149).",
+            "Demander à la CNSS le rattachement à l'agence du nouveau siège.",
+            "Vérifier que l'identifiant fiscal et l'ICE restent les mêmes et noter le nouveau RC partout."
+          ],
+          "pieces": [
+            "Nouveau modèle J",
+            "Acte enregistré"
+          ],
+          "delai": "2 à 4 semaines",
+          "cout": "0 DH",
+          "pieges": [
+            "Croire que la DGI est prévenue par le greffe : la déclaration reste à faire par la société."
+          ],
+          "preuve": "Récépissés DGI et CNSS",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Pas nécessaire dans le cas simple.",
+    "Prévenir le cabinet comptable de la société de la nouvelle adresse, et du nouveau numéro de RC et de taxe professionnelle s'ils changent, pour les prochaines déclarations.",
+    "Appeler le cabinet si le transfert change de commune et pose une question de taxe professionnelle ou de taxe de services communaux."
+  ],
+  "client": [
+    "Fournir le bail ou le titre du nouveau local, ou signer la domiciliation.",
+    "Signer et faire légaliser le PV ou la décision.",
+    "Mettre à jour ses documents commerciaux, son site et son cachet.",
+    "Payer les frais d'État."
+  ],
+  "apres": [
+    "Vérifier sous 1 mois que la DGI et la CNSS affichent la nouvelle adresse.",
+    "Résilier l'ancienne domiciliation ou l'ancien bail seulement après réception du nouveau modèle J.",
+    "Si le siège est domicilié chez Mziane, programmer le renouvellement du contrat de domiciliation."
+  ],
+  "sources": [
+    {
+      "title": "Loi n° 5-96 (SARL), version consolidée au 19 août 2021, portail Adala du ministère de la Justice",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/26/LA%20SOCIETE%20EN%20NOM%20COLLECTIF-1711463631100.pdf"
+    },
+    {
+      "title": "Code de commerce (loi n° 15-95), art. 37 à 64 sur le registre de commerce, portail Adala",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/01/Code%20de%20commerce_compressed-1709282723074.pdf"
+    },
+    {
+      "title": "Code général des impôts 2026 (DGI) : art. 127, 128, 129-IV-23° et 25°, 133, 135, 144, 149, 150, 150 bis, 173",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "Direct Entreprise, plateforme électronique de création et d'accompagnement des entreprises (OMPIC)",
+      "url": "https://www.directentreprise.ma"
+    },
+    {
+      "title": "FNH, généralisation de la plateforme Direct Entreprise (mars 2025)",
+      "url": "https://fnh.ma/article/actualites-marocaines/ompic-generalisation-entreprises"
+    },
+    {
+      "title": "Portail de la DGI (SIMPL, enregistrement, attestations)",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "CNSS, portail employeurs Damancom",
+      "url": "https://www.damancom.ma"
+    }
+  ],
+  "a_verifier": [
+    "Liste exacte des modifications que Direct Entreprise accepte en ligne en 2026 et qui peut déposer (compte professionnel : avocat, expert-comptable, comptable agréé, fiduciaire ?). Sinon, dépôt papier au greffe.",
+    "Barème des frais de greffe pour une inscription modificative et pour l'extrait modèle J.",
+    "Droit d'enregistrement des actes modificatifs : 200 DH (CGI art. 135-II-15°) à faire confirmer par le bureau de l'enregistrement.",
+    "Canal actuel de transmission des avis au Bulletin officiel (en ligne ou papier) et tarif à la ligne.",
+    "Délai légal précis de l'inscription modificative au registre de commerce (le code de commerce ne fixe pas de délai chiffré ; la pratique et le décret n° 2-96-906 parlent d'un mois).",
+    "Procédure exacte au greffe pour un transfert vers un autre tribunal : radiation puis nouvelle immatriculation avec nouveau numéro de RC, ou simple transfert du dossier. À confirmer auprès des deux greffes.",
+    "Changement éventuel du numéro de taxe professionnelle en cas de changement de commune.",
+    "Pièces exactes exigées pour un siège à domicile (code de commerce art. 42-1 réservé aux personnes physiques ; pour une société, bail ou domiciliation)."
+  ]
+}

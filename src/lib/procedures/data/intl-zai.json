@@ -1,0 +1,345 @@
+{
+  "id": "intl-zai",
+  "title": "Étudier l'éligibilité et monter le dossier ZAI ou CFC",
+  "offers": ["intl-zai"],
+  "summary": "Le client reçoit une étude écrite qui dit s'il peut s'installer dans une zone d'accélération industrielle (ZAI) ou obtenir le statut Casablanca Finance City (CFC), avec les avantages attendus et les conditions à tenir. Si c'est possible, Mziane monte et suit le dossier jusqu'au contrat d'installation dans la zone ou jusqu'à la décision d'octroi du statut CFC, puis crée ou adapte la société. L'offre est sur devis : la première étape est d'établir le devis.",
+  "duree": "Étude d'éligibilité : 1 à 2 semaines. Dossier ZAI : 1 à 3 mois selon l'aménageur et la disponibilité des lots. Dossier CFC : 1 à 3 mois jusqu'à la décision, puis 6 mois maximum pour finaliser la création si la société n'existe pas encore.",
+  "frais_officiels": [
+    { "label": "Frais de dossier CFC", "montant": "À confirmer auprès de CFCA", "note": "Le paiement de frais de dossier fait partie de la procédure officielle CFC ; montant non confirmé." },
+    { "label": "Loyer ou prix du lot en ZAI", "montant": "Selon l'aménageur-développeur de la zone", "note": "Fixé par contrat avec l'aménageur (ex. Tanger Med Zones, MedZ). Non fixé par l'État." },
+    { "label": "Frais d'État de création de la société", "montant": "1 600 à 2 400 DH", "note": "Grille Mziane, si une société est créée. Une SA coûte plus (voir fiche creation-sa-sci)." }
+  ],
+  "avant_de_commencer": [
+    "Comprendre les deux régimes. ZAI : zones industrielles créées par décret (anciennes zones franches d'exportation, renommées par la loi de finances 2020), pour des activités industrielles et services liés, surtout tournées vers l'export. 14 ZAI existaient en mars 2026 dans 5 régions. CFC : statut accordé par décision du ministre des Finances, sur proposition de Casablanca Finance City Authority (CFCA), à des sociétés financières, prestataires de services et sièges régionaux tournés vers l'international (décret-loi 2-20-665 de 2020).",
+    "Savoir que la décision ne vient pas de Mziane : en ZAI, c'est l'aménageur de la zone qui accepte ou non le projet ; pour CFC, c'est CFCA puis le ministère des Finances.",
+    "Ne rien promettre sur les taux d'impôt : les sources se contredisent (voir a_verifier). Faire valider tout chiffre fiscal par le cabinet avant de l'écrire dans l'étude.",
+    "Prévoir que ces projets concernent souvent des investisseurs étrangers : combiner avec la fiche intl-etranger (apostilles, procurations, convertibilité).",
+    "Ne jamais proposer de financement à intérêt dans le plan de financement."
+  ],
+  "phases": [
+    {
+      "title": "1. Cadrage et devis",
+      "steps": [
+        {
+          "id": "appel-cadrage-zai",
+          "title": "Faire l'appel de cadrage du projet",
+          "who": "moi",
+          "where": "Visio ou rendez-vous",
+          "how": [
+            "Demander : activité exacte, part du chiffre d'affaires réalisée à l'étranger, investissement prévu, emplois, surface ou bureaux nécessaires, ville souhaitée, calendrier.",
+            "Demander si la société existe déjà au Maroc ou à l'étranger.",
+            "Classer le projet : industriel ou logistique vers une ZAI, services financiers ou siège régional vers CFC."
+          ],
+          "pieces": ["Présentation du projet si le client en a une"],
+          "delai": "1 heure",
+          "cout": "0 DH",
+          "pieges": ["Partir sur CFC pour une société qui vend surtout au Maroc : le statut vise les activités tournées vers l'international."],
+          "preuve": "Fiche de cadrage dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "devis-zai",
+          "title": "Établir et envoyer le devis",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Séparer : étude d'éligibilité (prix fixe), montage du dossier, création ou adaptation de la société, suivi réglementaire.",
+            "Lister à part les frais de tiers (frais de dossier CFC, loyer de zone, notaire, traducteurs, cabinet partenaire).",
+            "Envoyer le devis et attendre la signature et l'acompte."
+          ],
+          "pieces": ["Fiche de cadrage"],
+          "delai": "48 h",
+          "cout": "0 DH",
+          "pieges": ["Inclure la fiscalité pointue sans prévoir le temps du cabinet partenaire dans le prix."],
+          "preuve": "Devis signé et acompte reçu",
+          "offers": []
+        },
+        {
+          "id": "statut-etude",
+          "title": "Passer le dossier au statut Étude en cours",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Changer le statut.", "Envoyer la liste des pièces : présentation de la société, comptes récents, business plan, CV des dirigeants, pièces d'identité."],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut mis à jour",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Étude d'éligibilité",
+      "steps": [
+        {
+          "id": "verifier-pieces-zai",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Contrôler la présentation, les chiffres (chiffre d'affaires export, emplois), les CV, les pièces d'identité.", "Demander les manques en une seule fois."],
+          "pieces": ["Présentation du projet", "Business plan", "Comptes des 2 ou 3 derniers exercices si la société existe", "CV des dirigeants", "Passeports ou CIN"],
+          "delai": "24 à 48 h",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Pièces validées",
+          "offers": []
+        },
+        {
+          "id": "contacter-cfca",
+          "title": "Contacter l'équipe de CFCA pour un projet CFC",
+          "who": "moi",
+          "where": "Casablanca Finance City Authority, https://www.casablancafinancecity.com, guichetunique@cfca.ma",
+          "how": [
+            "Écrire au guichet unique pour présenter le projet en quelques lignes.",
+            "Demander la liste à jour des activités éligibles, des pièces et le montant des frais de dossier.",
+            "Noter les conditions rappelées : siège à CFC, société gérée et exploitée depuis CFC, au moins un dirigeant résidant au Maroc, un cadre dirigeant avec une expérience internationale (3 ans pour les prestataires de services, 1 an pour les autres)."
+          ],
+          "pieces": ["Présentation du projet"],
+          "delai": "1 à 2 semaines pour une réponse",
+          "cout": "0 DH",
+          "pieges": ["Se fier à une liste d'activités trouvée sur un blog : la liste a changé en 2020."],
+          "preuve": "Réponse écrite de CFCA",
+          "offers": []
+        },
+        {
+          "id": "contacter-amenageur",
+          "title": "Contacter l'aménageur de la ZAI visée",
+          "who": "moi",
+          "where": "Aménageur-développeur de la zone (ex. Tanger Med Zones pour les zones de Tanger, MedZ pour d'autres ZAI), et CRI de la région ; AMDIE (https://www.morocconow.com) pour l'orientation",
+          "how": [
+            "Identifier la ZAI la plus adaptée (secteur, ville, port ou autoroute proche).",
+            "Demander à l'aménageur : conditions d'admission, activités acceptées, lots ou bâtiments disponibles, prix (location ou achat), délais.",
+            "Demander la liste des pièces de la demande d'installation."
+          ],
+          "pieces": ["Présentation du projet", "Besoins en surface"],
+          "delai": "1 à 3 semaines",
+          "cout": "0 DH",
+          "pieges": ["Choisir la zone sans vérifier qu'il reste des lots disponibles."],
+          "preuve": "Offre ou réponse écrite de l'aménageur",
+          "offers": []
+        },
+        {
+          "id": "analyse-fiscale",
+          "title": "Faire chiffrer les avantages fiscaux par le cabinet",
+          "who": "cabinet",
+          "where": "Cabinet d'expertise comptable partenaire",
+          "how": [
+            "Transmettre le business plan et le régime visé.",
+            "Demander au cabinet le régime 2026 exact : impôt sur les sociétés, TVA, droits d'enregistrement, taxe professionnelle, impôt sur le revenu des salariés.",
+            "Demander une simulation sur 5 à 10 ans avec et sans le régime."
+          ],
+          "pieces": ["Business plan", "Comptes existants"],
+          "delai": "3 à 7 jours",
+          "cout": "Honoraires du cabinet (prévus dans le devis)",
+          "pieges": ["Écrire un taux d'IS trouvé sur internet sans validation : les taux ont changé avec les lois de finances 2020 et 2023."],
+          "preuve": "Note fiscale du cabinet",
+          "offers": []
+        },
+        {
+          "id": "rediger-etude",
+          "title": "Rédiger et remettre l'étude d'éligibilité",
+          "who": "moi",
+          "where": "Espace client Mziane, puis visio de restitution",
+          "how": [
+            "Écrire en 3 à 6 pages : régime conseillé, conditions remplies et non remplies, avantages chiffrés par le cabinet, obligations à tenir, coûts, calendrier.",
+            "Conclure clairement : éligible, éligible sous conditions, ou non éligible avec une alternative.",
+            "Présenter l'étude en visio et faire valider la suite."
+          ],
+          "pieces": ["Réponses de CFCA ou de l'aménageur", "Note fiscale du cabinet"],
+          "delai": "2 à 3 jours",
+          "cout": "Inclus dans le devis",
+          "pieges": ["Promettre l'obtention du statut : la décision appartient à l'administration."],
+          "preuve": "Étude d'éligibilité signée pour accord de poursuite par le client",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Dossier CFC",
+      "steps": [
+        {
+          "id": "lettre-intention",
+          "title": "Envoyer la lettre d'intention à CFCA",
+          "who": "moi",
+          "where": "CFCA, guichet unique",
+          "how": ["Rédiger la lettre d'intention qui décrit le projet, l'activité, les marchés visés, les emplois.", "La faire signer par le client.", "L'envoyer à CFCA."],
+          "pieces": ["Lettre d'intention signée"],
+          "delai": "2 à 3 jours",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Accusé de réception de CFCA",
+          "offers": []
+        },
+        {
+          "id": "formulaire-cfc",
+          "title": "Remplir le formulaire de demande et le business plan CFC",
+          "who": "moi",
+          "where": "Formulaire fourni par CFCA",
+          "how": [
+            "Remplir le formulaire officiel avec le client.",
+            "Joindre le business plan (activité, clients étrangers, effectif, investissements).",
+            "Joindre les CV des dirigeants et les documents sociaux (traduits et apostillés s'ils viennent de l'étranger)."
+          ],
+          "pieces": ["Formulaire CFC", "Business plan", "CV", "Statuts et extrait de registre de la maison mère si groupe étranger"],
+          "delai": "1 à 2 semaines",
+          "cout": "Inclus dans le devis",
+          "pieges": ["Documents étrangers non apostillés ou non traduits (voir fiche intl-etranger)."],
+          "preuve": "Dossier complet prêt à déposer",
+          "offers": []
+        },
+        {
+          "id": "deontologie-frais",
+          "title": "Faire signer le code de déontologie et payer les frais de dossier",
+          "who": "client",
+          "where": "CFCA",
+          "how": ["Le dirigeant signe le code de déontologie de CFC.", "Le client paie les frais de dossier à CFCA.", "Mziane dépose le dossier complet."],
+          "pieces": ["Code de déontologie signé", "Preuve de paiement"],
+          "delai": "2 à 5 jours",
+          "cout": "Frais de dossier CFCA (à confirmer)",
+          "pieges": [],
+          "preuve": "Récépissé de dépôt du dossier CFC",
+          "offers": []
+        },
+        {
+          "id": "suivi-decision-cfc",
+          "title": "Suivre l'instruction jusqu'à la décision d'octroi",
+          "who": "administration",
+          "where": "CFCA puis ministère de l'Économie et des Finances",
+          "how": ["Relancer CFCA toutes les 2 semaines.", "Répondre vite aux demandes de compléments.", "Recevoir la décision d'octroi et la transmettre au client."],
+          "pieces": [],
+          "delai": "À confirmer (un projet de texte parlait de 30 à 45 jours)",
+          "cout": "0 DH",
+          "pieges": ["Laisser passer le délai de 6 mois après la décision pour créer la société : la décision n'est plus valable."],
+          "preuve": "Décision d'octroi du statut CFC",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Dossier ZAI",
+      "steps": [
+        {
+          "id": "demande-installation-zai",
+          "title": "Monter et déposer la demande d'installation en ZAI",
+          "who": "moi",
+          "where": "Aménageur-développeur de la zone",
+          "how": [
+            "Remplir la demande d'installation de l'aménageur.",
+            "Joindre le business plan, le descriptif de l'activité industrielle, les besoins (surface, énergie, eau), les emplois prévus.",
+            "Déposer et suivre jusqu'au passage du dossier devant le comité de l'aménageur."
+          ],
+          "pieces": ["Formulaire de l'aménageur", "Business plan", "Documents de la société ou de la maison mère"],
+          "delai": "2 à 6 semaines",
+          "cout": "Inclus dans le devis",
+          "pieges": ["Déposer une activité non admise dans cette zone : vérifier la liste de la zone avant."],
+          "preuve": "Accord d'admission de l'aménageur",
+          "offers": []
+        },
+        {
+          "id": "contrat-zai",
+          "title": "Faire relire et signer le contrat d'installation",
+          "who": "client",
+          "where": "Aménageur-développeur, avec relecture par le cabinet ou un avocat",
+          "how": ["Faire relire le contrat de location ou de vente du lot ou du bâtiment.", "Vérifier les délais de construction ou de démarrage imposés.", "Le client signe."],
+          "pieces": ["Projet de contrat"],
+          "delai": "1 à 3 semaines",
+          "cout": "Selon le contrat",
+          "pieges": ["Signer sans voir les pénalités en cas de retard de démarrage."],
+          "preuve": "Contrat d'installation signé",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Société et livraison",
+      "steps": [
+        {
+          "id": "creer-adapter-societe",
+          "title": "Créer ou adapter la société",
+          "who": "moi",
+          "where": "CRI de la région (procédure accélérée au CRI Casablanca-Settat pour les sociétés qui ont demandé le statut CFC) ; voir fiches de création",
+          "how": [
+            "Si la société n'existe pas : la créer avec le siège dans la zone ou à CFC, en suivant la fiche de la forme choisie et la fiche intl-etranger pour un investisseur étranger.",
+            "Si elle existe : transférer le siège ou créer une filiale dans la zone, avec PV et formalités au registre de commerce.",
+            "Ouvrir les comptes en devises ou en dirhams convertibles autorisés pour les sociétés en ZAI et à CFC."
+          ],
+          "pieces": ["Décision d'octroi CFC ou contrat ZAI", "Pièces de création"],
+          "delai": "48 h après dossier complet pour le CRI en procédure accélérée CFC, sinon 1 à 3 semaines",
+          "cout": "Frais d'État de création",
+          "pieges": ["Créer la société hors de la zone : les avantages sont liés à l'implantation."],
+          "preuve": "Modèle J avec l'adresse dans la zone ou à CFC",
+          "offers": []
+        },
+        {
+          "id": "livrer-zai",
+          "title": "Livrer le dossier et le calendrier des obligations",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer : étude, décision ou contrat, documents de la société, note fiscale.",
+            "Joindre un calendrier des obligations à tenir pour garder les avantages.",
+            "Passer le dossier au statut Livré, puis au statut Suivi réglementaire."
+          ],
+          "pieces": [],
+          "delai": "Dès réception du dernier document",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut Livré",
+          "offers": []
+        },
+        {
+          "id": "suivi-reglementaire",
+          "title": "Suivre les obligations réglementaires",
+          "who": "moi",
+          "where": "CFCA, aménageur, DGI, Office des changes",
+          "how": ["Rappeler au client les rapports et déclarations demandés par CFCA ou l'aménageur.", "Vérifier chaque année avec le cabinet que les conditions des avantages sont toujours remplies.", "Signaler toute loi de finances qui modifie le régime."],
+          "pieces": [],
+          "delai": "Chaque trimestre ou chaque année",
+          "cout": "Selon le devis",
+          "pieges": ["Perdre les avantages fiscaux faute d'avoir tenu une condition (chiffre d'affaires export, siège, emplois)."],
+          "preuve": "Compte rendu annuel de suivi envoyé au client",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Chiffrage du régime fiscal 2026 (IS, TVA, droits d'enregistrement, taxe professionnelle, IR des salariés) avant toute promesse écrite.",
+    "Vérification annuelle des conditions de maintien des avantages.",
+    "Comptabilité séparée si la société a des activités dans et hors du régime.",
+    "Relecture des contrats avec l'aménageur et des engagements pris envers CFCA."
+  ],
+  "client": [
+    "Signer le devis et payer l'acompte.",
+    "Fournir les chiffres réels du projet (export, emplois, investissement).",
+    "Signer la lettre d'intention, le formulaire, le code de déontologie CFC, et payer les frais de dossier.",
+    "Signer le contrat avec l'aménageur et payer le loyer ou le prix du lot.",
+    "Désigner un dirigeant résidant au Maroc (condition CFC)."
+  ],
+  "apres": [
+    "CFC : finaliser la création dans les 6 mois suivant la décision d'octroi.",
+    "Tenir les conditions du régime chaque année et conserver les preuves (part export, siège, effectif).",
+    "Surveiller les lois de finances : les taux des régimes ZAI et CFC ont changé plusieurs fois depuis 2020.",
+    "Garder les preuves du financement en devises pour rapatrier les bénéfices (voir intl-etranger)."
+  ],
+  "sources": [
+    { "title": "Casablanca Finance City, procédure d'obtention du statut", "url": "https://casablancafinancecity.com/community/procedure/?lang=en" },
+    { "title": "Décret-loi relatif à la réorganisation de Casablanca Finance City (Adala)", "url": "https://adala.justice.gov.ma/api/uploads/2024/03/20/Reorganisation de casablanca finance city-1710936103755.pdf" },
+    { "title": "Medias24, changements apportés par le projet de décret-loi CFC", "url": "https://medias24.com/Casablanca-Finance-City-voici-les-principaux-changements-apportes-par-le-projet-de-decret-loi" },
+    { "title": "Upsilon Consulting, CFC Maroc 2026", "url": "https://upsilon-consulting.com/casablanca-finance-city-cfc/" },
+    { "title": "Hespress, le Maroc étend les zones d'accélération industrielle (mars 2026)", "url": "https://en.hespress.com/133176-133176.html" },
+    { "title": "Moore Bernossi, zones d'accélération industrielle", "url": "https://bernossi.moore-global.com/en/zones-dacceleration-industrielle/" },
+    { "title": "Office des changes, comptes en devises et en dirhams convertibles (sociétés en ZAI et places financières)", "url": "https://www.oc.gov.ma/fr/personnes-morales/comptes-en-devises-et-comptes-en-dirhams-convertibles-au-nom-des-etrangers" },
+    { "title": "Boursenews, fiscalité des entreprises : ce qui change en 2023", "url": "https://boursenews.ma/article/actualite/fiscalite-pour-les-entreprises-ce-qui-change-pour-2023" }
+  ],
+  "a_verifier": [
+    "Taux d'IS en ZAI après les 5 premières années : les sources citent 15 %, 17,5 % ou 20 %. À faire confirmer par le cabinet dans le CGI 2026.",
+    "Régime IS du statut CFC en 2026 : les sources citent exonération 5 ans puis 8,75 %, 10 % pour les sièges régionaux, ou convergence vers 20 % ; la LF 2023 a limité l'exonération aux 60 premiers mois. À confirmer dans le CGI 2026.",
+    "Liste à jour des activités éligibles au statut CFC et des pièces exigées, montant des frais de dossier CFCA, délai d'instruction réel.",
+    "La page procédure de casablancafinancecity.com renvoyait une erreur 404 lors de la recherche : retrouver l'adresse actuelle.",
+    "Procédure d'admission en ZAI propre à chaque aménageur (formulaire, comité, critères), et effet du projet de loi 102-21 sur les zones industrielles.",
+    "Autres avantages ZAI annoncés par des cabinets (taxe professionnelle exonérée 15 ans, droits d'enregistrement, TVA) : à confirmer.",
+    "URL exacte du portail de l'AMDIE (morocconow.com ou investinmorocco)."
+  ]
+}

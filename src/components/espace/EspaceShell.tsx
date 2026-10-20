@@ -4,7 +4,7 @@
 import { createContext, useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FolderOpen, LogOut, UserRound, UsersRound } from "lucide-react";
+import { BookOpenCheck, FolderOpen, LogOut, UserRound, UsersRound } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/lib/supabase";
 import { attachPending, useSession, type Profile } from "@/lib/espace";
@@ -42,7 +42,10 @@ export default function EspaceShell({ children }: { children: React.ReactNode })
   const conseiller = profile?.role === "conseiller";
   const tabs = [
     { href: "/espace", label: "Mes dossiers", icon: FolderOpen, active: pathname === "/espace" || pathname.startsWith("/espace/dossier") },
-    ...(conseiller ? [{ href: "/espace/conseiller", label: "Tous les dossiers", icon: UsersRound, active: pathname.startsWith("/espace/conseiller") }] : []),
+    ...(conseiller ? [
+      { href: "/espace/conseiller", label: "Tous les dossiers", icon: UsersRound, active: pathname.startsWith("/espace/conseiller") && !pathname.startsWith("/espace/conseiller/procedures") },
+      { href: "/espace/conseiller/procedures", label: "Procédures", icon: BookOpenCheck, active: pathname.startsWith("/espace/conseiller/procedures") },
+    ] : []),
     { href: "/espace/profil", label: "Mon profil", icon: UserRound, active: pathname.startsWith("/espace/profil") },
   ];
 
@@ -54,7 +57,7 @@ export default function EspaceShell({ children }: { children: React.ReactNode })
   return (
     <EspaceContext.Provider value={{ userId: session.user.id, email: session.user.email ?? "", profile }}>
       <div className="min-h-[70vh] bg-zinc-50 pb-24">
-        <div className="border-b border-zinc-200 bg-white">
+        <div className="border-b border-zinc-200 bg-white print:hidden">
           <div className="mx-auto flex max-w-[1080px] items-center gap-1 overflow-x-auto px-4 sm:px-6">
             {tabs.map(({ href, label, icon: Icon, active }) => (
               <Link key={href} href={href} aria-current={active ? "page" : undefined}

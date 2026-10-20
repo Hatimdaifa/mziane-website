@@ -17,6 +17,7 @@ import { progress, requirementGroups, type GroupState, type ReqState } from "@/c
 import ConseillerPanel from "@/components/espace/ConseillerPanel";
 import { supabase } from "@/lib/supabase";
 import { waLink } from "@/lib/offers";
+import ProcedurePanel from "@/components/espace/ProcedurePanel";
 import {
   ACCEPT, fmtDate, fmtSize, openDocument, removeDocument, statutInfo, uploadDocument,
   type Answer, type DocFile, type Dossier, type DossierEvent, type Profile,
@@ -88,6 +89,7 @@ export default function DossierView({ id }: { id: string }) {
       </div>
 
       {conseiller && <ConseillerPanel data={data} authorId={userId} onChange={load} />}
+      {conseiller && <ProcedurePanel dossier={data.dossier} userId={userId} />}
 
       <Card>
         <StatusSteps status={dossier.status} />

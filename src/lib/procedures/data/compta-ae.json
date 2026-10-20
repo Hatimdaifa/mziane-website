@@ -1,0 +1,344 @@
+{
+  "id": "compta-ae",
+  "title": "Tenir les déclarations d'un auto-entrepreneur",
+  "offers": ["compta-declaratif"],
+  "summary": "Chaque trimestre, le chiffre d'affaires encaissé par l'auto-entrepreneur est déclaré à temps sur le portail auto-entrepreneur, l'impôt et la cotisation CNSS/AMO sont payés, et la quittance est rangée dans son espace client. Le registre des recettes est tenu à jour et le client est alerté avant d'approcher un plafond ou la limite des 80 000 DH avec un même client.",
+  "duree": "Mise en place : 2 à 5 jours ouvrés. Ensuite environ 1 heure par client et par trimestre, à faire entre le 1er et le 20 du mois qui suit le trimestre.",
+  "frais_officiels": [
+    { "label": "Impôt sur le revenu libératoire, commerce, industrie, artisanat", "montant": "0,5 % du chiffre d'affaires encaissé", "note": "Payé par le client chaque trimestre, ce n'est pas un honoraire Mziane." },
+    { "label": "Impôt sur le revenu libératoire, prestations de services", "montant": "1 % du chiffre d'affaires encaissé", "note": "Payé par le client chaque trimestre." },
+    { "label": "Retenue à la source sur la part au-delà de 80 000 DH par an chez un même client (services)", "montant": "30 % de l'excédent", "note": "Retenue faite par le client donneur d'ordre, pas par l'auto-entrepreneur (art. 73-II-G-8° CGI, depuis la loi de finances 2023)." },
+    { "label": "Cotisation CNSS/AMO auto-entrepreneur", "montant": "De 300 DH à 3 600 DH par trimestre selon la tranche (minimum 300 DH même sans chiffre d'affaires)", "note": "Barème relevé sur des guides privés 2026, à confirmer sur cnss.ma avant de l'annoncer au client." },
+    { "label": "Frais de service au guichet Al Barid Bank (si paiement au guichet)", "montant": "Environ 4 à 6 DH", "note": "Montant indicatif cité par un guide privé." }
+  ],
+  "avant_de_commencer": [
+    "Vérifier que le client a bien le statut auto-entrepreneur actif : carte ou attestation, identifiant fiscal (IF) et ICE.",
+    "Récupérer les accès du client au portail auto-entrepreneur (ae.gov.ma, espace rn.ae.gov.ma). Si le client les a perdus, prévoir la réinitialisation avec lui, car elle se fait souvent par SMS sur son téléphone.",
+    "Noter la nature de l'activité (commerce/artisanat à 0,5 % ou services à 1 %) : elle fixe le taux d'impôt et le plafond (500 000 DH ou 200 000 DH).",
+    "Noter le numéro d'immatriculation CNSS du client et sa tranche AMO actuelle.",
+    "Faire signer au client un mandat écrit autorisant Mziane à déclarer en son nom avec ses accès, et l'informer que c'est lui qui reste responsable devant la DGI et la CNSS.",
+    "Savoir que la tenue des déclarations d'un auto-entrepreneur n'exige pas d'expert-comptable : il n'y a ni bilan ni liasse fiscale."
+  ],
+  "phases": [
+    {
+      "title": "1. Mise en place du dossier (une seule fois)",
+      "steps": [
+        {
+          "id": "verifier-pieces-ae",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane, dossier « Déclarations auto-entrepreneur »",
+          "how": [
+            "Ouvrir le dossier du client et contrôler : carte ou attestation AE, IF et ICE, numéro CNSS, factures ou relevé des encaissements du trimestre en cours.",
+            "Comparer le nom, le numéro de CIN et l'activité avec ceux de la carte AE.",
+            "Demander sur WhatsApp les pièces manquantes en une seule liste."
+          ],
+          "pieces": ["Carte ou attestation AE", "IF et ICE", "Numéro CNSS", "Factures émises ou relevé des encaissements"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Une carte AE d'une autre activité que celle réellement exercée : le taux et le plafond seraient faux."],
+          "preuve": "Dossier client complet, statut « pièces validées »",
+          "offers": []
+        },
+        {
+          "id": "acces-portail-ae",
+          "title": "Tester la connexion au portail auto-entrepreneur",
+          "who": "moi",
+          "where": "Portail national de l'auto-entrepreneur : https://www.ae.gov.ma (espace personnel sur https://rn.ae.gov.ma)",
+          "how": [
+            "Se connecter avec le numéro de CIN du client et son mot de passe, en appel avec lui si un code SMS est demandé.",
+            "Ouvrir l'onglet des déclarations et relever les trimestres déjà déclarés et ceux qui restent en rouge ou à zéro.",
+            "Noter dans la fiche client les trimestres en retard à régulariser."
+          ],
+          "pieces": ["Identifiants du client"],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Changer le mot de passe sans prévenir le client : il serait bloqué ensuite.", "Oublier qu'un trimestre sans chiffre d'affaires doit quand même être déclaré à zéro."],
+          "preuve": "Capture de l'écran des trimestres déclarés, rangée dans le dossier",
+          "offers": []
+        },
+        {
+          "id": "regulariser-retards-ae",
+          "title": "Régulariser les trimestres en retard",
+          "who": "moi",
+          "where": "https://rn.ae.gov.ma",
+          "how": [
+            "Pour chaque trimestre non déclaré, saisir le chiffre d'affaires encaissé (ou 0).",
+            "Prévenir le client du montant à payer, pénalités comprises, avant de valider.",
+            "Faire payer comme pour un trimestre normal (voir phase 2)."
+          ],
+          "pieces": ["Relevé des encaissements des trimestres concernés"],
+          "delai": "1 à 3 jours",
+          "cout": "Impôt dû + pénalité de retard (une source privée cite 100 DH par trimestre non déclaré, à confirmer)",
+          "pieges": ["Déclarer un montant inventé pour « fermer » le trimestre : le chiffre doit correspondre aux encaissements réels."],
+          "preuve": "Accusés de déclaration et quittances des trimestres régularisés",
+          "offers": []
+        },
+        {
+          "id": "creer-registre-recettes",
+          "title": "Créer le registre des recettes du client",
+          "who": "moi",
+          "where": "Tableur partagé dans l'espace client (un onglet par année)",
+          "how": [
+            "Créer les colonnes : date d'encaissement, numéro de facture, nom et ICE du client payeur, nature (vente ou service), montant, mode de paiement.",
+            "Ajouter une colonne « cumul annuel par client » et une ligne « cumul annuel total ».",
+            "Pour une activité commerciale, ajouter un onglet des achats (date, fournisseur, numéro de facture, montant)."
+          ],
+          "pieces": ["Factures de l'année en cours"],
+          "delai": "1 heure",
+          "cout": "0 DH",
+          "pieges": ["Noter la date de facture au lieu de la date d'encaissement : l'AE est imposé sur ce qui est encaissé."],
+          "preuve": "Registre des recettes à jour dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "parametrer-alertes-ae",
+          "title": "Programmer les rappels et les seuils d'alerte",
+          "who": "moi",
+          "where": "Agenda Mziane et registre des recettes",
+          "how": [
+            "Créer 4 rappels par an : 5 avril, 5 juillet, 5 octobre, 5 janvier (demande des encaissements) et 4 rappels de sécurité au 20 de ces mêmes mois (date limite interne pour déclarer).",
+            "Dans le registre, colorer en orange un client payeur dès 60 000 DH cumulés dans l'année (services) et en rouge à 75 000 DH.",
+            "Colorer en orange le cumul total à 80 % du plafond (160 000 DH en services, 400 000 DH en commerce)."
+          ],
+          "pieces": [],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Ne surveiller que le cumul total et oublier la limite de 80 000 DH par client."],
+          "preuve": "Rappels visibles dans l'agenda, mise en forme conditionnelle active",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Cycle trimestriel (4 fois par an)",
+      "steps": [
+        {
+          "id": "demander-encaissements",
+          "title": "Demander au client ses encaissements du trimestre",
+          "who": "moi",
+          "where": "WhatsApp et espace client",
+          "how": [
+            "Le 1er jour ouvré du mois qui suit le trimestre (avril, juillet, octobre, janvier), envoyer un message type : « Envoyez les factures et les paiements reçus entre le 1er [mois] et le [fin du trimestre] ».",
+            "Demander aussi un relevé bancaire ou une capture des virements reçus si le client n'a pas de factures pour tout."
+          ],
+          "pieces": ["Factures émises", "Relevé bancaire ou relevé des encaissements en espèces"],
+          "delai": "Relance après 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Attendre la fin du mois : en cas d'oubli du client, il n'y a plus de marge."],
+          "preuve": "Pièces du trimestre déposées dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "saisir-registre-trimestre",
+          "title": "Saisir les encaissements dans le registre des recettes",
+          "who": "moi",
+          "where": "Registre des recettes du client",
+          "how": [
+            "Saisir chaque encaissement à sa date réelle d'encaissement.",
+            "Rapprocher le total avec le relevé bancaire et demander au client d'expliquer tout écart.",
+            "Calculer le chiffre d'affaires encaissé du trimestre."
+          ],
+          "pieces": ["Factures", "Relevé bancaire"],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Compter un acompte reçu en décembre dans le trimestre suivant : il compte dans le trimestre où il est encaissé."],
+          "preuve": "Total du trimestre dans le registre, rapproché de la banque",
+          "offers": []
+        },
+        {
+          "id": "controler-plafonds",
+          "title": "Contrôler les plafonds et la limite par client",
+          "who": "moi",
+          "where": "Registre des recettes",
+          "how": [
+            "Comparer le cumul annuel au plafond : 200 000 DH pour les services, 500 000 DH pour le commerce, l'industrie et l'artisanat.",
+            "Pour les services, vérifier le cumul annuel de chaque client payeur : au-delà de 80 000 DH, ce client doit retenir 30 % sur l'excédent et le verser au fisc.",
+            "Si un seuil orange ou rouge est atteint, passer à l'étape « Alerter le client »."
+          ],
+          "pieces": [],
+          "delai": "10 minutes",
+          "cout": "0 DH",
+          "pieges": ["Croire que la limite des 80 000 DH est un plafond qui fait perdre le statut : ce n'est pas le cas, c'est une retenue de 30 % sur la part qui dépasse."],
+          "preuve": "Note « plafonds contrôlés » avec les cumuls dans la fiche client",
+          "offers": []
+        },
+        {
+          "id": "declarer-ca-trimestre",
+          "title": "Déclarer le chiffre d'affaires du trimestre",
+          "who": "moi",
+          "where": "https://rn.ae.gov.ma, espace personnel du client, rubrique déclaration du chiffre d'affaires",
+          "how": [
+            "Se connecter avec les identifiants du client.",
+            "Choisir le trimestre concerné.",
+            "Saisir le chiffre d'affaires encaissé (0 s'il n'y a rien eu).",
+            "Vérifier le montant d'impôt calculé : 0,5 % ou 1 % du montant saisi.",
+            "Valider puis télécharger ou imprimer l'avis de déclaration et de paiement."
+          ],
+          "pieces": ["Total du trimestre", "Identifiants du client"],
+          "delai": "Avant la fin du mois qui suit le trimestre (30 avril, 31 juillet, 31 octobre, 31 janvier). Objectif interne : le 20.",
+          "cout": "0 DH",
+          "pieges": ["Ne pas déclarer un trimestre à zéro.", "Déclarer hors délai : pénalités.", "Se tromper de trimestre dans la liste."],
+          "preuve": "Avis de déclaration du trimestre (PDF)",
+          "offers": []
+        },
+        {
+          "id": "payer-ir-cnss-ae",
+          "title": "Faire payer l'impôt et la cotisation CNSS/AMO",
+          "who": "client",
+          "where": "En ligne sur le portail ae.gov.ma (paiement par carte bancaire si proposé) ou au guichet Al Barid Bank avec l'avis imprimé",
+          "how": [
+            "Envoyer au client le montant exact à payer (impôt + cotisation CNSS/AMO de sa tranche) et l'avis en PDF.",
+            "Si le paiement en ligne est disponible, le faire avec le client en appel, avec sa carte : Mziane ne paie jamais avec sa propre carte.",
+            "Sinon, le client imprime l'avis et paie au guichet Al Barid Bank avant la date limite.",
+            "Demander la photo de la quittance le jour même."
+          ],
+          "pieces": ["Avis de déclaration et de paiement"],
+          "delai": "Même date limite que la déclaration ; la déclaration n'est validée qu'une fois payée",
+          "cout": "Impôt (0,5 % ou 1 % du CA) + cotisation CNSS/AMO de la tranche + frais de guichet éventuels",
+          "pieges": ["Laisser le client payer le dernier jour : un paiement par virement ou en agence peut mettre plusieurs jours à être pris en compte.", "Oublier la cotisation CNSS/AMO : le client perd la couverture maladie."],
+          "preuve": "Quittance de paiement",
+          "offers": []
+        },
+        {
+          "id": "verifier-statut-paye",
+          "title": "Vérifier que le trimestre apparaît payé",
+          "who": "moi",
+          "where": "https://rn.ae.gov.ma, et espace CNSS du client si disponible",
+          "how": [
+            "3 à 5 jours après le paiement, se reconnecter et vérifier que le trimestre n'est plus en rouge.",
+            "Vérifier que la cotisation CNSS/AMO du trimestre est bien enregistrée.",
+            "Si ce n'est pas le cas, envoyer la quittance au support du portail ou à l'agence CNSS."
+          ],
+          "pieces": ["Quittance"],
+          "delai": "3 à 5 jours après paiement",
+          "cout": "0 DH",
+          "pieges": ["Se contenter de la quittance sans vérifier sur le portail."],
+          "preuve": "Capture du trimestre au statut payé",
+          "offers": []
+        },
+        {
+          "id": "livrer-trimestre-ae",
+          "title": "Livrer les justificatifs dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer l'avis de déclaration, la quittance et l'extrait du registre du trimestre.",
+            "Envoyer au client un message court : montant déclaré, montant payé, cumul de l'année, distance aux plafonds.",
+            "Passer le dossier au statut « trimestre clos »."
+          ],
+          "pieces": [],
+          "delai": "Même jour",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Documents visibles dans l'espace client, statut « trimestre clos »",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Alertes plafonds (dès qu'un seuil est approché)",
+      "steps": [
+        {
+          "id": "alerter-80000",
+          "title": "Alerter le client qui approche 80 000 DH avec un même client",
+          "who": "moi",
+          "where": "WhatsApp, puis note dans l'espace client",
+          "how": [
+            "Envoyer : nom du client payeur, cumul de l'année, montant restant avant 80 000 DH.",
+            "Expliquer simplement : au-delà, le client payeur doit retenir 30 % sur la part qui dépasse et la verser aux impôts ; l'AE ne déclare pas cette part une deuxième fois à 1 %.",
+            "Conseiller de demander au client payeur l'attestation de retenue à la source pour la garder.",
+            "Si l'activité doit durablement dépasser ce seuil, proposer un rendez-vous pour étudier le passage en société."
+          ],
+          "pieces": [],
+          "delai": "Dès que le cumul atteint 60 000 DH, puis 75 000 DH",
+          "cout": "0 DH",
+          "pieges": ["Laisser l'AE déclarer à 1 % une somme qui a déjà subi la retenue de 30 % : demander au cabinet comment la traiter dans la déclaration trimestrielle."],
+          "preuve": "Message d'alerte envoyé et archivé",
+          "offers": []
+        },
+        {
+          "id": "alerter-plafond-annuel",
+          "title": "Alerter le client qui approche son plafond annuel",
+          "who": "moi",
+          "where": "WhatsApp, puis rendez-vous téléphonique",
+          "how": [
+            "Dès 80 % du plafond (160 000 DH en services, 400 000 DH en commerce), prévenir le client par écrit.",
+            "Expliquer que le dépassement du plafond deux années de suite fait perdre le statut d'auto-entrepreneur (règle à confirmer avec le cabinet avant de l'écrire au client).",
+            "Proposer l'offre de création de SARLAU si la croissance continue."
+          ],
+          "pieces": [],
+          "delai": "Dès le seuil atteint",
+          "cout": "0 DH",
+          "pieges": ["Conseiller de « ne pas encaisser » ou de décaler des encaissements : c'est risqué fiscalement, ne pas le faire."],
+          "preuve": "Message d'alerte archivé",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Fin d'année",
+      "steps": [
+        {
+          "id": "bilan-annuel-ae",
+          "title": "Faire le point annuel avec le client",
+          "who": "moi",
+          "where": "Appel ou WhatsApp en janvier",
+          "how": [
+            "Après la déclaration du 4e trimestre, envoyer le récapitulatif de l'année : chiffre d'affaires total, impôt payé, cotisations CNSS/AMO payées, cumul par client.",
+            "Vérifier la tranche CNSS/AMO qui s'applique pour l'année suivante.",
+            "Archiver le registre de l'année et ouvrir l'onglet de la nouvelle année."
+          ],
+          "pieces": [],
+          "delai": "Avant le 15 février",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Récapitulatif annuel déposé dans l'espace client",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "En principe, pas besoin du cabinet : l'auto-entrepreneur n'a ni bilan, ni liasse, ni signature d'expert-comptable.",
+    "Appeler le cabinet si un client payeur a appliqué la retenue de 30 % au-delà de 80 000 DH, pour savoir exactement quoi déclarer sur le portail et éviter une double imposition.",
+    "Appeler le cabinet si le plafond est dépassé, pour les conséquences (perte du statut, passage au régime normal, TVA).",
+    "Appeler le cabinet si l'AE reçoit un courrier ou un contrôle de la DGI ou de la CNSS.",
+    "Appeler le cabinet si l'AE vend à l'étranger, encaisse en devises ou a une activité mixte (commerce et services)."
+  ],
+  "client": [
+    "Envoyer chaque trimestre toutes ses factures et ses encaissements, même en espèces.",
+    "Payer lui-même l'impôt et la cotisation CNSS/AMO, avec sa carte ou au guichet.",
+    "Garder son téléphone disponible pour les codes de connexion au portail.",
+    "Mettre son ICE et son IF sur toutes ses factures.",
+    "Prévenir Mziane avant de signer un gros contrat avec un même client."
+  ],
+  "apres": [
+    "Recommencer chaque trimestre : avril, juillet, octobre, janvier.",
+    "Surveiller en continu le cumul annuel et le cumul par client.",
+    "Calendrier annuel : avant le 31 janvier (T4 de l'année précédente), avant le 30 avril (T1), avant le 31 juillet (T2), avant le 31 octobre (T3).",
+    "Conserver les factures, le registre, les avis et les quittances au moins 10 ans.",
+    "Proposer le passage en société si le client approche durablement ses plafonds."
+  ],
+  "sources": [
+    { "title": "Portail national de l'auto-entrepreneur", "url": "https://www.ae.gov.ma" },
+    { "title": "CGI, article 82 bis, déclaration du chiffre d'affaires de l'auto-entrepreneur (Fiscamaroc)", "url": "https://www.fiscamaroc.com/limpot-sur-revenu-29/declaration-du-chiffre-daffaires-auto-entrepreneur-753.htm" },
+    { "title": "DGI : échéance du 1er mai 2026, déclaration trimestrielle AE (Boursenews)", "url": "https://boursenews.ma/article/actualite/dgi-echeance-1er-mai-2026-declarations-fiscales" },
+    { "title": "Déclarer ses impôts en tant qu'auto-entrepreneur en 2026 (Démarches Maroc)", "url": "https://www.demarchesmaroc.com/declarer-impots-auto-entrepreneur/" },
+    { "title": "Seuil de 80 000 DH et retenue de 30 % (Captain Legal)", "url": "https://www.captain.legal/ma/blog/auto-entrepreneur-sarl-seuil-80000-dh/" },
+    { "title": "CNSS auto-entrepreneur 2026, tranches (Lmoukawil)", "url": "https://www.lmoukawil.ma/fr/articles/cnss-auto-entrepreneur-maroc-2026/" },
+    { "title": "Paiement auto-entrepreneur en ligne 2026 (Weepo)", "url": "https://weepo.ma/blog/paiement-auto-entrepreneur-maroc-en-ligne" },
+    { "title": "CNSS", "url": "https://www.cnss.ma" }
+  ],
+  "a_verifier": [
+    "Barème exact CNSS/AMO des auto-entrepreneurs en 2026 (8 tranches de 300 à 3 600 DH par trimestre selon l'impôt annuel) : relevé sur des guides privés, à confirmer sur cnss.ma ou en agence CNSS.",
+    "Lieu exact de paiement de la cotisation CNSS/AMO : en même temps que l'impôt sur ae.gov.ma, ou séparément auprès de la CNSS (les sources divergent).",
+    "Moyens de paiement acceptés en 2026 : une source dit uniquement au guichet Al Barid Bank, une autre dit carte bancaire en ligne sur ae.gov.ma. Tester au premier trimestre.",
+    "Montant de la pénalité pour déclaration en retard (100 DH par trimestre selon une source privée).",
+    "Comment déclarer sur le portail la part au-delà de 80 000 DH déjà soumise à la retenue de 30 % (faut-il l'exclure du chiffre déclaré ?).",
+    "Règle de perte du statut en cas de dépassement du plafond deux années consécutives : à confirmer dans le CGI en vigueur.",
+    "Possibilité d'une déclaration mensuelle au lieu de trimestrielle (la DGI parle d'AE « ayant opté pour la déclaration trimestrielle »).",
+    "Contenu exact du registre obligatoire (recettes seules ou recettes et achats) prévu par la loi 114-13.",
+    "Situation de l'AE au regard de la TVA et de la taxe professionnelle après les 5 premières années."
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "id": "creation-cooperative",
+  "title": "Créer une coopérative",
+  "offers": ["soc-essentiel", "soc-standard", "soc-premium"],
+  "summary": "Le client obtient une coopérative constituée selon la loi 112-12 : nom approuvé par l'ODCO, statuts signés, capital déposé en banque, récépissé de l'autorité locale et immatriculation au registre local des coopératives (tribunal de première instance), puis identifiants fiscaux. La procédure se fait surtout au guichet : elle ne passe pas par DirectEntreprise ni par le registre de commerce.",
+  "duree": "3 à 6 semaines selon la délégation ODCO, l'autorité locale et le greffe",
+  "frais_officiels": [
+    { "label": "Certificat de dénomination ODCO", "montant": "à confirmer", "note": "Aucun montant publié trouvé sur le site de l'ODCO. Demander à la délégation régionale." },
+    { "label": "Récépissé de l'autorité locale", "montant": "à confirmer", "note": "La loi impose sa remise immédiate (art. 7 loi 112-12) ; aucun frais publié trouvé." },
+    { "label": "Immatriculation au registre local des coopératives", "montant": "à confirmer", "note": "Greffe du tribunal de première instance ; montant non publié en ligne." },
+    { "label": "Capital minimum", "montant": "1 000 DH", "note": "Ce n'est pas un frais : l'argent reste à la coopérative. Chaque part vaut au moins 100 DH." },
+    { "label": "Légalisations et copies certifiées", "montant": "à confirmer", "note": "Petits montants par signature ou par copie à la commune." }
+  ],
+  "avant_de_commencer": [
+    "Le groupe compte au moins 5 membres fondateurs (personnes physiques ou morales) qui exercent la même activité ou ont un besoin commun.",
+    "Le paiement de Mziane est reçu (ou le client relève de l'option coopérative du pack agricole : création offerte avec la comptabilité à 490 DH HT par mois pendant 12 mois).",
+    "Les membres ont choisi un président provisoire qui portera le dossier (dépôts et retraits).",
+    "Le siège est disponible : bail, attestation de propriété ou mise à disposition gratuite par un membre.",
+    "Si l'activité est réglementée (lait, huiles, produits alimentaires, transport, etc.), l'autorisation ou l'agrément technique est identifié.",
+    "Repérer la délégation régionale de l'ODCO compétente pour le siège (liste sur https://www.odco.gov.ma).",
+    "Expliquer au client qu'une coopérative n'est pas une société commerciale : un membre égale une voix, et elle a ses propres règles fiscales."
+  ],
+  "phases": [
+    {
+      "title": "1. Ouvrir le dossier",
+      "steps": [
+        {
+          "id": "verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir la liste « Création d'une coopérative ».",
+            "Compter les membres : 5 minimum. Contrôler chaque CIN (recto verso, valide).",
+            "Contrôler la liste des membres : nom, adresse, nombre de parts souscrites.",
+            "Lire les trois noms proposés et la description de l'activité.",
+            "Contrôler le justificatif du siège.",
+            "Vérifier que le capital total atteint au moins 1 000 DH et qu'aucune part n'est sous 100 DH."
+          ],
+          "pieces": ["CIN de chaque membre", "Liste des membres avec adresse et parts", "Trois noms", "Activité", "Justificatif du siège", "Autorisation si activité réglementée"],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": ["Un membre avec une CIN expirée bloque tout le dossier.", "Moins de 5 signataires : la demande de nom est refusée."],
+          "preuve": "Toutes les pièces au statut « validée »",
+          "offers": []
+        },
+        {
+          "id": "devis-frais",
+          "title": "Envoyer le devis des frais et le planning",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Appeler la délégation ODCO pour confirmer les éventuels frais et les jours de réception.",
+            "Envoyer au client le devis des frais (légalisations, copies, greffe) et le planning des déplacements.",
+            "Attendre l'accord et le paiement."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "Selon devis",
+          "pieges": [],
+          "preuve": "Devis accepté",
+          "offers": []
+        },
+        {
+          "id": "telecharger-modeles",
+          "title": "Télécharger les formulaires et modèles de l'ODCO",
+          "who": "moi",
+          "where": "Site ODCO : https://www.odco.gov.ma, rubrique « Votre coopérative » / créer votre coopérative",
+          "how": [
+            "Télécharger : demande d'approbation de la dénomination, statuts types, liste des membres, guide de constitution, guide des documents.",
+            "Les remplir sur ordinateur (pas au stylo, recommandation de l'ODCO)."
+          ],
+          "pieces": [],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Utiliser un vieux modèle de statuts : prendre toujours celui en ligne le jour même."],
+          "preuve": "Formulaires remplis",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Nom de la coopérative",
+      "steps": [
+        {
+          "id": "verifier-nom",
+          "title": "Vérifier que les noms sont libres",
+          "who": "moi",
+          "where": "Base OMPIC : http://www.directinfo.ma (recherche par nom) + annuaire ODCO",
+          "how": [
+            "Chercher chaque nom proposé.",
+            "Écarter les noms déjà utilisés par une coopérative ou un autre organisme."
+          ],
+          "pieces": ["Trois noms"],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Le nom ne peut plus être changé une fois obtenu (FAQ ODCO) : le choisir avec soin."],
+          "preuve": "Liste de noms vérifiés",
+          "offers": []
+        },
+        {
+          "id": "certificat-denomination",
+          "title": "Demander le certificat de dénomination à l'ODCO",
+          "who": "moi",
+          "where": "Délégation régionale de l'ODCO compétente pour le siège (au guichet)",
+          "how": [
+            "Faire signer la demande d'approbation de la dénomination par au moins 5 membres fondateurs.",
+            "Déposer la demande avec les copies des CIN à la délégation.",
+            "Noter la date de retrait annoncée.",
+            "Retirer le certificat (en arabe et en français)."
+          ],
+          "pieces": ["Demande d'approbation de la dénomination signée par 5 membres au moins", "Copies des CIN"],
+          "delai": "à confirmer avec la délégation (quelques jours en pratique)",
+          "cout": "à confirmer",
+          "pieges": ["Le certificat est valable 60 jours, renouvelable une seule fois : enchaîner vite les étapes suivantes."],
+          "preuve": "Certificat de dénomination (attestation d'approbation du nom) de l'ODCO",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Statuts et assemblée constitutive",
+      "steps": [
+        {
+          "id": "rediger-statuts",
+          "title": "Rédiger les statuts à partir du modèle ODCO",
+          "who": "moi",
+          "where": "Statuts types ODCO (art. 5 de la loi 112-12)",
+          "how": [
+            "Reporter le nom exact du certificat, l'objet, le siège, la circonscription, le capital, la valeur de la part.",
+            "Choisir l'organe de gestion : conseil d'administration de 3, 6, 9 ou 12 membres, ou un ou deux gestionnaires si moins de 50 membres.",
+            "Indiquer les règles d'entrée et de sortie des membres.",
+            "Faire relire le projet par la délégation ODCO avant signature (recommandé par l'ODCO)."
+          ],
+          "pieces": ["Certificat de dénomination", "Liste des membres"],
+          "delai": "2 à 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Statuts remplis à la main : refusés en pratique.", "Objet trop large ou hors de l'activité commune des membres."],
+          "preuve": "Statuts relus par l'ODCO",
+          "offers": []
+        },
+        {
+          "id": "assemblee-constitutive",
+          "title": "Organiser l'assemblée constitutive et faire signer",
+          "who": "client",
+          "where": "Siège de la coopérative ou lieu choisi par les membres ; légalisation des signatures à la commune si demandée",
+          "how": [
+            "Réunir les membres fondateurs.",
+            "Adopter les statuts, élire le conseil d'administration ou le ou les gestionnaires, désigner le président.",
+            "Rédiger le PV de l'assemblée et le PV de délégation de signature pour la banque.",
+            "Faire signer les statuts par tous les membres fondateurs (et représentants des membres personnes morales).",
+            "Faire légaliser les signatures si la délégation ou l'autorité locale l'exige."
+          ],
+          "pieces": ["Statuts", "PV d'assemblée", "PV de délégation de signature", "CIN originales"],
+          "delai": "1 jour (plus les rendez-vous de légalisation)",
+          "cout": "Légalisations à confirmer",
+          "pieges": ["Un membre absent : prévoir sa procuration à l'avance.", "Oublier le PV de délégation de signature : la banque refusera le compte."],
+          "preuve": "Statuts signés par tous et PV signés",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Capital",
+      "steps": [
+        {
+          "id": "compte-bancaire",
+          "title": "Ouvrir le compte bancaire et déposer le capital",
+          "who": "client",
+          "where": "Banque choisie par la coopérative",
+          "how": [
+            "Le président ouvre un compte au nom de la coopérative.",
+            "Il remet : certificat de dénomination, statuts signés, liste des membres, copies des CIN des membres et des dirigeants, PV de délégation de signature.",
+            "Les membres versent les parts souscrites.",
+            "Il demande l'attestation de dépôt du capital et l'envoie dans l'espace client."
+          ],
+          "pieces": ["Certificat de dénomination", "Statuts signés", "Liste des membres", "CIN", "PV de délégation de signature", "Fonds"],
+          "delai": "2 à 7 jours selon la banque",
+          "cout": "0 DH de frais d'État (frais bancaires possibles)",
+          "pieges": ["Capital total sous 1 000 DH : refus."],
+          "preuve": "Attestation bancaire de versement du capital",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Autorité locale et registre des coopératives",
+      "steps": [
+        {
+          "id": "preparer-copies",
+          "title": "Préparer le dossier en trois exemplaires",
+          "who": "moi",
+          "where": "Bureau de Mziane + bureau de légalisation de la commune",
+          "how": [
+            "Rassembler : certificat de dénomination, statuts signés, liste des membres, copies des CIN des membres et des dirigeants, attestation bancaire.",
+            "Faire 1 original et 2 copies certifiées conformes (décret 2-15-617, art. 1).",
+            "Remplir la demande d'immatriculation au registre local des coopératives."
+          ],
+          "pieces": ["Toutes les pièces ci-dessus"],
+          "delai": "1 jour",
+          "cout": "Copies certifiées à confirmer",
+          "pieges": ["Copie non certifiée : retour au guichet."],
+          "preuve": "Trois dossiers complets",
+          "offers": []
+        },
+        {
+          "id": "recepisse-autorite-locale",
+          "title": "Déposer le dossier à l'autorité locale et obtenir le récépissé",
+          "who": "client",
+          "where": "Autorité administrative locale du siège (caïdat, pachalik ou annexe administrative)",
+          "how": [
+            "Le président (ou son suppléant) dépose le dossier, accompagné par Mziane si possible.",
+            "Il demande le récépissé de dépôt, qui doit être remis immédiatement (art. 7 loi 112-12).",
+            "Il envoie une photo du récépissé dans l'espace client."
+          ],
+          "pieces": ["Certificat de dénomination", "Statuts", "Liste des membres", "CIN", "Attestation bancaire"],
+          "delai": "Immédiat selon la loi",
+          "cout": "à confirmer",
+          "pieges": ["Récépissé refusé ou différé : noter la date et le nom de l'agent, puis prévenir la délégation ODCO."],
+          "preuve": "Récépissé de dépôt de l'autorité locale",
+          "offers": []
+        },
+        {
+          "id": "immatriculation-registre",
+          "title": "Immatriculer la coopérative au registre local des coopératives",
+          "who": "moi",
+          "where": "Greffe du tribunal de première instance du siège (registre local des coopératives)",
+          "how": [
+            "Déposer : demande d'immatriculation, certificat de dénomination, statuts, liste des membres, CIN, attestation bancaire, récépissé de l'autorité locale.",
+            "Payer les frais éventuels.",
+            "Retirer la copie du formulaire d'immatriculation qui porte le numéro d'immatriculation."
+          ],
+          "pieces": ["Dossier complet", "Récépissé de l'autorité locale"],
+          "delai": "à confirmer avec le greffe",
+          "cout": "à confirmer",
+          "pieges": ["Le greffe envoie l'information au registre central tenu par l'ODCO : vérifier ensuite que la coopérative y apparaît."],
+          "preuve": "Formulaire d'immatriculation avec numéro au registre des coopératives",
+          "offers": []
+        },
+        {
+          "id": "registres-legaux",
+          "title": "Faire coter et parapher les registres de la coopérative",
+          "who": "moi",
+          "where": "Greffe du tribunal de première instance",
+          "how": [
+            "Acheter trois registres : registre des membres, registre des délibérations des assemblées générales, registre des délibérations du conseil d'administration.",
+            "Les faire numéroter et signer au greffe.",
+            "Remplir le registre des membres avec la liste des fondateurs."
+          ],
+          "pieces": ["Registres vierges", "Immatriculation"],
+          "delai": "1 jour",
+          "cout": "Prix des registres ; frais de greffe à confirmer",
+          "pieges": [],
+          "preuve": "Registres cotés et paraphés",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. Après l'immatriculation",
+      "steps": [
+        {
+          "id": "identifiants-fiscaux",
+          "title": "Obtenir l'identifiant fiscal, l'ICE et l'inscription à la taxe professionnelle",
+          "who": "moi",
+          "where": "Direction régionale ou bureau local de la DGI du siège ; portail https://www.tax.gov.ma",
+          "how": [
+            "Déposer la déclaration d'existence avec statuts, immatriculation et CIN du président.",
+            "Demander l'IF, l'ICE et l'inscription à la taxe professionnelle.",
+            "Faire ensuite l'adhésion SIMPL de la coopérative pour les déclarations en ligne."
+          ],
+          "pieces": ["Statuts", "Immatriculation au registre des coopératives", "CIN du président", "Justificatif du siège"],
+          "delai": "à confirmer (quelques jours)",
+          "cout": "0 DH",
+          "pieges": ["Penser qu'une coopérative n'a rien à déclarer : l'exonération d'IS a des conditions (dont un plafond de chiffre d'affaires), les déclarations restent dues."],
+          "preuve": "Attestation d'IF, ICE et taxe professionnelle",
+          "offers": []
+        },
+        {
+          "id": "notifier-administration",
+          "title": "Informer l'administration technique de l'activité",
+          "who": "moi",
+          "where": "Administration du secteur (ex. agriculture, artisanat), selon l'activité",
+          "how": [
+            "Préparer le courrier de notification avec copie de l'immatriculation et des statuts.",
+            "Le faire signer par le président et le déposer contre accusé de réception.",
+            "Respecter le délai de 30 jours après l'immatriculation (art. 104 loi 112-12)."
+          ],
+          "pieces": ["Immatriculation", "Statuts"],
+          "delai": "Sous 30 jours",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Accusé de réception de l'administration",
+          "offers": []
+        },
+        {
+          "id": "cnss",
+          "title": "Affilier la coopérative à la CNSS si elle emploie des salariés",
+          "who": "moi",
+          "where": "Agence CNSS ou https://www.damancom.ma",
+          "how": [
+            "Déposer la demande d'affiliation employeur avec l'immatriculation, les statuts et l'IF.",
+            "Faire l'adhésion Damancom pour les déclarations mensuelles."
+          ],
+          "pieces": ["Immatriculation", "Statuts", "IF", "CIN du président"],
+          "delai": "1 à 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Les membres ne sont pas des salariés de la coopérative par défaut : demander au cabinet."],
+          "preuve": "Numéro d'affiliation CNSS",
+          "offers": []
+        },
+        {
+          "id": "rdv-comptable",
+          "title": "Organiser le rendez-vous avec l'expert-comptable",
+          "who": "cabinet",
+          "where": "Cabinet partenaire",
+          "how": [
+            "Envoyer le dossier complet au cabinet.",
+            "Sujets : plan comptable des coopératives, exonération d'IS et ses conditions, TVA, tenue des registres."
+          ],
+          "pieces": ["Documents de création"],
+          "delai": "Sous 15 jours",
+          "cout": "Inclus dans l'offre",
+          "pieges": [],
+          "preuve": "Compte rendu du rendez-vous",
+          "offers": ["soc-premium"]
+        },
+        {
+          "id": "livrer",
+          "title": "Livrer les documents finaux et clôturer le dossier",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer : certificat de dénomination, statuts, PV, attestation bancaire, récépissé de l'autorité locale, immatriculation, IF, ICE, taxe professionnelle, CNSS éventuelle.",
+            "Envoyer la liste des obligations annuelles.",
+            "Proposer la comptabilité de la coopérative.",
+            "Mettre le dossier au statut « Livré »."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut « Livré »",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Valider le régime fiscal de la coopérative (exonération d'IS sous conditions, TVA) avant la déclaration d'existence.",
+    "Mettre en place la comptabilité selon le plan comptable des coopératives (obligatoire).",
+    "Conseiller sur le statut des membres qui travaillent pour la coopérative (CNSS)."
+  ],
+  "client": [
+    "Réunir les 5 membres fondateurs pour signer la demande de nom, les statuts et les PV.",
+    "Le président dépose le dossier à l'autorité locale et ouvre le compte bancaire.",
+    "Les membres versent leurs parts de capital.",
+    "Faire légaliser les signatures si demandé."
+  ],
+  "apres": [
+    "Tenir les trois registres et la comptabilité des coopératives.",
+    "Assemblée générale annuelle pour approuver les comptes.",
+    "Commissaire aux comptes obligatoire si le chiffre d'affaires dépasse 10 millions de DH deux exercices de suite (FAQ ODCO).",
+    "Déclarations fiscales annuelles même en cas d'exonération.",
+    "Inscrire chaque entrée ou sortie de membre au registre des membres."
+  ],
+  "sources": [
+    { "title": "ODCO : questions fréquentes (étapes, pièces, validité du nom)", "url": "https://www.odco.gov.ma/frequently-asked-questions/?lang=en" },
+    { "title": "ODCO : créer votre coopérative (formulaires et statuts types)", "url": "https://www.odco.gov.ma/service/create-your-cooperative/?lang=en" },
+    { "title": "Coops4Dev : analyse du cadre juridique 112-12", "url": "https://coops4dev.coop/sites/default/files/2020-04/Morocco%20Legal%20Framework%20Analysis.pdf" },
+    { "title": "Upsilon Consulting : régime fiscal des coopératives", "url": "https://www.upsilon-consulting.com/regime-fiscal-des-cooperatives/" },
+    { "title": "DGI", "url": "https://www.tax.gov.ma" }
+  ],
+  "a_verifier": [
+    "Frais du certificat de dénomination ODCO, du greffe et de l'autorité locale : aucun montant publié trouvé.",
+    "Existence en 2026 d'une demande de dénomination en ligne à l'ODCO (l'ODCO annonce la télédéclaration à partir de juin 2026, sans détail).",
+    "Délai réel de délivrance du certificat de dénomination et de l'immatriculation.",
+    "Légalisation des signatures des statuts : obligatoire ou seulement demandée par certaines autorités locales.",
+    "Publication obligatoire ou non de la constitution (la FAQ ODCO n'en parle pas).",
+    "Mode d'obtention de l'ICE pour une coopérative (DGI ou autre) et démarche exacte de déclaration d'existence.",
+    "Conditions actuelles de l'exonération d'IS des coopératives (plafond de chiffre d'affaires, activités concernées) selon le CGI 2026.",
+    "Si un capital minimum supérieur ou un nombre de membres différent s'applique à certains secteurs."
+  ]
+}

@@ -1,0 +1,464 @@
+{
+  "id": "creation-ae",
+  "title": "Inscrire un client au statut d'auto-entrepreneur",
+  "offers": ["ae-autonome", "ae-accompagne", "ae-pro"],
+  "summary": "Le client est inscrit au Registre national de l'auto-entrepreneur (RNAE). Il reçoit son attestation d'inscription avec identifiant fiscal (IF), ICE et numéro d'affiliation CNSS, sait quel taux d'impôt il paie et comment déclarer chaque trimestre. En formule Pro, il a aussi une page web, une formation à la facturation et un plan de passage en SARLAU.",
+  "duree": "2 à 7 jours ouvrés pour l'attestation (24 à 72 h de validation annoncées par les guides), plus 1 à 2 semaines pour la carte physique si elle est demandée",
+  "frais_officiels": [
+    { "label": "Inscription au RNAE", "montant": "0 DH", "note": "Gratuite. Aucun frais d'État à facturer au client." },
+    { "label": "Photo d'identité", "montant": "à la charge du client", "note": "Seulement si l'agence ou la plateforme la demande." },
+    { "label": "Impôt trimestriel (après inscription)", "montant": "0,5 % ou 1 % du chiffre d'affaires encaissé", "note": "0,5 % commerce, industrie, artisanat ; 1 % prestations de services (CGI art. 73). Payé chaque trimestre, même à 0." },
+    { "label": "Cotisation CNSS / AMO (après inscription)", "montant": "à partir d'environ 300 DH par trimestre", "note": "Barème par tranches selon l'impôt du trimestre, payé avec la déclaration. Montants à confirmer sur la plateforme." }
+  ],
+  "avant_de_commencer": [
+    "Le client est une personne physique, résidente au Maroc, avec une CIN valide (ou carte de séjour s'il est étranger résident).",
+    "Le client a un numéro de téléphone à son nom et une adresse e-mail qu'il consulte : les codes de validation arrivent par SMS et e-mail.",
+    "L'activité visée figure sur la liste officielle des activités éligibles au statut (professions libérales réglementées exclues : médecin, avocat, architecte, etc.).",
+    "Le chiffre d'affaires prévu reste sous les plafonds : 500 000 DH par an en commerce, industrie, artisanat ; 200 000 DH par an en services.",
+    "Le client sait que s'il facture plus de 80 000 DH par an à un même client pour des services, la part au-delà subit une retenue à la source de 30 % (LF 2023). Si c'est son cas (ex. ancien employeur), le statut est peu intéressant : proposer une SARLAU.",
+    "Pour ae-accompagne et ae-pro : le paiement de Mziane est reçu et le client a accepté qu'on remplisse l'inscription en son nom avec ses codes SMS."
+  ],
+  "phases": [
+    {
+      "title": "1. Préparer le dossier",
+      "steps": [
+        {
+          "id": "verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir la commande et la liste « Inscription auto-entrepreneur ».",
+            "Contrôler la CIN : recto verso, lisible, en couleur, pas expirée.",
+            "Contrôler que le téléphone et l'e-mail sont bien ceux du client.",
+            "Lire la description de l'activité et l'adresse d'exercice.",
+            "Si l'activité exige un diplôme ou une autorisation, vérifier que la pièce est jointe.",
+            "Refuser les pièces illisibles avec un message clair au client."
+          ],
+          "pieces": ["CIN", "Téléphone", "E-mail", "Description de l'activité", "Adresse d'exercice", "Diplôme ou autorisation si activité réglementée"],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": ["CIN expirée : la plateforme bloque l'inscription.", "Numéro de téléphone au nom d'un proche : le client ne recevra pas ou ne pourra pas garder la main sur le compte."],
+          "preuve": "Toutes les pièces au statut « validée » dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "choisir-activite-taux",
+          "title": "Choisir l'activité exacte et le taux d'impôt",
+          "who": "moi",
+          "where": "Liste des activités éligibles affichée sur la plateforme ae.gov.ma (rn.ae.gov.ma)",
+          "how": [
+            "Chercher dans la liste officielle l'intitulé qui correspond le mieux à ce que fait le client.",
+            "Noter la catégorie : commerce / industrie / artisanat (taux 0,5 %) ou prestation de services (taux 1 %).",
+            "Noter le plafond qui s'applique : 500 000 DH ou 200 000 DH par an.",
+            "Si le client fait deux choses (ex. vente et service), choisir l'activité principale et lui expliquer la règle.",
+            "Envoyer au client, par écrit, l'activité retenue, le taux et le plafond, et obtenir son accord."
+          ],
+          "pieces": ["Description de l'activité"],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Choisir une activité « services » alors que le client vend surtout des produits : il paiera 1 % au lieu de 0,5 % et aura un plafond plus bas.", "Activité absente de la liste : le statut n'est pas possible, orienter vers une SARLAU."],
+          "preuve": "Message ou e-mail du client qui valide l'activité et le taux",
+          "offers": ["ae-accompagne", "ae-pro"]
+        },
+        {
+          "id": "envoyer-guide",
+          "title": "Envoyer le guide pas à pas et la liste des activités",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer le guide d'inscription Mziane et la liste officielle des activités dans l'espace client.",
+            "Déposer les modèles de factures.",
+            "Dire au client de revenir vers nous avant de valider sa demande en ligne pour la vérification."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": ["Le client valide seul avant notre vérification : une erreur d'activité est ensuite longue à corriger."],
+          "preuve": "Documents visibles dans l'espace client",
+          "offers": ["ae-autonome"]
+        }
+      ]
+    },
+    {
+      "title": "2. Inscription en ligne au registre national",
+      "steps": [
+        {
+          "id": "creer-compte",
+          "title": "Créer le compte du client sur la plateforme",
+          "who": "moi",
+          "where": "Portail auto-entrepreneur géré par Barid Al-Maghrib : https://ae.gov.ma (inscription sur https://rn.ae.gov.ma)",
+          "how": [
+            "Faire une visio ou un appel avec le client pour qu'il donne les codes SMS en direct.",
+            "Cliquer sur l'inscription, saisir nom, prénom, date de naissance, numéro de CIN, e-mail et téléphone du client.",
+            "Saisir le code reçu par SMS, puis cliquer sur le lien d'activation reçu par e-mail.",
+            "Choisir un mot de passe et le transmettre au client ; lui demander de le changer après la livraison."
+          ],
+          "pieces": ["CIN", "Téléphone du client", "E-mail du client"],
+          "delai": "15 minutes",
+          "cout": "0 DH",
+          "pieges": ["Le site peut être inaccessible depuis l'étranger ou certains réseaux : travailler depuis une connexion marocaine.", "Ne jamais créer le compte avec l'e-mail de Mziane : le compte appartient au client."],
+          "preuve": "Compte activé (e-mail d'activation reçu)",
+          "offers": ["ae-accompagne", "ae-pro"]
+        },
+        {
+          "id": "remplir-demande",
+          "title": "Remplir la demande d'inscription",
+          "who": "moi",
+          "where": "Espace personnel sur https://rn.ae.gov.ma, rubrique nouvelle demande",
+          "how": [
+            "Saisir l'adresse du domicile et l'adresse d'exercice (le domicile est accepté par la loi 114-13).",
+            "Choisir l'activité validée avec le client.",
+            "Déclarer sur l'honneur les informations demandées (cases à cocher).",
+            "Télécharger la CIN recto verso et, si demandée, la photo d'identité.",
+            "Relire tout l'écran avec le client avant de valider.",
+            "Valider et télécharger le récapitulatif ou formulaire de pré-inscription en PDF."
+          ],
+          "pieces": ["CIN recto verso", "Photo d'identité si demandée", "Adresse d'exercice", "Activité choisie"],
+          "delai": "20 minutes",
+          "cout": "0 DH",
+          "pieges": ["Adresse incomplète : elle figure ensuite sur l'attestation et les factures.", "Fichier trop lourd ou flou : la demande est rejetée."],
+          "preuve": "Formulaire de pré-inscription ou accusé de dépôt en PDF",
+          "offers": ["ae-accompagne", "ae-pro"]
+        },
+        {
+          "id": "verifier-dossier-autonome",
+          "title": "Vérifier la demande préparée par le client avant validation",
+          "who": "moi",
+          "where": "Partage d'écran avec le client ou captures envoyées dans l'espace client",
+          "how": [
+            "Faire envoyer au client les captures de chaque écran avant qu'il valide.",
+            "Contrôler l'activité, l'adresse et l'orthographe du nom.",
+            "Lui donner le feu vert ou la liste des corrections."
+          ],
+          "pieces": ["Captures d'écran du client"],
+          "delai": "24 h",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Message « dossier vérifié » envoyé au client",
+          "offers": ["ae-autonome"]
+        },
+        {
+          "id": "depot-agence",
+          "title": "Faire déposer le dossier en agence si la plateforme le demande",
+          "who": "client",
+          "where": "Agence Barid Al-Maghrib / Al Barid Bank (ou banque partenaire indiquée par la plateforme)",
+          "how": [
+            "Regarder le message de fin de demande : il dit si un passage en agence est nécessaire.",
+            "Si oui, imprimer le formulaire de pré-inscription.",
+            "Le client va en agence avec le formulaire, sa CIN originale et une copie, et une photo d'identité récente (35 x 45 mm, fond clair).",
+            "Il garde l'accusé de réception remis au guichet et l'envoie en photo dans l'espace client."
+          ],
+          "pieces": ["Formulaire de pré-inscription imprimé", "CIN originale + copie", "Photo d'identité"],
+          "delai": "1 visite de 30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Les guides récents disent tout en ligne, les fiches officielles plus anciennes (2019) imposent le passage en agence : se fier à ce qu'affiche la plateforme le jour même."],
+          "preuve": "Accusé de réception de l'agence",
+          "offers": []
+        },
+        {
+          "id": "suivre-validation",
+          "title": "Suivre la validation de la demande",
+          "who": "administration",
+          "where": "Espace personnel https://rn.ae.gov.ma (suivi du dossier) + e-mail et SMS du client",
+          "how": [
+            "Vérifier le statut du dossier chaque jour ouvré.",
+            "Si un complément est demandé, le préparer avec le client le jour même.",
+            "Relancer via l'assistance de la plateforme ou une agence Barid Al-Maghrib après 5 jours ouvrés sans réponse."
+          ],
+          "pieces": [],
+          "delai": "24 à 72 h annoncées, parfois plus",
+          "cout": "0 DH",
+          "pieges": ["Le client ne nous transmet pas le SMS ou l'e-mail de rejet : lui demander de tout transférer."],
+          "preuve": "Statut « validé » dans l'espace personnel",
+          "offers": []
+        },
+        {
+          "id": "telecharger-attestation",
+          "title": "Télécharger l'attestation d'inscription et noter les identifiants",
+          "who": "moi",
+          "where": "Espace personnel https://rn.ae.gov.ma",
+          "how": [
+            "Télécharger l'attestation d'inscription au RNAE en PDF.",
+            "Noter le numéro RNAE, l'identifiant fiscal (IF), l'ICE, le numéro de taxe professionnelle s'il apparaît, et le numéro CNSS.",
+            "Vérifier que nom, adresse et activité sont exacts.",
+            "Si une erreur apparaît, demander tout de suite la modification sur la plateforme."
+          ],
+          "pieces": [],
+          "delai": "Le jour de la validation",
+          "cout": "0 DH",
+          "pieges": ["Facturer sans ICE et IF : les clients professionnels refusent la facture."],
+          "preuve": "Attestation d'inscription RNAE en PDF avec IF et ICE",
+          "offers": []
+        },
+        {
+          "id": "carte-ae",
+          "title": "Récupérer la carte d'auto-entrepreneur",
+          "who": "client",
+          "where": "Agence Barid Al-Maghrib / Al Barid Bank indiquée par la plateforme, ou envoi postal selon le cas",
+          "how": [
+            "Attendre le SMS ou l'e-mail qui annonce que la carte est prête.",
+            "Le client la retire avec sa CIN et l'accusé de réception, ou la reçoit par courrier.",
+            "Il envoie une photo de la carte dans l'espace client."
+          ],
+          "pieces": ["CIN", "Accusé de réception"],
+          "delai": "Environ 1 à 2 semaines selon les guides",
+          "cout": "0 DH",
+          "pieges": ["L'attestation PDF suffit pour facturer : ne pas attendre la carte pour démarrer."],
+          "preuve": "Carte d'auto-entrepreneur",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Protection sociale CNSS / AMO",
+      "steps": [
+        {
+          "id": "verifier-cnss",
+          "title": "Vérifier l'affiliation CNSS du client",
+          "who": "moi",
+          "where": "Attestation RNAE + application ou site Ma CNSS (https://www.macnss.ma) + https://www.cnss.ma",
+          "how": [
+            "Repérer le numéro d'immatriculation CNSS sur l'attestation ou dans l'espace RNAE (l'affiliation est automatique avec l'inscription).",
+            "Aider le client à créer son compte Ma CNSS avec ce numéro.",
+            "Vérifier que le client apparaît bien comme travailleur non salarié auto-entrepreneur.",
+            "Si le client était déjà assuré (ex. ancien salarié, AMO Tadamon), vérifier la bascule avec la CNSS."
+          ],
+          "pieces": ["Attestation RNAE", "CIN"],
+          "delai": "1 à 7 jours après l'inscription",
+          "cout": "0 DH",
+          "pieges": ["Les droits AMO s'ouvrent après une période de stage (cotisations payées) : prévenir le client qu'il n'est pas remboursé dès le premier jour.", "Un trimestre de cotisation impayé peut suspendre les droits AMO."],
+          "preuve": "Numéro CNSS confirmé et compte Ma CNSS actif",
+          "offers": ["ae-accompagne", "ae-pro"]
+        },
+        {
+          "id": "expliquer-cotisation",
+          "title": "Expliquer au client la cotisation CNSS trimestrielle",
+          "who": "moi",
+          "where": "Message écrit dans l'espace client + WhatsApp",
+          "how": [
+            "Expliquer que la cotisation se paie avec la déclaration trimestrielle, par tranche selon l'impôt du trimestre.",
+            "Donner le minimum affiché sur la plateforme (environ 300 DH par trimestre selon les guides, à confirmer le jour J).",
+            "Préciser qu'elle est due même sans chiffre d'affaires."
+          ],
+          "pieces": [],
+          "delai": "Le jour de l'inscription",
+          "cout": "0 DH",
+          "pieges": ["Le client pense que c'est gratuit si son CA est nul : faux, la tranche minimale reste due."],
+          "preuve": "Message envoyé et lu",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Démarrer l'activité",
+      "steps": [
+        {
+          "id": "modele-facture",
+          "title": "Préparer le modèle de facture du client",
+          "who": "moi",
+          "where": "Modèles de factures Mziane",
+          "how": [
+            "Remplir le modèle avec nom, adresse, numéro RNAE, IF, ICE et activité.",
+            "Ajouter les mentions : numéro de facture qui se suit, date, ICE du client professionnel, montant.",
+            "Ajouter la mention sur la TVA validée avec le cabinet partenaire.",
+            "Déposer le modèle en Word ou PDF modifiable dans l'espace client."
+          ],
+          "pieces": ["Attestation RNAE"],
+          "delai": "1 h",
+          "cout": "0 DH",
+          "pieges": ["Oublier l'ICE du client acheteur : obligatoire sur les factures entre professionnels."],
+          "preuve": "Modèle de facture personnalisé livré",
+          "offers": []
+        },
+        {
+          "id": "registre-recettes",
+          "title": "Mettre en place le registre des recettes et des achats",
+          "who": "moi",
+          "where": "Tableur fourni au client",
+          "how": [
+            "Créer un tableau : date, numéro de facture, client, montant encaissé, mode de paiement.",
+            "Ajouter un onglet achats.",
+            "Ajouter une ligne de total par trimestre et un compteur vers le plafond annuel."
+          ],
+          "pieces": [],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Déclarer le facturé au lieu de l'encaissé : l'impôt porte sur ce qui est encaissé."],
+          "preuve": "Registre livré dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "calendrier-declarations",
+          "title": "Donner le calendrier des déclarations trimestrielles",
+          "who": "moi",
+          "where": "Espace client + rappels WhatsApp",
+          "how": [
+            "Expliquer que la déclaration se fait sur l'espace RNAE, trimestre par trimestre.",
+            "Donner les dates limites indiquées par la plateforme : fin avril, fin juillet, fin octobre, fin janvier.",
+            "Expliquer le paiement : en ligne par carte sur la plateforme, ou en agence Barid Al-Maghrib / Al Barid Bank.",
+            "Créer les rappels dans l'outil de suivi Mziane 10 jours avant chaque date."
+          ],
+          "pieces": [],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Oublier une déclaration à zéro : pénalités et suspension possible du statut après plusieurs oublis."],
+          "preuve": "Calendrier envoyé et rappels créés",
+          "offers": []
+        },
+        {
+          "id": "premiere-declaration",
+          "title": "Montrer au client comment faire sa première déclaration",
+          "who": "moi",
+          "where": "Espace personnel https://rn.ae.gov.ma, rubrique déclaration",
+          "how": [
+            "En visio, ouvrir la rubrique déclaration avec le client.",
+            "Lui montrer où saisir le chiffre d'affaires du trimestre et où voir l'impôt et la cotisation calculés.",
+            "Lui montrer comment payer et télécharger le reçu.",
+            "Si le premier trimestre est en cours, programmer la vraie déclaration avec lui."
+          ],
+          "pieces": [],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Client capable de refaire seul, ou rendez-vous de première déclaration fixé",
+          "offers": ["ae-accompagne", "ae-pro"]
+        },
+        {
+          "id": "alerte-plafonds",
+          "title": "Activer l'alerte sur les plafonds",
+          "who": "moi",
+          "where": "Outil de suivi Mziane",
+          "how": [
+            "Enregistrer le plafond du client (200 000 ou 500 000 DH).",
+            "Fixer une alerte à 70 % et à 90 % du plafond.",
+            "Ajouter une alerte si un même client dépasse 80 000 DH dans l'année (retenue de 30 % en services)."
+          ],
+          "pieces": [],
+          "delai": "15 minutes",
+          "cout": "0 DH",
+          "pieges": ["Dépasser le plafond fait perdre le statut et bascule vers le régime normal : anticiper le passage en société."],
+          "preuve": "Alertes actives dans le dossier client",
+          "offers": ["ae-accompagne", "ae-pro"]
+        }
+      ]
+    },
+    {
+      "title": "5. Formule Pro : présence en ligne et étape suivante",
+      "steps": [
+        {
+          "id": "page-web",
+          "title": "Créer la page web professionnelle du client",
+          "who": "moi",
+          "where": "Outil interne Mziane de création de pages",
+          "how": [
+            "Recueillir logo, photos, description des services, zone, contacts.",
+            "Créer la page avec les mentions : nom, numéro RNAE, ICE, adresse, téléphone.",
+            "Faire valider par le client, puis publier et envoyer le lien."
+          ],
+          "pieces": ["Logo et photos du client", "Attestation RNAE"],
+          "delai": "3 à 5 jours ouvrés",
+          "cout": "0 DH (frais de nom de domaine éventuel selon l'offre interne)",
+          "pieges": ["Utiliser un nom commercial déjà déposé comme marque par un autre : vérifier rapidement sur la base OMPIC avant."],
+          "preuve": "Lien de la page en ligne envoyé au client",
+          "offers": ["ae-pro"]
+        },
+        {
+          "id": "formation-facturation",
+          "title": "Former le client à la facturation",
+          "who": "moi",
+          "where": "Visio d'environ 1 h",
+          "how": [
+            "Faire une facture et un devis réels avec lui.",
+            "Lui montrer comment tenir le registre et préparer la déclaration trimestrielle.",
+            "Lui laisser une fiche récapitulative."
+          ],
+          "pieces": [],
+          "delai": "1 h",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Formation faite, fiche déposée dans l'espace client",
+          "offers": ["ae-pro"]
+        },
+        {
+          "id": "preparer-sarlau",
+          "title": "Préparer le dossier de passage en SARLAU",
+          "who": "moi",
+          "where": "Dossier client Mziane (fiche creation-sarlau)",
+          "how": [
+            "Rédiger une note simple : à partir de quel chiffre d'affaires ou de quelle situation passer en SARLAU.",
+            "Préparer la liste des pièces SARLAU et trois idées de noms de société.",
+            "Fixer une date de point (ex. à 70 % du plafond) dans l'outil de suivi.",
+            "Prévoir la radiation du RNAE au moment de la création de la société."
+          ],
+          "pieces": [],
+          "delai": "1 h",
+          "cout": "0 DH",
+          "pieges": ["Garder les deux statuts en même temps pour la même activité : à éviter, demander l'avis du cabinet."],
+          "preuve": "Note de passage en SARLAU déposée dans l'espace client",
+          "offers": ["ae-pro"]
+        }
+      ]
+    },
+    {
+      "title": "6. Livraison",
+      "steps": [
+        {
+          "id": "livrer",
+          "title": "Livrer les documents finaux et clôturer le dossier",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer : attestation RNAE, identifiants (IF, ICE, CNSS), modèle de facture, registre, calendrier.",
+            "Envoyer un message de fin avec les prochaines échéances.",
+            "Proposer l'offre comptabilité « Déclaratif » pour les déclarations trimestrielles.",
+            "Mettre le dossier au statut « Livré »."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut « Livré » et documents visibles par le client",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Valider la mention TVA à mettre sur les factures selon l'activité du client.",
+    "Donner un avis si le client cumule le statut avec un emploi salarié ou une autre activité, ou s'il facture surtout un seul client (retenue de 30 % au-delà de 80 000 DH).",
+    "Conseiller le moment du passage en société quand le chiffre d'affaires approche le plafond."
+  ],
+  "client": [
+    "Donner les codes SMS et cliquer sur le lien d'activation e-mail pendant l'inscription.",
+    "Aller en agence Barid Al-Maghrib si la plateforme l'exige, et retirer sa carte.",
+    "Faire et payer ses déclarations trimestrielles (ou souscrire l'offre Déclaratif).",
+    "Tenir son registre des recettes et nous envoyer ses chiffres."
+  ],
+  "apres": [
+    "Déclaration et paiement chaque trimestre (fin avril, fin juillet, fin octobre, fin janvier), même à 0.",
+    "Suivre le chiffre d'affaires par rapport au plafond et par client (seuil de 80 000 DH).",
+    "Mettre à jour l'adresse ou l'activité sur la plateforme en cas de changement.",
+    "Pour ae-pro : point de passage en SARLAU à la date prévue."
+  ],
+  "sources": [
+    { "title": "Portail officiel auto-entrepreneur (Barid Al-Maghrib)", "url": "https://ae.gov.ma" },
+    { "title": "Registre national de l'auto-entrepreneur, inscription", "url": "https://rn.ae.gov.ma/registration" },
+    { "title": "eRegulations Rabat : procédure auto-entrepreneur (fiches officielles 2019)", "url": "https://rabat.eregulations.org/procedure/182/138?l=fr" },
+    { "title": "CNSS", "url": "https://www.cnss.ma" },
+    { "title": "DGI, Code général des impôts", "url": "https://www.tax.gov.ma" },
+    { "title": "Fatoura Plus : barème CNSS auto-entrepreneur (cite la FAQ RNAE)", "url": "https://fatouraplus.com/guide-auto-entrepreneur/cnss-auto-entrepreneur-maroc/" },
+    { "title": "Lmoukawil : guide auto-entrepreneur 2026", "url": "https://www.lmoukawil.ma/fr/articles/guide-auto-entrepreneur-maroc-2026/" },
+    { "title": "Welipro : création d'entreprise au Maroc (seuils AE, retenue 30 %)", "url": "https://maroc.welipro.com/guides/creer-entreprise-maroc" }
+  ],
+  "a_verifier": [
+    "Passage obligatoire ou non en agence Barid Al-Maghrib en 2026 : les fiches officielles (2019) l'imposent, les guides 2026 disent tout en ligne. Vérifier sur ae.gov.ma au premier dossier.",
+    "Le site ae.gov.ma n'a pas pu être consulté directement (inaccessible depuis l'outil de recherche) : vérifier l'URL exacte d'inscription et le libellé des rubriques.",
+    "Barème exact de la cotisation CNSS / AMO auto-entrepreneur (tranches T1 à T8, minimum environ 300 DH par trimestre selon un guide citant la FAQ RNAE). Certains guides donnent d'autres chiffres.",
+    "Taux d'impôt : 0,5 % / 1 % (CGI art. 73) retenus ; certains sites citent 1 % / 2 % ou d'autres taux, non confirmés. Vérifier la LF 2026.",
+    "Délai et mode de remise de la carte (retrait en agence ou envoi postal).",
+    "Durée de la période de stage avant ouverture des droits AMO.",
+    "Montant des pénalités en cas d'oubli de déclaration et nombre d'oublis entraînant la radiation.",
+    "Possibilité légale pour Mziane de remplir l'inscription au nom du client (mandat) : faire valider la pratique."
+  ]
+}

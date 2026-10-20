@@ -233,7 +233,7 @@ export default function SiteNavbar() {
   const current = navItems.find((i) => i.name === openMenu && i.groups);
 
   return (
-    <header className={cn("sticky top-0 z-50 px-4 transition-[padding] duration-300", scrolled ? "pt-2" : "pt-4")}>
+    <header className={cn("sticky top-0 z-50 px-4 transition-[padding] duration-300 print:hidden", scrolled ? "pt-2" : "pt-4")}>
       <nav
         onMouseLeave={scheduleClose}
         className={cn(

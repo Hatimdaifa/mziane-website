@@ -1,0 +1,559 @@
+{
+  "id": "formalite-parts",
+  "title": "Céder des parts sociales de SARL ou de SARLAU",
+  "offers": [
+    "parts"
+  ],
+  "summary": "Un associé vend tout ou partie de ses parts : agrément si un tiers entre, acte de cession, enregistrement à la DGI, mise à jour des statuts et du registre de commerce, et déclaration de la plus-value par le vendeur. À la fin, le nouvel associé figure sur les statuts et le modèle J, et le vendeur a payé ou déclaré son impôt sur le profit.",
+  "duree": "3 à 6 semaines ; jusqu'à 2 mois si la procédure d'agrément de 30 jours s'applique",
+  "frais_officiels": [
+    {
+      "label": "Droits d'enregistrement de la cession",
+      "montant": "0 DH (exonéré)",
+      "note": "Exonération pour les parts d'une société qui n'est pas à prépondérance immobilière, sur présentation de l'attestation de non-prépondérance immobilière (CGI art. 129-IV-25°, précisé par la LF 2026). L'acte doit quand même être enregistré."
+    },
+    {
+      "label": "Droits d'enregistrement si société immobilière ou à prépondérance immobilière",
+      "montant": "5 % du prix (ou de la valeur réelle si supérieure)",
+      "note": "Taux ramené de 6 % à 5 % par la LF 2026 (CGI art. 133-I-G-4°)."
+    },
+    {
+      "label": "IR sur le profit du vendeur personne physique",
+      "montant": "20 % du profit net",
+      "note": "CGI art. 73-II-F-2° ; exonération si le total des cessions de l'année ne dépasse pas 30 000 DH (art. 68-II). À payer dans les 30 jours de la cession (art. 173-I)."
+    },
+    {
+      "label": "Enregistrement du PV de modification des statuts",
+      "montant": "200 DH",
+      "note": "Droit fixe, à confirmer."
+    },
+    {
+      "label": "Légalisations, greffe, JAL, Bulletin officiel",
+      "montant": "Voir fiche commune",
+      "note": "Légalisation 100 à 250 DH, JAL 500 à 1 000 DH, BO 400 à 600 DH (estimations), greffe à confirmer."
+    }
+  ],
+  "avant_de_commencer": [
+    "Avoir reçu le modèle J de moins de 3 mois et les statuts à jour de la société.",
+    "Savoir si la société est une SARLAU (un seul associé : décision de l'associé unique) ou une SARL (plusieurs associés : procès-verbal d'assemblée générale extraordinaire).",
+    "Vérifier que les comptes annuels du dernier exercice ont été approuvés et déposés au greffe : sinon, le régulariser en même temps.",
+    "Regrouper si possible plusieurs changements dans le même acte (honoraire + 50 % par opération en plus, un seul jeu de frais d'État).",
+    "Savoir qui achète : un associé (cession libre sauf clause des statuts, loi 5-96 art. 60), un conjoint ou parent jusqu'au 2e degré (libre sauf clause, art. 56), ou un tiers (agrément des associés obligatoire, art. 58).",
+    "Connaître le nombre de parts cédées, le prix et la date de paiement.",
+    "Avoir le dernier bilan : il sert à fixer le prix, à prouver la non-prépondérance immobilière et à calculer la plus-value.",
+    "Si l'acheteur est étranger non résident, prévoir le paiement en devises pour pouvoir rapatrier plus tard (réglementation des changes).",
+    "Si le vendeur est aussi le gérant, prévoir dans le même acte le changement de gérant (+ 50 %)."
+  ],
+  "phases": [
+    {
+      "title": "1. Préparer le dossier",
+      "steps": [
+        {
+          "id": "parts-verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir le dossier du client et contrôler chaque pièce demandée.",
+            "Vérifier que le modèle J date de moins de 3 mois et que les statuts envoyés sont bien la dernière version (avec toutes les modifications déjà faites).",
+            "Lire les statuts : forme (SARL ou SARLAU), nombre d'associés, répartition des parts, nom du gérant, clauses d'agrément ou de majorité particulières.",
+            "Comparer les noms et numéros de CIN avec le modèle J : toute différence doit être expliquée avant de rédiger."
+          ],
+          "pieces": [
+            "Modèle J de moins de 3 mois",
+            "Statuts à jour",
+            "CIN du cédant",
+            "CIN du cessionnaire",
+            "Nombre de parts et prix",
+            "Dernier bilan et liasse fiscale",
+            "CIN des autres associés si agrément"
+          ],
+          "delai": "1 jour ouvré",
+          "cout": "0 DH",
+          "pieges": [
+            "Travailler sur des statuts périmés : le greffe refuse un acte qui ne part pas de la dernière version déposée.",
+            "Un cédant qui détient ses parts depuis moins de 2 ans ne peut pas forcer le rachat en cas de refus d'agrément (loi 5-96 art. 58)."
+          ],
+          "preuve": "Checklist des pièces cochée dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "parts-devis-frais",
+          "title": "Envoyer le devis des frais d'État au client",
+          "who": "moi",
+          "where": "Espace client Mziane ou WhatsApp",
+          "how": [
+            "Lister les frais officiels de cette formalité (enregistrement, greffe, annonces légales, légalisations).",
+            "Préciser que ces frais sont reversés sans marge et payés en plus des honoraires.",
+            "Attendre l'accord écrit et le paiement avant d'engager les frais."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Oublier le Bulletin officiel ou le journal d'annonces légales dans le devis : ce sont les postes qui surprennent le plus le client."
+          ],
+          "preuve": "Devis accepté et frais encaissés",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Obtenir l'agrément (cession à un tiers dans une SARL à plusieurs associés)",
+      "steps": [
+        {
+          "id": "parts-notifier",
+          "title": "Notifier le projet de cession à la société et à chaque associé",
+          "who": "moi",
+          "where": "Huissier de justice (commissaire judiciaire) ou lettre recommandée avec accusé de réception (Barid Al-Maghrib)",
+          "how": [
+            "Rédiger le projet de cession : identité de l'acheteur, nombre de parts, prix.",
+            "L'envoyer à la société et à chacun des autres associés par huissier ou lettre recommandée avec accusé de réception (loi 5-96 art. 58).",
+            "Noter la date de la dernière notification reçue : le délai de 30 jours part de là."
+          ],
+          "pieces": [
+            "Projet de cession",
+            "Adresses des associés"
+          ],
+          "delai": "Le jour même ; 30 jours de délai de réponse",
+          "cout": "Lettre recommandée ou honoraires d'huissier",
+          "pieges": [
+            "Oublier un associé : la cession peut être annulée.",
+            "Sauter cette étape quand tous les associés sont d'accord : faire alors signer un PV d'agrément unanime, plus rapide."
+          ],
+          "preuve": "Accusés de réception ou procès-verbaux de notification",
+          "offers": []
+        },
+        {
+          "id": "parts-agrement",
+          "title": "Faire voter l'agrément du nouvel associé",
+          "who": "moi",
+          "where": "Assemblée des associés (PV rédigé par Mziane)",
+          "how": [
+            "Rédiger un PV d'assemblée qui agrée l'acheteur : majorité des associés représentant au moins les trois quarts des parts (loi 5-96 art. 58).",
+            "Faire signer et légaliser le PV.",
+            "Si la société ne répond pas dans les 30 jours de la dernière notification, l'agrément est réputé acquis : le noter au dossier.",
+            "En cas de refus, prévenir le client : les associés doivent racheter ou faire racheter les parts dans les 30 jours (art. 58)."
+          ],
+          "pieces": [
+            "Statuts",
+            "Liste des associés et de leurs parts"
+          ],
+          "delai": "1 à 30 jours",
+          "cout": "Inclus dans les honoraires",
+          "pieges": [
+            "Faire voter le cédant comme s'il était un tiers : il vote avec ses parts mais la majorité des trois quarts reste nécessaire."
+          ],
+          "preuve": "PV d'agrément signé ou preuve de l'expiration du délai de 30 jours",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Signer l'acte de cession",
+      "steps": [
+        {
+          "id": "parts-attestation-npi",
+          "title": "Obtenir l'attestation de non-prépondérance immobilière",
+          "who": "moi",
+          "where": "DGI, service local des impôts de la société (modèle établi par l'administration), via https://www.tax.gov.ma ou au guichet",
+          "how": [
+            "Déposer la demande d'attestation au nom de la société dont les parts sont cédées.",
+            "Joindre le dernier bilan montrant que les immeubles (hors immeubles d'exploitation) font moins de 50 % de l'actif brut (CGI art. 61-II).",
+            "Si la cession a lieu avant le dépôt de la première déclaration de résultat de la société, l'attestation n'est pas requise (note circulaire 737).",
+            "Récupérer l'attestation pour la joindre à l'enregistrement."
+          ],
+          "pieces": [
+            "Dernier bilan",
+            "Identifiant fiscal de la société"
+          ],
+          "delai": "Quelques jours à 2 semaines",
+          "cout": "0 DH",
+          "pieges": [
+            "Sans l'attestation, l'inspecteur peut appliquer le taux de 5 %."
+          ],
+          "preuve": "Attestation de non-prépondérance immobilière",
+          "offers": []
+        },
+        {
+          "id": "parts-acte",
+          "title": "Rédiger l'acte de cession de parts",
+          "who": "moi",
+          "where": "Bureau Mziane (acte sous seing privé)",
+          "how": [
+            "Rédiger l'acte : identités du cédant et du cessionnaire, société concernée, nombre et numéros des parts, prix, modalités et preuve de paiement, date de jouissance, garanties.",
+            "Indiquer que le paiement se fait par virement ou chèque (traçabilité pour la DGI).",
+            "Préparer autant d'originaux que de dépôts (parties, société, enregistrement, greffe)."
+          ],
+          "pieces": [
+            "CIN des parties",
+            "Statuts",
+            "PV d'agrément",
+            "Conditions de la cession"
+          ],
+          "delai": "1 jour ouvré",
+          "cout": "Inclus dans les honoraires",
+          "pieges": [
+            "Indiquer un prix sous-évalué : la DGI peut réévaluer et le profit du vendeur sera recalculé.",
+            "Une cession non écrite est nulle (loi 5-96 art. 16)."
+          ],
+          "preuve": "Projet d'acte de cession validé par les deux parties",
+          "offers": []
+        },
+        {
+          "id": "parts-signer",
+          "title": "Faire signer l'acte de cession par le cédant et le cessionnaire et légaliser les signatures",
+          "who": "client",
+          "where": "Bureau de légalisation de la commune (moqataa / arrondissement) ou consulat pour un associé à l'étranger",
+          "how": [
+            "Envoyer au client le document final en PDF et en papier (3 à 5 originaux selon le nombre de dépôts).",
+            "Le faire signer par chaque signataire, à la main, sur chaque page.",
+            "Faire légaliser les signatures à la commune (le signataire vient en personne avec sa CIN).",
+            "Récupérer tous les originaux signés et légalisés."
+          ],
+          "pieces": [
+            "CIN originale de chaque signataire",
+            "Originaux imprimés du document"
+          ],
+          "delai": "1 à 3 jours selon la disponibilité des signataires",
+          "cout": "Environ 20 à 30 DH par signature légalisée (timbre)",
+          "pieges": [
+            "Un associé à l'étranger doit signer au consulat ou donner une procuration légalisée : prévoir 1 à 3 semaines de plus.",
+            "Une page non paraphée peut être refusée au greffe."
+          ],
+          "preuve": "Originaux signés et légalisés",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Enregistrer la cession",
+      "steps": [
+        {
+          "id": "parts-enregistrer",
+          "title": "Enregistrer l'acte à la DGI et payer les droits",
+          "who": "moi",
+          "where": "DGI, portail https://www.tax.gov.ma, service SIMPL-Enregistrement (ou bureau de l'enregistrement de la DGI du lieu du siège)",
+          "how": [
+            "Se connecter à SIMPL-Enregistrement avec le compte adhérent (ou se présenter au bureau de l'enregistrement du siège).",
+            "Choisir le type d'acte (acte de société ou acte modificatif), saisir les parties, la date et la nature de l'opération.",
+            "Téléverser l'acte signé en PDF et payer les droits en ligne (ou au guichet).",
+            "Télécharger la quittance et l'acte portant la mention d'enregistrement."
+          ],
+          "pieces": [
+            "Acte signé et légalisé",
+            "Identifiant fiscal et ICE de la société",
+            "CIN des parties"
+          ],
+          "delai": "30 jours maximum à compter de la date de l'acte (CGI art. 128)",
+          "cout": "0 DH avec l'attestation de non-prépondérance immobilière ; 5 % sinon (CGI art. 129-IV-25° et 133-I-G-4°)",
+          "pieges": [
+            "Dépasser 30 jours : majoration de 5 % des droits si le retard est de 30 jours au plus, 15 % au-delà (CGI art. 184), plus les majorations de paiement tardif.",
+            "Croire qu'un acte exonéré n'a pas besoin d'être présenté : les actes de société sont enregistrés « gratis » mais doivent passer à l'enregistrement (CGI art. 136-III)."
+          ],
+          "preuve": "Quittance d'enregistrement et acte revêtu de la mention d'enregistrement",
+          "offers": []
+        },
+        {
+          "id": "parts-opposabilite",
+          "title": "Rendre la cession opposable à la société",
+          "who": "moi",
+          "where": "Siège de la société",
+          "how": [
+            "Déposer une copie de l'acte enregistré au siège.",
+            "Faire signer par le gérant une attestation de dépôt (loi 5-96 art. 16), ou à défaut faire signifier l'acte par huissier."
+          ],
+          "pieces": [
+            "Copie de l'acte enregistré"
+          ],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Sans ce dépôt ou cette signification, la cession n'est pas opposable à la société."
+          ],
+          "preuve": "Attestation de dépôt de l'acte au siège signée par le gérant",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Mettre à jour les statuts et le registre de commerce",
+      "steps": [
+        {
+          "id": "parts-pv-statuts",
+          "title": "Rédiger le PV ou la décision qui met à jour les statuts",
+          "who": "moi",
+          "where": "Bureau Mziane (modèle interne)",
+          "how": [
+            "Constater la cession et modifier les articles « Apports » et « Capital social » (nouvelle répartition des parts).",
+            "Si une SARLAU devient SARL (ou l'inverse), adapter les statuts au nouveau nombre d'associés.",
+            "Si le cédant était gérant, traiter son remplacement dans le même acte.",
+            "Faire signer, légaliser et enregistrer ce PV (200 DH, à confirmer)."
+          ],
+          "pieces": [
+            "Acte de cession enregistré",
+            "Statuts à jour"
+          ],
+          "delai": "1 à 3 jours",
+          "cout": "200 DH (enregistrement, à confirmer)",
+          "pieges": [
+            "Déposer l'acte de cession seul sans statuts mis à jour : le greffe refuse."
+          ],
+          "preuve": "PV enregistré et statuts mis à jour",
+          "offers": []
+        },
+        {
+          "id": "parts-greffe",
+          "title": "Déposer l'acte et demander l'inscription modificative au registre de commerce",
+          "who": "moi",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Se connecter à Direct Entreprise avec le compte professionnel (ou se présenter au greffe du tribunal de commerce du siège).",
+            "Créer une demande de modification et choisir la nature : cession de parts et modification de la répartition du capital.",
+            "Remplir la déclaration modificative (formulaire du registre de commerce) avec les nouvelles données.",
+            "Joindre les pièces scannées et payer les frais de greffe.",
+            "Noter le numéro de dépôt donné par le greffe."
+          ],
+          "pieces": [
+            "Acte enregistré (PV ou décision) en 2 exemplaires",
+            "Statuts mis à jour certifiés conformes par le gérant",
+            "Modèle J récent",
+            "CIN du gérant",
+            "Acte de cession enregistré",
+            "PV d'agrément",
+            "Attestation de dépôt de l'acte au siège",
+            "CIN du cessionnaire"
+          ],
+          "delai": "Dépôt dans les 30 jours de l'acte (loi 5-96 art. 95 et 97) ; traitement par le greffe 2 à 7 jours ouvrés",
+          "cout": "Frais de greffe : montant à confirmer au dépôt",
+          "pieges": [
+            "Oublier les statuts mis à jour : le greffe les exige pour toute modification statutaire.",
+            "Retard d'inscription : amende de 1 000 à 5 000 DH après mise en demeure (code de commerce art. 62), et la modification n'est pas opposable aux tiers (art. 61)."
+          ],
+          "preuve": "Récépissé de dépôt au greffe avec numéro de dépôt",
+          "offers": []
+        },
+        {
+          "id": "parts-annonces",
+          "title": "Publier l'annonce légale au journal d'annonces légales et au Bulletin officiel",
+          "who": "moi",
+          "where": "Un journal habilité à recevoir les annonces légales (liste fixée chaque année par arrêté) et le Bulletin officiel, édition des annonces légales (Imprimerie officielle, Rabat)",
+          "how": [
+            "Rédiger un avis court : dénomination, forme, capital, siège, numéro RC, cession de parts, ancien et nouvel associé, nouvelle répartition si demandée, tribunal et numéro de dépôt au greffe.",
+            "Envoyer l'avis au journal d'annonces légales et payer l'insertion.",
+            "Envoyer le même avis à l'Imprimerie officielle pour le Bulletin officiel et payer.",
+            "Conserver un exemplaire du journal et de la page du Bulletin officiel."
+          ],
+          "pieces": [
+            "Récépissé de dépôt au greffe",
+            "Texte de l'avis"
+          ],
+          "delai": "Dans les 30 jours ; parution JAL 2 à 5 jours, Bulletin officiel 1 à 3 semaines",
+          "cout": "JAL 500 à 1 000 DH ; Bulletin officiel 400 à 600 DH (estimations Mziane)",
+          "pieges": [
+            "Écrire un avis différent entre le JAL et le Bulletin officiel : en cas d'écart, c'est le texte du BO qui ne peut pas être opposé aux tiers (loi 5-96 art. 94).",
+            "Faire publier avant le dépôt au greffe : l'avis doit citer le numéro de dépôt."
+          ],
+          "preuve": "Exemplaire du journal et attestation ou page du Bulletin officiel",
+          "offers": []
+        },
+        {
+          "id": "parts-modele-j",
+          "title": "Récupérer le nouveau modèle J",
+          "who": "administration",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Suivre le statut de la demande sur Direct Entreprise ou au greffe.",
+            "Une fois l'inscription faite, télécharger ou retirer le modèle J à jour.",
+            "Vérifier sur le modèle J que le nouvel associé apparaît correctement."
+          ],
+          "pieces": [],
+          "delai": "2 à 7 jours ouvrés après le dépôt",
+          "cout": "Coût de l'extrait : à confirmer au greffe",
+          "pieges": [
+            "Ne pas relire le modèle J : une faute de frappe sur un nom ou une adresse bloque ensuite la banque et la DGI."
+          ],
+          "preuve": "Modèle J à jour",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. Fiscalité du vendeur et organismes",
+      "steps": [
+        {
+          "id": "parts-plus-value-paiement",
+          "title": "Faire payer l'impôt sur le profit du vendeur dans les 30 jours",
+          "who": "cabinet",
+          "where": "DGI, SIMPL (https://www.tax.gov.ma) ou recette de l'administration fiscale",
+          "how": [
+            "Calculer le profit : prix de cession moins frais, moins prix d'acquisition des parts (valeur d'apport ou prix d'achat).",
+            "Vendeur personne physique : appliquer 20 % (CGI art. 73-II-F-2°), sauf si le total des cessions de l'année ne dépasse pas 30 000 DH (art. 68-II).",
+            "Payer spontanément l'impôt dans les 30 jours qui suivent la date de la cession (CGI art. 173-I).",
+            "Vendeur société : la plus-value entre dans son résultat IS, rien à payer à part."
+          ],
+          "pieces": [
+            "Acte de cession",
+            "Justificatif du prix d'acquisition (statuts d'origine, acte d'achat)",
+            "CIN et identifiant fiscal du vendeur"
+          ],
+          "delai": "30 jours après la cession",
+          "cout": "20 % du profit (si profit)",
+          "pieges": [
+            "Croire qu'il n'y a rien à faire quand le prix égale la valeur nominale : la déclaration annuelle reste due."
+          ],
+          "preuve": "Quittance de paiement de l'IR sur profit",
+          "offers": []
+        },
+        {
+          "id": "parts-plus-value-declaration",
+          "title": "Faire déposer la déclaration annuelle des profits de cession",
+          "who": "cabinet",
+          "where": "DGI, SIMPL (https://www.tax.gov.ma)",
+          "how": [
+            "Déposer la déclaration récapitulative des cessions de titres de l'année, avec les justificatifs des prix d'achat et de vente (CGI art. 84-I).",
+            "La déposer avant le 1er avril de l'année qui suit la cession."
+          ],
+          "pieces": [
+            "Acte de cession",
+            "Justificatifs des prix"
+          ],
+          "delai": "Avant le 1er avril de l'année suivante",
+          "cout": "0 DH",
+          "pieges": [
+            "Oublier la déclaration même quand l'impôt est payé ou nul : pénalités."
+          ],
+          "preuve": "Accusé de dépôt de la déclaration",
+          "offers": []
+        },
+        {
+          "id": "parts-banque",
+          "title": "Informer la banque de la société",
+          "who": "client",
+          "where": "Agence bancaire de la société",
+          "how": [
+            "Envoyer ou déposer à l'agence le modèle J à jour, les statuts mis à jour et l'acte enregistré.",
+            "Demander la mise à jour du dossier : nouvel associé et nouveau bénéficiaire effectif.",
+            "Faire signer les nouveaux spécimens de signature si nécessaire."
+          ],
+          "pieces": [
+            "Modèle J à jour",
+            "Statuts mis à jour",
+            "Acte enregistré",
+            "CIN des signataires"
+          ],
+          "delai": "1 à 2 semaines selon la banque",
+          "cout": "0 DH en général",
+          "pieges": [
+            "Laisser l'ancien signataire sur le compte : il peut encore engager la société auprès de la banque."
+          ],
+          "preuve": "Accusé ou courrier de la banque confirmant la mise à jour",
+          "offers": []
+        },
+        {
+          "id": "parts-dgi",
+          "title": "Déclarer le changement à la DGI",
+          "who": "moi",
+          "where": "DGI, portail https://www.tax.gov.ma (SIMPL) ou service local des impôts du siège",
+          "how": [
+            "Déclarer le changement (nouvelle répartition du capital et nouveaux associés) au service local des impôts du siège, par l'espace SIMPL ou par lettre déposée contre récépissé.",
+            "Joindre le modèle J à jour et l'acte enregistré.",
+            "Vérifier ensuite que la fiche d'identification fiscale de la société affiche la bonne donnée."
+          ],
+          "pieces": [
+            "Modèle J à jour",
+            "Acte enregistré",
+            "Identifiant fiscal et ICE"
+          ],
+          "delai": "30 jours",
+          "cout": "0 DH",
+          "pieges": [
+            "Laisser une ancienne adresse ou un ancien dirigeant à la DGI : les avis et relances partent au mauvais endroit et les pénalités courent quand même."
+          ],
+          "preuve": "Récépissé ou accusé de dépôt de la DGI",
+          "offers": []
+        },
+        {
+          "id": "parts-livrer",
+          "title": "Livrer les documents finaux et clôturer le dossier",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer dans l'espace client : PV d'agrément, acte de cession enregistré, attestation de non-prépondérance immobilière, statuts mis à jour, récépissé du greffe, annonces, nouveau modèle J, quittance IR.",
+            "Mettre à jour la fiche société du client (dirigeant, adresse, capital, nom, associés selon le cas).",
+            "Passer le dossier au statut « Terminé » et noter les échéances à venir dans le suivi."
+          ],
+          "pieces": [],
+          "delai": "Le jour de réception du dernier document",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut Terminé avec tous les justificatifs en ligne",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Calculer la plus-value du vendeur, faire payer l'IR dans les 30 jours et déposer la déclaration annuelle avant le 1er avril (CGI art. 84 et 173).",
+    "Vérifier le ratio de prépondérance immobilière à partir du bilan avant de demander l'attestation.",
+    "Conseiller sur le prix (valeur des parts) quand les associés ne sont pas d'accord ou qu'il y a un risque de réévaluation par la DGI.",
+    "Si l'acheteur ou le vendeur est non résident : conseil sur la convention fiscale et le régime de change."
+  ],
+  "client": [
+    "Fixer le prix et le paiement entre le vendeur et l'acheteur.",
+    "Signer et faire légaliser l'acte de cession et les PV.",
+    "Payer le prix par virement ou chèque et conserver la preuve.",
+    "Pour le vendeur : payer l'IR sur le profit à temps.",
+    "Payer les frais d'État."
+  ],
+  "apres": [
+    "Rappeler au vendeur la déclaration annuelle des profits avant le 1er avril.",
+    "Vérifier sous 1 mois que la banque a mis à jour les associés.",
+    "Si une SARLAU est devenue SARL : prévoir désormais des PV d'assemblée (et non des décisions d'associé unique)."
+  ],
+  "sources": [
+    {
+      "title": "Loi n° 5-96 (SARL), version consolidée au 19 août 2021, portail Adala du ministère de la Justice",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/26/LA%20SOCIETE%20EN%20NOM%20COLLECTIF-1711463631100.pdf"
+    },
+    {
+      "title": "Code de commerce (loi n° 15-95), art. 37 à 64 sur le registre de commerce, portail Adala",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/01/Code%20de%20commerce_compressed-1709282723074.pdf"
+    },
+    {
+      "title": "Code général des impôts 2026 (DGI) : art. 127, 128, 129-IV-23° et 25°, 133, 135, 144, 149, 150, 150 bis, 173",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "Direct Entreprise, plateforme électronique de création et d'accompagnement des entreprises (OMPIC)",
+      "url": "https://www.directentreprise.ma"
+    },
+    {
+      "title": "FNH, généralisation de la plateforme Direct Entreprise (mars 2025)",
+      "url": "https://fnh.ma/article/actualites-marocaines/ompic-generalisation-entreprises"
+    },
+    {
+      "title": "Portail de la DGI (SIMPL, enregistrement, attestations)",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "CNSS, portail employeurs Damancom",
+      "url": "https://www.damancom.ma"
+    },
+    {
+      "title": "DGI, note circulaire n° 737 relative à la loi de finances 2026",
+      "url": "https://upsilon-consulting.com/documents/note-circulaire-737-ldf-2026.pdf"
+    }
+  ],
+  "a_verifier": [
+    "Liste exacte des modifications que Direct Entreprise accepte en ligne en 2026 et qui peut déposer (compte professionnel : avocat, expert-comptable, comptable agréé, fiduciaire ?). Sinon, dépôt papier au greffe.",
+    "Barème des frais de greffe pour une inscription modificative et pour l'extrait modèle J.",
+    "Droit d'enregistrement des actes modificatifs : 200 DH (CGI art. 135-II-15°) à faire confirmer par le bureau de l'enregistrement.",
+    "Canal actuel de transmission des avis au Bulletin officiel (en ligne ou papier) et tarif à la ligne.",
+    "Délai légal précis de l'inscription modificative au registre de commerce (le code de commerce ne fixe pas de délai chiffré ; la pratique et le décret n° 2-96-906 parlent d'un mois).",
+    "Procédure exacte de délivrance de l'attestation de non-prépondérance immobilière (e-service SIMPL ou guichet, délai).",
+    "Le prix « droits d'enregistrement en sus » affiché sur le site laisse penser qu'il y a des droits : pour une société ordinaire avec attestation, ils sont à 0 DH depuis l'exonération de l'art. 129-IV-25°. Adapter la mention du site.",
+    "Formulaire et nom exact de la déclaration des profits de cession de titres non cotés sur SIMPL (modèle modifié par la LF 2026).",
+    "Obligation éventuelle de déclarer les bénéficiaires effectifs au registre de commerce après un changement d'associé."
+  ]
+}

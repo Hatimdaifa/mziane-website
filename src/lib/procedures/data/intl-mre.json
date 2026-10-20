@@ -1,0 +1,362 @@
+{
+  "id": "intl-mre",
+  "title": "Créer une société à distance pour un Marocain résidant à l'étranger",
+  "offers": ["intl-mre", "diaspora"],
+  "summary": "Le client MRE obtient sa société (SARLAU, SARL ou SAS) créée au Maroc sans se déplacer, grâce à une procuration légalisée au consulat. Le capital est versé en devises sur un compte en dirhams convertibles, ce qui lui garantit de pouvoir rapatrier plus tard ses bénéfices et son capital. Avec le pack Diaspora, la domiciliation et la comptabilité des 12 premiers mois sont en place dès le départ.",
+  "duree": "3 à 6 semaines au total : 1 à 2 semaines pour la procuration et l'envoi des originaux, puis 2 à 3 semaines pour la création elle-même.",
+  "frais_officiels": [
+    { "label": "Légalisation de la signature au consulat du Maroc", "montant": "À confirmer selon le consulat", "note": "Payée par le client sur place." },
+    { "label": "Envoi des originaux vers le Maroc", "montant": "Selon le transporteur", "note": "Payé par le client (DHL, Chronopost, La Poste...)." },
+    { "label": "Frais d'État de la création de société", "montant": "1 600 à 2 400 DH", "note": "Certificat négatif 230 DH, registre de commerce environ 350 DH, journal 500 à 1 000 DH, BO 400 à 600 DH, timbres 100 à 250 DH (grille Mziane). Voir la fiche creation-sarlau." },
+    { "label": "Frais de virement international", "montant": "Selon la banque du client", "note": "Facturés par la banque d'envoi et parfois par la banque marocaine." }
+  ],
+  "avant_de_commencer": [
+    "Lire la fiche de création de la forme choisie (SARLAU, SARL ou SAS) : cette fiche ne décrit que ce qui change quand le client vit à l'étranger.",
+    "Vérifier que le client est bien MRE : de nationalité marocaine, avec une CIN marocaine ou un passeport marocain, et résident dans un autre pays (titre de séjour ou justificatif d'adresse).",
+    "Si le client n'a pas de CIN marocaine valide, voir s'il peut utiliser son passeport marocain ; sinon le traiter avec la fiche intl-etranger.",
+    "Expliquer la règle la plus importante : le capital doit venir de l'étranger en devises (virement) ou d'un compte en dirhams convertibles. Un capital versé depuis un compte ordinaire en dirhams fait perdre la garantie de rapatriement.",
+    "Ne jamais proposer de crédit bancaire à intérêt. La seule aide évoquée est MDM Invest, une prime non remboursable, et seulement si le projet est assez grand.",
+    "Pack Diaspora : vérifier le contrat d'engagement 12 mois signé et le mode de paiement (mensuel ou 10 900 DH HT d'avance)."
+  ],
+  "phases": [
+    {
+      "title": "1. Premier contact et choix du statut",
+      "steps": [
+        {
+          "id": "appel-video-cadrage",
+          "title": "Organiser l'appel vidéo de démarrage",
+          "who": "moi",
+          "where": "WhatsApp vidéo, Google Meet ou Zoom, le soir ou le samedi (heure du pays du client)",
+          "how": [
+            "Fixer un créneau en tenant compte du décalage horaire.",
+            "Demander : activité, associés, capital prévu, ville du siège, qui sera gérant, budget, date de démarrage voulue.",
+            "Demander si le client aura une personne de confiance au Maroc (famille) ou si tout passe par Mziane.",
+            "Envoyer un résumé écrit après l'appel."
+          ],
+          "pieces": [],
+          "delai": "45 minutes",
+          "cout": "0 DH",
+          "pieges": ["Oublier le décalage horaire et appeler en pleine journée de travail du client."],
+          "preuve": "Résumé de l'appel dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "choix-statut",
+          "title": "Conseiller le statut juridique",
+          "who": "moi",
+          "where": "Appel vidéo puis message écrit",
+          "how": [
+            "Seul : proposer une SARLAU. Plusieurs associés : SARL. Investisseurs ou souplesse de gouvernance : SAS.",
+            "Expliquer que le gérant peut vivre à l'étranger, mais qu'il devra signer ou donner procuration pour la banque et les déclarations.",
+            "Si le projet dépasse 1 million de DH d'investissement, signaler la possibilité de la prime MDM Invest (voir phase 5)."
+          ],
+          "pieces": [],
+          "delai": "Pendant l'appel",
+          "cout": "0 DH",
+          "pieges": ["Choisir un gérant qui vit à l'étranger sans prévoir qui signera sur place pour la banque."],
+          "preuve": "Forme juridique validée par écrit par le client",
+          "offers": []
+        },
+        {
+          "id": "verifier-pieces-mre",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Contrôler : CIN ou passeport marocain lisible et valide, titre de séjour du pays de résidence, justificatif d'adresse à l'étranger de moins de 3 mois.",
+            "Contrôler les pièces de la forme choisie (noms proposés, activité, répartition du capital).",
+            "Signaler tout document en langue étrangère autre que français : il faudra une traduction."
+          ],
+          "pieces": ["CIN ou passeport", "Titre de séjour", "Justificatif d'adresse à l'étranger", "3 noms proposés", "Activité", "Répartition du capital"],
+          "delai": "24 h",
+          "cout": "0 DH",
+          "pieges": ["CIN expirée : la procuration et la banque la refuseront. Le client doit la renouveler au consulat avant tout."],
+          "preuve": "Pièces au statut Validé",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Procuration",
+      "steps": [
+        {
+          "id": "rediger-procuration",
+          "title": "Rédiger la procuration au nom du gérant de Mziane",
+          "who": "moi",
+          "where": "Modèle Mziane, envoyé dans l'espace client",
+          "how": [
+            "Rédiger une procuration précise : demander le certificat négatif, signer les statuts et les formulaires, déposer le dossier au CRI ou au greffe, faire les inscriptions fiscales et CNSS, retirer les documents.",
+            "Indiquer l'identité complète du client (nom, CIN, adresse à l'étranger) et du mandataire (gérant de Mziane, CIN).",
+            "Ne pas y inclure le pouvoir d'ouvrir le compte bancaire ou de retirer de l'argent sauf si le client le veut expressément.",
+            "Faire valider le texte par le client."
+          ],
+          "pieces": ["CIN du client", "CIN du gérant de Mziane"],
+          "delai": "24 h",
+          "cout": "0 DH",
+          "pieges": ["Procuration trop vague (\"pour toutes démarches\") : le CRI ou le greffe peut la refuser.", "Oublier le pouvoir de signer les statuts au nom du client."],
+          "preuve": "Projet de procuration validé par le client",
+          "offers": []
+        },
+        {
+          "id": "legaliser-consulat",
+          "title": "Faire légaliser la procuration au consulat du Maroc",
+          "who": "client",
+          "where": "Consulat général du Maroc du lieu de résidence (souvent sur rendez-vous en ligne)",
+          "how": [
+            "Le client prend rendez-vous au service de légalisation de son consulat.",
+            "Il signe la procuration devant l'agent consulaire, qui légalise la signature.",
+            "Il paie les frais de légalisation sur place."
+          ],
+          "pieces": ["Procuration imprimée non signée", "CIN marocaine ou passeport marocain", "Justificatif de rendez-vous si exigé"],
+          "delai": "1 à 15 jours selon les rendez-vous du consulat",
+          "cout": "Frais consulaires (à confirmer)",
+          "pieges": ["Signer la procuration avant d'arriver au consulat : la signature doit être faite devant l'agent.", "Penser qu'une procuration légalisée en mairie étrangère suffit : pour un MRE, la légalisation consulaire est la voie la plus sûre."],
+          "preuve": "Procuration originale avec le cachet de légalisation du consulat",
+          "offers": []
+        },
+        {
+          "id": "recevoir-originaux",
+          "title": "Recevoir les originaux au bureau",
+          "who": "client",
+          "where": "Envoi express vers l'adresse de Mziane",
+          "how": [
+            "Le client envoie la procuration originale (et tout document original demandé) par transporteur avec suivi.",
+            "Il envoie le numéro de suivi dans l'espace client.",
+            "Dès réception, scanner les originaux et les ranger dans le dossier."
+          ],
+          "pieces": ["Procuration originale légalisée"],
+          "delai": "2 à 7 jours",
+          "cout": "Frais d'envoi payés par le client",
+          "pieges": ["Envoi sans suivi : risque de perte, il faudrait tout refaire au consulat."],
+          "preuve": "Accusé de réception et scan de l'original dans l'espace client",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Banque et capital en devises",
+      "steps": [
+        {
+          "id": "coordonner-banque",
+          "title": "Préparer le dossier d'ouverture du compte avec la banque",
+          "who": "moi",
+          "where": "Agence bancaire marocaine (de préférence une banque avec un service MRE ou une filiale dans le pays du client)",
+          "how": [
+            "Appeler le conseiller MRE ou entreprises de la banque.",
+            "Demander la liste exacte des pièces pour un compte de société en formation dont l'associé est MRE.",
+            "Demander si le client peut ouvrir le compte à distance (via la filiale à l'étranger ou par procuration) ou s'il doit venir.",
+            "Transmettre au client la liste de la banque."
+          ],
+          "pieces": ["Certificat négatif", "Projet de statuts", "CIN du client", "Procuration légalisée"],
+          "delai": "2 à 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Laisser le client verser le capital sur un compte ordinaire en dirhams : la garantie de rapatriement est perdue."],
+          "preuve": "Liste des pièces de la banque transmise au client",
+          "offers": []
+        },
+        {
+          "id": "compte-convertible",
+          "title": "Faire ouvrir le compte et faire virer le capital en devises",
+          "who": "client",
+          "where": "Banque marocaine",
+          "how": [
+            "Le client (ou son mandataire si la banque l'accepte) ouvre le compte de la société en formation.",
+            "Si le client veut garder des fonds au Maroc, il peut aussi ouvrir à son nom un compte en dirhams convertibles (autorisé par l'Office des changes pour les MRE).",
+            "Le client vire le capital depuis son compte à l'étranger, en devises, avec comme motif \"apport au capital de la société X en formation\".",
+            "Demander à la banque l'attestation de dépôt ou de blocage du capital (obligatoire si le capital dépasse 100 000 DH)."
+          ],
+          "pieces": ["Pièces demandées par la banque"],
+          "delai": "3 à 10 jours",
+          "cout": "Frais de virement et de tenue de compte",
+          "pieges": ["Apporter le capital en espèces au Maroc : sans déclaration de devises à la douane, ce n'est pas un financement en devises justifié.", "Perdre l'avis de virement : c'est la preuve qui permettra de rapatrier l'argent plus tard."],
+          "preuve": "Avis de virement en devises et attestation bancaire du capital",
+          "offers": []
+        },
+        {
+          "id": "conserver-preuves-devises",
+          "title": "Archiver les preuves du financement en devises",
+          "who": "moi",
+          "where": "Espace client Mziane, dossier Office des changes",
+          "how": [
+            "Enregistrer l'avis de virement, le bordereau de change (conversion en dirhams) et l'attestation bancaire.",
+            "Expliquer au client que ces papiers doivent être gardés tant qu'il détient la société."
+          ],
+          "pieces": ["Avis de virement", "Bordereau de change", "Attestation bancaire"],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier Office des changes complet dans l'espace client",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Création de la société",
+      "steps": [
+        {
+          "id": "creation-forme",
+          "title": "Réaliser la création selon la fiche de la forme choisie",
+          "who": "moi",
+          "where": "Voir la fiche creation-sarlau (ou SAS), avec la procuration comme pouvoir de signature",
+          "how": [
+            "Demander le certificat négatif sur DirectInfo (https://www.directinfo.ma).",
+            "Signer les statuts au nom du client grâce à la procuration, en joignant la procuration au dossier.",
+            "Déposer le dossier au CRI ou via le cabinet sur DirectEntreprise (https://www.directentreprise.ma).",
+            "Faire les publications légales."
+          ],
+          "pieces": ["Procuration originale légalisée", "Pièces de la forme choisie", "Attestation bancaire du capital"],
+          "delai": "1 à 3 semaines",
+          "cout": "Frais d'État 1 600 à 2 400 DH",
+          "pieges": ["Ne pas joindre la procuration originale ou sa copie certifiée : le CRI refuse la signature du mandataire."],
+          "preuve": "Modèle J, identifiant fiscal, ICE, taxe professionnelle, CNSS",
+          "offers": []
+        },
+        {
+          "id": "domiciliation-diaspora",
+          "title": "Mettre en place la domiciliation 12 mois",
+          "who": "moi",
+          "where": "Domiciliation Mziane",
+          "how": ["Signer le contrat de domiciliation au nom de la société en formation avant le dépôt au CRI.", "Utiliser ce contrat comme justificatif du siège."],
+          "pieces": ["Contrat de domiciliation"],
+          "delai": "Avant le dépôt",
+          "cout": "Inclus dans le pack",
+          "pieges": [],
+          "preuve": "Contrat de domiciliation signé",
+          "offers": ["diaspora"]
+        },
+        {
+          "id": "compte-rendu-oc",
+          "title": "Envoyer le compte rendu d'investissement à l'Office des changes",
+          "who": "moi",
+          "where": "Office des changes (https://www.oc.gov.ma), directement ou par la banque",
+          "how": [
+            "Remplir le compte rendu : identité, nationalité, pays de résidence, secteur, montant et forme de l'investissement.",
+            "Joindre les statuts et les justificatifs du financement en devises.",
+            "Le déposer dans les 6 mois qui suivent l'opération (règle de l'instruction de 2013, à confirmer dans l'IGOC 2026)."
+          ],
+          "pieces": ["Statuts", "Avis de virement", "Attestation bancaire"],
+          "delai": "Dans les 6 mois après la création",
+          "cout": "0 DH",
+          "pieges": ["Oublier ce compte rendu : la banque peut le demander le jour où le client voudra transférer des dividendes."],
+          "preuve": "Accusé de dépôt du compte rendu",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. MDM Invest (si le projet est éligible)",
+      "steps": [
+        {
+          "id": "mdm-eligibilite",
+          "title": "Vérifier l'éligibilité à MDM Invest",
+          "who": "moi",
+          "where": "Tamwilcom (https://www.tamwilcom.ma) et banque partenaire",
+          "how": [
+            "Vérifier : client MRE (ou MRE rentré récemment), investissement d'au moins 1 million de DH, secteur éligible, projet pas encore réalisé.",
+            "Vérifier que le client apporte au moins 20 % de fonds propres.",
+            "Expliquer qu'il s'agit d'une prime de 10 % du projet, plafonnée à 5 millions de DH, non remboursable et sans intérêt.",
+            "Refuser de monter le volet crédit bancaire à intérêt associé et ne pas proposer MDM Tamwil (prêt à taux d'intérêt)."
+          ],
+          "pieces": ["Budget du projet", "Plan de financement"],
+          "delai": "1 à 2 jours",
+          "cout": "0 DH",
+          "pieges": ["Commencer les travaux ou les achats avant le dépôt de la demande : le projet devient inéligible."],
+          "preuve": "Note d'éligibilité envoyée au client",
+          "offers": []
+        },
+        {
+          "id": "mdm-dossier",
+          "title": "Monter et déposer le dossier MDM Invest",
+          "who": "moi",
+          "where": "Banque partenaire de Tamwilcom (le dossier passe par la banque)",
+          "how": [
+            "Préparer le business plan, le plan de financement sans intérêt et les devis d'investissement.",
+            "Faire signer la demande au client.",
+            "Déposer le dossier à la banque et relancer jusqu'à la réponse.",
+            "Proposer l'offre Aides de l'État (aides-dossier) si le client veut un suivi complet."
+          ],
+          "pieces": ["Business plan", "Devis", "Statuts et modèle J", "Preuve des fonds propres"],
+          "delai": "Plusieurs mois (comité, puis versement)",
+          "cout": "Selon l'offre aides",
+          "pieges": ["Ne pas garder les justificatifs des dépenses : le versement de la prime est lié à la réalisation du projet."],
+          "preuve": "Accusé de dépôt de la banque, puis lettre d'accord",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. Livraison et suivi",
+      "steps": [
+        {
+          "id": "livrer-mre",
+          "title": "Livrer les documents et faire un appel vidéo de remise",
+          "who": "moi",
+          "where": "Espace client Mziane et appel vidéo",
+          "how": [
+            "Déposer tous les documents finaux dans l'espace client.",
+            "Faire un appel vidéo pour expliquer chaque document et les premières échéances.",
+            "Envoyer par transporteur les originaux que le client veut garder (cachet, statuts).",
+            "Passer le dossier au statut Livré."
+          ],
+          "pieces": ["Modèle J", "Statuts", "Identifiants fiscaux", "Attestation CNSS", "Dossier Office des changes"],
+          "delai": "Dès réception du dernier document",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut Livré",
+          "offers": []
+        },
+        {
+          "id": "demarrer-compta-diaspora",
+          "title": "Démarrer la comptabilité Essentiel 12 mois",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Créer le dossier comptable dès l'obtention du registre de commerce.", "Programmer les rappels d'échéances TVA, IS et CNSS."],
+          "pieces": ["Modèle J", "Identifiants fiscaux"],
+          "delai": "Semaine de la livraison",
+          "cout": "Inclus dans le pack",
+          "pieges": [],
+          "preuve": "Dossier comptable ouvert",
+          "offers": ["diaspora"]
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Questions de change complexes : apport en nature venant de l'étranger, prêt d'associé en devises, transfert de dividendes.",
+    "Choix fiscal si le client paie déjà des impôts dans son pays de résidence (convention fiscale de non double imposition).",
+    "Comptabilité du pack Diaspora : bilan et liasse fiscale.",
+    "Dépôt sur DirectEntreprise si Mziane passe par cette voie."
+  ],
+  "client": [
+    "Prendre rendez-vous au consulat, signer la procuration devant l'agent et payer la légalisation.",
+    "Envoyer les originaux par transporteur avec suivi.",
+    "Virer le capital en devises depuis son compte à l'étranger et garder l'avis de virement.",
+    "Ouvrir le compte bancaire selon les règles de la banque (parfois en se déplaçant ou via une filiale à l'étranger).",
+    "Être disponible pour les appels vidéo de validation."
+  ],
+  "apres": [
+    "Garder toute la vie de la société les preuves du financement en devises (pour rapatrier dividendes et capital).",
+    "Pack Diaspora : renouveler ou résilier la domiciliation et la comptabilité au bout de 12 mois ; rappeler que l'arrêt anticipé rend la remise due au prorata.",
+    "Prévoir une procuration bancaire ou un cogérant au Maroc si le gérant ne peut pas venir signer.",
+    "MDM Invest : suivre les justificatifs de réalisation pour obtenir le versement de la prime.",
+    "Taxe professionnelle : exonérée 5 ans, noter la date de fin."
+  ],
+  "sources": [
+    { "title": "Office des changes, MRE : formes d'investissement (financement en devises, compte rendu, convertibilité)", "url": "https://www.oc.gov.ma/fr/mre/formes-dinvestissement" },
+    { "title": "Office des changes, MRE : ouverture de comptes en devises ou en dirhams convertibles", "url": "https://www.oc.gov.ma/fr/mre/ouverture-de-comptes-en-devises-et-ou-en-dirhams-convertibles" },
+    { "title": "Office des changes, publication de l'Instruction générale des opérations de change 2026", "url": "https://www.oc.gov.ma/fr/actualites/publication-de-l-instruction-generale-des-operations-de-change-2026" },
+    { "title": "LesMRE, l'erreur qui bloque le rapatriement de votre argent", "url": "https://www.lesmre.com/fr/actualites/mre-cette-erreur-au-moment-d-acheter-au-maroc-peut-bloquer-le-rapatriement-de" },
+    { "title": "LesMRE, procurations au Maroc pour les MRE, guide 2026", "url": "https://www.lesmre.com/fr/guides/procurations-maroc-mre-guide-complet-2026" },
+    { "title": "LesMRE, MDM Invest et MDM Tamwil en 2026", "url": "https://www.lesmre.com/fr/actualites/mdm-invest-et-mdm-tamwil-comment-financer-un-projet-au-maroc-en-2026" },
+    { "title": "Bladi, une aide méconnue pour les MRE qui créent au Maroc", "url": "https://www.bladi.net/vous-etes-mre-comment-obtenir-subvention-maroc,116133.html" },
+    { "title": "Tamwilcom", "url": "https://www.tamwilcom.ma" }
+  ],
+  "a_verifier": [
+    "Frais de légalisation de signature dans les consulats du Maroc (variables selon le pays).",
+    "Acceptation par les CRI d'une procuration sous seing privé légalisée au consulat pour signer des statuts (pratique courante, mais à confirmer avec le CRI de la région du siège).",
+    "Possibilité pour la banque choisie d'ouvrir le compte de la société sans déplacement du client.",
+    "Numéros d'articles et délai de 6 mois du compte rendu d'investissement dans l'IGOC 2026 (la page de l'Office des changes cite encore l'instruction de 2013).",
+    "Conditions 2026 de MDM Invest sur le site officiel de Tamwilcom (seuil de 1 MDH, 20 % de fonds propres, secteurs, versement en une ou deux fois) ; vérifier aussi si la prime peut être obtenue sans crédit bancaire associé.",
+    "Montant exact du dépôt minimum ou des frais d'ouverture d'un compte en dirhams convertibles selon la banque."
+  ]
+}

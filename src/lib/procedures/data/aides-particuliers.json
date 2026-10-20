@@ -1,0 +1,350 @@
+{
+  "id": "aides-particuliers",
+  "title": "Obtenir l'aide sociale directe et l'aide directe au logement",
+  "offers": ["part-asd", "part-logement"],
+  "summary": "Pour l'aide sociale directe, Mziane aide gratuitement le ménage à s'inscrire au RNP et au RSU, vérifie son indice et dépose la demande sur asd.ma : le ménage touche ensuite une aide mensuelle. Pour l'aide directe au logement (Daam Sakane), Mziane vérifie les conditions, dépose la demande sur daamsakane.ma et coordonne le promoteur et le notaire jusqu'au versement de 100 000 ou 70 000 DH au notaire. L'aide au logement est facturée 1 490 DH TTC seulement à l'obtention ; l'aide sociale directe est toujours gratuite.",
+  "duree": "Aide sociale directe : 1 à 2 jours pour l'identifiant RNP, 5 à 10 jours pour l'indice RSU, environ 30 jours pour la réponse ASD. Aide au logement : 7 jours pour l'accord préliminaire, 7 jours pour le dépôt de la promesse par le notaire, 15 jours pour le versement, puis 60 jours au plus pour signer l'acte définitif : environ 1 à 3 mois au total.",
+  "frais_officiels": [
+    { "label": "Inscription au RNP, au RSU et demande ASD", "montant": "0 DH", "note": "Entièrement gratuit. Ne jamais faire payer le ménage." },
+    { "label": "Demande sur daamsakane.ma", "montant": "0 DH", "note": "Gratuite." },
+    { "label": "Frais de notaire, droits d'enregistrement et conservation foncière de l'achat", "montant": "Selon le prix du logement", "note": "Payés par l'acheteur au notaire ; non couverts par l'aide." },
+    { "label": "Honoraires Mziane aide au logement", "montant": "1 490 DH TTC", "note": "Payés seulement à l'obtention de l'aide, rien si refus." }
+  ],
+  "avant_de_commencer": [
+    "Aide sociale directe : c'est une prestation gratuite (part-asd). Ne jamais demander d'argent, ni garder les codes du ménage. Le ménage reste titulaire de ses comptes.",
+    "Ne jamais demander au client son mot de passe : il se connecte lui-même devant le conseiller ou lit le code reçu par SMS à voix haute uniquement au moment de la saisie.",
+    "Aide au logement : programme 2024 à 2028 (décret n°2-23-350 modifié). Montants : 100 000 DH pour un logement de 300 000 DH TTC au plus ; 70 000 DH de plus de 300 000 à 700 000 DH TTC.",
+    "Aide au logement : la demande se fait AVANT la vente définitive. Si le client a déjà signé l'acte définitif, l'aide est perdue."
+  ],
+  "phases": [
+    {
+      "title": "1. Aide sociale directe : vérifier et inscrire le ménage (gratuit)",
+      "steps": [
+        {
+          "id": "asd-entretien",
+          "title": "Faire le point sur la situation du ménage",
+          "who": "moi",
+          "where": "Téléphone, WhatsApp ou rendez-vous",
+          "how": [
+            "Demander : composition du ménage, âge des enfants, scolarité, handicap, veuvage, résidence effective au Maroc.",
+            "Demander si le ménage a déjà un identifiant RNP (IDCS) pour chaque membre, et une inscription RSU.",
+            "Demander s'il touche déjà l'ASD, des allocations familiales CNSS ou une autre aide."
+          ],
+          "pieces": [],
+          "delai": "20 minutes",
+          "cout": "0 DH",
+          "pieges": ["Promettre l'aide : c'est l'indice RSU calculé par l'Agence Nationale des Registres qui décide."],
+          "preuve": "Fiche ménage complétée",
+          "offers": ["part-asd"]
+        },
+        {
+          "id": "asd-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane (groupe « Aide sociale directe »)",
+          "how": ["Contrôler la CIN du chef de ménage, le téléphone à son nom, le livret de famille ou les actes de naissance des enfants, la carte de handicap si besoin."],
+          "pieces": ["CIN du chef de ménage", "Livret de famille", "Carte de handicap le cas échéant"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Téléphone qui n'appartient pas au chef de ménage : les codes iront à quelqu'un d'autre."],
+          "preuve": "Pièces au statut « validé »",
+          "offers": ["part-asd"]
+        },
+        {
+          "id": "rnp",
+          "title": "Obtenir l'identifiant RNP (IDCS) de chaque membre du ménage",
+          "who": "client",
+          "where": "Registre National de la Population : www.rnp.ma, puis Centre de Services aux Citoyens (CSC) de la commune",
+          "how": [
+            "Faire la pré-inscription en ligne sur rnp.ma pour chaque membre, enfants compris.",
+            "Prendre rendez-vous au CSC le plus proche et y aller avec les pièces d'identité (CIN, livret de famille ou actes de naissance pour les enfants).",
+            "Recevoir l'IDCS par SMS, mail ou courrier."
+          ],
+          "pieces": ["CIN", "Livret de famille ou actes de naissance"],
+          "delai": "IDCS reçu en général sous 24 h après le passage au CSC",
+          "cout": "0 DH",
+          "pieges": ["Oublier d'inscrire un enfant : il ne comptera pas dans le calcul de l'aide."],
+          "preuve": "SMS ou courrier avec l'IDCS de chaque membre",
+          "offers": ["part-asd"]
+        },
+        {
+          "id": "rsu",
+          "title": "Inscrire le ménage au Registre Social Unifié",
+          "who": "client",
+          "where": "www.rsu.ma (bouton « Compte du ménage ») ou CSC de la commune",
+          "how": [
+            "Le déclarant se connecte avec son IDCS et son mot de passe.",
+            "Remplir le formulaire avec le client : membres du ménage, logement (type, nombre de pièces), lieu, profession, revenus, dépenses d'eau, d'électricité, de téléphone et de gaz.",
+            "Répondre sincèrement : les données sont croisées avec d'autres administrations.",
+            "Valider et garder le reçu."
+          ],
+          "pieces": ["IDCS de tous les membres", "Factures d'eau et d'électricité récentes"],
+          "delai": "Indice communiqué 5 à 10 jours après l'inscription",
+          "cout": "0 DH",
+          "pieges": ["Fausse déclaration : sanction et perte des aides.", "Déclarer un membre qui vit en réalité dans un autre ménage."],
+          "preuve": "Reçu d'inscription RSU et indice socio-économique",
+          "offers": ["part-asd"]
+        },
+        {
+          "id": "verifier-indice",
+          "title": "Comparer l'indice RSU au seuil de 9,743001",
+          "who": "moi",
+          "where": "Compte du ménage sur rsu.ma",
+          "how": [
+            "Si l'indice est inférieur ou égal à 9,743001 : passer à la demande ASD.",
+            "Si l'indice est au-dessus et que la situation déclarée est fausse ou a changé : déposer une demande de révision sur rsu.ma dans les 60 jours suivant la notification de l'indice.",
+            "Sinon : expliquer au ménage qu'il n'est pas éligible et clôturer gratuitement."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Laisser passer les 60 jours de révision."],
+          "preuve": "Capture de l'indice dans l'espace client",
+          "offers": ["part-asd"]
+        },
+        {
+          "id": "demande-asd",
+          "title": "Déposer la demande d'aide sociale directe",
+          "who": "client",
+          "where": "www.asd.ma (Agence Nationale du Soutien Social) ou CSC",
+          "how": [
+            "Le chef de ménage se connecte et remplit le formulaire de demande.",
+            "Déclarer les enfants, leur scolarité et les situations particulières (handicap, orphelin, veuve).",
+            "Valider : un reçu est généré automatiquement. Le télécharger."
+          ],
+          "pieces": ["IDCS", "Numéro RSU du ménage"],
+          "delai": "Réponse en moyenne sous 30 jours",
+          "cout": "0 DH",
+          "pieges": ["Ne pas déclarer la scolarité : l'aide par enfant est plus basse pour un enfant de 6 à 21 ans non scolarisé."],
+          "preuve": "Reçu de demande ASD",
+          "offers": ["part-asd"]
+        },
+        {
+          "id": "suivi-asd",
+          "title": "Suivre la décision et le premier versement",
+          "who": "administration",
+          "where": "Compte du ménage sur asd.ma",
+          "how": [
+            "Vérifier la décision après 30 jours.",
+            "Montants indicatifs 2026 : minimum 500 DH par mois et par ménage ; par enfant 300 DH (0 à 5 ans, ou 6 à 21 ans scolarisé), 200 DH (6 à 21 ans non scolarisé), 400 DH pour un orphelin de mère veuve ; montant réduit à partir du 4e enfant ; prime de naissance 2 000 DH (1er) et 1 000 DH (2e).",
+            "Si refus ou suspension : lire le motif dans le compte asd.ma et déposer une réclamation sur le portail."
+          ],
+          "pieces": [],
+          "delai": "Versement en fin de mois",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Décision d'octroi et premier versement reçu",
+          "offers": ["part-asd"]
+        },
+        {
+          "id": "cloturer-asd",
+          "title": "Clôturer le dossier ASD sans facture",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Déposer les reçus et la décision.", "Rappeler au ménage de mettre à jour le RSU à chaque changement (naissance, déménagement, emploi).", "Passer le statut à « terminé ». Aucune facture."],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut « terminé »",
+          "offers": ["part-asd"]
+        }
+      ]
+    },
+    {
+      "title": "2. Aide directe au logement : vérifier les conditions",
+      "steps": [
+        {
+          "id": "logement-eligibilite",
+          "title": "Vérifier les conditions de l'acheteur et du logement",
+          "who": "moi",
+          "where": "Bureau, avec le client et le promoteur",
+          "how": [
+            "Acheteur : nationalité marocaine (résident au Maroc ou MRE) ; jamais bénéficiaire d'une aide de l'État au logement ; pas propriétaire d'un logement au Maroc à la date d'achat. Exception depuis la LF 2026 : une part d'un logement hérité en indivision ne bloque plus.",
+            "Logement : neuf, première vente, vendu par un promoteur, permis d'habiter délivré à partir du 1er janvier 2023, prix TTC de 700 000 DH au plus.",
+            "Montant : 100 000 DH si le prix est de 300 000 DH TTC au plus ; 70 000 DH de plus de 300 000 à 700 000 DH TTC.",
+            "Engagement : habiter le logement comme résidence principale 5 ans, avec une hypothèque au profit de l'État."
+          ],
+          "pieces": ["CIN", "Nom du promoteur, adresse et prix TTC du logement"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Logement de revente (deuxième main) : non éligible.", "Le client a déjà un logement à son nom : non éligible (sauf part en indivision héritée)."],
+          "preuve": "Grille d'éligibilité validée",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-mandat",
+          "title": "Faire signer les conditions d'honoraires",
+          "who": "client",
+          "where": "Espace client Mziane",
+          "how": ["1 490 DH TTC payables à l'obtention de l'aide (versement au notaire), rien si refus.", "Préciser que Mziane ne remplace ni le notaire ni le promoteur."],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Conditions signées",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane (groupe « Aide directe au logement »)",
+          "how": ["Contrôler : CIN, téléphone, infos logement, permis d'habiter (fourni par le promoteur), références du bien hérité en indivision le cas échéant."],
+          "pieces": ["Pièces de la clé « part-logement » dans src/lib/documents.ts"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Permis d'habiter antérieur au 1er janvier 2023."],
+          "preuve": "Pièces au statut « validé »",
+          "offers": ["part-logement"]
+        }
+      ]
+    },
+    {
+      "title": "3. Aide directe au logement : demande, notaire, versement",
+      "steps": [
+        {
+          "id": "logement-demande",
+          "title": "Déposer la demande en ligne sur daamsakane.ma",
+          "who": "client",
+          "where": "Plateforme www.daamsakane.ma",
+          "how": [
+            "Le client crée son compte avec sa CIN, son téléphone et son mail (Mziane l'assiste à l'écran).",
+            "Remplir la demande : identité, situation, logement visé (promoteur, projet, prix).",
+            "Valider et télécharger le reçu de la demande."
+          ],
+          "pieces": ["CIN", "Infos du logement"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Erreur sur le prix TTC : il détermine le montant de l'aide."],
+          "preuve": "Reçu de la demande sur daamsakane.ma",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-accord-preliminaire",
+          "title": "Suivre l'accord préliminaire d'éligibilité",
+          "who": "administration",
+          "where": "Compte daamsakane.ma",
+          "how": ["Vérifier le compte et les SMS.", "Télécharger l'accord préliminaire et le transmettre au promoteur et au notaire."],
+          "pieces": [],
+          "delai": "7 jours au plus",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Accord préliminaire",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-promesse",
+          "title": "Faire signer la promesse de vente chez le notaire",
+          "who": "client",
+          "where": "Étude du notaire choisi (avec le promoteur)",
+          "how": [
+            "Mziane prend rendez-vous avec le notaire et lui envoie l'accord préliminaire.",
+            "Le client et le promoteur signent la promesse (compromis) de vente.",
+            "Le notaire dépose la promesse et la copie du permis d'habiter sur la plateforme dans les 7 jours."
+          ],
+          "pieces": ["Accord préliminaire", "Permis d'habiter", "CIN"],
+          "delai": "Dépôt par le notaire sous 7 jours après la promesse",
+          "cout": "Frais de notaire selon l'étude",
+          "pieges": ["Promesse sous seing privé chez le promoteur : elle doit être faite devant notaire."],
+          "preuve": "Promesse de vente notariée déposée sur daamsakane.ma",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-versement",
+          "title": "Suivre l'approbation et le versement de l'aide au notaire",
+          "who": "administration",
+          "where": "Plateforme daamsakane.ma, notaire",
+          "how": [
+            "L'aide est approuvée puis versée au notaire (virement sur son compte ou chèque à son nom remis au client qui le donne au notaire).",
+            "Demander au notaire de confirmer par écrit la réception du montant."
+          ],
+          "pieces": [],
+          "delai": "15 jours après le dépôt des pièces par le notaire",
+          "cout": "0 DH",
+          "pieges": ["Chèque à l'ordre du notaire perdu ou gardé par le client."],
+          "preuve": "Confirmation écrite du notaire de la réception de l'aide",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-facture",
+          "title": "Émettre la facture d'honoraires à l'obtention",
+          "who": "moi",
+          "where": "Outil de facturation Mziane",
+          "how": ["Facturer 1 490 DH TTC dès la confirmation du notaire.", "Envoyer le lien de paiement."],
+          "pieces": ["Confirmation du notaire"],
+          "delai": "Sous 48 h",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Facture payée",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-acte",
+          "title": "Faire signer l'acte de vente définitif avec l'hypothèque",
+          "who": "client",
+          "where": "Étude du notaire",
+          "how": [
+            "Le client signe l'acte définitif. L'acte contient une hypothèque de 1er ou 2e rang au profit de l'État.",
+            "Le notaire dépose ensuite l'acte et le certificat de propriété sur la plateforme.",
+            "Si l'acte n'est pas signé dans le délai, le notaire rend l'aide à l'État."
+          ],
+          "pieces": ["CIN", "Solde du prix et frais"],
+          "delai": "60 jours au plus après la réception de l'aide par le notaire (décret n°2.26.578, BO du 1er octobre 2026 ; avant : 30 jours)",
+          "cout": "Solde du prix, frais de notaire, droits",
+          "pieges": ["Retard de financement du solde : surveiller le délai de 60 jours."],
+          "preuve": "Acte de vente définitif et certificat de propriété",
+          "offers": ["part-logement"]
+        },
+        {
+          "id": "logement-cloture",
+          "title": "Livrer le dossier final et clôturer",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Déposer : reçu de demande, accord, confirmation du notaire, acte définitif.", "Rappeler par écrit l'obligation de résidence principale de 5 ans.", "Passer le statut à « obtenu »."],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut « obtenu »",
+          "offers": ["part-logement"]
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Pas d'intervention prévue dans ces deux procédures, sauf question fiscale particulière d'un MRE (revenus étrangers, plus-value d'un bien hérité)."
+  ],
+  "client": [
+    "Se déplacer au CSC pour le RNP (et au besoin le RSU).",
+    "Se connecter lui-même aux plateformes et garder ses codes secrets.",
+    "Déclarer sincèrement la situation du ménage et la mettre à jour.",
+    "Logement : signer la promesse et l'acte chez le notaire, payer le solde et les frais, habiter le logement 5 ans.",
+    "Payer 1 490 DH TTC à l'obtention de l'aide au logement."
+  ],
+  "apres": [
+    "ASD : mettre à jour le RSU à chaque changement (naissance, scolarité, déménagement, emploi). L'indice est recalculé et peut changer.",
+    "Logement : ne pas vendre ni louer le logement pendant 5 ans, sinon l'aide (70 000 ou 100 000 DH) est à rembourser.",
+    "Logement : après 5 ans, demander la mainlevée de l'hypothèque avec les justificatifs de résidence principale (modalités précisées par le décret n°2.26.578) ; Mziane peut proposer cette démarche."
+  ],
+  "sources": [
+    { "title": "ANSS : étapes de demande de l'aide sociale directe", "url": "https://www.anss.gov.ma/en/etapes-de-demande-de-benefice" },
+    { "title": "Portail ASD", "url": "https://www.asd.ma" },
+    { "title": "Portail RSU", "url": "https://www.rsu.ma" },
+    { "title": "Registre National de la Population", "url": "https://www.rnp.ma" },
+    { "title": "Ijob.ma : montants ASD 2026 (non officiel)", "url": "https://ijob.ma/guides/asd/" },
+    { "title": "Plateforme d'aide au logement", "url": "https://www.daamsakane.ma" },
+    { "title": "Hespress : conditions et modalités du programme d'aide au logement", "url": "https://fr.hespress.com/351252-programme-daide-au-logement-conditions-et-modalites-doctroi.html" },
+    { "title": "BTPnews : décret 2.26.578, 60 jours pour finaliser la vente", "url": "https://www.btpnews.ma/aide-directe-au-logement-le-gouvernement-assouplit-les-procedures-et-accorde-60-jours-pour-finaliser-la-vente/" },
+    { "title": "Médias24 : aide au logement étendue à l'indivision (LF 2026)", "url": "https://medias24.com/2026/06/03/aide-directe-au-logement-plus-de-105-000-beneficiaires-dont-52-de-jeunes-au-maroc-1690775/" },
+    { "title": "Bladi : ce qui change pour l'aide au logement en 2026", "url": "https://www.bladi.net/aide-logement-qui-vraiment-changer-marocains-partir-2026,118576.html" }
+  ],
+  "a_verifier": [
+    "Montants ASD 2026 par enfant et par rang, et montant pour enfant handicapé : sources non officielles, à confirmer sur asd.ma.",
+    "Mode de paiement de l'ASD (agence, wallet, compte) : non trouvé sur le site officiel.",
+    "Logement : texte officiel du décret n°2.26.578 (BO du 1er octobre 2026) : délai de 60 jours, mainlevée d'hypothèque, demande dématérialisée en 30 jours.",
+    "Logement : conditions exactes de l'indivision (LF 2026) et durée de résidence (5 ans, ou 4 ans pour le logement à 250 000 DH selon une source).",
+    "Logement : exigence d'un minimum de deux pièces citée par la presse en 2024.",
+    "Logement : modalités propres aux MRE (virement de l'étranger, présence ou procuration chez le notaire)."
+  ]
+}

@@ -1,0 +1,422 @@
+{
+  "id": "domiciliation",
+  "title": "Domicilier le siège d'une société chez Mziane",
+  "offers": ["domi-adresse", "domi-business", "domi-bureau"],
+  "summary": "Le client obtient l'adresse de Mziane comme siège social légal, avec un contrat de domiciliation conforme à la loi 89-17 et une attestation acceptée par le greffe et les impôts. Selon la formule, son courrier est reçu, scanné et signalé sur WhatsApp, et il peut recevoir ses clients en salle de réunion. Engagement 6 mois ; la domiciliation est aussi offerte 3 mois dans l'offre création Premium.",
+  "duree": "1 à 3 jours ouvrés pour le contrat et l'attestation (hors préalable unique de Mziane : déclaration de domiciliataire, quelques semaines).",
+  "frais_officiels": [
+    { "label": "Légalisation des signatures du contrat (si demandée)", "montant": "Quelques dirhams par signature au bureau de légalisation de la commune", "note": "Montant exact à confirmer." },
+    { "label": "Enregistrement du contrat de domiciliation à la DGI", "montant": "À confirmer (droit fixe)", "note": "Une source privée cite environ 200 DH, dans les 30 jours de la signature." }
+  ],
+  "avant_de_commencer": [
+    "Préalable unique pour Mziane (à faire avant le premier client) : être en règle comme domiciliataire au sens de la loi 89-17 (articles 544-1 à 544-11 du Code de commerce) et du décret 2-20-950 du 26 juillet 2021 qui fixe le contrat type.",
+    "Avoir déposé la déclaration préalable de domiciliataire auprès de l'administration chargée des finances (DGI) et conserver le récépissé ; sans lui, l'activité est interdite (amende de 10 000 à 20 000 DH) et le registre de commerce ne peut pas mentionner l'activité.",
+    "Avoir la domiciliation dans l'objet social et au registre de commerce de Mziane.",
+    "Être propriétaire des locaux ou titulaire d'un bail commercial, locaux non saisis ; mentionner un éventuel nantissement dans le contrat.",
+    "Disposer de locaux équipés de moyens de communication, d'une salle de réunion, et d'un espace pour tenir et consulter les registres et documents des domiciliés.",
+    "Être en règle avec les impôts, ne pas être frappé de déchéance commerciale ni condamné depuis moins de 5 ans pour escroquerie, blanchiment, infraction fiscale ou de change.",
+    "Préparer une fois pour toutes : le contrat reprenant le contrat type du décret, un modèle d'attestation, un registre des domiciliés (tableur) et un classeur ou dossier numérique par domicilié."
+  ],
+  "phases": [
+    {
+      "title": "1. Ouverture du dossier",
+      "steps": [
+        {
+          "id": "verifier-pieces-domi",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane, dossier « Domiciliation du siège »",
+          "how": [
+            "Contrôler la CIN du gérant (lisible, en cours de validité).",
+            "Contrôler le certificat négatif (société en création) ou le modèle J (société existante).",
+            "Récupérer les statuts signés ou le projet de statuts, l'adresse personnelle et le téléphone du gérant.",
+            "Demander en plus : adresse où l'activité est réellement exercée, lieu où les documents comptables seront conservés, adresse de réexpédition du courrier."
+          ],
+          "pieces": ["CIN du gérant", "Certificat négatif ou modèle J", "Statuts ou projet", "Adresse et téléphone du gérant"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Domicilier une activité qui exige un local réel (commerce avec stock, activité réglementée) : vérifier que l'activité est compatible."],
+          "preuve": "Statut « pièces validées »",
+          "offers": []
+        },
+        {
+          "id": "verifier-identite",
+          "title": "Vérifier l'identité du gérant en direct",
+          "who": "moi",
+          "where": "En agence ou en appel vidéo",
+          "how": [
+            "Comparer la CIN avec la personne (visage, nom).",
+            "Vérifier que le gérant est bien celui indiqué dans les statuts ou le certificat négatif.",
+            "Noter la date et le mode de vérification dans le dossier."
+          ],
+          "pieces": ["CIN originale"],
+          "delai": "15 minutes",
+          "cout": "0 DH",
+          "pieges": ["Accepter une simple photo de CIN envoyée par un tiers."],
+          "preuve": "Note de vérification d'identité datée",
+          "offers": []
+        },
+        {
+          "id": "facturer-domi",
+          "title": "Envoyer la facture et encaisser",
+          "who": "moi",
+          "where": "Outil de facturation Mziane",
+          "how": [
+            "Facturer la formule choisie (250, 390 ou 690 DH HT par mois) avec l'engagement de 6 mois, ou noter les 3 mois offerts pour un client création Premium.",
+            "Préciser la période couverte et le mode de paiement (d'avance, par mois ou par semestre).",
+            "Attendre le paiement avant de délivrer l'attestation."
+          ],
+          "pieces": [],
+          "delai": "1 à 3 jours",
+          "cout": "Honoraires Mziane",
+          "pieges": ["Délivrer l'attestation avant paiement : le client peut s'immatriculer puis ne jamais payer."],
+          "preuve": "Facture payée",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Contrat et attestation",
+      "steps": [
+        {
+          "id": "rediger-contrat",
+          "title": "Rédiger le contrat de domiciliation",
+          "who": "moi",
+          "where": "Modèle Mziane conforme au contrat type du décret 2-20-950",
+          "how": [
+            "Remplir l'identification des parties : dénomination, forme, RC (ou certificat négatif), IF, ICE, représentant légal de chaque côté.",
+            "Indiquer l'adresse exacte du local et le numéro du récépissé de déclaration de domiciliataire de Mziane.",
+            "Indiquer la durée déterminée (6 mois minimum selon l'offre), le renouvellement, le loyer mensuel, les services de la formule (courrier, scan, salle de réunion).",
+            "Reprendre les obligations des deux parties prévues par la loi (voir phase 4) et les conditions de résiliation.",
+            "Prévoir le mandat donné à Mziane pour recevoir les notifications au nom du domicilié."
+          ],
+          "pieces": ["Pièces validées"],
+          "delai": "Même jour",
+          "cout": "0 DH",
+          "pieges": ["Utiliser un contrat de bail classique : il serait requalifié et ne répond pas au contrat type.", "Oublier le numéro de récépissé de domiciliataire."],
+          "preuve": "Contrat prêt à signer",
+          "offers": []
+        },
+        {
+          "id": "signer-contrat",
+          "title": "Faire signer le contrat",
+          "who": "client",
+          "where": "Agence Mziane, ou bureau de légalisation de la commune si la signature doit être légalisée",
+          "how": [
+            "Faire signer 3 exemplaires par le gérant du client et par le gérant de Mziane.",
+            "Faire légaliser les signatures si le greffe ou le centre d'investissement le demande.",
+            "Remettre un exemplaire au client, garder un exemplaire, réserver un exemplaire pour l'enregistrement."
+          ],
+          "pieces": ["Contrat", "CIN des signataires"],
+          "delai": "1 jour",
+          "cout": "Frais de légalisation éventuels",
+          "pieges": ["Faire signer une personne qui n'est pas le représentant légal."],
+          "preuve": "Contrat signé par les deux parties",
+          "offers": []
+        },
+        {
+          "id": "enregistrer-contrat",
+          "title": "Faire enregistrer le contrat",
+          "who": "moi",
+          "where": "DGI, service de l'enregistrement (en ligne via SIMPL-Enregistrement sur https://www.tax.gov.ma ou au bureau de l'enregistrement)",
+          "how": [
+            "Déposer le contrat signé et payer le droit d'enregistrement.",
+            "Récupérer le contrat portant la mention d'enregistrement ou la quittance."
+          ],
+          "pieces": ["Contrat signé"],
+          "delai": "Dans les 30 jours de la signature",
+          "cout": "Droit d'enregistrement (montant à confirmer)",
+          "pieges": ["Dépasser 30 jours : majorations de retard."],
+          "preuve": "Contrat enregistré ou quittance",
+          "offers": []
+        },
+        {
+          "id": "delivrer-attestation",
+          "title": "Délivrer l'attestation de domiciliation",
+          "who": "moi",
+          "where": "Papier à en-tête Mziane, puis espace client",
+          "how": [
+            "Rédiger l'attestation : Mziane, domiciliataire déclaré (numéro de récépissé), atteste domicilier la société [dénomination] à [adresse] selon contrat du [date], pour la période du [date] au [date].",
+            "La signer et la cacheter.",
+            "Déposer dans l'espace client l'attestation et le contrat signé, qui serviront au dossier de création ou de transfert de siège (greffe, DGI, CNSS)."
+          ],
+          "pieces": ["Contrat signé", "Facture payée"],
+          "delai": "Même jour",
+          "cout": "0 DH",
+          "pieges": ["Mettre une période plus longue que celle payée ou contractée."],
+          "preuve": "Attestation de domiciliation signée",
+          "offers": []
+        },
+        {
+          "id": "inscrire-registre",
+          "title": "Inscrire le domicilié au registre et créer son dossier",
+          "who": "moi",
+          "where": "Registre des domiciliés Mziane (tableur) et dossier individuel",
+          "how": [
+            "Ajouter une ligne : dénomination, forme, RC, IF, ICE, gérant, CIN, téléphone, adresse personnelle, lieu d'activité réel, lieu de conservation des documents comptables, formule, dates de début et de fin, date de vérification d'identité.",
+            "Créer le dossier individuel : CIN, statuts, contrat, attestation, justificatif bancaire ou chèque, adresse de réexpédition.",
+            "Programmer un rappel à 3 mois pour vérifier l'immatriculation au registre de commerce."
+          ],
+          "pieces": [],
+          "delai": "Même jour",
+          "cout": "0 DH",
+          "pieges": ["Dossier incomplet : en cas de manquement, Mziane peut devenir solidaire des impôts du domicilié."],
+          "preuve": "Ligne au registre et dossier individuel complet",
+          "offers": []
+        },
+        {
+          "id": "verifier-immatriculation",
+          "title": "Vérifier l'immatriculation du domicilié dans les 3 mois",
+          "who": "moi",
+          "where": "Espace client (modèle J), ou recherche sur https://www.directinfo.ma",
+          "how": [
+            "Demander au client le modèle J ou vérifier en ligne que la société est immatriculée à l'adresse de Mziane.",
+            "Compléter le registre avec le numéro de RC.",
+            "Si rien après 3 mois, relancer par écrit et garder la trace."
+          ],
+          "pieces": ["Modèle J"],
+          "delai": "3 mois après la signature",
+          "cout": "0 DH",
+          "pieges": ["Oublier ce contrôle : c'est une obligation légale de Mziane."],
+          "preuve": "Modèle J au dossier, RC noté au registre",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Courrier et services pendant le contrat",
+      "steps": [
+        {
+          "id": "recevoir-courrier",
+          "title": "Recevoir et enregistrer chaque courrier",
+          "who": "moi",
+          "where": "Accueil Mziane, registre du courrier",
+          "how": [
+            "Recevoir le courrier au nom du domicilié, signer les accusés de recommandés grâce au mandat du contrat.",
+            "Noter dans le registre du courrier : date, expéditeur, type (simple, recommandé, administratif), domicilié.",
+            "Ranger le pli dans le casier du domicilié, sans l'ouvrir pour la formule Adresse."
+          ],
+          "pieces": [],
+          "delai": "Le jour de réception",
+          "cout": "0 DH",
+          "pieges": ["Refuser un recommandé des impôts ou du tribunal : le client peut perdre ses délais de réponse."],
+          "preuve": "Ligne au registre du courrier",
+          "offers": []
+        },
+        {
+          "id": "scanner-courrier",
+          "title": "Scanner le courrier et alerter sur WhatsApp",
+          "who": "moi",
+          "where": "Scanner Mziane, espace client, WhatsApp",
+          "how": [
+            "Ouvrir le courrier (autorisation écrite prévue au contrat) et le scanner en PDF.",
+            "Déposer le PDF dans l'espace client du domicilié.",
+            "Envoyer une alerte WhatsApp : expéditeur, type, urgence (signaler en priorité tout courrier des impôts, de la CNSS, d'un tribunal ou d'un huissier).",
+            "Conserver l'original ou le réexpédier selon le contrat."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": ["Envoyer le scan à un autre client par erreur : violation de confidentialité.", "Ouvrir le courrier sans autorisation écrite."],
+          "preuve": "PDF dans l'espace client et alerte envoyée",
+          "offers": ["domi-business", "domi-bureau"]
+        },
+        {
+          "id": "plis-non-remis",
+          "title": "Signaler aux impôts les recommandés fiscaux non remis",
+          "who": "moi",
+          "where": "Direction des impôts dont relève le domicilié",
+          "how": [
+            "Si un pli recommandé de l'administration fiscale n'a pas pu être remis au domicilié, envoyer un courrier à la DGI pour le signaler.",
+            "Garder la copie avec accusé de réception."
+          ],
+          "pieces": ["Copie du pli ou de l'avis"],
+          "delai": "Dans les 15 jours",
+          "cout": "Frais d'envoi",
+          "pieges": ["Ne rien faire : Mziane devient solidaire des impôts du domicilié."],
+          "preuve": "Courrier de signalement avec accusé",
+          "offers": []
+        },
+        {
+          "id": "reserver-salle",
+          "title": "Réserver la salle de réunion et accueillir les rendez-vous",
+          "who": "moi",
+          "where": "Agenda de la salle Mziane",
+          "how": [
+            "Réserver le créneau demandé par le client.",
+            "Accueillir ses visiteurs au nom de sa société."
+          ],
+          "pieces": [],
+          "delai": "Selon disponibilité",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Réservation dans l'agenda",
+          "offers": ["domi-bureau"]
+        },
+        {
+          "id": "suivre-changements",
+          "title": "Mettre à jour le dossier à chaque changement",
+          "who": "moi",
+          "where": "Registre et dossier individuel",
+          "how": [
+            "Dès que le client signale un changement (dénomination, forme, objet, gérant, adresse personnelle), demander le document et mettre à jour le dossier.",
+            "Rappeler au client qu'il doit aussi déclarer certains changements aux impôts dans les 15 jours."
+          ],
+          "pieces": ["Nouveau modèle J ou PV"],
+          "delai": "À chaque changement",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier à jour",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Obligations annuelles de Mziane comme domiciliataire",
+      "steps": [
+        {
+          "id": "liste-annuelle",
+          "title": "Envoyer la liste annuelle des domiciliés",
+          "who": "moi",
+          "where": "DGI (direction des impôts de Mziane), Trésorerie générale du Royaume, et Douane si un domicilié importe ou exporte",
+          "how": [
+            "Extraire du registre la liste des sociétés domiciliées pendant l'année écoulée.",
+            "L'envoyer à chaque administration au format demandé, et garder l'accusé."
+          ],
+          "pieces": ["Registre des domiciliés"],
+          "delai": "Avant le 31 janvier de chaque année",
+          "cout": "0 DH",
+          "pieges": ["Oublier la Trésorerie ou la Douane.", "Ne pas le faire : amende de 10 000 à 20 000 DH et solidarité fiscale."],
+          "preuve": "Accusés de dépôt de la liste",
+          "offers": []
+        },
+        {
+          "id": "repondre-huissiers",
+          "title": "Répondre aux huissiers et aux agents de recouvrement",
+          "who": "moi",
+          "where": "Accueil Mziane",
+          "how": [
+            "Sur présentation d'un titre exécutoire, communiquer les informations permettant de joindre le domicilié (adresse personnelle, téléphone).",
+            "Ne rien communiquer à une autre personne : confidentialité.",
+            "Noter la demande dans le dossier."
+          ],
+          "pieces": ["Titre exécutoire présenté"],
+          "delai": "À la demande",
+          "cout": "0 DH",
+          "pieges": ["Donner des informations sans titre exécutoire."],
+          "preuve": "Note au dossier",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Fin du contrat",
+      "steps": [
+        {
+          "id": "preavis-fin",
+          "title": "Prévenir le client avant l'échéance",
+          "who": "moi",
+          "where": "WhatsApp et e-mail",
+          "how": [
+            "1 mois avant la fin, demander s'il renouvelle.",
+            "S'il part, lui rappeler qu'il doit transférer son siège (formalité de transfert de siège, offre Mziane disponible) avant la fin du contrat."
+          ],
+          "pieces": [],
+          "delai": "1 mois avant la fin",
+          "cout": "0 DH",
+          "pieges": ["Laisser une société partir sans transfert de siège : elle reste immatriculée chez Mziane."],
+          "preuve": "Message envoyé",
+          "offers": []
+        },
+        {
+          "id": "resilier-impaye",
+          "title": "Résilier en cas d'impayé ou de manquement",
+          "who": "moi",
+          "where": "Courrier recommandé au domicilié",
+          "how": [
+            "Envoyer une mise en demeure écrite selon les conditions de résiliation du contrat.",
+            "Faute de régularisation, notifier la résiliation par écrit et garder l'accusé."
+          ],
+          "pieces": ["Contrat", "Factures impayées"],
+          "delai": "Selon le contrat",
+          "cout": "Frais d'envoi",
+          "pieges": ["Résilier oralement : sans écrit, le greffe et la DGI ne seront pas valablement informés."],
+          "preuve": "Lettre de résiliation avec accusé",
+          "offers": []
+        },
+        {
+          "id": "informer-fin",
+          "title": "Informer le greffe et les impôts de la fin du contrat",
+          "who": "moi",
+          "where": "Greffe du tribunal de commerce du siège, DGI, Trésorerie générale, Douane le cas échéant",
+          "how": [
+            "Envoyer à chacun un courrier (dépôt contre décharge ou recommandé) : dénomination, RC, IF, date de fin ou de résiliation du contrat.",
+            "Garder les accusés dans le dossier.",
+            "Rappeler au client qu'il a la même obligation d'information dans le même délai."
+          ],
+          "pieces": ["Contrat", "Lettre de résiliation ou de fin"],
+          "delai": "Dans le mois qui suit la fin du contrat",
+          "cout": "Frais d'envoi",
+          "pieges": ["Ne pas informer : amende et solidarité fiscale de Mziane pour les impôts du domicilié."],
+          "preuve": "Accusés de réception du greffe et de la DGI",
+          "offers": []
+        },
+        {
+          "id": "archiver-dossier",
+          "title": "Clore et archiver le dossier",
+          "who": "moi",
+          "where": "Registre et archives Mziane",
+          "how": [
+            "Noter la date de fin au registre.",
+            "Réexpédier le courrier restant à l'adresse indiquée, puis retourner à l'expéditeur le courrier arrivé après la période de transition.",
+            "Archiver le dossier individuel et les pièces d'identité au moins 5 ans après la fin."
+          ],
+          "pieces": [],
+          "delai": "Dans le mois",
+          "cout": "0 DH",
+          "pieges": ["Détruire le dossier trop tôt."],
+          "preuve": "Statut « contrat terminé » et dossier archivé",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Pas nécessaire pour un contrat de domiciliation standard.",
+    "Utile si un domicilié est en défaut fiscal et que la DGI met en cause la solidarité de Mziane : le cabinet aide à répondre.",
+    "Utile pour valider une fois le modèle de contrat et d'attestation (de préférence avec un avocat ou un notaire) et le format de la liste annuelle."
+  ],
+  "client": [
+    "Fournir ses pièces et se présenter (ou en vidéo) pour la vérification d'identité.",
+    "Signer le contrat, faire légaliser sa signature si demandé, payer d'avance.",
+    "Faire immatriculer ou transférer sa société à l'adresse de Mziane dans les 3 mois.",
+    "Utiliser l'adresse comme siège, et mentionner sur ses factures et documents : « Société domiciliée chez Mziane, [adresse] ».",
+    "Signaler à Mziane tout changement (dénomination, objet, gérant, adresse) et tout litige lié à son activité.",
+    "À la fin du contrat : transférer son siège et informer le greffe, la DGI, la Trésorerie et la Douane dans le mois (amende de 5 000 à 10 000 DH sinon)."
+  ],
+  "apres": [
+    "Vérifier l'immatriculation 3 mois après la signature.",
+    "Relancer le renouvellement 1 mois avant chaque échéance.",
+    "Chaque année avant le 31 janvier : liste des domiciliés à la DGI, à la Trésorerie et à la Douane.",
+    "Signaler sous 15 jours tout recommandé fiscal non remis.",
+    "À chaque fin de contrat : informer greffe et DGI dans le mois, archiver 5 ans."
+  ],
+  "sources": [
+    { "title": "Domiciliation des entreprises en droit marocain, articles 544-1 et suivants (Cabinet PFC)", "url": "https://cabinetpfc.com/domiciliation-des-entreprises-en-droit-marocain/" },
+    { "title": "La domiciliation à la lumière de la loi 89-17 (Droit et Entreprise)", "url": "https://www.droitetentreprise.com/la-domiciliation-des-entreprises-a-la-lumiere-de-la-nouvelle-loi-n89-17-modifiant-et-completant-la-loi-n15-95-formant-code-de-commerce/" },
+    { "title": "Domiciliation des entreprises : zoom sur le nouveau cadre juridique (FNH)", "url": "https://www.fnh.ma/article/actualite-entreprises/domiciliation-des-entreprises-zoom-sur-le-nouveau-cadre-juridique" },
+    { "title": "Guide de la domiciliation des entreprises 2023 (CRI Casablanca-Settat)", "url": "https://casainvest.ma/sites/default/files/GUIDE-DOMICIALIATION-DES-ENTREPRISES-2023-MAROC.pdf" },
+    { "title": "Contrat de domiciliation loi 89-17 et décret 2-20-950 (Captain Legal)", "url": "https://www.captain.legal/ma/creation-entreprise/contrat-de-domiciliation-maroc-pdf-word-loi-89-17/" },
+    { "title": "Domiciliation d'entreprise au Maroc 2026 (Clicpaie)", "url": "https://clicpaie.ma/blogs/domiciliation-entreprise-maroc/" },
+    { "title": "Loi sur la domiciliation au Maroc, sanctions (Domiciliation Rabat)", "url": "https://domiciliationarabat.com/loi-sur-la-domiciliation-au-maroc/" }
+  ],
+  "a_verifier": [
+    "Texte officiel des articles 544-1 à 544-11 du Code de commerce et du décret 2-20-950 (BO) : les obligations ci-dessus viennent de commentaires de cabinets et du contrat type, pas du texte lu directement.",
+    "Administration exacte, formulaire et pièces de la déclaration préalable de domiciliataire (DGI ou autre service du ministère des Finances), et statut actuel de Mziane sur ce point.",
+    "Format et canal d'envoi de la liste annuelle des domiciliés (formulaire DGI, SIMPL, courrier) à la DGI, à la Trésorerie et à la Douane.",
+    "Montant et obligation d'enregistrement du contrat de domiciliation, et nécessité de légaliser les signatures.",
+    "Existence d'une durée minimale ou maximale légale du contrat (la loi semble laisser la durée libre ; une source parle de requalification au-delà d'un an).",
+    "Interdiction alléguée de domicilier une société ayant déjà un siège au Maroc (art. 544-5 selon une source).",
+    "Obligation éventuelle de déclarer à la CNDP le traitement des données personnelles des domiciliés (loi 09-08), notamment pour le scan du courrier."
+  ]
+}

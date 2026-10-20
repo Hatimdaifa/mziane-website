@@ -43,7 +43,7 @@ const columns = [
 // Pied de page en deux cartes (même construction que Hoplion)
 export default function Footer() {
   return (
-    <footer className="bg-zinc-50 px-6 pt-6 pb-8 max-sm:px-4">
+    <footer className="bg-zinc-50 px-6 pt-6 pb-8 max-sm:px-4 print:hidden">
       <div className="mx-auto grid max-w-[1200px] gap-5 lg:grid-cols-[1fr_2fr]">
         <div className="relative flex flex-col justify-between gap-10 overflow-hidden rounded-[28px] bg-gradient-to-br from-blue-800 via-blue-700 to-blue-700 p-8 max-sm:p-6">
           <div className="pointer-events-none absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(254,215,102,.3)_0%,transparent_65%)]" />

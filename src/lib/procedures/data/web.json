@@ -1,0 +1,596 @@
+{
+  "id": "web",
+  "title": "Livrer un site web et son hébergement",
+  "offers": ["web-page", "web-vitrine", "web-pro", "hebergement"],
+  "summary": "Le client reçoit un site en ligne sur son propre nom de domaine .ma, adapté au mobile, avec bouton WhatsApp et appel. La Vitrine ajoute 5 pages en français et en arabe, un formulaire de contact et la fiche Google de l'entreprise. La Pro ajoute le référencement Google, un blog et une troisième langue. L'hébergement et le domaine sont renouvelés chaque année.",
+  "duree": "7 jours (Page unique), 15 jours (Vitrine), 30 jours (Pro), comptés à partir du brief complet et des contenus reçus. Domaine .ma actif en 1 jour, ou 5 jours s'il faut une validation ANRT.",
+  "frais_officiels": [
+    { "label": "Nom de domaine .ma (1re année)", "montant": "Prix libre fixé par le prestataire déclaré ANRT", "note": "Compris dans l'hébergement Mziane (990 DH HT par an). L'ANRT ne vend pas directement." },
+    { "label": "Déclaration CNDP du formulaire de contact", "montant": "0 DH", "note": "Aucun frais n'est indiqué sur cndp.ma. Envoi par courrier ou dépôt au siège à Rabat." },
+    { "label": "Fiche Google de l'entreprise (Google Business Profile)", "montant": "0 DH", "note": "Service gratuit de Google." }
+  ],
+  "avant_de_commencer": [
+    "Le titulaire du nom de domaine doit être le client (sa société ou lui même), jamais Mziane. Mziane est seulement le contact technique.",
+    "Avoir un compte chez un prestataire .ma déclaré auprès de l'ANRT (liste officielle : https://www.registre.ma/prestataire/prestataires) et un hébergement prêt à recevoir des sites.",
+    "Connaître le contenu de l'offre vendue : Page unique (1 page, WhatsApp et appel, .ma, mobile), Vitrine (5 pages, FR et AR, fiche Google, formulaire), Pro (Vitrine + référencement Google, blog, 3 langues).",
+    "Fixer dès le départ le nombre d'allers retours sur la maquette (par exemple 2) pour tenir le délai.",
+    "Le délai promis ne commence qu'à réception du brief et des contenus : l'écrire au client."
+  ],
+  "phases": [
+    {
+      "title": "1. Lancement et brief",
+      "steps": [
+        {
+          "id": "verifier-commande",
+          "title": "Vérifier la commande et ouvrir le dossier",
+          "who": "moi",
+          "where": "Espace admin Mziane",
+          "how": [
+            "Noter la formule (web-page, web-vitrine ou web-pro) et si l'hébergement est commandé.",
+            "Vérifier le paiement ou l'échéancier.",
+            "Mettre le dossier au statut « Brief à faire »."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier ouvert avec la formule",
+          "offers": []
+        },
+        {
+          "id": "verifier-pieces",
+          "title": "Vérifier les éléments reçus dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Contrôler le logo (SVG, PDF ou PNG net), la présentation de l'activité, les photos, les coordonnées (téléphone, WhatsApp, adresse, horaires) et le nom de domaine souhaité.",
+            "Demander l'extrait RC et l'ICE de la société si ce n'est pas déjà dans le dossier : ils servent au domaine et aux mentions légales.",
+            "Relancer le client pour ce qui manque."
+          ],
+          "pieces": ["Logo", "Présentation de l'activité", "Photos", "Coordonnées à afficher", "Nom de domaine souhaité", "RC et ICE ou CIN du titulaire"],
+          "delai": "1 à 3 jours selon le client",
+          "cout": "0 DH",
+          "pieges": ["Utiliser des photos trouvées sur Internet sans droits : demander des photos du client ou prendre une banque d'images libre de droits."],
+          "preuve": "Éléments validés dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "appel-brief",
+          "title": "Faire l'appel de brief avec le client",
+          "who": "moi",
+          "where": "Appel ou visio (30 minutes)",
+          "how": [
+            "Demander : qui sont ses clients, ce qu'il veut qu'ils fassent (appeler, écrire sur WhatsApp, venir au local), ses 3 services principaux, 2 ou 3 sites qu'il aime.",
+            "Valider les langues : français pour la Page unique, français et arabe pour la Vitrine, trois langues pour la Pro (demander laquelle).",
+            "Valider la liste des pages (Vitrine et Pro : par exemple Accueil, Services, À propos, Réalisations, Contact).",
+            "Pour la Pro, noter les mots que ses clients tapent sur Google (ex. « plombier Agadir »).",
+            "Rédiger une fiche de brief et l'envoyer au client pour accord."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Promettre des fonctions non vendues (paiement en ligne, espace membre) : les mettre en devis séparé."],
+          "preuve": "Fiche de brief validée par le client",
+          "offers": []
+        },
+        {
+          "id": "planning",
+          "title": "Envoyer le planning de livraison",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Fixer les dates : maquette, retours, mise en ligne, formation.",
+            "Rappeler que chaque jour de retard du client décale la livraison."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Planning envoyé",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Nom de domaine .ma",
+      "steps": [
+        {
+          "id": "verifier-domaine",
+          "title": "Vérifier que le nom de domaine est libre et valide",
+          "who": "moi",
+          "where": "Service WHOIS du registre .ma (ANRT) : https://www.registre.ma/ressources/whois",
+          "how": [
+            "Chercher le nom souhaité dans le WHOIS.",
+            "Vérifier les règles : lettres a à z (accents autorisés), chiffres, trait d'union mais pas au début, pas à la fin, pas en 3e et 4e position, pas d'espace, entre 2 et 63 caractères.",
+            "Vérifier qu'il ne reprend pas un terme réservé ni une marque connue d'un tiers.",
+            "Proposer 2 ou 3 variantes si le nom est pris, et faire choisir le client."
+          ],
+          "pieces": ["Nom souhaité"],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": ["Prendre la marque d'un tiers : le titulaire de la marque peut récupérer le domaine par la procédure de litiges .ma de l'OMPI."],
+          "preuve": "Capture WHOIS « disponible » et choix écrit du client",
+          "offers": []
+        },
+        {
+          "id": "enregistrer-domaine",
+          "title": "Enregistrer le domaine au nom du client chez un prestataire déclaré ANRT",
+          "who": "moi",
+          "where": "Espace revendeur ou client du prestataire .ma choisi (liste sur https://www.registre.ma/prestataire/prestataires)",
+          "how": [
+            "Saisir le titulaire : nom de la société ou de la personne, téléphone, adresse postale et e-mail valables du client.",
+            "Saisir le contact administratif (le client ou son gérant) et le contact technique (Mziane).",
+            "Accepter les conditions d'enregistrement présentées par le prestataire (contrat d'enregistrement).",
+            "Choisir une durée d'un an (renouvelable de 1 à 5 ans).",
+            "Payer le prestataire."
+          ],
+          "pieces": ["Raison sociale ou nom du titulaire", "Téléphone, adresse et e-mail du titulaire", "Coordonnées du contact administratif et du contact technique", "Numéro de RC (société) ou de CIN (personne) si le prestataire le demande"],
+          "delai": "1 jour maximum (5 jours s'il faut une validation de l'ANRT)",
+          "cout": "Prix du prestataire, compris dans l'hébergement Mziane",
+          "pieges": ["Mettre Mziane comme titulaire : le client ne serait pas propriétaire de son nom.", "Donner un e-mail que le client ne lit pas : c'est par cet e-mail que l'ANRT envoie le code d'autorisation.", "Faire une faute de frappe : un domaine mal écrit ne se corrige pas, il faut en acheter un autre."],
+          "preuve": "Confirmation d'activation du prestataire",
+          "offers": []
+        },
+        {
+          "id": "validation-anrt",
+          "title": "Fournir les justificatifs si l'ANRT demande une validation",
+          "who": "moi",
+          "where": "Prestataire .ma, qui transmet à l'ANRT",
+          "how": [
+            "Si le nom touche un terme réservé, envoyer au prestataire la preuve du droit du client (RC, certificat de marque, etc.).",
+            "Le faire dans les 5 jours suivant la demande, sinon la demande est supprimée.",
+            "Attendre la décision de l'ANRT (5 jours en principe)."
+          ],
+          "pieces": ["RC ou certificat de marque du client"],
+          "delai": "5 jours pour envoyer, 5 jours pour la décision",
+          "cout": "0 DH",
+          "pieges": ["Laisser passer les 5 jours : le nom redevient libre pour tout le monde."],
+          "preuve": "Décision d'activation de l'ANRT transmise par le prestataire",
+          "offers": []
+        },
+        {
+          "id": "controle-whois",
+          "title": "Contrôler le WHOIS et archiver les accès",
+          "who": "moi",
+          "where": "https://www.registre.ma/ressources/whois",
+          "how": [
+            "Vérifier que le titulaire affiché est bien le client.",
+            "Noter la date d'échéance du domaine dans le dossier.",
+            "Archiver le nom du prestataire et la procédure pour obtenir le code d'autorisation."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Capture WHOIS avec le client comme titulaire",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Hébergement",
+      "steps": [
+        {
+          "id": "configurer-hebergement",
+          "title": "Configurer l'hébergement et le HTTPS",
+          "who": "moi",
+          "where": "Hébergeur utilisé par Mziane et zone DNS chez le prestataire .ma",
+          "how": [
+            "Créer l'espace du site chez l'hébergeur.",
+            "Pointer le domaine vers l'hébergement (enregistrements DNS).",
+            "Activer le certificat HTTPS (cadenas).",
+            "Activer les sauvegardes automatiques.",
+            "Noter dans le dossier où sont hébergés le site et les données du formulaire (Maroc ou étranger) : cela compte pour la CNDP."
+          ],
+          "pieces": [],
+          "delai": "1 jour (la propagation DNS peut prendre jusqu'à 48 h)",
+          "cout": "Compris dans l'hébergement Mziane",
+          "pieges": ["Oublier le HTTPS : le navigateur affiche « non sécurisé »."],
+          "preuve": "Page provisoire visible en https sur le domaine",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Contenu et maquette",
+      "steps": [
+        {
+          "id": "rediger-contenu",
+          "title": "Rédiger les textes du site",
+          "who": "moi",
+          "where": "Document partagé avec le client",
+          "how": [
+            "Rédiger des textes courts à partir de la présentation du client : ce qu'il fait, pour qui, où, comment le contacter.",
+            "Traduire en arabe (Vitrine et Pro) et dans la troisième langue (Pro), avec relecture par un locuteur natif.",
+            "Pour la Pro, placer naturellement les mots recherchés sur Google dans les titres."
+          ],
+          "pieces": ["Fiche de brief", "Présentation du client"],
+          "delai": "1 à 5 jours selon la formule",
+          "cout": "0 DH",
+          "pieges": ["Traduction automatique non relue en arabe : le client le verra tout de suite."],
+          "preuve": "Textes rédigés dans toutes les langues prévues",
+          "offers": []
+        },
+        {
+          "id": "maquette",
+          "title": "Réaliser et envoyer la maquette",
+          "who": "moi",
+          "where": "Outil de maquette ou version de test en ligne",
+          "how": [
+            "Faire la maquette de la page d'accueil (et du gabarit des autres pages pour Vitrine et Pro), en version mobile d'abord.",
+            "Utiliser le logo et les couleurs du client.",
+            "Envoyer le lien au client avec une question claire : « Validez vous ou que voulez vous changer ? »."
+          ],
+          "pieces": ["Logo", "Photos", "Textes"],
+          "delai": "2 à 7 jours selon la formule",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Lien de maquette envoyé",
+          "offers": []
+        },
+        {
+          "id": "valider-maquette",
+          "title": "Faire valider la maquette et les textes par écrit",
+          "who": "client",
+          "where": "WhatsApp ou espace client",
+          "how": [
+            "Recevoir les retours du client en une seule liste.",
+            "Appliquer les corrections dans la limite des allers retours prévus.",
+            "Obtenir un « je valide » écrit."
+          ],
+          "pieces": [],
+          "delai": "1 à 3 jours",
+          "cout": "0 DH",
+          "pieges": ["Accepter des retours au fil de l'eau sans fin : le délai explose."],
+          "preuve": "Validation écrite du client",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Construction du site",
+      "steps": [
+        {
+          "id": "integrer-pages",
+          "title": "Construire les pages",
+          "who": "moi",
+          "where": "Version de test du site",
+          "how": [
+            "Construire la page unique ou les 5 pages selon la formule, dans toutes les langues prévues, avec sélecteur de langue (Vitrine et Pro).",
+            "Ajouter le bouton WhatsApp (lien wa.me avec le numéro au format international) et le bouton d'appel (lien tel:).",
+            "Vérifier l'affichage de droite à gauche pour l'arabe.",
+            "Compresser les images pour un chargement rapide sur mobile."
+          ],
+          "pieces": [],
+          "delai": "Selon la formule",
+          "cout": "0 DH",
+          "pieges": ["Numéro WhatsApp sans indicatif 212 : le bouton ne marche pas."],
+          "preuve": "Version de test complète",
+          "offers": []
+        },
+        {
+          "id": "formulaire-contact",
+          "title": "Installer le formulaire de contact",
+          "who": "moi",
+          "where": "Version de test du site",
+          "how": [
+            "Demander seulement le nécessaire : nom, téléphone ou e-mail, message. Ne jamais demander le numéro de CIN (il oblige à une autorisation préalable CNDP).",
+            "Envoyer les messages vers l'e-mail du client.",
+            "Ajouter sous le formulaire la mention d'information CNDP (modèle « Formulaire » de https://www.cndp.ma/mentions-types/) : qui collecte, pourquoi, destinataires, numéro de récépissé CNDP, contact pour les droits d'accès, de rectification et d'opposition.",
+            "Tester l'envoi d'un message."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Mettre en ligne le formulaire avant le récépissé CNDP : la loi 09-08 interdit de traiter les données avant la déclaration."],
+          "preuve": "Message de test reçu par le client",
+          "offers": ["web-vitrine", "web-pro"]
+        },
+        {
+          "id": "referencement",
+          "title": "Préparer le référencement Google",
+          "who": "moi",
+          "where": "Site, Google Search Console (https://search.google.com/search-console)",
+          "how": [
+            "Rédiger un titre et une description pour chaque page avec les mots clés du brief.",
+            "Créer le plan du site (sitemap) et les balises de langue.",
+            "Préparer la structure du blog et publier les premiers articles prévus."
+          ],
+          "pieces": [],
+          "delai": "2 à 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Promettre une première place sur Google : on ne peut garantir aucun classement."],
+          "preuve": "Titres, descriptions, sitemap et blog en place",
+          "offers": ["web-pro"]
+        }
+      ]
+    },
+    {
+      "title": "6. Conformité légale",
+      "steps": [
+        {
+          "id": "mentions-legales",
+          "title": "Rédiger la page Mentions légales",
+          "who": "moi",
+          "where": "Page du site, lien en bas de chaque page",
+          "how": [
+            "Indiquer l'éditeur : dénomination, forme juridique, capital, adresse du siège, numéro de RC et tribunal, ICE, identifiant fiscal, téléphone et e-mail (pour un auto-entrepreneur : nom, adresse et ICE).",
+            "Indiquer le responsable de la publication (gérant).",
+            "Indiquer l'hébergeur (nom, adresse).",
+            "Indiquer le titulaire du nom de domaine et la propriété des textes et images.",
+            "Si le client vend à des particuliers en ligne, ajouter ses conditions générales de vente conformes à la loi 31-08 (identité et adresse du fournisseur, prix, droit de rétractation) : devis séparé si non prévu."
+          ],
+          "pieces": ["RC, ICE, IF du client"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Copier des mentions légales françaises (LCEN, CNIL) : au Maroc on cite la loi 09-08 et la CNDP."],
+          "preuve": "Page Mentions légales en ligne sur la version de test",
+          "offers": []
+        },
+        {
+          "id": "politique-donnees",
+          "title": "Rédiger la politique de protection des données",
+          "who": "moi",
+          "where": "Page du site",
+          "how": [
+            "Expliquer quelles données sont collectées (formulaire, WhatsApp, statistiques), pourquoi, combien de temps elles sont gardées et qui les reçoit.",
+            "Indiquer comment exercer les droits d'accès, de rectification et d'opposition (loi 09-08) et le numéro de récépissé CNDP.",
+            "Si le site utilise des cookies de mesure d'audience ou de publicité, ajouter un bandeau de consentement : la CNDP a publié un modèle de déclaration simplifiée pour les cookies (délibération D-939-2025 du 28/11/2025)."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Ajouter Google Analytics ou un pixel publicitaire sans bandeau ni déclaration."],
+          "preuve": "Page Données personnelles en ligne sur la version de test",
+          "offers": []
+        },
+        {
+          "id": "declaration-cndp",
+          "title": "Préparer la déclaration CNDP et la faire signer",
+          "who": "moi",
+          "where": "CNDP, formulaires sur https://www.cndp.ma/notifier-un-traitement/ et https://www.cndp.ma/procedures-de-notification-process/",
+          "how": [
+            "Choisir le formulaire : F214 (déclaration conformément à une décision) si le formulaire entre dans le modèle « Gestion des clients » (délibération 32-2015) ou « Cookies » (D-939-2025), sinon F211 (déclaration normale).",
+            "Préremplir au nom du client (responsable du traitement), avec la finalité « répondre aux demandes de contact » et la durée de conservation.",
+            "Joindre la copie de la mention d'information du formulaire et le document qui prouve le pouvoir de signature (modèle J du RC ou statuts).",
+            "Si les données sont stockées hors du Maroc (hébergeur ou boîte e-mail à l'étranger), préparer aussi la demande de transfert à l'étranger (formulaire F118).",
+            "Faire signer et cacheter par le client."
+          ],
+          "pieces": ["Formulaire F214 ou F211 signé", "Mention d'information du formulaire", "Pouvoir de signature (modèle J ou statuts)", "F118 si transfert à l'étranger"],
+          "delai": "1 jour de préparation",
+          "cout": "0 DH",
+          "pieges": ["Dossier incomplet : la CNDP le rejette et les délais ne courent pas.", "Oublier le transfert à l'étranger quand l'hébergement ou l'e-mail est hors du Maroc."],
+          "preuve": "Dossier CNDP signé",
+          "offers": ["web-vitrine", "web-pro"]
+        },
+        {
+          "id": "deposer-cndp",
+          "title": "Déposer la déclaration CNDP et obtenir le récépissé",
+          "who": "moi",
+          "where": "CNDP, Avenue Al Arz, Secteur 4, M1 Hay Riad, Rabat (dépôt direct ou courrier postal)",
+          "how": [
+            "Envoyer le dossier par courrier recommandé ou le déposer au siège.",
+            "Attendre le récépissé (24 h après réception d'un dossier complet selon la CNDP).",
+            "Si la CNDP ne répond pas dans les 8 jours, le traitement n'est pas soumis à autorisation.",
+            "Reporter le numéro de récépissé dans la mention du formulaire et la politique de données."
+          ],
+          "pieces": ["Dossier CNDP signé"],
+          "delai": "24 h après réception, plus le temps d'acheminement",
+          "cout": "0 DH (frais d'envoi postal seulement)",
+          "pieges": ["Mettre le formulaire en ligne avant le récépissé."],
+          "preuve": "Récépissé de déclaration CNDP avec son numéro",
+          "offers": ["web-vitrine", "web-pro"]
+        }
+      ]
+    },
+    {
+      "title": "7. Fiche Google de l'entreprise",
+      "steps": [
+        {
+          "id": "fiche-google",
+          "title": "Créer et faire valider la fiche Google de l'entreprise",
+          "who": "moi",
+          "where": "Google Business Profile : https://business.google.com",
+          "how": [
+            "Créer la fiche avec le compte Google du client (ou l'inviter comme propriétaire) : nom, catégorie, adresse ou zone desservie, téléphone, site, horaires, photos.",
+            "Lancer la validation demandée par Google (appel, SMS, e-mail, vidéo ou courrier selon les cas).",
+            "Faire réaliser par le client l'étape de validation qui le concerne (par exemple filmer son local)."
+          ],
+          "pieces": ["Compte Google du client", "Adresse et horaires", "Photos"],
+          "delai": "Quelques jours à quelques semaines selon la méthode de validation de Google",
+          "cout": "0 DH",
+          "pieges": ["Créer la fiche sur le compte Google de Mziane : le client doit en être propriétaire."],
+          "preuve": "Fiche Google validée et visible sur Maps",
+          "offers": ["web-vitrine", "web-pro"]
+        }
+      ]
+    },
+    {
+      "title": "8. Mise en ligne et livraison",
+      "steps": [
+        {
+          "id": "recette",
+          "title": "Tester le site avant la mise en ligne",
+          "who": "moi",
+          "where": "Version de test sur téléphone et ordinateur",
+          "how": [
+            "Tester sur un téléphone Android et un iPhone : affichage, boutons WhatsApp et appel, formulaire.",
+            "Relire tous les textes, les numéros et l'adresse.",
+            "Vérifier les liens Mentions légales et Données personnelles.",
+            "Mesurer la vitesse avec PageSpeed Insights (https://pagespeed.web.dev)."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Liste de tests cochée",
+          "offers": []
+        },
+        {
+          "id": "validation-finale",
+          "title": "Obtenir le feu vert final du client",
+          "who": "client",
+          "where": "WhatsApp ou espace client",
+          "how": ["Envoyer le lien de test et demander un « OK pour mise en ligne » écrit."],
+          "pieces": [],
+          "delai": "1 à 2 jours",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Accord écrit du client",
+          "offers": []
+        },
+        {
+          "id": "mise-en-ligne",
+          "title": "Mettre le site en ligne",
+          "who": "moi",
+          "where": "Hébergement et domaine du client",
+          "how": [
+            "Publier le site sur le domaine .ma en HTTPS.",
+            "Vérifier que l'adresse avec et sans www fonctionne.",
+            "Pour la Pro, déclarer le site et le sitemap dans Google Search Console.",
+            "Ajouter le lien du site dans la fiche Google."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Site accessible en https sur le domaine du client",
+          "offers": []
+        },
+        {
+          "id": "formation",
+          "title": "Former le client",
+          "who": "moi",
+          "where": "Visio ou rendez vous (30 à 45 minutes)",
+          "how": [
+            "Montrer comment recevoir les messages du formulaire et de WhatsApp.",
+            "Montrer comment demander une modification à Mziane, ou modifier un texte lui même si l'outil le permet.",
+            "Pour la Pro, montrer comment publier un article de blog.",
+            "Pour la Vitrine et la Pro, montrer comment répondre aux avis sur la fiche Google."
+          ],
+          "pieces": [],
+          "delai": "1 séance",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Séance faite et notée dans le dossier",
+          "offers": []
+        },
+        {
+          "id": "livrer",
+          "title": "Livrer les accès et documents dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer : capture WHOIS, date d'échéance du domaine, nom du prestataire .ma, récépissé CNDP, accès à la fiche Google, petit guide de la formation.",
+            "Mettre le dossier au statut « Livré »."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Documents visibles dans l'espace client",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "9. Hébergement et renouvellement annuel",
+      "steps": [
+        {
+          "id": "rappel-renouvellement",
+          "title": "Programmer le renouvellement du domaine et de l'hébergement",
+          "who": "moi",
+          "where": "Agenda Mziane et espace du prestataire .ma",
+          "how": [
+            "Créer un rappel 45 jours avant l'échéance du domaine.",
+            "Envoyer au client la facture d'hébergement et domaine (990 DH HT par an).",
+            "Renouveler le domaine chez le prestataire avant l'échéance (1 à 5 ans possibles, total ne dépassant pas 5 ans)."
+          ],
+          "pieces": [],
+          "delai": "Chaque année avant l'échéance",
+          "cout": "990 DH HT par an facturés au client",
+          "pieges": ["Compter sur la période de grâce de 30 jours après l'échéance : le site peut être coupé pendant ce temps.", "Sans action, le domaine est renouvelé d'office pour un an et facturé par le prestataire."],
+          "preuve": "Nouvelle date d'échéance visible dans le WHOIS",
+          "offers": ["hebergement"]
+        },
+        {
+          "id": "maintenance",
+          "title": "Vérifier le site chaque trimestre",
+          "who": "moi",
+          "where": "Hébergement",
+          "how": [
+            "Vérifier que le site, le HTTPS et le formulaire fonctionnent.",
+            "Vérifier qu'une sauvegarde récente existe.",
+            "Mettre à jour le numéro de récépissé CNDP ou les coordonnées si le client en change."
+          ],
+          "pieces": [],
+          "delai": "Tous les 3 mois",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Contrôle noté dans le dossier",
+          "offers": ["hebergement"]
+        },
+        {
+          "id": "changement-prestataire",
+          "title": "Remettre le domaine au client s'il part",
+          "who": "moi",
+          "where": "Prestataire .ma, et dns@anrt.ma en cas de blocage",
+          "how": [
+            "Demander au prestataire le code d'autorisation du domaine (il doit le fournir en 3 jours) et le transmettre au client.",
+            "Si le prestataire ne répond pas, le client écrit à dns@anrt.ma : l'ANRT envoie le code à l'e-mail du titulaire."
+          ],
+          "pieces": [],
+          "delai": "3 à 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Retenir le domaine d'un client qui part : il lui appartient."],
+          "preuve": "Code d'autorisation remis au client",
+          "offers": ["hebergement"]
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Pas besoin du cabinet comptable partenaire pour livrer un site : c'est de la production faite par Mziane.",
+    "Pour des conditions générales de vente en ligne (loi 31-08) ou un cas CNDP complexe (données sensibles, CIN, transferts massifs à l'étranger), consulter un juriste ou un avocat plutôt que l'expert-comptable."
+  ],
+  "client": [
+    "Envoyer logo, photos, présentation, coordonnées, nom de domaine souhaité, RC et ICE.",
+    "Participer à l'appel de brief.",
+    "Valider par écrit le nom de domaine, la maquette, les textes et la mise en ligne.",
+    "Signer et cacheter la déclaration CNDP (Vitrine et Pro).",
+    "Réaliser l'étape de validation de la fiche Google demandée par Google.",
+    "Payer l'hébergement et le domaine chaque année.",
+    "Garder accès à l'e-mail déclaré comme titulaire du domaine."
+  ],
+  "apres": [
+    "Renouveler chaque année le domaine .ma et l'hébergement (990 DH HT par an) avant l'échéance.",
+    "Mettre à jour les mentions légales si le client change d'adresse, de capital ou de gérant.",
+    "Déclarer à la CNDP tout nouveau traitement (vente en ligne, newsletter, cookies publicitaires).",
+    "Pour la Pro, suivre la Search Console et publier régulièrement sur le blog (prestation à proposer si non incluse).",
+    "Proposer le dépôt de la marque à l'OMPIC si le nom du site n'est pas protégé."
+  ],
+  "sources": [
+    { "title": "Registre .ma (ANRT), Étapes d'enregistrement d'un nom de domaine", "url": "https://www.registre.ma/nom-de-domaine/enregistrement" },
+    { "title": "Registre .ma (ANRT), Règles et contraintes syntaxiques", "url": "https://www.registre.ma/nom-de-domaine/domaine-ma" },
+    { "title": "Registre .ma (ANRT), Gestion, renouvellement et changement de prestataire", "url": "https://www.registre.ma/nom-de-domaine/gestion" },
+    { "title": "Registre .ma (ANRT), Liste des prestataires déclarés", "url": "https://www.registre.ma/prestataire/prestataires" },
+    { "title": "Registre .ma (ANRT), FAQ", "url": "https://www.registre.ma/ressources/faq" },
+    { "title": "Registre .ma (ANRT), Réglementation (décision ANRT/DG/N°02/2024)", "url": "https://www.registre.ma/ressources/reglementation" },
+    { "title": "Registre .ma (ANRT), Utilisation du nom de domaine et certificat", "url": "https://www.registre.ma/titulaires/utilisation-nom-de-domaine" },
+    { "title": "CNDP, Notifier un traitement (F211, F214, délais)", "url": "https://www.cndp.ma/notifier-un-traitement/" },
+    { "title": "CNDP, Procédures de notification (gestion des clients, cookies, vente en ligne)", "url": "https://www.cndp.ma/procedures-de-notification-process/" },
+    { "title": "CNDP, Mentions types", "url": "https://www.cndp.ma/mentions-types/" },
+    { "title": "CNDP, Transfert à l'étranger (F118)", "url": "https://www.cndp.ma/notifier-une-demande-de-transfert-a-letranger/" },
+    { "title": "CNDP, FAQ (modes de dépôt)", "url": "https://www.cndp.ma/faq/" },
+    { "title": "CNDP, Loi 09-08", "url": "https://www.cndp.ma/loi-09-08/" },
+    { "title": "OMPI, Procédure de résolution des litiges .ma (2025)", "url": "https://wipo.int/amc/fr/domains/rules/cctld/ma/newrules.html" }
+  ],
+  "a_verifier": [
+    "Pièces exactes exigées par la décision ANRT/DG/N°02/2024 (publiée en arabe seulement) pour un .ma, notamment pour un titulaire étranger ou non résident : confirmer auprès du prestataire choisi.",
+    "Prix du .ma chez le prestataire retenu par Mziane, pour vérifier la marge de l'hébergement à 990 DH HT par an.",
+    "Gratuité de la déclaration CNDP et existence d'un dépôt en ligne en 2026 : la FAQ ne cite que le courrier et le dépôt au siège.",
+    "Choix entre F214 et F211 pour un simple formulaire de contact : confirmer qu'il entre dans le modèle « Gestion des clients » (délibération 32-2015).",
+    "Liste exacte des mentions obligatoires sur un site d'entreprise au Maroc (RC, ICE, IF, capital) : aucun texte unique ne la fixe. Vérifier l'obligation d'afficher l'ICE sur les documents de l'entreprise et les articles de la loi 31-08 sur l'information du consommateur.",
+    "Si l'hébergeur de Mziane est hors du Maroc, confirmer avec la CNDP si une demande de transfert (F118) est nécessaire pour les messages du formulaire."
+  ]
+}

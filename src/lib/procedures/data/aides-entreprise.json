@@ -1,0 +1,633 @@
+{
+  "id": "aides-entreprise",
+  "title": "Obtenir une aide de l'État pour une entreprise (diagnostic puis dossier de A à Z)",
+  "offers": ["aides-diagnostic", "aides-dossier", "aides-honneur"],
+  "summary": "Le client sait d'abord, gratuitement, à quelles aides sans intérêt il a droit et pour quel montant estimé. Ensuite Mziane monte, dépose et suit le dossier (prime TPME de la Charte de l'investissement, MDM Invest, aides à l'embauche, INDH ou prêt d'honneur à 0 %) jusqu'au versement. Les honoraires ne sont facturés qu'au versement de l'aide, ou à l'accord pour un prêt d'honneur ; 0 DH si l'aide est refusée.",
+  "duree": "Diagnostic : 1 à 3 jours. Prime TPME : environ 45 jours entre le dépôt complet et la convention (chiffre de presse), puis plusieurs mois à 3 ans jusqu'aux versements selon l'avancement du projet. MDM Invest : environ 21 jours ouvrés d'instruction bancaire. Tahfiz et Idmaj : quelques semaines à l'ANAPEC. Prêt d'honneur : 1 à 4 mois selon le comité.",
+  "frais_officiels": [
+    { "label": "Instruction du dossier par le CRI (prime TPME)", "montant": "0 DH", "note": "Le dépôt sur cri-invest.ma est gratuit." },
+    { "label": "Attestation de régularité fiscale (DGI)", "montant": "0 DH", "note": "Téléchargeable sur le portail de la DGI (SIMPL)." },
+    { "label": "Attestation de régularité CNSS", "montant": "0 DH", "note": "Téléchargeable sur Damancom." },
+    { "label": "Modèle J du registre de commerce", "montant": "Environ 20 à 30 DH", "note": "Tarif du greffe à confirmer (voir a_verifier)." },
+    { "label": "Légalisation de signature (contrat de travail Tahfiz, mandats)", "montant": "Quelques dirhams par signature à la commune", "note": "Tarif communal, variable." },
+    { "label": "Instruction ANAPEC (Tahfiz, Idmaj), INDH, Forsa, associations de prêt d'honneur", "montant": "0 DH", "note": "Ces organismes ne facturent rien au porteur de projet." }
+  ],
+  "avant_de_commencer": [
+    "Comprendre la règle d'or : Mziane est une société privée. Les organismes publics instruisent gratuitement. Le dire au client par écrit.",
+    "Ne jamais proposer de prêt à intérêt. Si un programme exige un crédit bancaire classique (cas fréquent de MDM Invest), proposer uniquement : apport propre, banque participative (Mourabaha, Ijara) ou prêt d'honneur à 0 %. Si aucune de ces voies n'est possible, abandonner ce programme.",
+    "Retenir le barème d'honoraires (offre aides-dossier) : 10 % jusqu'à 50 000 DH d'aide versée, 8 % de 50 000 à 200 000 DH, 6 % de 200 000 à 1 000 000 DH, 4 % au-delà (barème marginal), minimum 1 500 DH HT, maximum 100 000 DH HT. Pack Envol : 5 %. Prêt d'honneur (aides-honneur) : forfait de 1 490 DH HT payé seulement à l'accord.",
+    "Règle absolue pour les primes : ne rien acheter, ne rien signer et ne rien commencer avant le dépôt du dossier ou l'accord quand le programme l'exige. Une dépense faite trop tôt peut être refusée.",
+    "Ouvrir dans l'espace client un dossier par aide visée (une aide = un dossier = une facture d'honoraires au versement).",
+    "Avoir un compte sur cri-invest.ma au nom de l'entreprise du client ou se faire donner les accès par le client (voir étape dédiée)."
+  ],
+  "phases": [
+    {
+      "title": "1. Diagnostic gratuit (aides-diagnostic)",
+      "steps": [
+        {
+          "id": "lire-questionnaire",
+          "title": "Lire le questionnaire rempli par le client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir la fiche du prospect et relever : forme juridique, date de création, chiffre d'affaires des 3 dernières années, ville du projet, secteur d'activité, montant de l'investissement, emplois prévus, apport personnel, statut MRE ou non.",
+            "Noter les informations manquantes pour les demander pendant l'appel."
+          ],
+          "pieces": ["Questionnaire de 2 minutes rempli par le client"],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": ["Confondre chiffre d'affaires et bénéfice : le critère TPME porte sur le chiffre d'affaires hors taxes."],
+          "preuve": "Fiche prospect complétée",
+          "offers": ["aides-diagnostic"]
+        },
+        {
+          "id": "appel-diagnostic",
+          "title": "Appeler le client pour qualifier le projet",
+          "who": "moi",
+          "where": "Téléphone, WhatsApp ou visio",
+          "how": [
+            "Faire décrire le projet : quoi acheter, combien, où, quand, combien d'emplois en CDI.",
+            "Demander s'il a déjà acheté ou signé quelque chose pour ce projet (si oui, noter les dates : elles peuvent rendre une prime impossible).",
+            "Demander comment il compte financer le reste du projet et rappeler que Mziane ne travaille qu'avec des financements sans intérêt.",
+            "Demander s'il est MRE, s'il vit à l'étranger, s'il est jeune diplômé, s'il a des recrues prévues."
+          ],
+          "pieces": [],
+          "delai": "30 minutes",
+          "cout": "0 DH",
+          "pieges": ["Promettre un montant. Toujours parler de montant estimé, sous réserve de l'organisme."],
+          "preuve": "Compte rendu d'appel dans l'espace client",
+          "offers": ["aides-diagnostic"]
+        },
+        {
+          "id": "grille-eligibilite",
+          "title": "Passer le projet dans la grille d'éligibilité",
+          "who": "moi",
+          "where": "Bureau, avec les fiches de src/lib/aides.ts et cette procédure",
+          "how": [
+            "Prime TPME (fiche B01) : personne morale de droit privé marocain ; chiffre d'affaires HT entre 1 et 200 millions DH sur l'une des 3 dernières années (sauf entreprise de moins de 3 ans) ; pas plus de 25 % du capital détenu par une société qui fait plus de 200 millions DH ; aucun associé public ; projet entre 1 et moins de 50 millions DH ; au moins 10 % d'autofinancement ; activité dans la liste éligible ; ratio d'emplois stables suffisant.",
+            "Calculer le ratio d'emplois : nombre d'emplois stables créés divisé par le montant total en millions DH. Prime emploi : 5 % si le ratio est de 2 à 5, 7 % si plus de 5 jusqu'à 10, 10 % au-delà de 10.",
+            "Vérifier la province : prime territoriale de 10 % (catégorie A) ou 15 % (catégorie B). Vérifier si l'activité est prioritaire : prime de 10 %. Total plafonné à 30 % de l'investissement.",
+            "Si le projet fait moins de 1 million DH : la prime TPME est impossible. Regarder INDH, prêt d'honneur, Tahfiz, Idmaj.",
+            "MDM Invest (fiche B06) : porteur MRE, apport en fonds propres (20 % ou 25 % selon les sources, à confirmer), subvention de 10 % plafonnée à 5 millions DH selon Tamwilcom.",
+            "Tahfiz (fiche B11) : entreprise créée entre le 1er janvier 2015 et le 31 décembre 2026, recrutement en CDI dans les 24 premiers mois, 10 salariés maximum, salaire brut jusqu'à 10 000 DH.",
+            "Idmaj (fiche B12) : candidat diplômé inscrit à l'ANAPEC, contrat d'insertion.",
+            "INDH (fiche B07) : jeune ou personne en précarité, petit projet, appel à projets ouvert dans la province.",
+            "Prêt d'honneur (fiches B03, B04, B05) : Forsa n'a pas d'appel ouvert connu en 2026 ; orienter vers Réseau Entreprendre Maroc, Initiative Maroc ou un incubateur labellisé Innov Invest."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": [
+            "Compter des stagiaires ou des CDD comme emplois stables : pour la prime TPME, un emploi stable est un contrat d'au moins 18 mois continus, salarié marocain déclaré à la CNSS.",
+            "Oublier qu'une même dépense ne peut pas être financée deux fois : vérifier les cumuls avant d'annoncer un total."
+          ],
+          "preuve": "Grille d'éligibilité remplie",
+          "offers": ["aides-diagnostic"]
+        },
+        {
+          "id": "envoyer-liste-aides",
+          "title": "Envoyer au client la liste des aides possibles avec montants estimés",
+          "who": "moi",
+          "where": "Espace client Mziane, puis message WhatsApp",
+          "how": [
+            "Rédiger une page simple : nom de l'aide, organisme, montant estimé, conditions à remplir, délai, pièces principales.",
+            "Joindre le calcul des honoraires Mziane pour chaque aide (barème, minimum 1 500 DH HT, payé au versement, 0 DH si refus).",
+            "Proposer l'offre aides-dossier (ou aides-honneur pour un prêt d'honneur) et le lien de commande."
+          ],
+          "pieces": [],
+          "delai": "48 h après l'appel",
+          "cout": "0 DH",
+          "pieges": ["Écrire « garanti ». Toujours écrire « estimé, décision de l'organisme »."],
+          "preuve": "Liste des aides déposée dans l'espace client",
+          "offers": ["aides-diagnostic"]
+        }
+      ]
+    },
+    {
+      "title": "2. Lancement du dossier",
+      "steps": [
+        {
+          "id": "faire-signer-mandat",
+          "title": "Faire signer le mandat et les conditions d'honoraires",
+          "who": "client",
+          "where": "Espace client Mziane (signature électronique) ou papier",
+          "how": [
+            "Préparer un mandat qui autorise Mziane à préparer et déposer le dossier au nom de l'entreprise et à échanger avec l'organisme.",
+            "Y écrire : honoraires selon le barème, exigibles au versement effectif de l'aide (ou à l'accord pour le prêt d'honneur), 0 DH si refus, montant calculé sur l'aide réellement versée.",
+            "Prévoir une clause : si le client abandonne volontairement un dossier accepté, ou s'il encaisse l'aide sans prévenir, les honoraires restent dus."
+          ],
+          "pieces": ["Mandat signé", "CIN du dirigeant"],
+          "delai": "1 à 3 jours",
+          "cout": "0 DH",
+          "pieges": ["Commencer le travail sans mandat signé."],
+          "preuve": "Mandat signé dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane (groupe de pièces « Dossier d'aide de l'État »)",
+          "how": [
+            "Contrôler une par une : CIN du dirigeant, modèle J de moins de 6 mois, attestation de régularité fiscale de moins de 6 mois, attestation CNSS de moins de 6 mois, derniers états financiers (3 ans si l'entreprise a plus de 3 ans), devis ou factures pro forma, justificatif de l'apport, RIB.",
+            "Pour la prime TPME, demander aussi : statuts et dernier procès-verbal d'assemblée, titre ou bail ou promesse de vente ou de bail du local du projet.",
+            "Refuser les documents flous, coupés ou périmés et le signaler au client avec la raison."
+          ],
+          "pieces": ["Pièces listées dans src/lib/documents.ts, clé aides"],
+          "delai": "1 jour après réception",
+          "cout": "0 DH",
+          "pieges": ["Attestations fiscales ou CNSS de plus de 6 mois : le CRI les refuse.", "Entreprise non à jour de ses impôts ou de la CNSS : régulariser d'abord, sinon pas d'attestation."],
+          "preuve": "Pièces au statut « validé » dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "faire-regulariser",
+          "title": "Faire régulariser la situation fiscale ou CNSS si besoin",
+          "who": "cabinet",
+          "where": "Portail DGI (SIMPL) et Damancom",
+          "how": [
+            "Si l'attestation de régularité fiscale est refusée, transmettre au cabinet partenaire la liste des déclarations ou paiements manquants.",
+            "Le cabinet dépose les déclarations en retard. Le client paie les montants dus.",
+            "Télécharger la nouvelle attestation une fois la situation régularisée."
+          ],
+          "pieces": ["Identifiants SIMPL et Damancom du client"],
+          "delai": "Quelques jours à quelques semaines",
+          "cout": "Impôts, cotisations et pénalités dus par le client",
+          "pieges": ["Déposer le dossier en espérant que la régularité ne sera pas vérifiée."],
+          "preuve": "Attestations de régularité fiscale et CNSS à jour",
+          "offers": []
+        },
+        {
+          "id": "business-plan",
+          "title": "Rédiger le business plan et le plan de financement",
+          "who": "moi",
+          "where": "Bureau (modèle Mziane)",
+          "how": [
+            "Construire à partir des éléments du client : investissement détaillé poste par poste (montants HT des devis), calendrier de réalisation, emplois créés par année, chiffre d'affaires sur 3 à 5 ans.",
+            "Plan de financement sans intérêt : apport propre (au moins 10 % pour la prime TPME), prime attendue, prêt d'honneur ou financement participatif éventuel.",
+            "Faire relire les chiffres prévisionnels par le cabinet partenaire si le projet dépasse 5 millions DH ou si les états financiers sont complexes."
+          ],
+          "pieces": ["Devis", "Infos business plan du client"],
+          "delai": "3 à 7 jours",
+          "cout": "0 DH (inclus dans les honoraires)",
+          "pieges": ["Gonfler les emplois pour toucher plus : les emplois sont contrôlés et la prime est reprise si l'engagement n'est pas tenu."],
+          "preuve": "Business plan validé par le client (PDF dans l'espace client)",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Prime TPME de la Charte de l'investissement",
+      "steps": [
+        {
+          "id": "contacter-cri",
+          "title": "Contacter le CRI de la région du projet",
+          "who": "moi",
+          "where": "Centre Régional d'Investissement compétent (liste sur cri-invest.ma ; ex. CRI Souss-Massa : agadirinvest.com, CRI Casablanca-Settat : casainvest.ma)",
+          "how": [
+            "Appeler ou écrire au CRI pour confirmer : l'activité est-elle dans la liste éligible, dans quelle catégorie (A ou B) est la province, l'activité est-elle prioritaire.",
+            "Demander le guide TPME du CRI et le modèle de déclaration d'investissement à jour."
+          ],
+          "pieces": [],
+          "delai": "1 à 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Se fier à une liste d'activités trouvée sur un blog : la liste officielle est celle des décisions du Chef du gouvernement publiées au BO n°7454 du 6 novembre 2025."],
+          "preuve": "Réponse écrite (mail) du CRI sur l'éligibilité",
+          "offers": []
+        },
+        {
+          "id": "creer-compte-cri",
+          "title": "Créer le compte de l'entreprise sur la plateforme CRI",
+          "who": "moi",
+          "where": "www.cri-invest.ma",
+          "how": [
+            "Créer le compte avec l'adresse mail et le téléphone de l'entreprise (ou du client), pas ceux de Mziane, pour que le client garde la maîtrise.",
+            "Demander au client le code de validation reçu par SMS ou mail.",
+            "Enregistrer les accès dans le coffre de l'espace client."
+          ],
+          "pieces": ["ICE, RC, CIN du représentant légal"],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": ["Créer le compte au nom de Mziane : l'entreprise doit être le déposant."],
+          "preuve": "Compte actif sur cri-invest.ma",
+          "offers": []
+        },
+        {
+          "id": "remplir-declaration",
+          "title": "Remplir la déclaration d'investissement en ligne",
+          "who": "moi",
+          "where": "www.cri-invest.ma, formulaire de demande au titre du dispositif TPME",
+          "how": [
+            "Saisir : nature du projet, montant total estimé et répartition par poste, planning de réalisation, lieu, nombre d'emplois stables à créer, branche d'activité, mode de financement.",
+            "Les montants doivent correspondre exactement aux devis et au business plan."
+          ],
+          "pieces": ["Business plan", "Devis"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Écarts entre la déclaration et les devis : le CRI demande des compléments et le délai repart."],
+          "preuve": "Brouillon de la déclaration enregistré",
+          "offers": []
+        },
+        {
+          "id": "joindre-pieces-cri",
+          "title": "Joindre les pièces et déposer le dossier TPME",
+          "who": "moi",
+          "where": "www.cri-invest.ma",
+          "how": [
+            "Joindre : extrait des statuts et dernier PV d'assemblée ; attestation fiscale de moins de 6 mois ; attestation CNSS de moins de 6 mois ; états financiers des 3 dernières années (ou états disponibles si moins de 3 ans) ; modèle J de moins de 6 mois ; acte d'achat, bail, crédit-bail ou promesse de vente ou de bail du terrain ou local ; pièce d'identité du représentant légal.",
+            "Faire valider le récapitulatif par le client (capture envoyée sur WhatsApp) avant de cliquer sur déposer.",
+            "Déposer et télécharger l'accusé de dépôt."
+          ],
+          "pieces": ["Liste ci-contre (guide officiel du dispositif TPME)"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Déposer sans le justificatif du foncier : le dossier est incomplet.", "Avoir déjà réalisé l'investissement avant le dépôt : à éviter, voir a_verifier."],
+          "preuve": "Accusé de dépôt cri-invest.ma avec numéro de dossier",
+          "offers": []
+        },
+        {
+          "id": "statut-depose",
+          "title": "Passer le dossier au statut « déposé » et prévenir le client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Mettre l'accusé de dépôt dans l'espace client.", "Envoyer au client un message : date de dépôt, prochaine étape, délai indicatif."],
+          "pieces": [],
+          "delai": "Le jour du dépôt",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut « déposé » dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "suivre-instruction",
+          "title": "Suivre l'instruction et répondre aux demandes du CRI",
+          "who": "administration",
+          "where": "CRI puis Commission Régionale Unifiée d'Investissement (CRUI)",
+          "how": [
+            "Consulter la plateforme chaque semaine et les mails.",
+            "Répondre à toute demande de complément sous 48 h.",
+            "Relancer le CRI par mail si rien ne bouge après 30 jours."
+          ],
+          "pieces": [],
+          "delai": "Environ 45 jours entre dossier complet et convention (selon la presse)",
+          "cout": "0 DH",
+          "pieges": ["Laisser une demande de complément sans réponse : le dossier peut être clos."],
+          "preuve": "Avis favorable de la CRUI",
+          "offers": []
+        },
+        {
+          "id": "convention",
+          "title": "Faire signer la convention d'investissement avec l'État",
+          "who": "client",
+          "where": "CRI (signature par le représentant légal)",
+          "how": [
+            "Relire la convention avec le client : montant de l'investissement, montant de chaque prime, calendrier, emplois promis, conditions et tranches de versement, cas de remboursement.",
+            "Faire appel au cabinet partenaire si la convention contient des clauses fiscales ou comptables que le client ne comprend pas.",
+            "Le client signe au CRI (ou selon le mode indiqué par le CRI)."
+          ],
+          "pieces": ["CIN du représentant légal", "Pouvoir si signataire différent"],
+          "delai": "Selon convocation du CRI",
+          "cout": "0 DH",
+          "pieges": ["Signer des engagements d'emplois irréalistes : en cas de manquement, les primes sont à rembourser."],
+          "preuve": "Convention d'investissement signée",
+          "offers": []
+        },
+        {
+          "id": "realiser-investissement",
+          "title": "Faire réaliser l'investissement et classer chaque justificatif",
+          "who": "client",
+          "where": "Entreprise du client",
+          "how": [
+            "Le client achète et paie par virement ou chèque (jamais en espèces) au nom de l'entreprise.",
+            "Il dépose chaque facture et preuve de paiement dans l'espace client au fil de l'eau.",
+            "Mziane tient un tableau : montant prévu, montant réalisé, pourcentage réalisé.",
+            "Le client déclare les embauches à la CNSS (emplois stables en CDI ou contrat d'au moins 18 mois)."
+          ],
+          "pieces": ["Factures définitives", "Preuves de paiement", "Bordereaux CNSS"],
+          "delai": "Selon le calendrier de la convention",
+          "cout": "Coût du projet (à la charge du client)",
+          "pieges": ["Paiements en espèces ou au nom du dirigeant : dépenses rejetées."],
+          "preuve": "Tableau de réalisation à jour",
+          "offers": []
+        },
+        {
+          "id": "demander-versement",
+          "title": "Demander le versement de chaque tranche de prime",
+          "who": "moi",
+          "where": "CRI compétent (plateforme cri-invest.ma ou dossier papier selon le CRI)",
+          "how": [
+            "Quand le seuil de la tranche est atteint (une source cite : 50 % de la prime après 50 % de l'investissement réalisé, le reste après réalisation des emplois), déposer la demande de versement avec factures, preuves de paiement et justificatifs CNSS.",
+            "Accompagner la visite de contrôle si le CRI en organise une.",
+            "Relancer jusqu'à l'ordre de paiement."
+          ],
+          "pieces": ["Factures et preuves de paiement", "Attestation CNSS et état des salariés", "Attestations fiscales à jour"],
+          "delai": "Variable, à confirmer avec le CRI",
+          "cout": "0 DH",
+          "pieges": ["Demander le versement avant d'avoir atteint le seuil de la tranche."],
+          "preuve": "Avis de virement de la prime sur le compte de l'entreprise",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. MDM Invest (porteurs MRE)",
+      "steps": [
+        {
+          "id": "verifier-mdm",
+          "title": "Vérifier que le projet MRE peut se faire sans crédit à intérêt",
+          "who": "moi",
+          "where": "Tamwilcom (tamwilcom.ma) et banque participative ou partenaire",
+          "how": [
+            "Confirmer le statut MRE du client et son apport en fonds propres (taux exigé à confirmer : 20 % ou 25 %).",
+            "Demander à la banque (de préférence une banque participative) si elle peut porter la demande MDM Invest avec apport propre seul ou avec un financement participatif.",
+            "Si la banque exige un crédit classique à intérêt, informer le client et arrêter ce programme."
+          ],
+          "pieces": ["Passeport ou CIN", "Justificatif de résidence à l'étranger", "Justificatif d'apport"],
+          "delai": "1 semaine",
+          "cout": "0 DH",
+          "pieges": ["Laisser la banque glisser un crédit à intérêt dans le montage."],
+          "preuve": "Accord écrit de la banque sur le montage sans intérêt",
+          "offers": []
+        },
+        {
+          "id": "deposer-mdm",
+          "title": "Déposer la demande MDM Invest à la banque",
+          "who": "client",
+          "where": "Agence bancaire partenaire de Tamwilcom (dépôt exclusivement auprès de la banque)",
+          "how": [
+            "Mziane prépare le dossier complet (business plan, devis, pièces de l'entreprise, preuve d'apport).",
+            "Le client ou son mandataire dépose le dossier à la banque et récupère un reçu.",
+            "La banque instruit puis transmet à Tamwilcom."
+          ],
+          "pieces": ["Dossier MDM Invest complet"],
+          "delai": "Environ 21 jours ouvrés d'instruction bancaire (source non officielle)",
+          "cout": "0 DH",
+          "pieges": ["Apport non transféré en devises si la banque l'exige."],
+          "preuve": "Accord de la banque et de Tamwilcom",
+          "offers": []
+        },
+        {
+          "id": "versement-mdm",
+          "title": "Suivre le versement de la contribution MDM Invest",
+          "who": "administration",
+          "where": "Banque et Tamwilcom",
+          "how": ["Fournir à la banque les factures et preuves de réalisation demandées.", "Relancer la banque toutes les 2 semaines."],
+          "pieces": ["Factures", "Preuves de paiement"],
+          "delai": "Après réalisation du projet ou par tranches (sources divergentes)",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Relevé bancaire montrant la contribution MDM Invest",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Aides à l'embauche : Tahfiz et Idmaj",
+      "steps": [
+        {
+          "id": "tahfiz-eligibilite",
+          "title": "Vérifier l'éligibilité Tahfiz de chaque recrue",
+          "who": "moi",
+          "where": "Bureau, puis agence ANAPEC (anapec.org)",
+          "how": [
+            "Vérifier : entreprise créée entre le 1er janvier 2015 et le 31 décembre 2026 (date de début d'exploitation), recrutement en CDI dans les 24 premiers mois, 10 salariés maximum, salaire brut mensuel jusqu'à 10 000 DH.",
+            "Avantages : prise en charge par l'État de la part patronale CNSS et de la taxe de formation professionnelle, et salaire exonéré d'IR, pendant 24 mois."
+          ],
+          "pieces": ["Modèle J", "Date du premier acte commercial"],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": ["Une entreprise créée en 2027 n'est pas couverte, sauf nouvelle prorogation par une loi de finances."],
+          "preuve": "Grille Tahfiz validée",
+          "offers": []
+        },
+        {
+          "id": "tahfiz-depot",
+          "title": "Déposer le protocole Tahfiz à l'ANAPEC pour chaque recrue",
+          "who": "client",
+          "where": "Agence ANAPEC de la ville",
+          "how": [
+            "Mziane prépare le protocole de bénéfice Tahfiz et le contrat de travail en CDI.",
+            "Le client et le salarié signent le contrat et font légaliser les signatures à la commune.",
+            "Le client dépose à l'ANAPEC un dossier par recrue : protocole + copie légalisée du contrat."
+          ],
+          "pieces": ["Protocole Tahfiz", "Copie légalisée du CDI", "CIN du salarié"],
+          "delai": "Quelques semaines",
+          "cout": "Légalisation des signatures",
+          "pieges": ["Le décompte des 24 mois dépend de la date de signature du protocole : déposer vite après l'embauche."],
+          "preuve": "Protocole Tahfiz visé par l'ANAPEC",
+          "offers": []
+        },
+        {
+          "id": "tahfiz-paie",
+          "title": "Faire appliquer l'exonération dans la paie et à la CNSS",
+          "who": "cabinet",
+          "where": "Logiciel de paie et Damancom",
+          "how": ["Transmettre le protocole visé au gestionnaire de paie (cabinet partenaire ou offre compta Mziane).", "Vérifier sur le premier bordereau CNSS que la part patronale n'est plus appelée."],
+          "pieces": ["Protocole visé"],
+          "delai": "Mois suivant",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Bulletin de paie sans IR et bordereau CNSS conforme",
+          "offers": []
+        },
+        {
+          "id": "idmaj",
+          "title": "Monter un contrat d'insertion Idmaj si le candidat est un jeune diplômé",
+          "who": "moi",
+          "where": "Agence ANAPEC",
+          "how": [
+            "Déposer l'offre de stage à l'ANAPEC ou faire inscrire le candidat à l'ANAPEC.",
+            "Signer le contrat d'insertion tripartite (entreprise, stagiaire, ANAPEC).",
+            "Avantages connus : exonération CNSS et taxe de formation professionnelle, exonération d'IR de l'indemnité dans une limite mensuelle, AMO prise en charge par l'État. Durée et plafond à confirmer auprès de l'ANAPEC (voir a_verifier)."
+          ],
+          "pieces": ["Diplôme et inscription ANAPEC du candidat", "Modèle J"],
+          "delai": "1 à 3 semaines",
+          "cout": "0 DH",
+          "pieges": ["Utiliser Idmaj pour remplacer un salarié en poste."],
+          "preuve": "Contrat d'insertion signé et visé par l'ANAPEC",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. INDH (petits projets)",
+      "steps": [
+        {
+          "id": "indh-appel",
+          "title": "Repérer l'appel à projets INDH ouvert dans la province",
+          "who": "moi",
+          "where": "Division de l'Action Sociale de la province ou préfecture, Plateforme des jeunes, site indh.ma",
+          "how": [
+            "Appeler la Division de l'Action Sociale et la Plateforme des jeunes de la province du client.",
+            "Demander si un appel ou concours d'idées est ouvert en 2026 (programme 3 « amélioration du revenu et inclusion économique des jeunes »), la date limite et le formulaire."
+          ],
+          "pieces": [],
+          "delai": "1 semaine",
+          "cout": "0 DH",
+          "pieges": ["Les appels sont locaux et ponctuels : sans appel ouvert, pas de dépôt possible."],
+          "preuve": "Texte de l'appel à projets",
+          "offers": []
+        },
+        {
+          "id": "indh-depot",
+          "title": "Déposer le projet INDH et préparer le client au comité",
+          "who": "client",
+          "where": "Plateforme des jeunes ou Division de l'Action Sociale",
+          "how": ["Mziane remplit le formulaire et le business plan simple.", "Le client dépose et passe l'entretien devant le comité provincial (CPDH).", "En cas d'accord, suivre la convention et le versement en nature ou en argent."],
+          "pieces": ["CIN", "Formulaire de l'appel", "Devis"],
+          "delai": "Selon le calendrier du comité",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "PV ou lettre d'accord du comité INDH",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "7. Prêt d'honneur à 0 % (aides-honneur)",
+      "steps": [
+        {
+          "id": "choisir-reseau",
+          "title": "Choisir le réseau de prêt d'honneur adapté",
+          "who": "moi",
+          "where": "forsa.ma, Réseau Entreprendre Maroc (antennes régionales), Initiative Maroc, incubateurs labellisés Innov Invest (tamwilcom.ma)",
+          "how": [
+            "Vérifier sur forsa.ma : en octobre 2026, aucun nouvel appel Forsa n'est connu (seul le report d'échéances pour les anciens bénéficiaires a été ouvert). Ne pas promettre Forsa.",
+            "Réseau Entreprendre Maroc : création ou reprise créatrice d'emplois, prêt personnel sans intérêt ni garantie, mentorat.",
+            "Initiative Maroc : associations locales, prêt d'honneur pour petits projets.",
+            "Projet innovant : passer par un incubateur labellisé pour Innov Idea ou Innov Start (Tamwilcom).",
+            "Appeler l'antenne la plus proche pour connaître le prochain comité et le format du dossier."
+          ],
+          "pieces": [],
+          "delai": "1 semaine",
+          "cout": "0 DH",
+          "pieges": ["Facturer avant l'accord : le forfait de 1 490 DH HT est payé seulement à l'accord."],
+          "preuve": "Rendez-vous fixé avec le réseau",
+          "offers": ["aides-honneur"]
+        },
+        {
+          "id": "dossier-honneur",
+          "title": "Préparer le dossier de candidature et le pitch",
+          "who": "moi",
+          "where": "Bureau, puis plateforme ou formulaire du réseau",
+          "how": ["Rédiger le business plan et le dossier selon le modèle du réseau.", "Faire répéter au client sa présentation de 10 minutes et les questions probables.", "Déposer le dossier."],
+          "pieces": ["CIN", "CV", "Présentation du projet", "Devis"],
+          "delai": "1 à 2 semaines",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Accusé de dépôt du dossier",
+          "offers": ["aides-honneur"]
+        },
+        {
+          "id": "comite-honneur",
+          "title": "Faire passer le client devant le comité",
+          "who": "client",
+          "where": "Comité du réseau",
+          "how": ["Le client présente son projet.", "Mziane récupère la décision écrite."],
+          "pieces": [],
+          "delai": "Selon le calendrier du réseau",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Lettre d'accord du prêt d'honneur",
+          "offers": ["aides-honneur"]
+        }
+      ]
+    },
+    {
+      "title": "8. Facturation et clôture",
+      "steps": [
+        {
+          "id": "obtenir-preuve-versement",
+          "title": "Obtenir la preuve du versement de l'aide",
+          "who": "client",
+          "where": "Banque du client",
+          "how": ["Demander au client le relevé bancaire ou l'avis de virement qui montre le montant reçu.", "Pour un prêt d'honneur : la lettre d'accord suffit."],
+          "pieces": ["Relevé ou avis de virement"],
+          "delai": "Dès réception",
+          "cout": "0 DH",
+          "pieges": ["Facturer sur le montant accordé au lieu du montant versé : les honoraires portent sur l'aide réellement versée."],
+          "preuve": "Avis de virement dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "facturer-honoraires",
+          "title": "Émettre la facture d'honoraires au versement",
+          "who": "moi",
+          "where": "Outil de facturation Mziane",
+          "how": [
+            "Calculer : 10 % jusqu'à 50 000 DH, 8 % de 50 000 à 200 000 DH, 6 % de 200 000 à 1 000 000 DH, 4 % au-delà ; minimum 1 500 DH HT ; maximum 100 000 DH HT ; ajouter la TVA. Pack Envol : 5 %. Prêt d'honneur : 1 490 DH HT.",
+            "Exemple : 120 000 DH versés = 5 000 + 5 600 = 10 600 DH HT.",
+            "Pour une prime versée en plusieurs tranches, facturer à chaque tranche sur le montant de la tranche.",
+            "Envoyer la facture et le lien de paiement."
+          ],
+          "pieces": [],
+          "delai": "Sous 48 h après la preuve de versement",
+          "cout": "0 DH",
+          "pieges": ["Appliquer le barème au total en une seule fois au lieu de le faire par tranches marginales."],
+          "preuve": "Facture émise et payée",
+          "offers": []
+        },
+        {
+          "id": "livrer-cloturer",
+          "title": "Livrer le dossier final et passer le dossier au statut « versé »",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Déposer dans l'espace client : accusé de dépôt, convention ou accord, preuves de versement, calendrier des engagements à tenir.", "Passer le statut à « versé » (ou « refusé » sans facture)."],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut final dans l'espace client",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Régulariser la situation fiscale ou CNSS de l'entreprise quand l'attestation de régularité est refusée.",
+    "Produire ou certifier les états financiers manquants (3 dernières années) exigés par le CRI.",
+    "Relire les prévisionnels et la convention d'investissement pour les projets importants (au-dessus de 5 millions DH) ou les clauses fiscales.",
+    "Appliquer les exonérations Tahfiz ou Idmaj dans la paie si la paie n'est pas tenue par Mziane."
+  ],
+  "client": [
+    "Signer le mandat et les conditions d'honoraires.",
+    "Fournir les pièces à jour et apporter les fonds propres.",
+    "Ne rien acheter ni signer pour le projet avant l'accord de Mziane sur le calendrier.",
+    "Signer la convention avec l'État, le protocole Tahfiz, les contrats de travail (légalisés).",
+    "Payer les fournisseurs par virement ou chèque au nom de l'entreprise et transmettre chaque facture.",
+    "Passer les entretiens et comités (INDH, prêt d'honneur).",
+    "Prévenir Mziane dès que l'aide arrive sur son compte et payer la facture d'honoraires."
+  ],
+  "apres": [
+    "Tenir les engagements de la convention TPME : emplois stables maintenus, investissement réalisé dans les délais, sinon remboursement de la prime.",
+    "Garder toutes les factures et preuves de paiement au moins 10 ans.",
+    "Suivre les tranches restantes de la prime et les facturer à leur versement.",
+    "Tahfiz : surveiller la fin des 24 mois par salarié et prévenir la paie.",
+    "Prêt d'honneur : rappeler au client les échéances de remboursement (sans intérêt).",
+    "Relancer le client tous les 6 mois pour vérifier si une nouvelle aide est possible (extension, nouvel appel Forsa, INDH)."
+  ],
+  "sources": [
+    { "title": "Guide officiel du dispositif TPME (ministère de l'Investissement, via CRI Souss-Massa)", "url": "https://agadirinvest.com/wp-content/uploads/2025/11/Dispositif-TPME_compressed-1.pdf" },
+    { "title": "CRI Agadir : lancement du dispositif TPME, dépôt sur cri-invest.ma", "url": "https://agadirinvest.com/lancement-du-nouveau-dispositif-dappui-dedie-aux-tpme/" },
+    { "title": "Le360 : dispositif TPME opérationnel, BO n°7454 du 6 novembre 2025", "url": "https://fr.le360.ma/economie/charte-de-linvestissement-le-dispositif-de-soutien-aux-tpme-desormais-operationnel_GDNGOTXTA5E5RLGHRYQJD3XFUI/" },
+    { "title": "Médias24 : arrêtés du dispositif TPME publiés au BO", "url": "https://medias24.com/2025/11/08/tpme-arretes-dispositif-soutien-investissement-publies/" },
+    { "title": "Plateforme des CRI", "url": "https://www.cri-invest.ma" },
+    { "title": "Fiche MDM Invest (Tamwilcom, via CRI Casablanca-Settat)", "url": "https://www.casainvest.ma/sites/default/files/MDM%20INVEST.pdf" },
+    { "title": "Nouvelles dispositions Tahfiz (eRegulations Rabat)", "url": "https://rabat.eregulations.org/media/Nouvelles%20DispositionsTAHFIZ.pdf" },
+    { "title": "Maroc.ma : Forsa, report d'un an des remboursements", "url": "https://www.maroc.ma/fr/actualites/programme-forsa-lancement-dune-option-de-report-dun-sur-les-remboursements-des-prets-dhonneur" },
+    { "title": "Hespress : concours INDH 2026 Plateforme des jeunes (Oujda)", "url": "https://fr.hespress.com/468414-oujda-deux-concours-didees-de-projets-pour-les-jeunes-lances-par-lindh.html" }
+  ],
+  "a_verifier": [
+    "Seuil minimal du ratio d'emplois stables pour être éligible à la prime TPME (la presse cite 1,5 par million DH, 1 pour le tourisme ; le guide officiel ne fait démarrer la prime emploi qu'à partir d'un ratio de 2).",
+    "Possibilité de déposer une demande TPME pour un investissement déjà commencé : non trouvée dans le guide, à demander au CRI.",
+    "Tranches et calendrier de versement de la prime TPME (une source : 50 % après 50 % de l'investissement réalisé, solde après les emplois) et délai d'instruction de 45 jours (presse).",
+    "Liste des provinces de catégorie A et B et liste des activités prioritaires (décisions du BO n°7454).",
+    "MDM Invest : apport minimal (20 % ou 25 %), exigence d'apport en devises, versement en une fois ou en 2 tranches, et compatibilité avec une banque participative sans crédit à intérêt.",
+    "Tahfiz : aucune prorogation au-delà du 31/12/2026 trouvée dans la LF 2026 ; vérifier la LF 2027.",
+    "Idmaj : durée actuelle du contrat d'insertion (12 ou 24 mois selon les sources) et plafond mensuel de l'indemnité exonérée d'IR (environ 6 000 DH, à confirmer avec l'ANAPEC ou le CGI).",
+    "Forsa : pas d'appel 2026 trouvé ; vérifier forsa.ma avant de proposer.",
+    "Réseau Entreprendre Maroc et Initiative Maroc : montants actuels des prêts d'honneur et calendriers des comités non trouvés en ligne.",
+    "INDH : plafond de subvention par projet et règles du programme après la phase III ; propres à chaque province.",
+    "Tarif exact du modèle J au greffe."
+  ]
+}

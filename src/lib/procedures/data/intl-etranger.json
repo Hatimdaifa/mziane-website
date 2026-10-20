@@ -1,0 +1,378 @@
+{
+  "id": "intl-etranger",
+  "title": "Créer une société au Maroc pour un étranger non résident",
+  "offers": ["intl-etranger"],
+  "summary": "Le client étranger obtient sa société marocaine créée à distance, avec des documents étrangers apostillés et traduits, des procurations valables, et un capital versé en devises qui lui garantit le droit de rapatrier ses bénéfices et son capital (régime de convertibilité de l'Office des changes). Mziane l'accompagne aussi pour la banque et lui explique ce que son statut d'étranger permet ou non (gérer, travailler, résider).",
+  "duree": "4 à 8 semaines : 1 à 3 semaines pour les apostilles, traductions et procurations dans le pays du client, puis 2 à 4 semaines pour la banque et la création.",
+  "frais_officiels": [
+    { "label": "Apostille dans le pays du client", "montant": "Selon le pays", "note": "Payée par le client à l'autorité compétente de son pays." },
+    { "label": "Signature devant notaire étranger (procuration)", "montant": "Selon le notaire", "note": "Payée par le client." },
+    { "label": "Traduction par un traducteur assermenté", "montant": "Selon le traducteur, par page", "note": "Seulement si un document n'est ni en arabe ni en français." },
+    { "label": "Frais d'État de la création de société", "montant": "1 600 à 2 400 DH", "note": "Grille Mziane : certificat négatif 230 DH, registre de commerce environ 350 DH, journal, BO, timbres. Voir la fiche creation-sarlau." },
+    { "label": "Frais bancaires de virement international", "montant": "Selon les banques", "note": "" }
+  ],
+  "avant_de_commencer": [
+    "Lire la fiche intl-mre : la logique est la même (procuration, compte en devises, compte rendu à l'Office des changes). Cette fiche ajoute ce qui est propre aux étrangers.",
+    "Vérifier si le pays du client a signé la convention de La Haye sur l'apostille (liste officielle sur https://www.hcch.net). Le Maroc l'applique depuis le 14 août 2016. Si le pays n'est pas signataire, il faut une légalisation par le consulat du Maroc dans ce pays.",
+    "Vérifier que l'activité est ouverte aux étrangers ou demande un agrément (certaines activités réglementées ou la propriété de terres agricoles ont des règles spéciales).",
+    "Bien distinguer trois choses : être associé (possible sans résider au Maroc), être gérant (possible, mais il faut pouvoir signer), travailler et vivre au Maroc (demande une carte de séjour et, si salarié, un contrat de travail visé).",
+    "Si un associé est une société étrangère, prévoir aussi ses statuts, son extrait de registre et le pouvoir de son représentant, apostillés et traduits.",
+    "Ne jamais proposer de financement bancaire à intérêt."
+  ],
+  "phases": [
+    {
+      "title": "1. Cadrage",
+      "steps": [
+        {
+          "id": "appel-cadrage-etranger",
+          "title": "Faire l'appel vidéo de cadrage",
+          "who": "moi",
+          "where": "Visio (Google Meet, Zoom ou WhatsApp), en français ou en anglais",
+          "how": [
+            "Demander : nationalité et pays de résidence de chaque associé, activité, capital, gérant prévu, projet de venir vivre au Maroc ou non.",
+            "Demander si un associé est une société étrangère.",
+            "Vérifier sur hcch.net si chaque pays concerné applique l'apostille.",
+            "Envoyer un résumé écrit avec la liste des documents."
+          ],
+          "pieces": [],
+          "delai": "45 à 60 minutes",
+          "cout": "0 DH",
+          "pieges": ["Ne pas demander où vit chaque associé : un pays sans apostille rallonge le dossier de plusieurs semaines."],
+          "preuve": "Résumé de cadrage dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "verifier-activite",
+          "title": "Vérifier que l'activité est possible pour un étranger",
+          "who": "moi",
+          "where": "Ministère ou organisme de tutelle de l'activité, CRI de la région",
+          "how": [
+            "Chercher si l'activité demande une autorisation (santé, transport, enseignement, tourisme, BTP, sécurité...).",
+            "Pour une activité réglementée, demander à l'organisme si un dirigeant ou un associé étranger est accepté.",
+            "Noter la réponse dans le dossier."
+          ],
+          "pieces": ["Description de l'activité"],
+          "delai": "1 à 5 jours",
+          "cout": "0 DH",
+          "pieges": ["Créer la société puis découvrir qu'il faut un diplôme marocain ou un agrément pour exercer."],
+          "preuve": "Note écrite sur la faisabilité de l'activité",
+          "offers": []
+        },
+        {
+          "id": "verifier-pieces-etranger",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Contrôler le passeport (page d'identité en couleur, valide plus de 6 mois).",
+            "Contrôler le justificatif d'adresse à l'étranger de moins de 3 mois.",
+            "Pour une société associée : statuts, extrait de registre récent, pouvoir du représentant.",
+            "Lister les documents qui devront être apostillés puis traduits."
+          ],
+          "pieces": ["Passeport", "Justificatif d'adresse à l'étranger", "Titre de séjour du pays de résidence si différent de la nationalité", "Documents de la société associée si besoin"],
+          "delai": "24 h",
+          "cout": "0 DH",
+          "pieges": ["Passeport qui expire pendant la procédure : la banque bloquera."],
+          "preuve": "Pièces au statut Validé et liste des documents à apostiller",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Procurations, apostilles et traductions",
+      "steps": [
+        {
+          "id": "rediger-procurations",
+          "title": "Rédiger les procurations",
+          "who": "moi",
+          "where": "Modèle Mziane, en français (et dans la langue du client si besoin)",
+          "how": [
+            "Rédiger une procuration par associé au nom du gérant de Mziane : certificat négatif, signature des statuts, dépôt au CRI, inscriptions fiscales et CNSS, retrait des documents.",
+            "Si le client le souhaite, prévoir une procuration séparée pour la banque (le client peut préférer garder ce pouvoir).",
+            "Faire valider le texte par le client."
+          ],
+          "pieces": ["Passeport de chaque associé", "CIN du gérant de Mziane"],
+          "delai": "24 à 48 h",
+          "cout": "0 DH",
+          "pieges": ["Rédiger la procuration en anglais seulement : il faudra la traduire, autant l'écrire en français dès le départ."],
+          "preuve": "Projets de procuration validés",
+          "offers": []
+        },
+        {
+          "id": "signer-notaire-etranger",
+          "title": "Faire signer les procurations devant un notaire du pays du client",
+          "who": "client",
+          "where": "Notaire ou autorité qui légalise les signatures dans le pays du client",
+          "how": [
+            "Le client signe la procuration devant le notaire ou l'officier public.",
+            "Le notaire certifie la signature."
+          ],
+          "pieces": ["Procuration imprimée", "Passeport"],
+          "delai": "1 à 7 jours",
+          "cout": "Honoraires du notaire étranger",
+          "pieges": ["Une signature simple sans certification ne peut pas être apostillée."],
+          "preuve": "Procuration signée et certifiée",
+          "offers": []
+        },
+        {
+          "id": "apostiller",
+          "title": "Faire apostiller les documents dans le pays du client",
+          "who": "client",
+          "where": "Autorité compétente du pays (souvent la cour d'appel, le ministère de la Justice ou des Affaires étrangères) ; liste sur https://www.hcch.net",
+          "how": [
+            "Le client fait apposer l'apostille sur la procuration certifiée.",
+            "Faire aussi apostiller les documents officiels étrangers : statuts et extrait de registre d'une société associée, éventuellement certificat de résidence.",
+            "Si le pays n'applique pas l'apostille : faire légaliser par le ministère des Affaires étrangères du pays puis par le consulat du Maroc."
+          ],
+          "pieces": ["Procuration certifiée", "Documents officiels étrangers"],
+          "delai": "1 à 15 jours selon le pays",
+          "cout": "Selon le pays",
+          "pieges": ["Faire apostiller une simple copie : il faut l'original ou une copie certifiée conforme.", "L'apostille ne vaut pas traduction."],
+          "preuve": "Documents portant l'apostille",
+          "offers": []
+        },
+        {
+          "id": "recevoir-originaux-etranger",
+          "title": "Recevoir les originaux apostillés au bureau",
+          "who": "client",
+          "where": "Envoi express avec suivi vers l'adresse de Mziane",
+          "how": ["Le client envoie les originaux apostillés.", "Scanner chaque document dès réception et l'archiver dans l'espace client."],
+          "pieces": ["Originaux apostillés"],
+          "delai": "2 à 7 jours",
+          "cout": "Payé par le client",
+          "pieges": [],
+          "preuve": "Scans des originaux dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "traduire",
+          "title": "Faire traduire les documents étrangers",
+          "who": "moi",
+          "where": "Traducteur assermenté agréé près les tribunaux au Maroc",
+          "how": [
+            "Envoyer au traducteur tout document qui n'est ni en arabe ni en français (y compris l'apostille si elle est dans une autre langue).",
+            "Demander une traduction en français (ou en arabe si le CRI l'exige).",
+            "Récupérer les traductions originales signées et cachetées."
+          ],
+          "pieces": ["Originaux apostillés"],
+          "delai": "2 à 5 jours",
+          "cout": "Selon le traducteur",
+          "pieges": ["Faire traduire avant l'apostille : la traduction ne couvrirait pas l'apostille."],
+          "preuve": "Traductions assermentées",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Banque et régime de convertibilité",
+      "steps": [
+        {
+          "id": "expliquer-convertibilite",
+          "title": "Expliquer le régime de convertibilité au client",
+          "who": "moi",
+          "where": "Appel vidéo et note écrite",
+          "how": [
+            "Expliquer qu'un investissement étranger financé en devises (ou depuis un compte en dirhams convertibles) bénéficie de la convertibilité : le client peut transférer à l'étranger ses dividendes, puis le produit de la vente ou de la liquidation, plus-values comprises.",
+            "Expliquer que s'il finance en dirhams ordinaires, il perd cette garantie.",
+            "Expliquer qu'il faudra déposer un compte rendu d'investissement à l'Office des changes."
+          ],
+          "pieces": [],
+          "delai": "Pendant l'appel",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Note écrite envoyée au client",
+          "offers": []
+        },
+        {
+          "id": "choisir-banque",
+          "title": "Choisir la banque et obtenir sa liste de pièces",
+          "who": "moi",
+          "where": "Banque marocaine avec un service clients étrangers ou entreprises internationales",
+          "how": [
+            "Contacter 1 ou 2 banques et demander : liste des pièces pour une société en formation avec associé non résident, possibilité d'ouverture à distance, conditions de vigilance (origine des fonds).",
+            "Comparer et proposer une banque au client.",
+            "Préparer le dossier d'ouverture complet (statuts en projet, certificat négatif, passeports, procurations, justificatif d'origine des fonds)."
+          ],
+          "pieces": ["Certificat négatif", "Projet de statuts", "Passeports", "Procurations apostillées et traduites", "Justificatif de l'origine des fonds"],
+          "delai": "3 à 7 jours",
+          "cout": "0 DH",
+          "pieges": ["Sous-estimer les contrôles anti-blanchiment : la banque demande souvent la source des fonds (relevés, contrat de vente, bulletins de salaire)."],
+          "preuve": "Dossier d'ouverture déposé à la banque",
+          "offers": []
+        },
+        {
+          "id": "ouvrir-compte-etranger",
+          "title": "Faire ouvrir le compte et virer le capital en devises",
+          "who": "client",
+          "where": "Banque marocaine",
+          "how": [
+            "Ouvrir le compte de la société en formation (et si utile un compte en devises ou en dirhams convertibles au nom du client, autorisé par l'Office des changes pour les étrangers non résidents).",
+            "Virer le capital depuis un compte à l'étranger, motif \"apport au capital de la société X en formation\".",
+            "Demander l'attestation bancaire de dépôt ou de blocage du capital (obligatoire au-delà de 100 000 DH)."
+          ],
+          "pieces": ["Pièces de la banque"],
+          "delai": "1 à 3 semaines",
+          "cout": "Frais bancaires",
+          "pieges": ["Venir avec des espèces : sans déclaration d'importation de devises à la douane, ce financement n'est pas justifié."],
+          "preuve": "Avis de virement en devises, bordereau de change et attestation bancaire",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Création de la société",
+      "steps": [
+        {
+          "id": "creation-forme-etranger",
+          "title": "Réaliser la création selon la fiche de la forme choisie",
+          "who": "moi",
+          "where": "Voir la fiche creation-sarlau (ou SAS, SA) ; certificat négatif sur https://www.directinfo.ma, dépôt au CRI ou via DirectEntreprise (https://www.directentreprise.ma) par le cabinet",
+          "how": [
+            "Signer les statuts au nom des associés avec les procurations apostillées et traduites.",
+            "Joindre au dossier les passeports, procurations, traductions et, pour une société associée, ses documents apostillés.",
+            "Déposer le dossier et suivre jusqu'au registre de commerce, identifiant fiscal, ICE et CNSS."
+          ],
+          "pieces": ["Dossier complet de la forme choisie", "Procurations apostillées", "Traductions assermentées", "Attestation bancaire"],
+          "delai": "1 à 3 semaines",
+          "cout": "Frais d'État 1 600 à 2 400 DH",
+          "pieges": ["Gérant étranger résidant au Maroc sans carte de séjour valide : le CRI peut la demander."],
+          "preuve": "Modèle J, identifiant fiscal, ICE, taxe professionnelle, CNSS",
+          "offers": []
+        },
+        {
+          "id": "compte-rendu-oc-etranger",
+          "title": "Déposer le compte rendu d'investissement à l'Office des changes",
+          "who": "moi",
+          "where": "Office des changes (https://www.oc.gov.ma), directement ou par la banque",
+          "how": [
+            "Remplir le compte rendu : identité, nationalité, résidence, secteur, montant, forme de l'investissement.",
+            "Joindre statuts, avis de virement et attestation bancaire.",
+            "Déposer dans les 6 mois après l'opération (délai de l'instruction de 2013, à confirmer dans l'IGOC 2026)."
+          ],
+          "pieces": ["Statuts", "Avis de virement", "Bordereau de change", "Attestation bancaire"],
+          "delai": "Dans les 6 mois",
+          "cout": "0 DH",
+          "pieges": ["Oublier ce dépôt : la banque peut bloquer le premier transfert de dividendes."],
+          "preuve": "Accusé de dépôt",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Statut du gérant étranger",
+      "steps": [
+        {
+          "id": "statut-gerant",
+          "title": "Expliquer au gérant étranger ce que son statut lui permet",
+          "who": "moi",
+          "where": "Appel vidéo et note écrite",
+          "how": [
+            "Gérant qui reste à l'étranger : il peut diriger à distance, mais doit prévoir qui signe sur place (procuration bancaire, cogérant).",
+            "Gérant qui vient vivre au Maroc : il doit demander un titre de séjour (carte d'immatriculation) auprès de la DGSN dans les délais après son entrée.",
+            "Gérant qui sera salarié de la société : il faut en plus un contrat de travail d'étranger visé par le ministère chargé de l'emploi (plateforme TAECHIR) avant de commencer.",
+            "Rappeler que le séjour sans visa (ou sous visa touristique) ne permet pas de travailler au Maroc."
+          ],
+          "pieces": [],
+          "delai": "Pendant l'appel",
+          "cout": "0 DH",
+          "pieges": ["Laisser le gérant s'installer et se verser un salaire sans contrat visé ni titre de séjour."],
+          "preuve": "Note écrite sur le statut du gérant envoyée",
+          "offers": []
+        },
+        {
+          "id": "carte-sejour",
+          "title": "Préparer le dossier de carte de séjour du gérant",
+          "who": "moi",
+          "where": "DGSN, service des étrangers du commissariat (ou préfecture de police) du lieu de résidence",
+          "how": [
+            "Demander au service des étrangers la liste à jour des pièces pour un dirigeant de société.",
+            "Rassembler : passeport, photos, justificatif de logement, modèle J et statuts de la société, justificatif de ressources.",
+            "Accompagner le gérant au dépôt si besoin."
+          ],
+          "pieces": ["Passeport avec cachet d'entrée", "Photos", "Bail ou attestation d'hébergement", "Modèle J", "Statuts", "Justificatif de ressources"],
+          "delai": "Plusieurs semaines (récépissé remis au dépôt)",
+          "cout": "Droits de timbre à confirmer",
+          "pieges": ["Attendre la fin du séjour autorisé pour déposer."],
+          "preuve": "Récépissé de dépôt, puis carte d'immatriculation",
+          "offers": []
+        },
+        {
+          "id": "contrat-travail-etranger",
+          "title": "Faire viser le contrat de travail du gérant salarié",
+          "who": "cabinet",
+          "where": "Ministère chargé de l'emploi, plateforme TAECHIR (attestation ANAPEC si exigée)",
+          "how": [
+            "Vérifier avec le cabinet si le gérant mandataire social doit avoir un contrat de travail visé ou s'il en est dispensé.",
+            "Si oui : rédiger le contrat sur le modèle officiel et le déposer en ligne.",
+            "Attendre le visa avant le premier salaire."
+          ],
+          "pieces": ["Contrat de travail", "Passeport", "Diplômes", "Modèle J"],
+          "delai": "À confirmer",
+          "cout": "À confirmer",
+          "pieges": ["Verser un salaire avant le visa du contrat."],
+          "preuve": "Contrat de travail visé",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. Livraison",
+      "steps": [
+        {
+          "id": "livrer-etranger",
+          "title": "Livrer les documents et faire l'appel de remise",
+          "who": "moi",
+          "where": "Espace client Mziane et visio",
+          "how": [
+            "Déposer : statuts, modèle J, identifiants, attestation CNSS, dossier Office des changes, notes sur le statut du gérant.",
+            "Expliquer en visio les échéances fiscales et la conservation des preuves de change.",
+            "Passer le dossier au statut Livré."
+          ],
+          "pieces": [],
+          "delai": "Dès réception du dernier document",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut Livré",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Conventions fiscales entre le Maroc et le pays du client (double imposition, retenue à la source sur les dividendes).",
+    "Statut social du gérant étranger (mandataire social ou salarié, contrat de travail visé, CNSS).",
+    "Apport en nature venant de l'étranger ou associé personne morale étrangère (évaluation, règles de change).",
+    "Dépôt via DirectEntreprise si Mziane n'a pas d'accès professionnel."
+  ],
+  "client": [
+    "Signer les procurations devant un notaire de son pays et les faire apostiller.",
+    "Envoyer les originaux apostillés par transporteur avec suivi.",
+    "Fournir à la banque la preuve de l'origine des fonds et virer le capital en devises.",
+    "Garder toutes les preuves de virement.",
+    "Si le gérant vient vivre au Maroc : déposer sa demande de carte de séjour et ne pas travailler avant d'être en règle."
+  ],
+  "apres": [
+    "Mettre à jour chaque année le dossier de la société à capital étranger auprès de l'Office des changes si la règle le prévoit (répartition du capital résidents et non-résidents).",
+    "Renouveler la carte de séjour du gérant avant son expiration.",
+    "Avant chaque transfert de dividendes : présenter à la banque les comptes approuvés, le PV de distribution, la preuve de la retenue à la source et le dossier de financement en devises.",
+    "Taxe professionnelle exonérée 5 ans : noter la date de fin."
+  ],
+  "sources": [
+    { "title": "Office des changes, comptes en devises et en dirhams convertibles au nom des étrangers", "url": "https://www.oc.gov.ma/fr/personnes-morales/comptes-en-devises-et-comptes-en-dirhams-convertibles-au-nom-des-etrangers" },
+    { "title": "Office des changes, formes d'investissement et justificatifs (page MRE, mêmes règles d'investissement étranger)", "url": "https://www.oc.gov.ma/fr/mre/formes-dinvestissement" },
+    { "title": "Office des changes, publication de l'IGOC 2026", "url": "https://www.oc.gov.ma/fr/actualites/publication-de-l-instruction-generale-des-operations-de-change-2026" },
+    { "title": "Medias24, l'Office des changes publie l'IGOC 2026", "url": "https://medias24.com/2026/01/02/office-des-changes-publie-la-nouvelle-version-de-linstruction-generale-des-operations-de-change-document-1605599/" },
+    { "title": "CCME, adhésion du Maroc à la convention Apostille", "url": "https://www.ccme.org.ma/la-fin-d-un-circuit-kafkaien-aux-affaires-etrangeres/" },
+    { "title": "HCCH, état de la convention Apostille", "url": "https://www.hcch.net" },
+    { "title": "Loi relative à l'entrée et au séjour des étrangers au Maroc (Adala)", "url": "https://adala.justice.gov.ma/api/uploads/2024/04/30/Entrée et au séjour des étrangers au Maroc-1714463632505.pdf" },
+    { "title": "Upsilon Consulting, investissements étrangers au Maroc et rapatriement", "url": "https://upsilon-consulting.com/investissements-etrangers-au-maroc/" }
+  ],
+  "a_verifier": [
+    "Règles de l'IGOC 2026 sur l'investissement étranger (articles, délai du compte rendu, mise à jour annuelle). La nouveauté signalée : transfert des revenus sans preuve de financement en devises jusqu'à 2 millions de DH par an pour les investisseurs étrangers résidents détenant l'investissement depuis plus de 10 ans.",
+    "Le CRI exige-t-il une carte de séjour pour un gérant étranger non résident, ou le passeport suffit-il ?",
+    "Gérant mandataire social non salarié : contrat de travail visé (TAECHIR) obligatoire ou non. URL exacte de la plateforme TAECHIR du ministère chargé de l'emploi.",
+    "Liste à jour des pièces et droits de timbre pour la carte d'immatriculation à la DGSN, et existence d'une catégorie affaires (projet de décret d'application).",
+    "Tarifs des traducteurs assermentés et exigence éventuelle d'une traduction en arabe par certains CRI.",
+    "Activités ou biens fermés aux étrangers (terres agricoles, certaines professions réglementées) selon l'activité du client."
+  ]
+}

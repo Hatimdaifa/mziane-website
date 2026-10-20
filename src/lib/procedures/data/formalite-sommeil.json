@@ -1,0 +1,385 @@
+{
+  "id": "formalite-sommeil",
+  "title": "Mettre une SARL ou une SARLAU en sommeil",
+  "offers": [
+    "sommeil"
+  ],
+  "summary": "La société arrête temporairement son activité sans être dissoute : déclaration de cessation temporaire à la DGI (2 exercices, renouvelable 1 fois), mise en ordre de la CNSS et information du greffe si besoin. À la fin, la société paie moins (plus de minimum de cotisation minimale) mais continue à déposer ses déclarations obligatoires.",
+  "duree": "1 à 3 semaines pour les formalités ; la mise en sommeil dure au plus 2 exercices, renouvelable pour 1 exercice",
+  "frais_officiels": [
+    {
+      "label": "Déclaration de cessation temporaire à la DGI",
+      "montant": "0 DH",
+      "note": "CGI art. 150 bis."
+    },
+    {
+      "label": "Enregistrement de la décision des associés (si décision écrite)",
+      "montant": "200 DH (à confirmer)",
+      "note": "Seulement si une décision est établie et déposée."
+    },
+    {
+      "label": "Inscription au registre de commerce (si demandée)",
+      "montant": "À confirmer",
+      "note": "Pratique variable selon les greffes."
+    }
+  ],
+  "avant_de_commencer": [
+    "Savoir qu'il n'existe pas de « mise en sommeil » dans la loi 5-96 : l'outil légal est la déclaration fiscale de cessation temporaire d'activité (CGI art. 150 bis).",
+    "Vérifier la date de clôture du dernier exercice d'activité : la déclaration se dépose dans le mois qui suit cette clôture (CGI art. 150 bis).",
+    "Faire le point avec le client : salariés à licencier ou à radier, contrats en cours (bail, domiciliation, abonnements), dettes et créances, stock.",
+    "Vérifier que toutes les déclarations passées (IS, TVA, CNSS) sont à jour : la DGI et la CNSS relancent sur l'ancien passif.",
+    "Avoir reçu le modèle J, les statuts, les identifiants fiscaux et le dernier bilan."
+  ],
+  "phases": [
+    {
+      "title": "1. Préparer le dossier",
+      "steps": [
+        {
+          "id": "sommeil-verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir le dossier du client et contrôler chaque pièce demandée.",
+            "Vérifier que le modèle J date de moins de 3 mois et que les statuts envoyés sont bien la dernière version (avec toutes les modifications déjà faites).",
+            "Lire les statuts : forme (SARL ou SARLAU), nombre d'associés, répartition des parts, nom du gérant, clauses d'agrément ou de majorité particulières.",
+            "Comparer les noms et numéros de CIN avec le modèle J : toute différence doit être expliquée avant de rédiger."
+          ],
+          "pieces": [
+            "Modèle J",
+            "Statuts à jour",
+            "CIN du gérant",
+            "Identifiant fiscal, ICE, taxe professionnelle et numéro CNSS",
+            "Dernier bilan et liasse fiscale",
+            "Accès SIMPL et Damancom"
+          ],
+          "delai": "1 jour ouvré",
+          "cout": "0 DH",
+          "pieges": [
+            "Travailler sur des statuts périmés : le greffe refuse un acte qui ne part pas de la dernière version déposée."
+          ],
+          "preuve": "Checklist des pièces cochée dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "sommeil-devis-frais",
+          "title": "Envoyer le devis des frais d'État au client",
+          "who": "moi",
+          "where": "Espace client Mziane ou WhatsApp",
+          "how": [
+            "Lister les frais officiels de cette formalité (enregistrement, greffe, annonces légales, légalisations).",
+            "Préciser que ces frais sont reversés sans marge et payés en plus des honoraires.",
+            "Attendre l'accord écrit et le paiement avant d'engager les frais."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Oublier le Bulletin officiel ou le journal d'annonces légales dans le devis : ce sont les postes qui surprennent le plus le client."
+          ],
+          "preuve": "Devis accepté et frais encaissés",
+          "offers": []
+        },
+        {
+          "id": "sommeil-situation",
+          "title": "Faire un état des déclarations en retard",
+          "who": "moi",
+          "where": "SIMPL (https://www.tax.gov.ma) et Damancom (https://www.damancom.ma)",
+          "how": [
+            "Consulter dans SIMPL les déclarations IS, TVA, IR et cotisation minimale déposées et manquantes.",
+            "Consulter dans Damancom les bordereaux de déclaration de salaires déposés et impayés.",
+            "Lister ce qui manque et l'envoyer au client et au cabinet."
+          ],
+          "pieces": [
+            "Accès SIMPL et Damancom"
+          ],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": [
+            "Mettre en sommeil une société qui a des retards : les pénalités continuent de courir."
+          ],
+          "preuve": "Tableau des déclarations à jour ou en retard",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Décider et informer le registre",
+      "steps": [
+        {
+          "id": "sommeil-decision",
+          "title": "Rédiger la décision de cessation temporaire d'activité",
+          "who": "moi",
+          "where": "Bureau Mziane (modèle interne)",
+          "how": [
+            "Rédiger une décision de l'associé unique ou un PV d'assemblée qui constate l'arrêt temporaire de l'activité, sa date, ses motifs et sa durée prévue.",
+            "Préciser que la société n'est pas dissoute et que le gérant reste en fonction.",
+            "Faire signer et légaliser, puis recopier au registre des décisions."
+          ],
+          "pieces": [
+            "Statuts",
+            "CIN du gérant"
+          ],
+          "delai": "1 à 3 jours",
+          "cout": "Légalisation environ 20 à 30 DH par signature",
+          "pieges": [
+            "Écrire « dissolution » ou « liquidation » : ce n'est pas la même procédure."
+          ],
+          "preuve": "Décision signée et portée au registre",
+          "offers": []
+        },
+        {
+          "id": "sommeil-greffe",
+          "title": "Demander au greffe la mention de cessation temporaire au registre de commerce",
+          "who": "moi",
+          "where": "Direct Entreprise (OMPIC), https://www.directentreprise.ma, rubrique « Je modifie mon entreprise », ou à défaut guichet du registre de commerce au greffe du tribunal de commerce du siège",
+          "how": [
+            "Demander au greffe si la mention de cessation temporaire d'activité peut être inscrite (inscription modificative).",
+            "Si oui, déposer la décision enregistrée et la déclaration modificative.",
+            "Si le greffe ne la prévoit pas, garder la décision au dossier comme preuve de la date d'arrêt."
+          ],
+          "pieces": [
+            "Décision enregistrée",
+            "Modèle J"
+          ],
+          "delai": "1 à 2 semaines",
+          "cout": "Enregistrement 200 DH et frais de greffe à confirmer",
+          "pieges": [
+            "Une société inactive plus de 3 ans s'expose à des difficultés au registre ; garder une trace écrite de la cessation temporaire."
+          ],
+          "preuve": "Récépissé du greffe ou note au dossier",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Déclarer à la DGI",
+      "steps": [
+        {
+          "id": "sommeil-declaration-dgi",
+          "title": "Déposer la déclaration de cessation temporaire d'activité",
+          "who": "cabinet",
+          "where": "DGI, SIMPL (https://www.tax.gov.ma) ou service local des impôts, modèle établi par l'administration",
+          "how": [
+            "Remplir la déclaration de cessation temporaire (modèle DGI) en indiquant les motifs.",
+            "La déposer dans le mois qui suit la date de clôture du dernier exercice d'activité (CGI art. 150 bis).",
+            "Elle couvre 2 exercices, renouvelable une seule fois pour 1 exercice."
+          ],
+          "pieces": [
+            "Dernier bilan",
+            "Identifiant fiscal",
+            "Motifs de la cessation"
+          ],
+          "delai": "Dans le mois suivant la clôture du dernier exercice d'activité",
+          "cout": "0 DH",
+          "pieges": [
+            "Déposer hors délai : la société reste redevable du minimum de cotisation minimale de 3 000 DH.",
+            "Croire que la déclaration supprime toutes les obligations : elle ne supprime que le minimum de cotisation minimale."
+          ],
+          "preuve": "Accusé de dépôt de la déclaration de cessation temporaire",
+          "offers": []
+        },
+        {
+          "id": "sommeil-tp",
+          "title": "Demander la situation de la taxe professionnelle pendant le sommeil",
+          "who": "moi",
+          "where": "DGI, service local des impôts du siège",
+          "how": [
+            "Demander au service si la taxe professionnelle reste due pendant l'arrêt et à quelles conditions (fermeture effective du local, absence d'activité).",
+            "Noter la réponse au dossier et prévenir le client."
+          ],
+          "pieces": [
+            "Accusé de la déclaration de cessation temporaire"
+          ],
+          "delai": "1 à 2 semaines",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Réponse écrite ou note datée",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Mettre en ordre la CNSS",
+      "steps": [
+        {
+          "id": "sommeil-cnss-salaries",
+          "title": "Faire sortir les salariés à la CNSS",
+          "who": "cabinet",
+          "where": "CNSS, Damancom (https://www.damancom.ma)",
+          "how": [
+            "Après la fin des contrats de travail, déclarer la sortie de chaque salarié sur Damancom.",
+            "Payer les dernières cotisations et le solde de tout compte."
+          ],
+          "pieces": [
+            "Liste des salariés",
+            "Dates de sortie"
+          ],
+          "delai": "Le mois de la sortie",
+          "cout": "Cotisations dues",
+          "pieges": [
+            "Laisser des salariés déclarés : la CNSS calcule des cotisations et des pénalités."
+          ],
+          "preuve": "Bordereau Damancom sans salarié",
+          "offers": [
+            "sommeil"
+          ]
+        },
+        {
+          "id": "sommeil-cnss-employeur",
+          "title": "Informer la CNSS de l'arrêt d'activité de l'employeur",
+          "who": "moi",
+          "where": "Agence CNSS du siège ou Damancom",
+          "how": [
+            "Déposer une demande de suspension ou de cessation temporaire du compte employeur avec la décision et l'accusé DGI.",
+            "Demander s'il faut continuer à déposer des déclarations « néant » chaque mois."
+          ],
+          "pieces": [
+            "Décision de cessation temporaire",
+            "Accusé DGI",
+            "Numéro d'affiliation"
+          ],
+          "delai": "1 à 3 semaines",
+          "cout": "0 DH",
+          "pieges": [
+            "Arrêter de déclarer sans prévenir : la CNSS peut taxer d'office."
+          ],
+          "preuve": "Accusé de dépôt ou courrier de la CNSS",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Organiser les obligations qui restent dues",
+      "steps": [
+        {
+          "id": "sommeil-calendrier",
+          "title": "Programmer les déclarations qui restent obligatoires",
+          "who": "moi",
+          "where": "Outil de suivi Mziane",
+          "how": [
+            "Inscrire chaque année : bilan et déclaration IS dans les 3 mois de la clôture (souvent avant le 31 mars), toujours dus (CGI art. 150 bis).",
+            "Inscrire la déclaration annuelle du chiffre d'affaires TVA avant fin janvier de chaque année, avec paiement éventuel (CGI art. 150 bis).",
+            "Inscrire l'approbation des comptes dans les 6 mois de la clôture et leur dépôt au greffe dans les 30 jours (loi 5-96 art. 70 et 95).",
+            "Inscrire les échéances CNSS confirmées à l'étape précédente et la taxe professionnelle si elle reste due.",
+            "Inscrire la date de fin des 2 exercices pour décider : reprise, renouvellement (1 exercice) ou dissolution."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Oublier que la cotisation minimale proportionnelle reste calculée s'il y a des produits ; seul le minimum de 3 000 DH est supprimé (CGI art. 144-I-C-3°)."
+          ],
+          "preuve": "Échéances programmées dans le suivi",
+          "offers": []
+        },
+        {
+          "id": "sommeil-contrats",
+          "title": "Faire résilier ou suspendre les contrats inutiles",
+          "who": "client",
+          "where": "Bailleur, domiciliataire, fournisseurs",
+          "how": [
+            "Garder une adresse de siège valable (bail ou domiciliation) : obligatoire même en sommeil.",
+            "Résilier les abonnements non nécessaires."
+          ],
+          "pieces": [],
+          "delai": "Selon les contrats",
+          "cout": "Selon les contrats",
+          "pieges": [
+            "Perdre l'adresse du siège : courriers perdus et risque de radiation."
+          ],
+          "preuve": "Liste des contrats maintenus et résiliés",
+          "offers": []
+        },
+        {
+          "id": "sommeil-reprise",
+          "title": "Prévoir la lettre de reprise d'activité",
+          "who": "moi",
+          "where": "DGI, modèle établi par l'administration",
+          "how": [
+            "Si l'activité reprend, envoyer la lettre d'information de reprise à la DGI dans le mois qui suit la reprise (CGI art. 150 bis).",
+            "Régulariser la situation fiscale de l'exercice concerné et rouvrir la CNSS si des salariés sont embauchés."
+          ],
+          "pieces": [],
+          "delai": "1 mois après la reprise",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Accusé de la lettre de reprise",
+          "offers": []
+        },
+        {
+          "id": "sommeil-livrer",
+          "title": "Livrer les documents finaux et clôturer le dossier",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer dans l'espace client : décision de cessation temporaire, accusé DGI, accusés CNSS, calendrier des obligations restantes.",
+            "Mettre à jour la fiche société du client (dirigeant, adresse, capital, nom, associés selon le cas).",
+            "Passer le dossier au statut « Terminé » et noter les échéances à venir dans le suivi."
+          ],
+          "pieces": [],
+          "delai": "Le jour de réception du dernier document",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut Terminé avec tous les justificatifs en ligne",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Déposer la déclaration de cessation temporaire (CGI art. 150 bis) et vérifier qu'elle est dans le délai d'un mois après la clôture.",
+    "Établir chaque année le bilan, la liasse fiscale et la déclaration IS, qui restent dus pendant le sommeil.",
+    "Déposer la déclaration annuelle de chiffre d'affaires TVA avant fin janvier.",
+    "Faire les sorties de salariés et les derniers bordereaux CNSS.",
+    "Conseiller si le sommeil dure : au-delà de 3 exercices, comparer avec une dissolution amiable."
+  ],
+  "client": [
+    "Signer la décision de cessation temporaire.",
+    "Gérer la fin des contrats de travail et payer les soldes.",
+    "Garder une adresse de siège valable.",
+    "Payer chaque année les honoraires comptables et les impôts encore dus."
+  ],
+  "apres": [
+    "Relancer le client chaque année avant le 31 janvier (TVA) et avant le 31 mars (bilan et IS si clôture au 31 décembre).",
+    "Relancer le client 3 mois avant la fin des 2 exercices pour décider reprise, renouvellement ou dissolution.",
+    "Si le client choisit de fermer : proposer la fiche « formalite-fermer »."
+  ],
+  "sources": [
+    {
+      "title": "Code général des impôts 2026 (DGI) : art. 127, 128, 129-IV-23° et 25°, 133, 135, 144, 149, 150, 150 bis, 173",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "Loi n° 5-96 (SARL), version consolidée au 19 août 2021, portail Adala du ministère de la Justice",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/26/LA%20SOCIETE%20EN%20NOM%20COLLECTIF-1711463631100.pdf"
+    },
+    {
+      "title": "Code de commerce (loi n° 15-95), art. 37 à 64 sur le registre de commerce, portail Adala",
+      "url": "https://adala.justice.gov.ma/api/uploads/2024/03/01/Code%20de%20commerce_compressed-1709282723074.pdf"
+    },
+    {
+      "title": "Portail de la DGI (SIMPL, enregistrement, attestations)",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "CNSS, portail employeurs Damancom",
+      "url": "https://www.damancom.ma"
+    },
+    {
+      "title": "Direct Entreprise, plateforme électronique de création et d'accompagnement des entreprises (OMPIC)",
+      "url": "https://www.directentreprise.ma"
+    },
+    {
+      "title": "Upsilon Consulting, cessation temporaire d'activité : cadre légal (source privée)",
+      "url": "https://upsilon-consulting.com/cessation-temporaire-dactivite-cadre-legal/"
+    }
+  ],
+  "a_verifier": [
+    "Possibilité et forme d'une inscription « cessation temporaire d'activité » au registre de commerce selon les greffes et sur Direct Entreprise.",
+    "Procédure CNSS 2026 pour suspendre un compte employeur sans salarié, et obligation ou non de déclarations « néant ».",
+    "Sort de la taxe professionnelle pendant la cessation temporaire (loi 47-06) : exonération seulement si le local est fermé ?",
+    "Nom exact et canal de dépôt (SIMPL ou papier) du modèle de déclaration de cessation temporaire et de la lettre de reprise.",
+    "Taxe de services communaux due sur le local pendant le sommeil."
+  ]
+}

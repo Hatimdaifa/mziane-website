@@ -1,0 +1,510 @@
+{
+  "id": "creation-sa-sci",
+  "title": "Créer une société anonyme (SA) ou une société civile immobilière (SCI)",
+  "offers": ["sa", "sci"],
+  "summary": "Le client obtient une SA immatriculée au registre de commerce (avec conseil d'administration et commissaire aux comptes en place) ou une SCI immatriculée au registre des sociétés civiles immobilières, avec ses identifiants fiscaux. Ces deux formes sont vendues sur devis : la première étape est toujours d'établir et faire accepter le devis.",
+  "duree": "SA : 3 à 6 semaines selon la réunion des actionnaires et du commissaire aux comptes. SCI sans apport d'immeuble : 2 à 4 semaines. SCI avec apport d'immeuble : 1 à 3 mois (notaire et conservation foncière).",
+  "frais_officiels": [
+    { "label": "Certificat négatif OMPIC", "montant": "230 DH", "note": "Montant repris de la grille Mziane (offers.ts). Pour une SCI, voir a_verifier : le nouveau registre des SCI parle de certificat de dénomination." },
+    { "label": "Registre de commerce (greffe)", "montant": "350 DH environ", "note": "SA uniquement. Montant de la grille Mziane." },
+    { "label": "Annonce au journal d'annonces légales", "montant": "500 à 1 000 DH", "note": "Une annonce de SA est plus longue (administrateurs, commissaire aux comptes) : prévoir le haut de la fourchette." },
+    { "label": "Bulletin officiel", "montant": "400 à 600 DH", "note": "SA. Pour une SCI, l'obligation de publication est à confirmer." },
+    { "label": "Timbres et légalisations", "montant": "100 à 250 DH", "note": "Légalisation des signatures à la commune (moqataa)." },
+    { "label": "Droits d'enregistrement de la constitution", "montant": "Exonérés si capital jusqu'à 500 000 DH", "note": "Au-delà, taux à confirmer avec le cabinet. Un apport d'immeuble suit des règles propres (voir a_verifier)." },
+    { "label": "Honoraires du notaire (apport d'immeuble à une SCI ou à une SA)", "montant": "Sur devis du notaire", "note": "Plus droits d'enregistrement et droits de conservation foncière sur l'apport, calculés sur la valeur du bien." },
+    { "label": "Honoraires du commissaire aux comptes (SA)", "montant": "Sur devis du commissaire", "note": "Mission annuelle obligatoire, facturée par le commissaire, pas par l'État." }
+  ],
+  "avant_de_commencer": [
+    "Comprendre la différence. La SA est une société commerciale (loi 17-95) : au moins 5 actionnaires, capital minimum 300 000 DH, conseil d'administration de 3 à 12 membres, commissaire aux comptes obligatoire. La SCI est une société civile : elle détient et gère des immeubles, elle ne doit pas faire de commerce (achat-revente régulier, activité commerciale), sinon elle doit devenir une société commerciale.",
+    "Vérifier que la SA est vraiment adaptée. Si le client a moins de 5 associés ou moins de 300 000 DH de capital, proposer une SARL ou une SAS (offres soc-*) au lieu d'une SA.",
+    "Pour une SCI, demander si un associé apporte un immeuble. Si oui, le dossier passe par un notaire et la conservation foncière : c'est la partie longue et chère, à chiffrer dans le devis.",
+    "Pour une SCI, demander le but réel : louer un bien, loger la famille, transmettre un patrimoine. Si le but est d'acheter pour revendre souvent, orienter vers une SARL (marchand de biens).",
+    "Savoir que le nouveau cadre des SCI (décret 2-23-100 et arrêté 357-26 du ministère de la Justice, publié au BO le 16 mars 2026) s'applique depuis le 16 septembre 2026 : registre spécial, formulaires officiels, contrôle de l'identité des mandataires et de la réalité du siège.",
+    "Ne jamais proposer de prêt bancaire à intérêt pour financer le capital ou l'immeuble. Si le client en parle, rester sur l'apport personnel ou les dispositifs sans intérêt."
+  ],
+  "phases": [
+    {
+      "title": "1. Cadrage et devis",
+      "steps": [
+        {
+          "id": "appel-cadrage",
+          "title": "Appeler le client pour cadrer le projet",
+          "who": "moi",
+          "where": "Téléphone, WhatsApp ou visio",
+          "how": [
+            "Demander : nombre d'associés ou d'actionnaires, montant du capital, apports en argent ou en biens, activité, ville du siège.",
+            "Pour une SA : demander qui seront les administrateurs (au moins 3) et le président.",
+            "Pour une SCI : demander la liste des biens apportés ou à acheter, avec leur numéro de titre foncier.",
+            "Noter toutes les réponses dans la fiche du client."
+          ],
+          "pieces": ["Aucune à ce stade"],
+          "delai": "30 à 45 minutes",
+          "cout": "0 DH",
+          "pieges": ["Partir sur une SA alors que le client n'a que 2 ou 3 associés : la loi exige au moins 5 actionnaires."],
+          "preuve": "Fiche de cadrage remplie dans l'espace client",
+          "offers": []
+        },
+        {
+          "id": "devis-notaire-cac",
+          "title": "Demander les devis des intervenants extérieurs",
+          "who": "moi",
+          "where": "Notaire (si apport d'immeuble), commissaire aux comptes inscrit à l'Ordre des experts-comptables (SA), cabinet partenaire",
+          "how": [
+            "SA : demander à un commissaire aux comptes inscrit au tableau de l'Ordre des experts-comptables son devis annuel et son accord de principe.",
+            "Apport d'immeuble : envoyer au notaire le numéro de titre foncier et la valeur estimée, demander un devis avec honoraires, droits d'enregistrement et droits de conservation foncière.",
+            "Apport en nature d'une valeur importante dans une SA : demander au cabinet partenaire le nom d'un commissaire aux apports et son devis."
+          ],
+          "pieces": ["Numéro de titre foncier", "Valeur estimée du bien", "Capital et nombre d'actionnaires"],
+          "delai": "2 à 5 jours ouvrés",
+          "cout": "0 DH (devis gratuits en général)",
+          "pieges": ["Oublier les droits sur l'apport d'immeuble dans le devis : c'est souvent le plus gros montant du dossier."],
+          "preuve": "Devis écrits du notaire et du commissaire aux comptes",
+          "offers": []
+        },
+        {
+          "id": "etablir-devis",
+          "title": "Établir et envoyer le devis Mziane",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Séparer clairement trois blocs : honoraires Mziane (HT), frais d'État (reversés sans marge), honoraires des tiers (notaire, commissaire aux comptes) payés directement à eux.",
+            "Indiquer la durée prévue et la liste des pièces à fournir.",
+            "Envoyer le devis dans l'espace client et par WhatsApp."
+          ],
+          "pieces": ["Fiche de cadrage", "Devis des tiers"],
+          "delai": "24 h après réception des devis des tiers",
+          "cout": "0 DH",
+          "pieges": ["Mélanger les honoraires du notaire avec ceux de Mziane : le client doit voir qui touche quoi."],
+          "preuve": "Devis signé par le client et acompte reçu",
+          "offers": []
+        },
+        {
+          "id": "statut-devis-accepte",
+          "title": "Passer le dossier au statut Pièces attendues",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Vérifier le paiement de l'acompte.", "Changer le statut du dossier.", "Envoyer au client la liste des pièces (CIN, passeport étranger, lettre du commissaire aux comptes, certificat de propriété du bien apporté...)."],
+          "pieces": ["Devis signé"],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Statut du dossier mis à jour",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Nom et pièces",
+      "steps": [
+        {
+          "id": "verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Contrôler que chaque CIN ou passeport est lisible, en couleur, recto verso et valide.",
+            "SA : vérifier qu'il y a au moins 5 actionnaires et au moins 3 administrateurs.",
+            "SCI avec apport : vérifier que le certificat de propriété de la conservation foncière date de moins de 3 mois et que le bien n'a pas d'hypothèque ou de saisie non signalée.",
+            "Documents étrangers : vérifier l'apostille et la traduction (voir fiche intl-etranger)."
+          ],
+          "pieces": ["CIN des actionnaires ou associés", "CIN des administrateurs", "Lettre d'acceptation du commissaire aux comptes (SA)", "Certificat de propriété du bien apporté (SCI)", "Justificatif du siège"],
+          "delai": "24 h",
+          "cout": "0 DH",
+          "pieges": ["Accepter un certificat de propriété ancien : la conservation foncière et le notaire exigent un document récent."],
+          "preuve": "Toutes les pièces au statut Validé",
+          "offers": []
+        },
+        {
+          "id": "certificat-negatif",
+          "title": "Demander le certificat négatif",
+          "who": "moi",
+          "where": "OMPIC, en ligne sur DirectInfo : https://www.directinfo.ma",
+          "how": [
+            "Créer ou ouvrir le compte DirectInfo.",
+            "Saisir les 3 noms proposés par le client, par ordre de préférence.",
+            "Choisir la forme juridique (société anonyme ou société civile immobilière) si la plateforme le demande.",
+            "Payer en ligne et télécharger le certificat."
+          ],
+          "pieces": ["3 noms proposés", "CIN du demandeur"],
+          "delai": "24 à 48 h",
+          "cout": "230 DH",
+          "pieges": ["Pour une SCI, vérifier d'abord si le nouveau registre des SCI exige un certificat de dénomination spécifique (arrêté 357-26). Ne pas déposer sans avoir confirmé auprès du greffe."],
+          "preuve": "Certificat négatif ou certificat de dénomination",
+          "offers": []
+        },
+        {
+          "id": "siege",
+          "title": "Sécuriser le justificatif du siège",
+          "who": "moi",
+          "where": "Bailleur, propriétaire ou domiciliataire",
+          "how": [
+            "Obtenir un bail, un titre de propriété ou un contrat de domiciliation au nom de la future société.",
+            "Pour une SCI, le siège peut être un des immeubles de la société ou le domicile d'un associé si le greffe l'accepte.",
+            "Faire légaliser les signatures si le greffe le demande."
+          ],
+          "pieces": ["Bail, titre de propriété ou contrat de domiciliation"],
+          "delai": "1 à 3 jours",
+          "cout": "Variable (domiciliation Mziane si choisie)",
+          "pieges": ["Le nouveau registre des SCI contrôle la réalité du siège : une adresse sans preuve écrite sera refusée."],
+          "preuve": "Justificatif du siège signé",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Société anonyme : capital, statuts et organes",
+      "steps": [
+        {
+          "id": "sa-ouvrir-compte-bloque",
+          "title": "Faire ouvrir le compte bloqué et déposer le capital",
+          "who": "client",
+          "where": "Banque choisie par les actionnaires",
+          "how": [
+            "Expliquer aux actionnaires que le capital doit être entièrement souscrit (300 000 DH minimum) et qu'au moins un quart de chaque action en argent doit être versé tout de suite.",
+            "Le solde doit être versé dans un délai de 3 ans, sur appel du conseil d'administration.",
+            "Les apports en nature (matériel, immeuble) doivent être libérés en totalité dès la constitution.",
+            "Chaque actionnaire verse sa part sur le compte ouvert au nom de la société en formation.",
+            "Demander à la banque l'attestation de blocage du capital avec la liste des souscripteurs et les sommes versées."
+          ],
+          "pieces": ["Projet de statuts", "CIN des actionnaires", "Certificat négatif", "Bulletins de souscription signés"],
+          "delai": "2 à 5 jours ouvrés",
+          "cout": "Frais bancaires selon la banque",
+          "pieges": ["Verser moins d'un quart du nominal de chaque action.", "Retirer les fonds avant l'immatriculation : ils restent bloqués jusqu'à la présentation du registre de commerce."],
+          "preuve": "Attestation bancaire de blocage du capital",
+          "offers": ["sa"]
+        },
+        {
+          "id": "sa-bulletins",
+          "title": "Préparer et faire signer les bulletins de souscription",
+          "who": "moi",
+          "where": "Espace client Mziane, puis signature par chaque actionnaire",
+          "how": [
+            "Préparer un bulletin par actionnaire : nom, nombre d'actions souscrites, montant versé.",
+            "Faire signer chaque bulletin et légaliser la signature.",
+            "Faire établir par les fondateurs la déclaration de souscription et de versement qui récapitule tous les bulletins."
+          ],
+          "pieces": ["Liste des actionnaires et répartition du capital"],
+          "delai": "2 à 5 jours",
+          "cout": "Timbres et légalisations",
+          "pieges": ["Total des bulletins différent du capital écrit dans les statuts."],
+          "preuve": "Bulletins signés et déclaration de souscription et de versement",
+          "offers": ["sa"]
+        },
+        {
+          "id": "sa-commissaire-apports",
+          "title": "Faire évaluer les apports en nature",
+          "who": "cabinet",
+          "where": "Commissaire aux apports désigné par les fondateurs",
+          "how": [
+            "Si un actionnaire apporte un bien (matériel, fonds de commerce, immeuble), demander au commissaire aux apports un rapport qui fixe sa valeur.",
+            "Joindre le rapport au dossier des statuts.",
+            "Si l'apport est un immeuble, prévoir l'acte notarié et l'inscription à la conservation foncière (voir phase SCI, mêmes étapes)."
+          ],
+          "pieces": ["Description et justificatifs du bien apporté"],
+          "delai": "1 à 3 semaines",
+          "cout": "Honoraires du commissaire aux apports (devis)",
+          "pieges": ["Fixer la valeur de l'apport sans rapport : la valeur peut être contestée et engage la responsabilité des fondateurs."],
+          "preuve": "Rapport du commissaire aux apports",
+          "offers": ["sa"]
+        },
+        {
+          "id": "sa-cac-acceptation",
+          "title": "Obtenir la lettre d'acceptation du commissaire aux comptes",
+          "who": "moi",
+          "where": "Commissaire aux comptes inscrit à l'Ordre des experts-comptables",
+          "how": [
+            "Transmettre au commissaire le projet de statuts et la liste des actionnaires.",
+            "Lui demander une lettre datée et signée par laquelle il accepte sa mission pour les 3 premiers exercices.",
+            "Vérifier son inscription au tableau de l'Ordre (site de l'OEC)."
+          ],
+          "pieces": ["Projet de statuts"],
+          "delai": "3 à 10 jours",
+          "cout": "Honoraires annuels selon son devis",
+          "pieges": ["Choisir un commissaire qui tient aussi la comptabilité de la société : il doit être indépendant."],
+          "preuve": "Lettre d'acceptation du commissaire aux comptes",
+          "offers": ["sa"]
+        },
+        {
+          "id": "sa-statuts",
+          "title": "Faire rédiger les statuts de la SA",
+          "who": "cabinet",
+          "where": "Cabinet partenaire ou juriste, relu par Mziane",
+          "how": [
+            "Choisir le mode de direction : conseil d'administration (3 à 12 administrateurs) ou directoire et conseil de surveillance.",
+            "Inscrire dans les statuts : nom, siège, objet, durée, capital, nombre et valeur nominale des actions, apports, premiers administrateurs, premier commissaire aux comptes.",
+            "Faire relire le projet par le client avant signature."
+          ],
+          "pieces": ["Certificat négatif", "Liste des actionnaires et administrateurs", "Lettre du commissaire aux comptes", "Rapport du commissaire aux apports si besoin"],
+          "delai": "3 à 7 jours",
+          "cout": "Inclus dans le devis",
+          "pieges": ["Utiliser des statuts de SARL adaptés à la va-vite : la SA a des règles propres (assemblées, conseil, commissaire aux comptes)."],
+          "preuve": "Statuts définitifs validés par le client",
+          "offers": ["sa"]
+        },
+        {
+          "id": "sa-signature",
+          "title": "Faire signer les statuts et le PV du premier conseil",
+          "who": "client",
+          "where": "Bureau Mziane ou commune pour la légalisation des signatures",
+          "how": [
+            "Faire signer les statuts par tous les actionnaires (ou leurs mandataires munis d'une procuration).",
+            "Tenir le premier conseil d'administration : nommer le président et le directeur général si différent.",
+            "Faire signer le procès-verbal par les administrateurs présents.",
+            "Faire légaliser les signatures."
+          ],
+          "pieces": ["Statuts", "Projet de PV du premier conseil", "CIN des signataires", "Procurations légalisées des absents"],
+          "delai": "1 à 5 jours",
+          "cout": "Légalisation des signatures",
+          "pieges": ["Un actionnaire à l'étranger sans procuration légalisée bloque toute la signature."],
+          "preuve": "Statuts signés et PV du premier conseil d'administration",
+          "offers": ["sa"]
+        }
+      ]
+    },
+    {
+      "title": "4. SCI : statuts et apport d'immeuble",
+      "steps": [
+        {
+          "id": "sci-statuts",
+          "title": "Faire rédiger les statuts de la SCI",
+          "who": "cabinet",
+          "where": "Cabinet partenaire ou notaire (le notaire si un immeuble est apporté)",
+          "how": [
+            "Indiquer un objet strictement civil : acquisition, gestion, location et mise à disposition d'immeubles.",
+            "Lister les apports : argent et, le cas échéant, chaque immeuble avec son numéro de titre foncier et sa valeur.",
+            "Préciser la répartition des parts, le gérant, les règles d'entrée de nouveaux associés.",
+            "Faire relire le projet par le client."
+          ],
+          "pieces": ["Certificat négatif ou de dénomination", "CIN des associés", "Certificat de propriété du bien apporté"],
+          "delai": "3 à 10 jours",
+          "cout": "Inclus dans le devis, ou honoraires du notaire si acte authentique",
+          "pieges": ["Mettre dans l'objet de la SCI de l'achat-revente ou une activité commerciale : la société devient commerciale de fait."],
+          "preuve": "Statuts définitifs validés",
+          "offers": ["sci"]
+        },
+        {
+          "id": "sci-acte-apport",
+          "title": "Faire signer l'acte d'apport de l'immeuble chez le notaire",
+          "who": "client",
+          "where": "Notaire choisi (un acte authentique est exigé pour transférer un immeuble)",
+          "how": [
+            "Envoyer au notaire les statuts, le certificat de propriété et les CIN.",
+            "Le notaire vérifie le titre foncier (pas de saisie, hypothèque ou litige).",
+            "L'associé qui apporte le bien signe l'acte d'apport devant le notaire.",
+            "Le notaire encaisse les droits d'enregistrement et de conservation foncière."
+          ],
+          "pieces": ["Certificat de propriété de moins de 3 mois", "Statuts", "CIN de l'apporteur", "Quitus fiscal du bien (taxe d'habitation, taxe de services communaux) si le notaire le demande"],
+          "delai": "1 à 3 semaines",
+          "cout": "Honoraires du notaire + droits sur l'apport (devis du notaire)",
+          "pieges": ["Croire qu'une simple signature sous seing privé suffit pour un immeuble immatriculé : la conservation foncière refusera.", "Oublier de demander au cabinet l'impact fiscal (profit foncier, droits d'enregistrement) avant la signature."],
+          "preuve": "Acte d'apport signé chez le notaire",
+          "offers": ["sci"]
+        },
+        {
+          "id": "sci-enregistrement",
+          "title": "Faire enregistrer les statuts et l'acte d'apport",
+          "who": "administration",
+          "where": "DGI, service de l'enregistrement (le notaire le fait en ligne pour ses actes)",
+          "how": [
+            "Le notaire dépose l'acte d'apport à l'enregistrement et paie les droits.",
+            "Sans apport d'immeuble, déposer les statuts à l'enregistrement de la DGI (vérifier l'exonération si le capital ne dépasse pas 500 000 DH)."
+          ],
+          "pieces": ["Statuts signés", "Acte d'apport"],
+          "delai": "Quelques jours",
+          "cout": "Droits d'enregistrement selon l'opération",
+          "pieges": ["Dépasser le délai légal d'enregistrement : pénalités."],
+          "preuve": "Statuts et acte portant la mention d'enregistrement",
+          "offers": ["sci"]
+        },
+        {
+          "id": "sci-conservation",
+          "title": "Faire inscrire l'immeuble au nom de la SCI à la conservation foncière",
+          "who": "administration",
+          "where": "ANCFCC, conservation foncière du lieu du bien (dépôt fait par le notaire)",
+          "how": [
+            "Le notaire dépose l'acte enregistré à la conservation foncière.",
+            "La conservation inscrit la SCI comme nouveau propriétaire sur le titre foncier.",
+            "Demander au notaire un nouveau certificat de propriété au nom de la SCI."
+          ],
+          "pieces": ["Acte d'apport enregistré", "Preuve d'immatriculation de la SCI si exigée"],
+          "delai": "1 à 4 semaines",
+          "cout": "Droits de conservation foncière (dans le devis du notaire)",
+          "pieges": ["La conservation peut demander que la SCI soit d'abord immatriculée : caler l'ordre avec le notaire avant de commencer."],
+          "preuve": "Certificat de propriété au nom de la SCI",
+          "offers": ["sci"]
+        },
+        {
+          "id": "sci-immatriculation",
+          "title": "Immatriculer la SCI au registre des sociétés civiles immobilières",
+          "who": "moi",
+          "where": "Greffe du tribunal compétent (registre créé par le décret 2-23-100, formulaires de l'arrêté 357-26)",
+          "how": [
+            "Appeler le greffe pour confirmer le tribunal compétent, le formulaire d'immatriculation initiale et la liste des pièces.",
+            "Remplir le formulaire officiel de demande d'immatriculation.",
+            "Déposer le dossier avec la procuration certifiée si Mziane agit pour le client.",
+            "Garder le récépissé de dépôt."
+          ],
+          "pieces": ["Formulaire officiel", "Statuts enregistrés", "Certificat de dénomination", "CIN des associés et du gérant", "Justificatif du siège (bail enregistré ou titre de propriété)", "Procuration certifiée au nom du gérant de Mziane"],
+          "delai": "À confirmer au greffe",
+          "cout": "Frais de greffe à confirmer",
+          "pieges": ["Déposer sans procuration certifiée : le nouveau texte vérifie l'identité des mandataires."],
+          "preuve": "Attestation d'immatriculation au registre des SCI",
+          "offers": ["sci"]
+        }
+      ]
+    },
+    {
+      "title": "5. Immatriculation de la SA et identifiants",
+      "steps": [
+        {
+          "id": "sa-enregistrement",
+          "title": "Faire enregistrer les statuts de la SA",
+          "who": "moi",
+          "where": "DGI, service de l'enregistrement, ou via le CRI de la région",
+          "how": ["Déposer les statuts signés et les actes annexes.", "Payer les droits si le capital dépasse le seuil d'exonération."],
+          "pieces": ["Statuts signés", "PV du premier conseil", "Déclaration de souscription et de versement"],
+          "delai": "1 à 3 jours",
+          "cout": "Exonéré jusqu'à 500 000 DH de capital, sinon selon le CGI",
+          "pieges": [],
+          "preuve": "Statuts enregistrés",
+          "offers": ["sa"]
+        },
+        {
+          "id": "sa-depot-rc",
+          "title": "Déposer le dossier d'immatriculation de la SA",
+          "who": "moi",
+          "where": "Centre régional d'investissement (CRI) de la région, ou plateforme DirectEntreprise https://www.directentreprise.ma via le cabinet partenaire inscrit",
+          "how": [
+            "Déposer le dossier complet : statuts, PV, attestation de blocage, liste des administrateurs, lettre du commissaire aux comptes, siège.",
+            "Le dossier couvre l'inscription au registre de commerce, la taxe professionnelle, l'identifiant fiscal, l'ICE et la CNSS.",
+            "Payer les frais de greffe."
+          ],
+          "pieces": ["Tout le dossier SA validé"],
+          "delai": "3 à 10 jours ouvrés",
+          "cout": "Registre de commerce environ 350 DH",
+          "pieges": ["DirectEntreprise est réservée aux professionnels inscrits (notaires, avocats, experts-comptables, comptables agréés) : Mziane passe par le CRI ou par le cabinet partenaire."],
+          "preuve": "Modèle J du registre de commerce, attestation d'identifiant fiscal et ICE",
+          "offers": ["sa"]
+        },
+        {
+          "id": "identifiants-sci",
+          "title": "Obtenir l'identifiant fiscal et l'ICE de la SCI",
+          "who": "moi",
+          "where": "DGI (bureau local ou portail https://www.tax.gov.ma) ",
+          "how": ["Déposer la déclaration d'existence de la SCI.", "Demander l'identifiant fiscal et l'ICE.", "Si la SCI loue des biens, vérifier avec le cabinet le régime d'imposition des loyers."],
+          "pieces": ["Attestation d'immatriculation au registre des SCI", "Statuts", "CIN du gérant"],
+          "delai": "À confirmer",
+          "cout": "0 DH",
+          "pieges": ["Penser qu'une SCI n'a aucune déclaration à faire : les loyers et la taxe sur les biens restent déclarés."],
+          "preuve": "Attestation d'identifiant fiscal et ICE",
+          "offers": ["sci"]
+        },
+        {
+          "id": "publication-legale",
+          "title": "Publier l'avis de constitution",
+          "who": "moi",
+          "where": "Journal d'annonces légales et Bulletin officiel (Imprimerie officielle)",
+          "how": ["Rédiger l'avis : nom, forme, capital, siège, objet, dirigeants, commissaire aux comptes (SA).", "Envoyer au journal et au BO, payer.", "Garder les justificatifs de parution."],
+          "pieces": ["Modèle J ou attestation SCI", "Statuts"],
+          "delai": "3 à 10 jours",
+          "cout": "Journal 500 à 1 000 DH, BO 400 à 600 DH",
+          "pieges": ["Pour une SCI, confirmer au greffe si la publication est exigée par le nouveau texte."],
+          "preuve": "Exemplaire du journal et reçu du BO",
+          "offers": []
+        },
+        {
+          "id": "debloquer-capital",
+          "title": "Faire débloquer le capital",
+          "who": "client",
+          "where": "Banque",
+          "how": ["Remettre à la banque le modèle J (SA) ou l'attestation d'immatriculation (SCI).", "Demander le passage du compte bloqué en compte courant de la société."],
+          "pieces": ["Modèle J ou attestation SCI", "Statuts", "PV de nomination des dirigeants"],
+          "delai": "1 à 5 jours",
+          "cout": "Frais bancaires",
+          "pieges": [],
+          "preuve": "Relevé bancaire du compte de la société débloqué",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. Livraison",
+      "steps": [
+        {
+          "id": "livrer",
+          "title": "Livrer les documents finaux dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["Déposer : statuts enregistrés, PV, modèle J ou attestation SCI, identifiants fiscaux, publications, certificat de propriété au nom de la SCI.", "Envoyer un message récapitulatif avec les prochaines échéances.", "Passer le dossier au statut Livré."],
+          "pieces": ["Tous les documents obtenus"],
+          "delai": "Le jour de réception du dernier document",
+          "cout": "0 DH",
+          "pieges": ["Livrer sans rappeler les obligations annuelles de la SA (assemblée, rapport du commissaire aux comptes)."],
+          "preuve": "Dossier au statut Livré",
+          "offers": []
+        },
+        {
+          "id": "proposer-compta",
+          "title": "Proposer la comptabilité adaptée",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": ["SA : proposer une offre de comptabilité et rappeler que les comptes seront certifiés par le commissaire aux comptes.", "SCI : proposer un suivi déclaratif des loyers."],
+          "pieces": [],
+          "delai": "À la livraison",
+          "cout": "Selon l'offre",
+          "pieges": [],
+          "preuve": "Proposition envoyée",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Rédaction des statuts de SA et relecture des statuts de SCI (règles propres à chaque forme).",
+    "Choix et coordination du commissaire aux apports si une SA reçoit un apport en nature.",
+    "Calcul des droits d'enregistrement et de l'impôt sur le profit foncier en cas d'apport d'immeuble, avant la signature chez le notaire.",
+    "Choix du régime fiscal de la SCI (imposition des loyers au niveau des associés ou de la société).",
+    "Dépôt sur DirectEntreprise si Mziane n'a pas d'accès professionnel.",
+    "Comptabilité de la SA : bilan et liasse fiscale à faire certifier par le commissaire aux comptes."
+  ],
+  "client": [
+    "Signer et payer le devis (acompte).",
+    "Réunir au moins 5 actionnaires et 3 administrateurs pour une SA.",
+    "Verser le capital à la banque (au moins un quart de chaque action en argent pour une SA).",
+    "Signer les statuts, les bulletins de souscription et le PV du premier conseil, faire légaliser les signatures.",
+    "Se présenter chez le notaire pour signer l'acte d'apport d'immeuble et payer les droits.",
+    "Fournir une procuration certifiée au nom du gérant de Mziane pour les démarches au greffe."
+  ],
+  "apres": [
+    "SA : libérer le reste du capital dans les 3 ans sur appel du conseil d'administration.",
+    "SA : tenir l'assemblée générale ordinaire dans les 6 mois après la clôture de chaque exercice, avec le rapport du commissaire aux comptes, puis déposer les comptes au greffe.",
+    "SA : renouveler le mandat du commissaire aux comptes après l'assemblée qui approuve le 3e exercice.",
+    "SA : surveiller le nombre d'actionnaires ; en dessous de 5 pendant plus d'un an, la dissolution peut être demandée en justice.",
+    "SCI : tenir à jour le registre des SCI (toute modification des statuts ou des associés passe par un formulaire officiel).",
+    "SCI : déclarer chaque année les loyers et payer la taxe d'habitation et la taxe de services communaux des biens.",
+    "Taxe professionnelle exonérée 5 ans pour la SA : noter la date de fin d'exonération."
+  ],
+  "sources": [
+    { "title": "Attijariwafa bank, Principales sociétés commerciales au Maroc (SA : 5 actionnaires, 300 000 DH, libération du quart, solde sous 3 ans)", "url": "https://attijarientreprises.com/sites/default/files/2022-03/Principales_societes_commerciales_au_Maroc.pdf" },
+    { "title": "Décret 2-09-481 pris pour l'application de la loi 17-95 (Adala, ministère de la Justice)", "url": "https://adala.justice.gov.ma/api/uploads/2026/06/19/D%C3%A9cret%20n%C2%B0%202-09-481%20pris%20pour%20l'application%20de%20la%20loi%20n%C2%B0%2017-95%20relative%20aux%20soci%C3%A9t%C3%A9s%20anonymes-1781859737735.pdf" },
+    { "title": "Upsilon Consulting, Société anonyme au Maroc 2026", "url": "https://upsilon-consulting.com/societe-anonyme-au-maroc/" },
+    { "title": "Upsilon Consulting, Commissaire aux comptes au Maroc", "url": "https://upsilon-consulting.com/commissaire-aux-comptes-au-maroc/" },
+    { "title": "Challenge, Sociétés civiles immobilières : le Maroc renforce le contrôle (arrêté 357-26, entrée en vigueur 16 septembre 2026)", "url": "https://www.challenge.ma/societes-civiles-immobilieres-le-maroc-renforce-le-controle-318120/" },
+    { "title": "Le360, Sociétés civiles immobilières : de nouvelles règles à partir de septembre", "url": "https://fr.le360.ma/economie/societes-civiles-immobilieres-de-nouvelles-regles-a-partir-de-septembre_UZ44BB5O3JE6ZDXJI3T34Q7YHA/" },
+    { "title": "ReaConsult, Créer une société immobilière avec apport d'immeuble au Maroc", "url": "https://reaconsult.ma/tendances-et-conseils-en-immobilier/creer-societe-immobiliere-apport-immeuble-maroc-structuration" },
+    { "title": "OMPIC, DirectEntreprise (plus de 50 300 entreprises créées en ligne)", "url": "https://www.maroc.ma/fr/actualites/maroc-plus-de-50300-entreprises-creees-la-plateforme-electronique-directentreprise" },
+    { "title": "DirectInfo (OMPIC)", "url": "https://www.directinfo.ma" }
+  ],
+  "a_verifier": [
+    "Valeur nominale minimale d'une action de SA (les sources donnent 100 DH ou 50 DH) : à lire dans la version consolidée de la loi 17-95.",
+    "Forme exacte de la déclaration de souscription et de versement en SA (acte notarié obligatoire ou déclaration des fondateurs) : à confirmer avec le cabinet.",
+    "Seuil à partir duquel un commissaire aux apports est obligatoire en SA.",
+    "SCI : tribunal compétent, formulaire exact, liste des pièces et frais du nouveau registre des SCI (décret 2-23-100, arrêté 357-26). Appeler le greffe avant le premier dossier.",
+    "SCI : le certificat de dénomination est-il délivré par l'OMPIC (DirectInfo) ou par le greffe, et à quel prix ?",
+    "SCI : obligation de publication au journal d'annonces légales et au Bulletin officiel.",
+    "Taux des droits d'enregistrement et des droits de conservation foncière sur un apport d'immeuble à une société (les cabinets citent 1 % pour un apport pur et simple, 4 % ou 5 % selon d'autres cas, et 1,5 % de conservation foncière) : à faire chiffrer par le notaire et le cabinet.",
+    "Exonération d'impôt sur le profit foncier à l'apport (article 161 bis-II du CGI) : conditions à confirmer avec le cabinet.",
+    "Régime d'imposition par défaut d'une SCI marocaine (impôt sur le revenu des associés ou impôt sur les sociétés) et possibilité d'option.",
+    "Délais réels d'immatriculation d'une SA au CRI en 2026."
+  ]
+}

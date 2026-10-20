@@ -1,0 +1,760 @@
+{
+  "id": "creation-sas",
+  "title": "Créer une SAS ou une SASU",
+  "offers": [
+    "soc-essentiel",
+    "soc-standard",
+    "soc-premium"
+  ],
+  "summary": "Le client obtient une société par actions simplifiée (SAS, ou SASU avec un seul associé) immatriculée au registre de commerce, avec statuts enregistrés, IF, ICE, taxe professionnelle, affiliation CNSS et publications légales. La SAS suit les mêmes étapes que la SARL ; ce qui change surtout, ce sont les statuts (président obligatoire, grande liberté d'organisation, actions au lieu de parts).",
+  "duree": "7 à 12 jours ouvrés par DirectEntreprise si le dossier est complet (statuts sur mesure plus longs qu'en SARL) ; 3 à 5 semaines par le guichet papier. Ajouter 2 à 15 jours pour le Bulletin officiel.",
+  "frais_officiels": [
+    {
+      "label": "Certificat négatif OMPIC",
+      "montant": "environ 230 DH",
+      "note": "230 DH au guichet selon eRegulations ; moins cher en ligne selon plusieurs sources (162, 210 ou 232,76 DH TTC cités). Prendre le montant affiché au paiement."
+    },
+    {
+      "label": "Enregistrement des statuts (apports en numéraire)",
+      "montant": "0 DH",
+      "note": "Exonération des droits d'enregistrement pour la constitution (CGI art. 129). Si apport en nature : droit fixe de 1 000 DH jusqu'à 500 000 DH de capital (CGI art. 133 et 135), à faire chiffrer par le cabinet."
+    },
+    {
+      "label": "Enregistrement du bail ou de la domiciliation",
+      "montant": "200 DH + timbre",
+      "note": "Droit fixe 200 DH (CGI art. 135-II) et droit de timbre d'environ 20 DH par page (eRegulations Rabat)."
+    },
+    {
+      "label": "Registre de commerce (greffe)",
+      "montant": "350 DH",
+      "note": "eRegulations Rabat, plus 50 DH si un acte de nomination du président est déposé. Sur DirectEntreprise, le montant exact s'affiche au paiement."
+    },
+    {
+      "label": "Bulletin officiel (avis de constitution)",
+      "montant": "environ 400 à 600 DH",
+      "note": "400 DH selon eRegulations (2016) ; Mziane estime 450 DH. Selon la longueur."
+    },
+    {
+      "label": "Journal d'annonces légales",
+      "montant": "environ 500 à 1 000 DH",
+      "note": "Prix au nombre de lignes (9,60 DH la ligne en 2016 selon eRegulations), fixé par le journal choisi."
+    },
+    {
+      "label": "Légalisations et timbres",
+      "montant": "environ 100 à 250 DH",
+      "note": "Inutile pour les pièces signées électroniquement sur DirectEntreprise."
+    },
+    {
+      "label": "Blocage du capital",
+      "montant": "0 DH de frais d'État",
+      "note": "Règle de blocage à confirmer pour la SAS (voir a_verifier). L'argent reste à la société ; frais bancaires possibles."
+    }
+  ],
+  "avant_de_commencer": [
+    "Le paiement des honoraires Mziane (tarif SAS) est reçu et le client a accepté le devis des frais d'État.",
+    "Vérifier que la SAS est le bon choix : utile pour accueillir des investisseurs, prévoir des actions de préférence, des clauses d'entrée et de sortie. Pour un projet simple, la SARLAU est moins chère et plus connue des banques.",
+    "La SAS ne peut pas faire appel public à l'épargne (pas de levée de fonds auprès du public).",
+    "Identifier le président (personne physique ou société) : c'est le seul organe obligatoire.",
+    "Choisir la voie de dépôt : DirectEntreprise (recommandée) ou guichet du CRI. Même règle d'accès que pour la SARL (créateur, mandataire ou professionnel inscrit ; sinon compte du cabinet partenaire).",
+    "Vérifier si l'activité est réglementée et si un associé ou le président est étranger ou une société (pièces traduites et légalisées).",
+    "Connaître le capital et la part versée à la création ; vérifier avec le cabinet si un blocage en banque est exigé (voir a_verifier)."
+  ],
+  "phases": [
+    {
+      "title": "1. Ouvrir le dossier",
+      "steps": [
+        {
+          "id": "verifier-pieces",
+          "title": "Vérifier les pièces reçues dans l'espace client",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Ouvrir la liste « Création d'une SAS ».",
+            "Contrôler chaque CIN : recto verso, couleur, en cours de validité.",
+            "Lire les trois noms proposés, l'activité, le capital et sa répartition.",
+            "Contrôler le justificatif du siège (bail au nom de la société en formation, titre de propriété ou domiciliation).",
+            "Contrôler les pièces de chaque associé, étrangers et sociétés compris, et celles du président.",
+            "Refuser les pièces non conformes avec une explication."
+          ],
+          "pieces": [
+            "CIN de chaque associé et du président",
+            "Trois noms",
+            "Activité",
+            "Capital et répartition des actions",
+            "Justificatif du siège",
+            "Attestation bancaire de dépôt ou blocage si exigée",
+            "Pièces des associés étrangers ou sociétés",
+            "Diplôme ou autorisation si activité réglementée"
+          ],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [
+            "Bail au nom personnel du client et non « société X en cours de constitution, représentée par son président » : à refaire.",
+            "Objet social flou : il bloque l'immatriculation ou limite plus tard l'activité."
+          ],
+          "preuve": "Toutes les pièces au statut « validée »",
+          "offers": []
+        },
+        {
+          "id": "devis-frais-etat",
+          "title": "Envoyer le devis des frais d'État et l'encaisser",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Générer le devis à partir des frais d'État (environ 1 600 à 2 400 DH selon le cas).",
+            "Ajouter les lignes propres au dossier : enregistrement du bail, apport en nature, journal choisi.",
+            "Envoyer au client et attendre le paiement avant tout débours."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "Selon devis",
+          "pieges": [
+            "Avancer les frais d'État avant paiement du client."
+          ],
+          "preuve": "Devis accepté et frais d'État encaissés",
+          "offers": []
+        },
+        {
+          "id": "choisir-voie",
+          "title": "Ouvrir le dossier sur DirectEntreprise",
+          "who": "moi",
+          "where": "DirectEntreprise (OMPIC) : https://www.directentreprise.ma (« Je crée mon entreprise »)",
+          "how": [
+            "Vérifier que la forme SAS est proposée dans le parcours de création en ligne ; sinon passer par le cabinet ou le guichet.",
+            "Si le dossier passe par le compte du cabinet partenaire : lui transmettre les pièces et la procuration du client.",
+            "Sinon : créer le compte du client (profil futur entrepreneur) avec son e-mail et son téléphone, en visio pour les codes de validation.",
+            "Préparer la procuration (mandat) signée par le client si Mziane agit pour lui.",
+            "Préparer les fichiers en PDF, un fichier par pièce (10 Mo maximum par fichier selon un guide)."
+          ],
+          "pieces": [
+            "CIN",
+            "Procuration signée du client",
+            "Pièces en PDF"
+          ],
+          "delai": "1 h",
+          "cout": "0 DH",
+          "pieges": [
+            "Créer le compte avec l'e-mail de Mziane : le compte et les notifications doivent rester au client ou au professionnel déposant.",
+            "Voie papier seulement si la plateforme est indisponible ou si le cas n'y est pas prévu : elle est plus lente et demande des déplacements."
+          ],
+          "preuve": "Compte ou dossier ouvert sur DirectEntreprise",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "2. Nom de la société",
+      "steps": [
+        {
+          "id": "certificat-negatif",
+          "title": "Demander le certificat négatif",
+          "who": "moi",
+          "where": "En ligne : DirectEntreprise, « Je réserve mon nom commercial » (https://nc.directentreprise.ma). Au guichet : OMPIC au CRI de la région.",
+          "how": [
+            "Chercher d'abord les noms sur la base de l'OMPIC (directinfo.ma) pour écarter les noms identiques.",
+            "Saisir les noms par ordre de préférence et l'activité.",
+            "Joindre la CIN du demandeur.",
+            "Payer en ligne par carte bancaire.",
+            "Télécharger le certificat dès qu'il est délivré."
+          ],
+          "pieces": [
+            "CIN du demandeur",
+            "Trois noms par ordre de préférence",
+            "Activité"
+          ],
+          "delai": "24 à 48 h en ligne",
+          "cout": "environ 230 DH",
+          "pieges": [
+            "Nom trop proche d'une marque connue : le certificat ne protège pas contre une action en contrefaçon. Proposer un dépôt de marque.",
+            "Le certificat a une durée de validité limitée (90 jours cités) : déposer la création avant l'expiration.",
+            "En cas de rejet, une nouvelle demande gratuite est possible dans les 15 jours."
+          ],
+          "preuve": "Certificat négatif OMPIC en PDF",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "3. Siège social",
+      "steps": [
+        {
+          "id": "domiciliation-premium",
+          "title": "Établir le contrat de domiciliation Mziane de 3 mois",
+          "who": "moi",
+          "where": "Mziane (ou domiciliataire partenaire déclaré)",
+          "how": [
+            "Rédiger le contrat de domiciliation au nom de la société en cours de constitution, représentée par son président.",
+            "Fixer 3 mois offerts, puis la suite au tarif Domiciliation si le client continue.",
+            "Faire signer le client et délivrer l'attestation de domiciliation."
+          ],
+          "pieces": [
+            "Certificat négatif",
+            "CIN du président"
+          ],
+          "delai": "Le jour même",
+          "cout": "0 DH pour le client (offert)",
+          "pieges": [
+            "La loi encadre la domiciliation (loi 89-17) : le domiciliataire doit être en règle, sinon le greffe refuse.",
+            "Prévenir le client avant la fin des 3 mois : sans siège, la société est en défaut."
+          ],
+          "preuve": "Contrat et attestation de domiciliation signés",
+          "offers": [
+            "soc-premium"
+          ]
+        },
+        {
+          "id": "enregistrer-bail",
+          "title": "Faire enregistrer le bail ou le contrat de domiciliation",
+          "who": "moi",
+          "where": "En ligne : inclus dans le dépôt DirectEntreprise. Au guichet : service de l'enregistrement de la DGI (souvent présent au CRI).",
+          "how": [
+            "Vérifier que le bail ou la domiciliation est signé par les deux parties.",
+            "En voie papier : faire légaliser les signatures puis déposer à l'enregistrement en 3 exemplaires et payer.",
+            "En voie électronique : joindre le PDF signé au dossier de création."
+          ],
+          "pieces": [
+            "Bail ou contrat de domiciliation signé"
+          ],
+          "delai": "1 jour",
+          "cout": "200 DH + environ 20 DH par page de timbre",
+          "pieges": [
+            "Le bail doit être enregistré dans les 30 jours de sa date, sinon majorations."
+          ],
+          "preuve": "Bail ou domiciliation enregistré (cachet ou quittance)",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "4. Statuts de SAS et actes",
+      "steps": [
+        {
+          "id": "statuts-types",
+          "title": "Remplir les statuts types de SAS",
+          "who": "moi",
+          "where": "Modèle de statuts Mziane SAS / SASU (loi 19-20, qui a introduit la SAS dans le droit des sociétés)",
+          "how": [
+            "Reporter le nom exact du certificat négatif, l'objet, le siège, la durée, le capital et le nombre d'actions par associé.",
+            "Nommer le président et définir ses pouvoirs ; indiquer s'il y a un directeur général.",
+            "Écrire comment les associés décident (quelles décisions, quelles majorités, forme : assemblée, écrit, visio).",
+            "Prévoir la clause d'agrément pour l'entrée de nouveaux associés.",
+            "Prévoir la date de clôture de l'exercice."
+          ],
+          "pieces": [
+            "Certificat négatif",
+            "Informations du client"
+          ],
+          "delai": "1 jour",
+          "cout": "0 DH",
+          "pieges": [
+            "En SAS, ce que les statuts ne prévoient pas n'est pas comblé par la loi comme en SARL : ne rien laisser en blanc.",
+            "Nom différent d'une lettre du certificat négatif : rejet."
+          ],
+          "preuve": "Projet de statuts validé par le client",
+          "offers": [
+            "soc-essentiel"
+          ]
+        },
+        {
+          "id": "statuts-sur-mesure",
+          "title": "Rédiger les statuts sur mesure avec le juriste dédié",
+          "who": "moi",
+          "where": "Juriste dédié Mziane",
+          "how": [
+            "Faire un entretien avec le client : associés, investisseurs prévus, répartition du pouvoir.",
+            "Rédiger les clauses propres à la SAS : pouvoirs du président et du DG, organes facultatifs (comité), décisions collectives, majorités.",
+            "Ajouter selon le projet : agrément, préemption, inaliénabilité temporaire, exclusion, sortie conjointe, actions de préférence, actions d'apport en industrie.",
+            "Envoyer le projet, intégrer les corrections, faire valider par écrit."
+          ],
+          "pieces": [
+            "Informations du client"
+          ],
+          "delai": "3 à 5 jours",
+          "cout": "0 DH",
+          "pieges": [
+            "Copier des statuts de SAS française : le droit marocain diffère.",
+            "Clause d'inaliénabilité trop longue : à faire valider par le cabinet."
+          ],
+          "preuve": "Statuts finaux validés par écrit",
+          "offers": [
+            "soc-standard",
+            "soc-premium"
+          ]
+        },
+        {
+          "id": "actes-annexes",
+          "title": "Préparer la déclaration du président et la liste des associés",
+          "who": "moi",
+          "where": "Modèles Mziane",
+          "how": [
+            "Préparer la déclaration sur l'honneur du président (et du DG s'il existe).",
+            "Si le président n'est pas nommé dans les statuts, préparer l'acte ou la décision qui le nomme.",
+            "Si le président est une société, préparer le pouvoir de son représentant permanent.",
+            "Préparer la liste des associés avec le nombre d'actions de chacun et le montant versé."
+          ],
+          "pieces": [
+            "CIN du président",
+            "Pièces de la société présidente si besoin"
+          ],
+          "delai": "1 h",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Déclaration et PV prêts à signer",
+          "offers": []
+        },
+        {
+          "id": "faire-signer",
+          "title": "Faire signer les statuts et les actes",
+          "who": "client",
+          "where": "En ligne : signature électronique sur DirectEntreprise. Au guichet : légalisation des signatures à la commune (bureau de légalisation) ou au CRI.",
+          "how": [
+            "En voie électronique : envoyer au client le lien de signature et l'aider en visio.",
+            "En voie papier : imprimer statuts (plusieurs originaux), déclaration et acte de nomination ; chaque associé et le président signent et font légaliser.",
+            "Récupérer les originaux ou les fichiers signés dans l'espace client."
+          ],
+          "pieces": [
+            "Statuts",
+            "Déclaration sur l'honneur",
+            "PV éventuel",
+            "CIN originale de chaque signataire"
+          ],
+          "delai": "1 à 3 jours",
+          "cout": "0 DH en ligne ; quelques dirhams par signature au guichet",
+          "pieges": [
+            "Un associé à l'étranger : prévoir la signature électronique ou une légalisation au consulat.",
+            "Signer avant que le texte soit définitif : tout refaire."
+          ],
+          "preuve": "Statuts et actes signés (signature électronique ou légalisée)",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "5. Capital",
+      "steps": [
+        {
+          "id": "blocage-capital",
+          "title": "Faire déposer les fonds à la banque et obtenir l'attestation",
+          "who": "client",
+          "where": "Agence bancaire au choix du client",
+          "how": [
+            "Demander au cabinet partenaire la règle applicable à la SAS (montant minimum à verser, dépôt obligatoire ou non, seuil).",
+            "Le client dépose la part du capital à verser sur un compte au nom de la société en formation.",
+            "Il remet à la banque le projet de statuts, le certificat négatif, sa CIN et la liste des souscripteurs.",
+            "Il demande l'attestation de dépôt ou de blocage et l'envoie dans l'espace client."
+          ],
+          "pieces": [
+            "Statuts",
+            "Certificat négatif",
+            "CIN",
+            "Fonds"
+          ],
+          "delai": "2 à 5 jours ouvrés",
+          "cout": "0 DH de frais d'État (frais bancaires possibles)",
+          "pieges": [
+            "Ne pas appliquer d'office la règle SARL des 100 000 DH sans validation.",
+            "Les fonds ne sont débloqués qu'après l'immatriculation."
+          ],
+          "preuve": "Attestation bancaire de dépôt ou de blocage des fonds",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "6. Dépôt du dossier de création",
+      "steps": [
+        {
+          "id": "depot-directentreprise",
+          "title": "Déposer le dossier unique sur DirectEntreprise",
+          "who": "moi",
+          "where": "DirectEntreprise : https://www.directentreprise.ma, « Je crée mon entreprise » (depuis le compte du client, de Mziane mandataire ou du cabinet partenaire)",
+          "how": [
+            "Choisir la forme SAS (ou SAS à associé unique).",
+            "Saisir les informations : nom, siège, objet, capital, associés, président, activité exercée.",
+            "Joindre en PDF : certificat négatif, statuts, bail ou domiciliation, déclaration du président, liste des associés, CIN, attestation bancaire et autorisation si besoin.",
+            "Faire signer électroniquement le dépôt.",
+            "Payer en ligne (carte bancaire ou Fatourati) les frais affichés : greffe, enregistrement, Bulletin officiel.",
+            "Télécharger le récépissé de dépôt."
+          ],
+          "pieces": [
+            "Toutes les pièces précédentes en PDF"
+          ],
+          "delai": "1 à 2 h",
+          "cout": "Selon frais affichés (registre de commerce, enregistrement, BO)",
+          "pieges": [
+            "Pièce manquante : le dossier revient en correction et le délai repart.",
+            "Activité saisie différente de l'objet des statuts."
+          ],
+          "preuve": "Récépissé de dépôt DirectEntreprise",
+          "offers": []
+        },
+        {
+          "id": "depot-guichet",
+          "title": "Déposer au guichet du CRI si la voie électronique est impossible",
+          "who": "moi",
+          "where": "Guichet d'aide à la création d'entreprises du Centre régional d'investissement (CRI) de la région du siège",
+          "how": [
+            "Faire enregistrer les statuts et le bail au service de l'enregistrement dans les 30 jours de leur date.",
+            "Remplir le formulaire unique de création et le faire signer et légaliser par le président.",
+            "Déposer : certificat négatif, statuts enregistrés, bail ou domiciliation enregistré, formulaire unique, déclaration sur l'honneur, PV, copies des CIN, attestation de blocage et autorisation si besoin, en plusieurs copies.",
+            "Payer le registre de commerce (en espèces selon eRegulations).",
+            "Garder le reçu de dépôt."
+          ],
+          "pieces": [
+            "Certificat négatif (copies)",
+            "Statuts (originaux)",
+            "Bail ou domiciliation enregistré",
+            "Formulaire unique",
+            "Déclaration sur l'honneur",
+            "PV",
+            "Copies CIN",
+            "Attestation de blocage si besoin"
+          ],
+          "delai": "Une demi-journée de guichet, puis environ 3 jours ouvrés",
+          "cout": "Environ 350 DH (registre de commerce), à confirmer pour la SAS",
+          "pieges": [
+            "Nombre de copies demandé variable selon le CRI : appeler avant.",
+            "Paiement en espèces souvent exigé."
+          ],
+          "preuve": "Reçu de dépôt du CRI",
+          "offers": []
+        },
+        {
+          "id": "suivre-traitement",
+          "title": "Suivre le traitement par les administrations",
+          "who": "administration",
+          "where": "Notifications DirectEntreprise (e-mail et SMS) ou CRI",
+          "how": [
+            "Vérifier le dossier chaque jour ouvré.",
+            "La plateforme transmet à la DGI (enregistrement, taxe professionnelle, IF), au tribunal de commerce (registre de commerce), à la CNSS et à l'Imprimerie officielle (Bulletin officiel).",
+            "Répondre à toute demande de correction le jour même.",
+            "Prévenir le client à chaque étape franchie (Standard et Premium : par WhatsApp)."
+          ],
+          "pieces": [],
+          "delai": "3 jours ouvrés en moyenne pour un dossier complet (moyenne OMPIC), parfois moins de 24 h",
+          "cout": "0 DH",
+          "pieges": [
+            "Une correction non traitée bloque tout le dossier."
+          ],
+          "preuve": "Dossier au statut terminé",
+          "offers": []
+        },
+        {
+          "id": "recuperer-documents",
+          "title": "Récupérer les documents de création",
+          "who": "moi",
+          "where": "DirectEntreprise (téléchargement) ou CRI (retrait sur présentation du reçu)",
+          "how": [
+            "Télécharger ou retirer : statuts enregistrés, attestation d'immatriculation au registre de commerce et numéro RC, attestation d'IF, certificat d'inscription à la taxe professionnelle, ICE, numéro d'affiliation CNSS.",
+            "Vérifier chaque document : nom, siège, président, capital, activité.",
+            "Commander un extrait du registre de commerce (modèle J) si la banque le demande."
+          ],
+          "pieces": [
+            "Récépissé ou reçu de dépôt"
+          ],
+          "delai": "Dès la fin du traitement",
+          "cout": "0 DH",
+          "pieges": [
+            "Le numéro RC n'a de sens qu'avec la ville du tribunal : toujours noter les deux."
+          ],
+          "preuve": "Attestation RC, IF, taxe professionnelle, ICE et CNSS",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "7. Publications légales",
+      "steps": [
+        {
+          "id": "bulletin-officiel",
+          "title": "Vérifier la publication au Bulletin officiel",
+          "who": "moi",
+          "where": "En ligne : inclus dans le dépôt DirectEntreprise. Au guichet : bureau du Bulletin officiel au CRI (formulaire d'insertion en arabe). Consultation sur https://www.sgg.gov.ma",
+          "how": [
+            "En voie papier : remplir le formulaire d'insertion et payer.",
+            "Noter la date de parution annoncée.",
+            "Télécharger l'édition du Bulletin officiel qui contient l'avis et la classer."
+          ],
+          "pieces": [
+            "Extrait RC",
+            "Texte de l'avis"
+          ],
+          "delai": "2 à 15 jours",
+          "cout": "environ 400 à 600 DH",
+          "pieges": [],
+          "preuve": "Page du Bulletin officiel avec l'avis",
+          "offers": []
+        },
+        {
+          "id": "annonce-legale",
+          "title": "Publier l'annonce dans un journal d'annonces légales",
+          "who": "moi",
+          "where": "Journal habilité à publier les annonces légales (au choix) ; dépôt par e-mail ou au guichet du journal",
+          "how": [
+            "Rédiger l'avis : nom, forme, capital, siège, objet, président, durée, numéro RC et tribunal.",
+            "L'envoyer au journal avec copie du RC et du certificat négatif.",
+            "Payer la facture du journal (au nombre de lignes).",
+            "Récupérer l'exemplaire ou l'attestation de parution."
+          ],
+          "pieces": [
+            "Texte de l'avis",
+            "Extrait RC",
+            "Certificat négatif"
+          ],
+          "delai": "3 à 10 jours ; à faire dans les 30 jours de l'immatriculation",
+          "cout": "environ 500 à 1 000 DH",
+          "pieges": [
+            "Vérifier si DirectEntreprise a déjà pris en charge cette annonce pour ne pas payer deux fois."
+          ],
+          "preuve": "Exemplaire du journal ou attestation de parution",
+          "offers": []
+        }
+      ]
+    },
+    {
+      "title": "8. Après l'immatriculation",
+      "steps": [
+        {
+          "id": "cnss-damancom",
+          "title": "Vérifier l'affiliation CNSS et ouvrir Damancom",
+          "who": "moi",
+          "where": "CNSS : https://www.cnss.ma ; portail employeur Damancom : https://www.damancom.ma",
+          "how": [
+            "Vérifier le numéro d'affiliation employeur reçu avec le dossier.",
+            "S'il manque, déposer la demande d'affiliation en agence CNSS ou en ligne.",
+            "Faire l'adhésion à Damancom au nom de la société (le cabinet partenaire peut être désigné pour les déclarations)."
+          ],
+          "pieces": [
+            "RC",
+            "Statuts",
+            "CIN du président",
+            "IF et ICE"
+          ],
+          "delai": "1 à 5 jours",
+          "cout": "0 DH",
+          "pieges": [
+            "Embaucher sans affiliation : infraction et rappels de cotisations."
+          ],
+          "preuve": "Attestation d'affiliation CNSS et accès Damancom",
+          "offers": []
+        },
+        {
+          "id": "adhesion-simpl",
+          "title": "Ouvrir l'accès DGI en ligne SIMPL de la société",
+          "who": "moi",
+          "where": "Portail DGI : https://www.tax.gov.ma (adhésion SIMPL)",
+          "how": [
+            "Faire l'adhésion au nom de la société avec l'IF.",
+            "Remettre les accès au client ou au cabinet qui fera les déclarations.",
+            "Télécharger une attestation d'inscription si besoin pour la banque."
+          ],
+          "pieces": [
+            "IF",
+            "RC",
+            "CIN du président"
+          ],
+          "delai": "1 à 3 jours",
+          "cout": "0 DH",
+          "pieges": [
+            "Sans SIMPL, impossible de télédéclarer TVA et IS dans les délais."
+          ],
+          "preuve": "Accès SIMPL actif",
+          "offers": []
+        },
+        {
+          "id": "dossier-bancaire",
+          "title": "Préparer et transmettre le dossier d'ouverture du compte bancaire",
+          "who": "moi",
+          "where": "Banque choisie par le client",
+          "how": [
+            "Rassembler : statuts, RC (modèle J), IF, ICE, taxe professionnelle, CIN du président, justificatif du siège, acte de nomination du président.",
+            "Prendre rendez-vous avec le chargé d'affaires pour le client.",
+            "Si le capital était bloqué, demander le déblocage sur présentation du RC."
+          ],
+          "pieces": [
+            "Documents de création"
+          ],
+          "delai": "2 à 7 jours selon la banque",
+          "cout": "0 DH de frais d'État",
+          "pieges": [
+            "Tout commerçant doit avoir un compte bancaire (Code de commerce)."
+          ],
+          "preuve": "RIB de la société",
+          "offers": [
+            "soc-standard",
+            "soc-premium"
+          ]
+        },
+        {
+          "id": "cachet",
+          "title": "Commander le cachet de la société",
+          "who": "moi",
+          "where": "Graveur ou imprimeur partenaire",
+          "how": [
+            "Faire le cachet avec nom, forme, capital, siège, RC, IF, ICE et taxe professionnelle.",
+            "Remettre ou envoyer le cachet au client."
+          ],
+          "pieces": [
+            "Documents de création"
+          ],
+          "delai": "1 à 2 jours",
+          "cout": "Inclus dans l'offre",
+          "pieges": [
+            "Commander avant l'immatriculation : identifiants faux."
+          ],
+          "preuve": "Cachet remis au client",
+          "offers": [
+            "soc-premium"
+          ]
+        },
+        {
+          "id": "registre-pv",
+          "title": "Remettre les registres de la SAS",
+          "who": "moi",
+          "where": "Papeterie ; cotation et paraphe au greffe du tribunal si le cabinet le recommande",
+          "how": [
+            "Acheter un registre des décisions des associés et un registre de mouvements de titres (actions).",
+            "Y inscrire les actions de chaque associé à la création.",
+            "Remettre au client avec une explication : chaque décision et chaque cession d'actions y est inscrite."
+          ],
+          "pieces": [],
+          "delai": "1 jour",
+          "cout": "Inclus dans l'offre",
+          "pieges": [],
+          "preuve": "Registres remis",
+          "offers": [
+            "soc-premium"
+          ]
+        },
+        {
+          "id": "rdv-comptable",
+          "title": "Organiser le rendez-vous avec l'expert-comptable",
+          "who": "cabinet",
+          "where": "Cabinet d'expertise comptable partenaire (visio ou bureau)",
+          "how": [
+            "Envoyer au cabinet le dossier complet de création.",
+            "Fixer un rendez-vous de 45 minutes avec le client.",
+            "Sujets : régime de TVA, premières échéances, factures, paie si embauche, exonérations de démarrage."
+          ],
+          "pieces": [
+            "Documents de création"
+          ],
+          "delai": "Sous 7 jours après l'immatriculation",
+          "cout": "Inclus dans l'offre",
+          "pieges": [],
+          "preuve": "Compte rendu du rendez-vous",
+          "offers": [
+            "soc-premium"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "9. Livraison",
+      "steps": [
+        {
+          "id": "livrer",
+          "title": "Livrer les documents finaux et clôturer le dossier",
+          "who": "moi",
+          "where": "Espace client Mziane",
+          "how": [
+            "Déposer : certificat négatif, statuts enregistrés, RC, IF, taxe professionnelle, ICE, CNSS, Bulletin officiel, journal d'annonces légales, contrat de domiciliation si Premium.",
+            "Envoyer la liste des échéances de la première année.",
+            "Proposer l'offre comptabilité adaptée.",
+            "Mettre le dossier au statut « Livré »."
+          ],
+          "pieces": [],
+          "delai": "Le jour même",
+          "cout": "0 DH",
+          "pieges": [],
+          "preuve": "Dossier au statut « Livré »",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "cabinet": [
+    "Valider les statuts sur mesure de SAS (clauses d'agrément, préemption, inaliénabilité, actions de préférence, apports en industrie).",
+    "Confirmer la règle de dépôt ou de blocage du capital et le minimum à verser pour une SAS.",
+    "Déposer le dossier sur DirectEntreprise depuis son compte si Mziane ne peut pas agir comme mandataire.",
+    "Indiquer si un commissaire aux comptes est obligatoire (seuil fixé par décret) ou prévu par les statuts.",
+    "Tenir le rendez-vous de démarrage (Premium) et la comptabilité si souscrite."
+  ],
+  "client": [
+    "Expliquer qui sera président et comment les décisions seront prises, puis valider les statuts par écrit.",
+    "Signer électroniquement ou faire légaliser ses signatures, ainsi que chaque associé.",
+    "Déposer les fonds à la banque.",
+    "Payer les frais d'État avant le dépôt.",
+    "Ouvrir le compte bancaire de la société."
+  ],
+  "apres": [
+    "Fin de la domiciliation offerte (Premium) : relancer le client 30 jours avant la fin des 3 mois.",
+    "Déclarations TVA dès le premier trimestre si la société y est soumise.",
+    "Taxe professionnelle exonérée 5 ans pour une activité nouvelle : vérifier que l'exonération figure bien.",
+    "Clôture du premier exercice : comptes approuvés dans les 6 mois et déposés au greffe ; liasse fiscale et IS dans les 3 mois après clôture.",
+    "Inscrire chaque cession d'actions au registre des mouvements de titres et respecter les clauses d'agrément.",
+    "Mettre à jour le registre de commerce à chaque changement (président, siège, capital)."
+  ],
+  "sources": [
+    {
+      "title": "DirectEntreprise, plateforme de création d'entreprises par voie électronique (OMPIC)",
+      "url": "https://www.directentreprise.ma"
+    },
+    {
+      "title": "OMPIC, Directinfo (base des entreprises)",
+      "url": "http://www.directinfo.ma"
+    },
+    {
+      "title": "eRegulations Rabat : créer une SARL (étapes, coûts au guichet)",
+      "url": "https://rabat.eregulations.org/procedure/42/2?l=fr"
+    },
+    {
+      "title": "Le360 : plus de 50 000 entreprises créées en ligne (mai 2026)",
+      "url": "https://fr.le360.ma/economie/creation-dentreprises-en-ligne-le-maroc-franchit-le-cap-des-50000-immatriculations_YAQEZOSV7FACJAKO3CY64DGJSE/"
+    },
+    {
+      "title": "FNH : généralisation de la plateforme par l'OMPIC (mars 2025)",
+      "url": "https://fnh.ma/article/actualites-marocaines/ompic-generalisation-entreprises"
+    },
+    {
+      "title": "Welipro : guide de création au Maroc (seuil 100 000 DH, CGI)",
+      "url": "https://maroc.welipro.com/guides/creer-entreprise-maroc"
+    },
+    {
+      "title": "LegalPlus : création SARL Maroc 2026",
+      "url": "https://legalplus.ma/creation-sarl-maroc/"
+    },
+    {
+      "title": "DGI",
+      "url": "https://www.tax.gov.ma"
+    },
+    {
+      "title": "CNSS / Damancom",
+      "url": "https://www.damancom.ma"
+    },
+    {
+      "title": "Secrétariat général du gouvernement, Bulletin officiel",
+      "url": "https://www.sgg.gov.ma"
+    },
+    {
+      "title": "Upsilon Consulting : SAS au Maroc, 4 questions (loi 19-20)",
+      "url": "https://upsilon-consulting.com/societe-par-actions-simplifiee-s-a-s/"
+    },
+    {
+      "title": "FNH : création de la SAS au Maroc",
+      "url": "https://www.fnh.ma/article/boursenews/le-gouvernement-acte-la-creation-d-une-nouvelle-forme-juridique-de-societe-au-maroc"
+    }
+  ],
+  "a_verifier": [
+    "Règle de dépôt ou de blocage du capital en SAS (seuil de 100 000 DH comme la SARL, ou règle de la SA) et part minimale à verser à la souscription.",
+    "Numérotation exacte des articles de la loi 19-20 (elle modifie les lois 5-96 et 17-95) et texte consolidé à jour.",
+    "Seuil de chiffre d'affaires rendant le commissaire aux comptes obligatoire en SAS : le décret d'application n'était pas paru selon un cabinet.",
+    "Que DirectEntreprise propose bien la forme SAS dans le parcours en ligne.",
+    "Montant du registre de commerce et du Bulletin officiel pour une SAS (identiques à la SARL selon toute vraisemblance, non confirmé).",
+    "Registres obligatoires d'une SAS (décisions des associés, mouvements de titres) et obligation de cotation au greffe.",
+    "Qui peut déposer sur DirectEntreprise : la loi 88-17 cite l'intéressé, son mandataire, un avocat, un expert-comptable ou un comptable agréé ; certains cabinets disent que la plateforme est réservée aux professionnels habilités. Vérifier si Mziane peut déposer comme mandataire ou s'il doit passer par le cabinet.",
+    "Tarif exact du certificat négatif en ligne en 2026 et sa durée de validité (90 jours cités).",
+    "Si les annonces au Bulletin officiel et au journal d'annonces légales sont toutes deux prises en charge par DirectEntreprise, et leurs tarifs actuels.",
+    "La note de frais d'État Mziane dit « droits d'enregistrement exonérés jusqu'à 500 000 DH » : en réalité les apports en numéraire sont exonérés sans plafond, et le seuil de 500 000 DH concerne le droit fixe des apports en nature. Faire valider par le cabinet."
+  ]
+}
