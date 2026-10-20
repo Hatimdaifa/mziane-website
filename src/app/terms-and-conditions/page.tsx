@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/site";
 import {
-  ADDONS, AIDES_BAREME, AIDES_MIN, AIDES_PLAFOND, COMPTA_EXTRAS, CONTACT, PROMESSES, TVA,
+  ADDONS, AIDES_BAREME, AIDES_PETITE_TXT, AIDES_PLAFOND, COMPTA_EXTRAS, CONTACT, PROMESSES, TVA,
   fmt, fmtDH, offerById, packById, packTerre, waLink,
 } from "@/lib/offers";
 
@@ -114,9 +114,9 @@ export default function ConditionsGenerales() {
               const label = n === 0 ? `jusqu'à ${fmtDH(top)}` : top === Infinity ? `au-delà de ${fmtDH(from)}` : `de ${fmtDH(from)} à ${fmtDH(top)}`;
               return `${pct(rate)} ${label}`;
             }).join(", ")}{" "}
-            ; minimum {fmtDH(AIDES_MIN)} et plafond {fmtDH(AIDES_PLAFOND)} par dossier, hors taxes.
+            ; forfait de {AIDES_PETITE_TXT} ; plafond {fmtDH(AIDES_PLAFOND)} par dossier ; montants hors taxes.
           </li>
-          <li>Aides agricoles : {pct(packTerre.taux)} de la subvention, minimum {fmtDH(packTerre.min)} hors taxes, dus à la notification de paiement.</li>
+          <li>Aides agricoles : {pct(packTerre.taux)} de la subvention (forfait de {AIDES_PETITE_TXT}), hors taxes, dus à la notification de paiement.</li>
           <li>Prêts d&apos;honneur : forfait de {fmtDH(honneur)} hors taxes, dû seulement à l&apos;accord du prêt.</li>
           <li>Les honoraires sont exigibles à réception du versement de l&apos;aide (ou de la notification de paiement). Vous vous engagez à nous informer de ce versement.</li>
           <li>Aucune aide n&apos;est garantie : la décision appartient à l&apos;organisme public, qui instruit les demandes gratuitement. Notre engagement porte sur la qualité et le suivi du dossier.</li>

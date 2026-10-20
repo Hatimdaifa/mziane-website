@@ -135,14 +135,17 @@ export const AIDES_BAREME: [number, number][] = [
   [1_000_000, 0.06],
   [Infinity, 0.04],
 ];
-export const AIDES_MIN = 1500;
-export const AIDES_MIN_AGRI = 990;
+/** Petite aide : forfait fixe au lieu du pourcentage, payé aussi au versement. */
+export const AIDES_PETITE = { seuil: 10_000, forfait: 200 };
+export const AIDES_PETITE_TXT = `${fmtDH(AIDES_PETITE.forfait)} HT pour une aide de moins de ${fmtDH(AIDES_PETITE.seuil)}`;
 export const AIDES_PLAFOND = 100_000;
 export const AIDES_TAUX_AGRI = 0.05;
 
 export type AideMode = "standard" | "agri" | "envol";
 
 export function feeAide(amount: number, mode: AideMode = "standard") {
+  if (amount <= 0) return 0;
+  if (amount < AIDES_PETITE.seuil) return AIDES_PETITE.forfait;
   let fee = 0;
   if (mode === "standard") {
     let prev = 0;
@@ -154,8 +157,7 @@ export function feeAide(amount: number, mode: AideMode = "standard") {
   } else {
     fee = amount * AIDES_TAUX_AGRI;
   }
-  const min = mode === "agri" ? AIDES_MIN_AGRI : AIDES_MIN;
-  return Math.min(AIDES_PLAFOND, Math.max(min, fee));
+  return Math.min(AIDES_PLAFOND, fee);
 }
 
 // ── Domiciliation (mensuel HT, engagement 6 mois) ───────────────────────────
@@ -338,7 +340,6 @@ export const packTerre = {
   name: "Terre",
   audience: "Agriculteur ou coopérative agricole",
   taux: AIDES_TAUX_AGRI,
-  min: AIDES_MIN_AGRI,
   items: [
     "Diagnostic d'éligibilité gratuit",
     "Dossier de subvention irrigation (FDA) avec votre installateur",

@@ -11,7 +11,7 @@ import { WhatsAppIcon } from "@/components/site";
 import { Ar } from "@/components/Ar";
 import { PackCard, OfficialFeesNote } from "@/components/offer-ui";
 import {
-  AIDES_BAREME, AIDES_MIN, AIDES_PLAFOND, CONTACT, FRAIS_ETAT, PRIX_CREATION, PROMESSES,
+  AIDES_BAREME, AIDES_PETITE_TXT, AIDES_PLAFOND, CONTACT, FRAIS_ETAT, PRIX_CREATION, PROMESSES,
   feeAide, fmt, fmtDH, mailLink, offerById, packById, packTerre, waLink, type Pack,
 } from "@/lib/offers";
 
@@ -323,8 +323,8 @@ export default function HomePage() {
                 </tbody>
               </table>
               <p className="border-t border-white/10 px-4 py-3 text-[13px] leading-relaxed text-white/75">
-                Minimum {fmtDH(AIDES_MIN)}, plafond {fmtDH(AIDES_PLAFOND)}. Exemple : aide de {fmtDH(EXEMPLE_AIDE)}, {`${fmtDH(feeAide(EXEMPLE_AIDE))} HT.`}
-                Agriculteurs : {pct(packTerre.taux)} (minimum {fmtDH(packTerre.min)}). Prêt d&apos;honneur : {`${fmtDH(prix("aides-honneur"))} HT à l'accord.`}
+                {AIDES_PETITE_TXT}, plafond {fmtDH(AIDES_PLAFOND)}. Exemple : aide de {fmtDH(EXEMPLE_AIDE)}, {`${fmtDH(feeAide(EXEMPLE_AIDE))} HT.`}
+                Agriculteurs : {pct(packTerre.taux)}. Prêt d&apos;honneur : {`${fmtDH(prix("aides-honneur"))} HT à l'accord.`}
               </p>
             </div>
 

@@ -3,6 +3,7 @@
 import {
   ADDONS, AIDES_TAUX_AGRI, aidesOffers, compta, fmt, fmtDH, formalites, offerById, packById, packSavings, packTerre, packValue, priceText,
   type FormeId,
+  AIDES_PETITE_TXT,
 } from "@/lib/offers";
 import { commandeHref, compute, creationFor, formeLabel, isCreationOffer, parseSpec, resolveBase } from "@/components/order/model";
 import { formeCreation, has, matchAides, one, type Answers } from "./questions";
@@ -210,7 +211,7 @@ export function buildPlan(a: Answers): Plan {
     const coop = one(a, "coop-secteur");
     if (profil === "agri" || (profil === "coop" && coop === "agricole")) {
       choices = mark(compact([itemsChoice({ offre: "aides-diagnostic" }, "Pour commencer"), terreChoice("Recommandé pour vous")]), "terre");
-      reasons.push(`Pour l'agriculture, nos honoraires sont de ${Math.round(packTerre.taux * 100)} % de la subvention, minimum ${fmtDH(packTerre.min)}, payés seulement à la notification de paiement.`);
+      reasons.push(`Pour l'agriculture, nos honoraires sont de ${Math.round(packTerre.taux * 100)} % de la subvention (${AIDES_PETITE_TXT}), payés seulement à la notification de paiement.`);
     } else if (profil === "porteur") {
       choices = mark(compact([
         itemsChoice({ offre: "aides-dossier" }, "Formule seule", "Dossier d'aides seul"),

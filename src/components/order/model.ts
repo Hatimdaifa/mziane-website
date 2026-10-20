@@ -1,7 +1,7 @@
 // Modèle de la commande : lecture des paramètres d'URL, lignes, totaux et message WhatsApp.
 // Aucun prix ici : tout vient de src/lib/offers.ts.
 import {
-  ADDONS, AIDES_MIN, AIDES_PLAFOND, COMPTA_EXTRAS, FORMALITE_SUPPLEMENT, FORMALITE_SUPPLEMENT_TAUX, FORMES, FRAIS_ETAT, PRIX_CREATION, TVA,
+  ADDONS, AIDES_PETITE_TXT, AIDES_PLAFOND, COMPTA_EXTRAS, FORMALITE_SUPPLEMENT, FORMALITE_SUPPLEMENT_TAUX, FORMES, FRAIS_ETAT, PRIX_CREATION, TVA,
   compta, comptaParForme, creationAE, creationSociete, fmtDH, formalites, offerById, packById, packSavingsUpfront, packTerre,
   packTotal, packValue, type AddOn, type FormeId, type Offer, type Pack, type Tax,
 } from "@/lib/offers";
@@ -231,7 +231,7 @@ export function packStartText(pack: Pack, forme?: FormeId) {
 }
 
 const aidesSuccessText = (label: string) =>
-  `${label}, minimum ${fmtDH(AIDES_MIN)} HT, plafonné à ${fmtDH(AIDES_PLAFOND)}. Payé seulement au versement, 0 DH si refus.`;
+  `${label}, ${AIDES_PETITE_TXT}, plafonné à ${fmtDH(AIDES_PLAFOND)}. Payé seulement au versement, 0 DH si refus.`;
 
 export function compute(base: Base, forme: FormeId | undefined, opts: string[], mode: PayMode): Computed {
   const start: StartLine[] = [];

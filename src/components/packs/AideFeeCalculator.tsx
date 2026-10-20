@@ -2,7 +2,7 @@
 
 // Petit calculateur des honoraires sur une aide versée (barème marginal, plafond, minimum).
 import { useId, useState } from "react";
-import { AIDES_BAREME, AIDES_MIN, AIDES_MIN_AGRI, AIDES_PLAFOND, type AideMode, fmt, fmtDH, feeAide } from "@/lib/offers";
+import { AIDES_BAREME, AIDES_PETITE_TXT, AIDES_PLAFOND, type AideMode, fmt, fmtDH, feeAide } from "@/lib/offers";
 import { Toggle } from "./Tablist";
 
 const PRESETS = [30_000, 100_000, 300_000, 1_000_000];
@@ -75,7 +75,7 @@ export default function AideFeeCalculator() {
         {amount > 0 && <p className="text-[13px] text-amber-900">soit {pct.toFixed(1).replace(".", ",")} % de l&apos;aide. Vous gardez {fmtDH(amount - fee)}.</p>}
       </div>
       <p className="mt-3 text-[12px] leading-relaxed text-zinc-500">
-        Minimum {fmtDH(mode === "agri" ? AIDES_MIN_AGRI : AIDES_MIN)}, plafond {fmtDH(AIDES_PLAFOND)} par dossier.
+        {AIDES_PETITE_TXT}, plafond {fmtDH(AIDES_PLAFOND)} par dossier.
       </p>
     </div>
   );

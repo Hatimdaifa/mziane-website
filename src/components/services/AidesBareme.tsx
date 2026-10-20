@@ -1,5 +1,5 @@
 // Barème des honoraires sur les aides, expliqué par tranches avec des exemples calculés.
-import { AIDES_BAREME, AIDES_MIN, AIDES_PLAFOND, feeAide, fmt, fmtDH } from "@/lib/offers";
+import { AIDES_BAREME, AIDES_PETITE_TXT, AIDES_PLAFOND, feeAide, fmt, fmtDH } from "@/lib/offers";
 
 const pct = (r: number) => `${fmt(r * 100)} %`;
 
@@ -33,7 +33,7 @@ export default function AidesBareme({ exemples = [30_000, 300_000] }: { exemples
           })}
         </ul>
         <p className="mt-4 text-sm leading-relaxed text-zinc-600">
-          Calculé sur l&apos;aide réellement versée. Minimum {fmtDH(AIDES_MIN)} HT, plafond {`${fmtDH(AIDES_PLAFOND)} HT. Payé seulement après le versement. 0 DH si l'aide est refusée.`}
+          Calculé sur l&apos;aide réellement versée. {AIDES_PETITE_TXT}, plafond {`${fmtDH(AIDES_PLAFOND)} HT. Payé seulement après le versement. 0 DH si l'aide est refusée.`}
         </p>
       </div>
 

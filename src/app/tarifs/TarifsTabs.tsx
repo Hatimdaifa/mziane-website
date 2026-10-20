@@ -14,6 +14,7 @@ import {
   AIDES_TAUX_AGRI, COMPTA_EXTRAS, FORMALITE_SUPPLEMENT, MARQUE_TAXE, type FormeId, HEBERGEMENT_AN, type Offer,
   PRIX_CREATION, PROMESSES, aidesOffers, compta, creationAE, creationSociete, domiciliation, fmtDH, formalites,
   international, marque, packById, packTerre, particuliers, web,
+  AIDES_PETITE_TXT,
 } from "@/lib/offers";
 import { OfferCard, OfficialFeesNote, PackCard, offerToTier } from "@/components/offer-ui";
 import { Tablist, Toggle, panelId, tabId } from "@/components/packs/Tablist";
@@ -163,7 +164,7 @@ function AidesTab() {
           <span className="mb-3 grid h-11 w-11 place-items-center rounded-xl bg-amber-100 text-amber-800"><Sprout className="h-5 w-5" aria-hidden /></span>
           <h3 className="text-lg font-bold text-zinc-900">Agriculteurs et coopératives</h3>
           <p className="mt-1 text-[2rem] font-extrabold text-zinc-900">{Math.round(AIDES_TAUX_AGRI * 100)} %</p>
-          <p className="text-[14px] text-zinc-700">de la subvention, minimum {fmtDH(packTerre.min)} HT. {packTerre.conditions.split(". ").slice(1).join(". ")}</p>
+          <p className="text-[14px] text-zinc-700">de la subvention, {AIDES_PETITE_TXT}. {packTerre.conditions.split(". ").slice(1).join(". ")}</p>
           <ul className="mt-3 grid gap-1.5 text-[14px] text-zinc-700">
             {packTerre.items.slice(0, 3).map((i) => <li key={i}>{i}</li>)}
           </ul>

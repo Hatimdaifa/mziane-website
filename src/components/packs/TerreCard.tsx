@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Check, ShieldCheck, Sprout } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { fmtDH, packTerre } from "@/lib/offers";
+import { AIDES_PETITE_TXT, packTerre } from "@/lib/offers";
 import { TERRE_HREF } from "./links";
 
 /** Carte du pack Terre : rémunération au résultat, 0 DH si refus. */
@@ -22,7 +22,7 @@ export function TerreCard({ className }: { className?: string }) {
         <span className="text-[2.5rem] font-extrabold leading-none tracking-tight text-zinc-900 tabular-nums">{Math.round(packTerre.taux * 100)} %</span>
         <span className="text-sm text-zinc-600">de la subvention versée</span>
       </div>
-      <p className="mt-1.5 text-[13px] text-zinc-500">Minimum {fmtDH(packTerre.min)} HT, payés seulement à la notification de paiement.</p>
+      <p className="mt-1.5 text-[13px] text-zinc-500">{AIDES_PETITE_TXT}. Payés seulement à la notification de paiement.</p>
       <ul className="mt-5 grid flex-1 content-start gap-2.5 border-t border-amber-200 pt-5">
         {packTerre.items.map((i) => (
           <li key={i} className="flex items-start gap-2.5 text-[14px] text-zinc-700">
