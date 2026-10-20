@@ -182,12 +182,22 @@ export function buildPlan(a: Answers): Plan {
 
   if (besoin === "creer") {
     const forme = formeCreation(a);
-    const ca = one(a, "c-ca");
+    const services = one(a, "c-ca-services");
+    const ca = services ?? one(a, "c-ca-commerce");
+    const sect = one(a, "c-secteur");
+    const sarlauReason =
+      sect === "reglemente" ? "Votre activité ne peut pas être exercée en auto-entrepreneur. Les professions réglementées ont aussi des règles d'exercice fixées par leur ordre : votre juriste vérifie la forme possible avant la création."
+      : sect === "agriculture" ? "Le statut d'auto-entrepreneur ne couvre pas l'agriculture : une SARLAU vous permet d'exploiter et de facturer en protégeant votre patrimoine."
+      : ca === "client" ? "Un client vous paiera plus de 80 000 DH par an : en auto-entrepreneur, il retiendrait 30 % à la source au-delà de ce montant. En SARLAU, vous êtes imposé à 20 % sur le bénéfice seulement."
+      : ca === "nsp" ? "Chiffre d'affaires inconnu : la SARLAU vous protège, sans plafond à surveiller."
+      : "Au-delà du plafond de l'auto-entrepreneur : la SARLAU n'a pas de plafond et protège votre patrimoine personnel.";
     const formeReason: Record<string, string> = {
-      auto: "Seul, sous le plafond : l'auto-entrepreneur est le plus simple et le moins cher.",
-      sarlau: ca === "nsp" ? "Chiffre d'affaires inconnu : la SARLAU vous protège, sans plafond." : "Seul, au-delà du plafond auto-entrepreneur : la SARLAU protège votre patrimoine personnel.",
-      sarl: "Entre associés : la SARL est la forme la plus courante.",
-      sas: "Vous accueillez des investisseurs : la SAS facilite leur entrée au capital.",
+      auto: services
+        ? "Services sous 200 000 DH avec plusieurs clients : l'auto-entrepreneur, imposé à 1 % du chiffre d'affaires, est le plus simple et le moins cher."
+        : "Sous 500 000 DH par an : l'auto-entrepreneur, imposé à 0,5 % du chiffre d'affaires, est le plus simple et le moins cher.",
+      sarlau: sarlauReason,
+      sarl: "Entre associés : la SARL est la forme la plus courante, capital libre et responsabilité limitée aux apports.",
+      sas: "Vous accueillez des investisseurs : la SAS facilite leur entrée au capital avec des statuts sur mesure.",
       sa: "Pour un grand projet avec plusieurs actionnaires, la SA est adaptée. Elle se fait sur devis.",
       sci: "Pour détenir un bien immobilier, la SCI est adaptée. Elle se fait sur devis.",
     };

@@ -62,34 +62,56 @@ export const steps: Step[] = [
       { id: "gros", icon: Landmark, label: "Un grand projet", description: "Capital de 300 000 DH ou plus." },
       { id: "immo", icon: House, label: "Pour gérer un bien immobilier", description: "Détenir et transmettre un patrimoine." },
     ],
-    next: (a) => ({ seul: "c-ca", immo: "result" } as Record<string, string>)[one(a, "c-equipe") ?? ""] ?? "c-aide",
+    next: (a) => ({ seul: "c-secteur", immo: "result" } as Record<string, string>)[one(a, "c-equipe") ?? ""] ?? "c-aide",
   },
   {
     id: "c-secteur",
-    question: "Dans quel secteur ?",
+    question: "Quelle sera votre activité ?",
     ar: "قطاع النشاط",
-    subtitle: "Certaines aides sont réservées à des secteurs précis.",
+    subtitle: "Elle fixe le plafond et le taux de l'auto-entrepreneur, et les aides possibles.",
     options: [
-      { id: "commerce", icon: ShoppingBag, label: "Commerce", description: "Négoce, boutique, import-export, vente en ligne." },
-      { id: "services", icon: Briefcase, label: "Services et conseil", description: "Consulting, formation, prestations." },
-      { id: "digital", icon: Laptop, label: "Digital et innovation", description: "Tech, application, startup innovante." },
-      { id: "tourisme", icon: Hotel, label: "Tourisme et restauration", description: "Hébergement, animation, restaurant, agence." },
-      { id: "industrie", icon: Factory, label: "Industrie et transformation", description: "Atelier, usine, agroalimentaire." },
-      { id: "artisanat", icon: Hammer, label: "Artisanat", description: "Artisan, coopérative artisanale." },
-      { id: "agriculture", icon: Sprout, label: "Agriculture et élevage", description: "Exploitation agricole, élevage, apiculture." },
-      { id: "btp", icon: HardHat, label: "BTP et immobilier", description: "Construction, travaux, promotion." },
+      { id: "commerce", icon: ShoppingBag, label: "Commerce ou vente en ligne", description: "Boutique, négoce, e-commerce." },
+      { id: "services", icon: Briefcase, label: "Services, conseil ou freelance", description: "Consulting, formation, prestations." },
+      { id: "digital", icon: Laptop, label: "Digital ou startup", description: "Application, plateforme, projet innovant." },
+      { id: "artisanat", icon: Hammer, label: "Artisanat ou fabrication", description: "Atelier, artisan, produits faits main." },
+      { id: "tourisme", icon: Hotel, label: "Restauration ou tourisme", description: "Restaurant, café, hébergement." },
+      { id: "industrie", icon: Factory, label: "Industrie ou agroalimentaire", description: "Usine, transformation." },
+      { id: "btp", icon: HardHat, label: "BTP ou immobilier", description: "Construction, travaux, promotion." },
+      { id: "agriculture", icon: Sprout, label: "Agriculture ou élevage", description: "Exploitation, élevage, apiculture." },
+      { id: "reglemente", icon: ShieldCheck, label: "Profession réglementée ou activité exclue", description: "Santé, droit, architecture, comptabilité, import-export, agence de voyage." },
     ],
-    next: (a) => (one(a, "besoin") === "creer" ? "c-salaries" : "c-invest"),
+    next: (a) => {
+      if (one(a, "besoin") !== "creer") return "c-invest";
+      // Seul : l'activité vient avant l'aide, pour choisir entre auto-entrepreneur et SARLAU.
+      if (one(a, "c-equipe") === "seul") {
+        const sect = one(a, "c-secteur");
+        // Profession réglementée ou agriculture : pas d'auto-entrepreneur possible, le chiffre d'affaires ne change rien.
+        if (sect === "reglemente" || sect === "agriculture") return "c-aide";
+        return sect === "services" || sect === "digital" ? "c-ca-services" : "c-ca-commerce";
+      }
+      return afterAide(a);
+    },
   },
   {
-    id: "c-ca",
-    question: "Chiffre d'affaires prévu la première année ?",
+    id: "c-ca-services",
+    question: "Votre chiffre d'affaires et vos clients ?",
     ar: "رقم المعاملات",
-    subtitle: "Auto-entrepreneur : plafond de 200 000 DH (services) ou 500 000 DH (commerce, industrie, artisanat).",
+    subtitle: "En auto-entrepreneur, les services sont plafonnés à 200 000 DH par an. Au-delà de 80 000 DH par an avec un même client, ce client retient 30 % à la source.",
     options: [
-      { id: "petit", icon: Receipt, label: "Moins de 200 000 DH" },
-      { id: "moyen-commerce", icon: ShoppingBag, label: "200 000 à 500 000 DH, en commerce, industrie ou artisanat" },
-      { id: "moyen-services", icon: Briefcase, label: "200 000 à 500 000 DH, en services" },
+      { id: "petit", icon: Users, label: "Moins de 200 000 DH par an, avec plusieurs clients" },
+      { id: "client", icon: Building2, label: "Un client principal qui me paiera plus de 80 000 DH par an" },
+      { id: "grand", icon: Receipt, label: "Plus de 200 000 DH par an" },
+      { id: "nsp", icon: Lightbulb, label: "Je ne sais pas encore" },
+    ],
+    next: () => "c-aide",
+  },
+  {
+    id: "c-ca-commerce",
+    question: "Chiffre d'affaires prévu par an ?",
+    ar: "رقم المعاملات",
+    subtitle: "En auto-entrepreneur, le commerce et l'artisanat sont plafonnés à 500 000 DH par an.",
+    options: [
+      { id: "petit", icon: Receipt, label: "Moins de 500 000 DH" },
       { id: "grand", icon: Receipt, label: "Plus de 500 000 DH" },
       { id: "nsp", icon: Lightbulb, label: "Je ne sais pas encore" },
     ],
@@ -132,8 +154,8 @@ export const steps: Step[] = [
       { id: "1m-50m", icon: HandCoins, label: "Oui, j'investis de 1 à 50 millions DH" },
       { id: "gt50m", icon: HandCoins, label: "Oui, j'investis plus de 50 millions DH" },
     ],
-    // Sans aide, les salariés ne changent le pack que pour une SARLAU ou une SARL.
-    next: (a) => (one(a, "c-aide") !== "non" ? "c-secteur" : ["sarlau", "sarl"].includes(formeCreation(a)) ? "c-salaries" : "result"),
+    // Avec une aide, l'activité sert à trouver les aides ; elle est déjà connue si la personne est seule.
+    next: (a) => (one(a, "c-aide") !== "non" && one(a, "c-equipe") !== "seul" ? "c-secteur" : afterAide(a)),
   },
 
   // ── Aides ──
@@ -336,6 +358,13 @@ export const steps: Step[] = [
 ];
 
 export const stepById = (id: string) => steps.find((s) => s.id === id);
+
+/** Création : les salariés ne changent l'offre que pour une SARLAU ou une SARL (pack Lancement ou Lancement Équipe, aides à l'embauche). */
+function afterAide(a: Answers) {
+  const wantsAide = one(a, "c-aide") !== "non";
+  if (["sarlau", "sarl"].includes(formeCreation(a))) return "c-salaries";
+  return wantsAide ? "p-profil" : "result";
+}
 export const BESOINS = steps[0].options.map((o) => o.id);
 
 /** Nombre maximal de questions restantes (celle-ci comprise) : le total affiché ne peut que baisser. */
@@ -469,8 +498,8 @@ export function formeCreation(a: Answers): FormeId {
   if (equipe === "associes") return "sarl";
   if (equipe === "investisseurs") return "sas";
   if (equipe === "gros") return "sa";
-  const ca = one(a, "c-ca");
-  if (ca === "petit" || ca === "moyen-commerce") return "auto";
-  return "sarlau";
+  if (["reglemente", "agriculture"].includes(one(a, "c-secteur") ?? "")) return "sarlau";
+  const ca = one(a, "c-ca-services") ?? one(a, "c-ca-commerce");
+  return ca === "petit" ? "auto" : "sarlau";
 }
 
