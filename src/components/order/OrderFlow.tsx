@@ -651,11 +651,11 @@ function Confirmation({ reference, message, title, dossierId, onEdit }: { refere
         <div className="mt-6 flex flex-col gap-4 rounded-3xl border-2 border-blue-200 bg-white p-6 sm:flex-row sm:items-center max-sm:p-5">
           <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-blue-700 text-white"><FolderUp className="h-6 w-6" aria-hidden /></span>
           <div className="flex-1">
-            <p className="font-bold text-zinc-900">{dossierId ? "Votre dossier est dans votre espace client" : "Envoyez vos documents en ligne"}</p>
-            <p className="text-[14px] text-zinc-600">{dossierId ? "Vous y trouvez la liste des pièces à fournir et vous pouvez les ajouter tout de suite." : "Créez votre espace client : la liste des pièces de votre dossier vous y attend."}</p>
+            <p className="font-bold text-zinc-900">{dossierId ? "Complétez votre dossier en 5 minutes" : "Complétez votre dossier en ligne"}</p>
+            <p className="text-[14px] text-zinc-600">{dossierId ? "Quelques questions, vos pièces en photo et votre signature en ligne : nous démarrons dès que c'est fait." : "Créez votre espace client : quelques questions, vos pièces en photo et votre signature en ligne, et nous démarrons."}</p>
           </div>
-          <Link href={dossierId ? `/espace/dossier/${dossierId}` : "/connexion?mode=inscription"} className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-2xl bg-blue-700 px-5 font-bold text-white hover:bg-blue-800">
-            {dossierId ? "Ajouter mes documents" : "Créer mon espace"} <ArrowRight className="h-4 w-4" aria-hidden />
+          <Link href={dossierId ? `/espace/dossier/${dossierId}/completer` : "/connexion?mode=inscription"} className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-2xl bg-blue-700 px-5 font-bold text-white hover:bg-blue-800">
+            {dossierId ? "Compléter mon dossier" : "Créer mon espace"} <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
 

@@ -18,12 +18,15 @@ import ConseillerPanel from "@/components/espace/ConseillerPanel";
 import { supabase } from "@/lib/supabase";
 import { waLink } from "@/lib/offers";
 import ProcedurePanel from "@/components/espace/ProcedurePanel";
+import { AnswersCard, CompleteBanner, intakeState } from "@/components/espace/intake/IntakeSummary";
+import { parseAnswers } from "@/lib/intake";
+import type { Signature } from "@/lib/signatures";
 import {
   ACCEPT, fmtDate, fmtSize, openDocument, removeDocument, statutInfo, uploadDocument,
   type Answer, type DocFile, type Dossier, type DossierEvent, type Profile,
 } from "@/lib/espace";
 
-export interface DossierData { dossier: Dossier; docs: DocFile[]; answers: Answer[]; events: DossierEvent[]; owner: Profile | null }
+export interface DossierData { dossier: Dossier; docs: DocFile[]; answers: Answer[]; events: DossierEvent[]; owner: Profile | null; signatures: Signature[] | null }
 
 export default function DossierView({ id }: { id: string }) {
   const { userId, profile } = useEspace();
@@ -34,11 +37,12 @@ export default function DossierView({ id }: { id: string }) {
     const sb = supabase();
     const { data: dossier } = await sb.from("dossiers").select("*").eq("id", id).maybeSingle();
     if (!dossier) return setData("absent");
-    const [docs, answers, events, owner] = await Promise.all([
+    const [docs, answers, events, owner, sigs] = await Promise.all([
       sb.from("documents").select("*").eq("dossier_id", id).order("created_at"),
       sb.from("dossier_answers").select("*").eq("dossier_id", id),
       sb.from("dossier_events").select("*").eq("dossier_id", id).order("created_at", { ascending: false }),
       sb.from("profiles").select("*").eq("id", dossier.user_id).maybeSingle(),
+      sb.from("signatures").select("*").eq("dossier_id", id),
     ]);
     setData({
       dossier: dossier as Dossier,
@@ -46,6 +50,7 @@ export default function DossierView({ id }: { id: string }) {
       answers: (answers.data ?? []) as Answer[],
       events: (events.data ?? []) as DossierEvent[],
       owner: (owner.data as Profile | null) ?? null,
+      signatures: sigs.error ? null : ((sigs.data ?? []) as Signature[]),
     });
   }, [id]);
 
@@ -65,8 +70,10 @@ export default function DossierView({ id }: { id: string }) {
     );
   }
 
-  const { dossier, docs, answers, events } = data;
-  const groups = requirementGroups(dossier, docs, answers);
+  const { dossier, docs, answers, events, owner, signatures } = data;
+  const qa = parseAnswers(answers);
+  const intake = intakeState(dossier, qa, { email: dossier.summary.contact?.email ?? "", phone: owner?.phone || dossier.summary.contact?.tel || "", fullName: owner?.full_name ?? "" }, signatures);
+  const groups = requirementGroups(dossier, docs, answers, intake.replaced);
   const p = progress(groups);
   const info = statutInfo(dossier.status);
   const fromMziane = docs.filter((d) => d.from_mziane);
@@ -98,6 +105,11 @@ export default function DossierView({ id }: { id: string }) {
           <span className="block text-[14px] text-zinc-600">{info.desc}</span>
         </p>
       </Card>
+
+      {!conseiller && dossier.status !== "termine" && dossier.status !== "annule" && (
+        <CompleteBanner dossier={dossier} missing={intake.missing} docsLeft={p.total - p.done} toSign={intake.toSign} />
+      )}
+      <AnswersCard dossier={dossier} qa={qa} sections={intake.sections} signatures={signatures} docs={intake.docs} conseiller={conseiller} />
 
       {fromMziane.length > 0 && (
         <Card className="border-2 border-emerald-200">

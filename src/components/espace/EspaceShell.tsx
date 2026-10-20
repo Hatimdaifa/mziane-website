@@ -32,7 +32,7 @@ export default function EspaceShell({ children }: { children: React.ReactNode })
     }
     if (attached.current) return;
     attached.current = true;
-    attachPending(session.user.id).then((id) => { if (id) router.replace(`/espace/dossier/${id}`); });
+    attachPending(session.user.id).then((id) => { if (id) router.replace(`/espace/dossier/${id}/completer`); });
   }, [loading, session, pathname, router]);
 
   if (loading || !session) {
