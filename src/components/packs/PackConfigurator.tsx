@@ -257,7 +257,7 @@ export default function PackConfigurator() {
                   </p>
                   <div className="mt-2 flex items-baseline justify-between gap-3">
                     <span className="text-sm text-zinc-600">Avec le pack</span>
-                    <span className="text-3xl font-extrabold tabular-nums">{fmtDH(best.cost)} HT</span>
+                    <span className="text-3xl font-extrabold tabular-nums">{fmtDH(best.cost)} {best.pack.tax}</span>
                   </div>
                   <p className="mt-1 text-[13px] text-zinc-600">
                     {best.pack.monthly ? `${fmtDH(best.pack.monthly)} par mois pendant ${best.pack.months} mois` : `${fmtDH(packTotal(best.pack))} une fois`}

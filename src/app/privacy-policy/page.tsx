@@ -13,7 +13,7 @@ export default function PolitiqueConfidentialite() {
       <section>
         <h2>1. Responsable du traitement</h2>
         <p>
-          Mziane, [forme juridique], [adresse complète], RC [RC], ICE [ICE]. Contact : <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
+          Tentacle One (marque Mziane), SASU au capital de 100 €, 47 rue Vivienne, 75002 Paris, France, RCS Paris 107 540 379. Contact : <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
           Les traitements décrits ici sont réalisés conformément à la loi n° 09-08 relative à la protection des personnes physiques à l&apos;égard du
           traitement des données à caractère personnel. Déclaration ou autorisation auprès de la CNDP : [numéro à compléter].
         </p>

@@ -274,7 +274,7 @@ export const packs: Pack[] = [
     name: "Démarrage",
     audience: "Auto-entrepreneur",
     profils: ["auto"],
-    monthly: 250, months: 12, upfront: 2500, tax: "HT",
+    monthly: 250, months: 12, upfront: 2500, tax: "TTC",
     items: [
       { label: "Inscription accompagnée", value: 490, offered: true },
       { label: "Page web unique", value: 2490 },

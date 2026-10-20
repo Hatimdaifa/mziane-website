@@ -23,9 +23,9 @@ export default function ConditionsGenerales() {
       <section>
         <h2>1. Qui sommes-nous</h2>
         <p>
-          Le site mziane.com est édité par Mziane, [forme juridique] au capital de [montant] DH, dont le siège est situé [adresse complète],
-          immatriculée au registre de commerce de [ville] sous le numéro [RC], identifiant commun de l&apos;entreprise [ICE], identifiant fiscal [IF],
-          représentée par [nom et qualité du représentant légal].
+          Le site mziane.com est édité par Tentacle One, qui exploite la marque Mziane : société par actions simplifiée à associé unique (SASU)
+          au capital de 100 €, dont le siège est situé 47 rue Vivienne, 75002 Paris, France, immatriculée au RCS de Paris sous le numéro
+          107 540 379, représentée par son Président.
         </p>
         <p className="mt-3">
           Contact : <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> ou WhatsApp{" "}
